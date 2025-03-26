@@ -33,9 +33,9 @@ const Hero = () => {
           </div>
           
           <h1 
-            className={`heading-xl text-charcoal mb-4 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`heading-xl text-charcoal mb-6 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
           >
-            <span className="typing-wrapper mr-2 inline-block">
+            <span className="typing-wrapper inline-block">
               <span className="typing-text">Your wealth.</span>
             </span>
             <span 
@@ -46,22 +46,18 @@ const Hero = () => {
             </span>
           </h1>
           
-          <div className="h-8 mb-2 overflow-hidden">
-            <p 
-              className={`transition-all duration-700 text-lg font-heading ${isSecondLineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-              style={{ transitionDelay: '200ms' }}
+          <p 
+            className={`text-lg font-heading transition-all duration-700 mb-8 ${isSecondLineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            <span className="text-charcoal">Your future.</span>
+            <span 
+              className="text-gold ml-2"
+              style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.3)' }}
             >
-              <span className="typing-wrapper inline-block">
-                <span className="typing-text-secondary">Your future.</span>
-              </span>
-              <span 
-                className={`text-gold ml-2 transition-all duration-700 ease-in-out ${isSecondLineVisible ? 'opacity-100' : 'opacity-0'}`}
-                style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.3)' }}
-              >
-                Secured.
-              </span>
-            </p>
-          </div>
+              Secured.
+            </span>
+          </p>
           
           <p 
             className={`paragraph text-darkgray/90 mb-10 max-w-2xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
