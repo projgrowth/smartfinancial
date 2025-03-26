@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
+import { Button } from './ui/button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +60,7 @@ const Navbar = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 shadow-sm backdrop-blur-md py-3' 
+          ? 'bg-white/95 shadow-sm backdrop-blur-safe py-3' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -67,9 +68,12 @@ const Navbar = () => {
         <a 
           href="#" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="font-heading text-charcoal text-xl font-medium tracking-tight hover:opacity-80 transition-opacity duration-300"
+          className="font-heading text-charcoal text-xl font-medium tracking-tight hover:text-gold transition-colors duration-300"
         >
-          Smart Financial Planning
+          <span className="inline-flex items-center">
+            <span className="text-gold mr-1">•</span> 
+            Smart Financial Planning
+          </span>
         </a>
 
         {/* Desktop navigation with improved animations and active states */}
@@ -82,8 +86,8 @@ const Navbar = () => {
                 e.preventDefault();
                 handleNavClick(item.id);
               }}
-              className={`nav-link text-charcoal transition-all duration-300 ${
-                activeSection === item.id ? 'text-gold' : 'hover:text-amber-dark'
+              className={`relative px-1 py-1 overflow-hidden text-sm font-medium transition-colors duration-300 group ${
+                activeSection === item.id ? 'text-gold' : 'text-charcoal/80 hover:text-charcoal'
               }`}
               style={{ 
                 transitionDelay: `${index * 50}ms`,
@@ -93,33 +97,35 @@ const Navbar = () => {
               }}
             >
               {item.name}
-              {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold" />
-              )}
+              <span 
+                className={`absolute bottom-0 left-0 w-full h-[2px] bg-gold transform origin-left transition-transform duration-300 ${
+                  activeSection === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`} 
+              />
             </a>
           ))}
-          <a 
-            href="#contact" 
+          <Button 
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('contact');
             }}
-            className="button-primary transition-all duration-300 hover:shadow-md"
+            className="bg-charcoal text-white hover:bg-charcoal/90 transition-all duration-300 group"
             style={{ 
               transitionDelay: '200ms',
               opacity: isScrolled ? 1 : 0.9,
               transform: `translateY(${isScrolled ? '0' : '4px'})`,
-              transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease'
+              transition: 'opacity 0.3s ease, transform 0.3s ease'
             }}
           >
-            Schedule a Call
-          </a>
+            <span>Schedule a Call</span>
+            <ChevronRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Button>
         </div>
 
         {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-charcoal focus:outline-none hover:opacity-70 transition-opacity p-2"
+          className="md:hidden text-charcoal focus:outline-none hover:text-gold transition-colors duration-300 p-2"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -145,24 +151,26 @@ const Navbar = () => {
               }}
               className={`py-2 px-3 rounded-md transition-all duration-300 ${
                 activeSection === item.id 
-                  ? 'bg-charcoal/5 text-gold' 
+                  ? 'bg-gold/10 text-gold' 
                   : 'hover:bg-charcoal/5'
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}
             >
-              {item.name}
+              <span className="inline-flex items-center">
+                {item.name}
+                <ChevronRight className="ml-auto w-4 h-4" />
+              </span>
             </a>
           ))}
-          <a 
-            href="#contact" 
+          <Button 
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('contact');
             }}
-            className="button-primary inline-block text-center" 
+            className="w-full bg-charcoal text-white hover:bg-charcoal/90 justify-center"
           >
             Schedule a Call
-          </a>
+          </Button>
         </div>
       </div>
     </nav>

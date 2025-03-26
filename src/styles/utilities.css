@@ -11,6 +11,30 @@
     @apply bg-gold/10;
   }
   
+  .hover-scale {
+    @apply transition-transform duration-300;
+  }
+  
+  .hover-scale:hover {
+    @apply scale-105;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-md;
+  }
+  
+  .hover-glow {
+    @apply transition-shadow duration-300;
+  }
+  
+  .hover-glow:hover {
+    @apply shadow-[0_0_15px_rgba(230,198,131,0.25)];
+  }
+  
   /* Text utilities */
   .text-balance {
     text-wrap: balance;
@@ -20,9 +44,21 @@
     text-wrap: pretty;
   }
   
+  .text-gradient {
+    @apply bg-gradient-to-r from-charcoal to-charcoal-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light bg-clip-text text-transparent;
+  }
+  
   /* Focus utilities */
   .focus-visible-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+  
+  .focus-visible-ring-dark {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-charcoal focus-visible:ring-offset-2;
   }
   
   /* Spacing utilities */
@@ -32,6 +68,40 @@
   
   .space-y-safe {
     @apply space-y-4 lg:space-y-6;
+  }
+  
+  /* Animation utilities */
+  .animate-on-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .group:hover .group-hover\:translate-x-1 {
+    @apply translate-x-1;
+  }
+  
+  .group:hover .group-hover\:translate-y-1 {
+    @apply -translate-y-1;
+  }
+  
+  .group:hover .group-hover\:opacity-100 {
+    @apply opacity-100;
+  }
+  
+  .group:hover .group-hover\:opacity-0 {
+    @apply opacity-0;
+  }
+  
+  /* Border utilities */
+  .border-gradient {
+    border-image: linear-gradient(to right, transparent, #E6C683, transparent) 1;
+  }
+  
+  .border-gold-subtle {
+    @apply border border-gold/20;
+  }
+  
+  .border-accent {
+    @apply border-gold;
   }
   
   /* Animation delay utilities */
@@ -53,5 +123,36 @@
   
   .delay-700 {
     animation-delay: 700ms;
+  }
+  
+  /* Backdrop blur utilities */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+  
+  .backdrop-blur-safe {
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Transition utilities */
+  .transition-safe {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .transition-bounce {
+    @apply transition-all duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.275)];
+  }
+  
+  /* Z-index utilities */
+  .z-above {
+    @apply z-10;
+  }
+  
+  .z-below {
+    @apply -z-10;
+  }
+  
+  .z-top {
+    @apply z-50;
   }
 }

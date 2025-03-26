@@ -10,30 +10,35 @@
     @apply py-16 md:py-24;
   }
   
+  /* Typography system */
   .heading-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-medium tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-medium tracking-tight leading-[1.1];
   }
   
   .heading-lg {
-    @apply text-3xl md:text-4xl font-heading font-medium tracking-tight;
+    @apply text-3xl md:text-4xl font-heading font-medium tracking-tight leading-tight;
   }
   
   .heading-md {
-    @apply text-2xl md:text-3xl font-heading font-medium tracking-tight;
+    @apply text-2xl md:text-3xl font-heading font-medium tracking-tight leading-tight;
   }
   
   .heading-sm {
-    @apply text-xl md:text-2xl font-heading font-medium tracking-tight;
+    @apply text-xl md:text-2xl font-heading font-medium tracking-tight leading-tight;
   }
 
   .paragraph {
-    @apply text-base md:text-lg;
+    @apply text-base md:text-lg text-charcoal/90 leading-relaxed;
+  }
+  
+  .paragraph-sm {
+    @apply text-sm md:text-base text-charcoal/80 leading-relaxed;
   }
   
   /* Enhanced button styles */
   .button-primary {
     @apply px-6 py-3 bg-charcoal text-white rounded-md font-medium transition-all duration-300 
-           hover:bg-charcoal/90 hover:shadow-lg active:scale-95 relative overflow-hidden;
+           hover:bg-charcoal/90 hover:shadow-lg active:scale-[0.98] relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
   }
   
   .button-primary::after {
@@ -46,7 +51,17 @@
   
   .button-secondary {
     @apply px-6 py-3 bg-transparent text-charcoal border border-charcoal/20 rounded-md font-medium 
-           transition-all duration-300 hover:bg-charcoal/5 active:scale-95;
+           transition-all duration-300 hover:bg-charcoal/5 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-charcoal/30 focus-visible:ring-offset-2;
+  }
+  
+  .button-gold {
+    @apply px-6 py-3 bg-gold text-charcoal-dark rounded-md font-medium transition-all duration-300 
+           hover:bg-gold-dark hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-dark focus-visible:ring-offset-2;
+  }
+  
+  .button-outline {
+    @apply px-6 py-3 bg-transparent text-charcoal border border-gold/50 rounded-md font-medium 
+           transition-all duration-300 hover:border-gold hover:bg-gold/5 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
   }
   
   /* Enhanced card styles */
@@ -54,17 +69,33 @@
     @apply transition-all duration-300 hover:shadow-xl rounded-md hover:-translate-y-1;
   }
   
+  .card-minimal {
+    @apply bg-white border border-slate-100 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-200;
+  }
+  
+  .card-premium {
+    @apply bg-white border border-gold/20 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:border-gold/30;
+  }
+  
   /* Navigation link with enhanced interaction */
   .nav-link {
-    @apply relative overflow-hidden inline-block px-1;
+    @apply relative overflow-hidden inline-block px-1 py-1 text-charcoal/80 hover:text-charcoal transition-colors duration-300;
   }
   
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-amber scale-x-0 origin-bottom-right transition-transform duration-300;
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
   }
   
   .nav-link:hover::after {
     @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .nav-link-active {
+    @apply text-gold;
+  }
+  
+  .nav-link-active::after {
+    @apply scale-x-100;
   }
   
   /* Glass morphism effects */
@@ -102,6 +133,23 @@
     @apply bg-opacity-90 opacity-100;
   }
   
+  /* Interactive badge */
+  .badge {
+    @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors duration-300;
+  }
+  
+  .badge-primary {
+    @apply bg-charcoal/10 text-charcoal hover:bg-charcoal/20;
+  }
+  
+  .badge-gold {
+    @apply bg-gold/20 text-charcoal hover:bg-gold/30;
+  }
+  
+  .badge-outline {
+    @apply bg-transparent border border-charcoal/20 text-charcoal hover:bg-charcoal/5;
+  }
+  
   /* Background patterns with subtle animations */
   .bg-pattern {
     @apply relative;
@@ -120,26 +168,15 @@
     @apply bg-gradient-to-br from-charcoal to-charcoal/80 bg-size-200 hover:animate-bg-shift;
   }
 
-  .bg-gradient-amber {
-    @apply bg-gradient-to-br from-amber-light to-amber bg-size-200 hover:animate-bg-shift;
-  }
-
-  /* Interactive blob backgrounds */
-  .blob-bg {
-    @apply relative overflow-hidden;
-  }
-
-  .blob {
-    @apply absolute rounded-full blur-3xl opacity-20 transition-all duration-[3000ms];
-  }
-  
-  .blob-bg:hover .blob {
-    @apply transform scale-110;
+  .bg-gradient-gold {
+    @apply bg-gradient-to-br from-gold-light to-gold bg-size-200 hover:animate-bg-shift;
   }
 
   /* Subtle noise texture */
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
+    @apply bg-opacity-[0.03];
   }
   
   /* Premium card with interactive effects */
@@ -153,8 +190,8 @@
     @apply bg-gradient-to-br from-sky-100 to-blue-100 bg-size-200 hover:bg-pos-100;
   }
   
-  .premium-gradient-amber {
-    @apply bg-gradient-to-br from-amber-100 to-amber-50 bg-size-200 hover:bg-pos-100;
+  .premium-gradient-gold {
+    @apply bg-gradient-to-br from-gold-50 to-gold-100 bg-size-200 hover:bg-pos-100;
   }
   
   /* Interactive features for educational content */
@@ -171,6 +208,19 @@
     @apply opacity-100 visible -translate-y-4;
   }
   
+  /* Form elements */
+  .input-primary {
+    @apply w-full px-4 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300;
+  }
+  
+  .select-primary {
+    @apply w-full px-4 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300 bg-white;
+  }
+  
+  .checkbox-primary {
+    @apply h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold/50 transition-all duration-300;
+  }
+  
   /* Utility classes for background animation */
   .bg-size-200 {
     background-size: 200% 200%;
@@ -182,5 +232,32 @@
   
   .hover\:animate-bg-shift:hover {
     animation: background-shift 3s ease infinite;
+  }
+  
+  /* Dividers with accent */
+  .divider {
+    @apply w-full h-px bg-slate-200;
+  }
+  
+  .divider-vertical {
+    @apply h-full w-px bg-slate-200;
+  }
+  
+  .divider-accent {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent;
+  }
+  
+  /* Image treatments */
+  .img-highlight {
+    @apply rounded-md border-2 border-transparent transition-all duration-300;
+  }
+  
+  .img-highlight:hover {
+    @apply border-gold/30 shadow-md;
+  }
+  
+  /* Focus indicator */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 transition-all duration-300;
   }
 }

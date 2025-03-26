@@ -55,26 +55,61 @@ export default {
 				navy: {
 					DEFAULT: '#112240',
 					light: '#233554',
-					dark: '#0a192f'
+					dark: '#0a192f',
+					50: '#E7ECF2',
+					100: '#C3D0E1',
+					200: '#9CB1CB',
+					300: '#7491B5',
+					400: '#557AA5',
+					500: '#3A659A'
 				},
 				slate: {
 					DEFAULT: '#8892B0',
 					light: '#a8b2d1',
-					lightest: '#ccd6f6'
+					lightest: '#ccd6f6',
+					50: '#F8F9FC',
+					100: '#EEF1F8',
+					200: '#DCE0EE',
+					300: '#C6CCE3',
+					400: '#B1B9D8'
 				},
 				gold: {
 					DEFAULT: '#E6C683',
 					light: '#F0D9A5',
-					dark: '#C7A85C'
+					dark: '#C7A85C',
+					50: '#FBF6EA',
+					100: '#F8EDD0',
+					200: '#F2E1B0',
+					300: '#EDD590',
+					400: '#E8C970'
 				},
-				charcoal: '#1F2937',
-				offwhite: '#f8f8f8',
-				darkgray: '#2A2A2A',
-				lightgray: '#E5E7EB',
+				charcoal: {
+					DEFAULT: '#1F2937',
+					light: '#374151',
+					dark: '#111827',
+					50: '#E5E7EB',
+					100: '#D1D5DB',
+					200: '#9CA3AF',
+					300: '#6B7280',
+					400: '#4B5563'
+				},
+				offwhite: {
+					DEFAULT: '#f8f8f8',
+					50: '#FFFFFF',
+					100: '#FAFAFA',
+					200: '#F3F3F3',
+					300: '#EBEBEB',
+					400: '#E1E1E1'
+				},
 				amber: {
 					light: '#FEF3C7',
 					DEFAULT: '#F59E0B',
-					dark: '#D97706'
+					dark: '#D97706',
+					50: '#FFFBEB',
+					100: '#FEF3C7',
+					200: '#FDE68A',
+					300: '#FCD34D',
+					400: '#FBBF24'
 				}
 			},
 			borderRadius: {
@@ -153,6 +188,14 @@ export default {
 				'shimmer': {
 					'0%': { backgroundPosition: '-200% 0' },
 					'100%': { backgroundPosition: '200% 0' },
+				},
+				'border-pulse': {
+					'0%, 100%': { borderColor: 'rgba(230, 198, 131, 0.3)' },
+					'50%': { borderColor: 'rgba(230, 198, 131, 0.8)' },
+				},
+				'soft-spin': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
 				}
 			},
 			animation: {
@@ -179,6 +222,8 @@ export default {
 				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
 				'bg-pulse': 'bg-pulse 3s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',
+				'border-pulse': 'border-pulse 2s ease-in-out infinite',
+				'soft-spin': 'soft-spin 15s linear infinite',
 			}
 		}
 	},
