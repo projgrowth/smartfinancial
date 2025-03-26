@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { memo } from 'react';
 
 const PremiumBackground = () => {
   return (
@@ -15,7 +15,7 @@ const PremiumBackground = () => {
       
       {/* Additional subtle shapes */}
       <div className="absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-blue-200/10 to-sky-300/5 blur-3xl rounded-full"></div>
-      <div className="absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-tl from-amber-100/10 to-amber-200/5 blur-3xl rounded-full"></div>
+      <div className="absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-amber-100/10 to-amber-200/5 blur-3xl rounded-full"></div>
       
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-noise opacity-[0.015] mix-blend-overlay"></div>
@@ -23,4 +23,5 @@ const PremiumBackground = () => {
   );
 };
 
-export default PremiumBackground;
+// Memoize the component to prevent unnecessary re-renders
+export default memo(PremiumBackground);
