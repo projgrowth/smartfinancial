@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,22 +36,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +66,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -95,7 +74,114 @@
     @apply border-border;
   }
 
+  html, body {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-neue font-semibold tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-neue font-semibold tracking-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-neue font-semibold tracking-tight;
+  }
+  
+  .heading-sm {
+    @apply text-xl md:text-2xl font-neue font-semibold tracking-tight;
+  }
+
+  .paragraph {
+    @apply text-base md:text-lg;
+  }
+  
+  .button-primary {
+    @apply px-6 py-3 bg-navy-light text-white rounded-sm font-medium transition-all duration-300 hover:bg-navy-dark hover:shadow-lg relative overflow-hidden;
+  }
+  
+  .button-primary::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .button-primary:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .button-secondary {
+    @apply px-6 py-3 bg-transparent text-navy-dark border border-navy-light rounded-sm font-medium transition-all duration-300 hover:bg-navy-light/5;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl rounded-md hover:-translate-y-1;
+  }
+  
+  .nav-link {
+    @apply relative overflow-hidden inline-block px-1;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md shadow-md border border-white/20 rounded-lg;
+  }
+  
+  .tooltip {
+    @apply invisible absolute opacity-0 transition-all duration-300 ease-in-out bg-navy-dark text-white text-sm p-2 rounded-md -translate-y-2;
+  }
+  
+  .tooltip-trigger:hover .tooltip {
+    @apply visible opacity-100 -translate-y-4 z-10;
+  }
+
+  .animated-element {
+    @apply opacity-0;
+  }
+  
+  .animated-element.is-visible {
+    @apply animate-fade-in;
+  }
+
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Hover card effect for service cards */
+  .hover-card {
+    @apply relative rounded-md overflow-hidden transition-all duration-500 ease-in-out;
+  }
+  
+  .hover-card-content {
+    @apply absolute inset-0 flex flex-col justify-center items-center p-8 bg-navy-dark bg-opacity-0 opacity-0 transition-all duration-300 ease-in-out;
+  }
+  
+  .hover-card:hover .hover-card-content {
+    @apply bg-opacity-90 opacity-100;
   }
 }
