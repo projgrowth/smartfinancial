@@ -1,0 +1,88 @@
+
+@layer components {
+  /* Typing animation */
+  .typing-wrapper {
+    @apply relative overflow-hidden;
+    max-width: fit-content;
+    display: inline-block;
+  }
+
+  .typing-text {
+    @apply whitespace-nowrap border-r-2 border-charcoal;
+    animation: typing 2s steps(25, end), blink 0.75s step-end infinite;
+  }
+
+  .animated-element {
+    @apply opacity-0;
+  }
+  
+  .animated-element.is-visible {
+    @apply animate-fadeIn;
+  }
+
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-6 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* New animations for modern feel */
+  .animate-float {
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+  
+  .duration-10000 {
+    animation-duration: 10s;
+  }
+  
+  .duration-12000 {
+    animation-duration: 12s;
+  }
+  
+  .duration-15000 {
+    animation-duration: 15s;
+  }
+  
+  .duration-25000 {
+    animation-duration: 25s;
+  }
+  
+  .duration-30000 {
+    animation-duration: 30s;
+  }
+}
+
+/* Animation keyframes */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(1deg); 
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { 
+    transform: translateY(0) translateX(-50%); 
+  }
+  50% { 
+    transform: translateY(-8px) translateX(-50%); 
+  }
+}

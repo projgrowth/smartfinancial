@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,6 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import LoadingIndicator from "./components/LoadingIndicator";
+import './styles/base.css';
+import './styles/components.css';
+import './styles/animations.css';
+import './styles/utilities.css';
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));

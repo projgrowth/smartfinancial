@@ -1,0 +1,140 @@
+
+@tailwind components;
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-medium tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-heading font-medium tracking-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-heading font-medium tracking-tight;
+  }
+  
+  .heading-sm {
+    @apply text-xl md:text-2xl font-heading font-medium tracking-tight;
+  }
+
+  .paragraph {
+    @apply text-base md:text-lg;
+  }
+  
+  .button-primary {
+    @apply px-6 py-3 bg-charcoal text-white rounded-md font-medium transition-all duration-300 hover:bg-charcoal/90 hover:shadow-lg relative overflow-hidden;
+  }
+  
+  .button-primary::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .button-primary:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .button-secondary {
+    @apply px-6 py-3 bg-transparent text-charcoal border border-charcoal/20 rounded-md font-medium transition-all duration-300 hover:bg-charcoal/5;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl rounded-md hover:-translate-y-1;
+  }
+  
+  .nav-link {
+    @apply relative overflow-hidden inline-block px-1;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-amber scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md shadow-md border border-white/20 rounded-lg;
+  }
+
+  .glass-dark {
+    @apply bg-charcoal/80 backdrop-blur-md shadow-md border border-charcoal/10 rounded-lg;
+  }
+  
+  .tooltip {
+    @apply invisible absolute opacity-0 transition-all duration-300 ease-in-out bg-charcoal text-white text-sm p-2 rounded-md -translate-y-2;
+  }
+  
+  .tooltip-trigger:hover .tooltip {
+    @apply visible opacity-100 -translate-y-4 z-10;
+  }
+
+  /* Hover card effect for service cards - enhanced */
+  .hover-card {
+    @apply relative rounded-md overflow-hidden transition-all duration-500 ease-in-out;
+  }
+  
+  .hover-card-content {
+    @apply absolute inset-0 flex flex-col justify-center items-center p-8 bg-charcoal bg-opacity-0 opacity-0 transition-all duration-300 ease-in-out;
+  }
+  
+  .hover-card:hover .hover-card-content {
+    @apply bg-opacity-90 opacity-100;
+  }
+  
+  /* Background patterns and effects */
+  .bg-pattern {
+    @apply relative;
+  }
+
+  .bg-pattern::before {
+    @apply content-[''] absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOEgwdjE4aDM2eiIgZmlsbD0iI0YxRjVGOSIvPjwvZz48L3N2Zz4=')] opacity-5 pointer-events-none z-0;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-light {
+    @apply bg-gradient-to-br from-white to-lightgray/30;
+  }
+
+  .bg-gradient-dark {
+    @apply bg-gradient-to-br from-charcoal to-charcoal/80;
+  }
+
+  .bg-gradient-amber {
+    @apply bg-gradient-to-br from-amber-light to-amber;
+  }
+
+  /* Blob backgrounds */
+  .blob-bg {
+    @apply relative overflow-hidden;
+  }
+
+  .blob {
+    @apply absolute rounded-full blur-3xl opacity-20;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  .premium-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-xl overflow-hidden;
+  }
+  
+  .premium-gradient-blue {
+    @apply bg-gradient-to-br from-sky-100 to-blue-100;
+  }
+  
+  .premium-gradient-amber {
+    @apply bg-gradient-to-br from-amber-100 to-amber-50;
+  }
+}
