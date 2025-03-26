@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Refined color system with gold accent */
+    /* Refined color system with blue accent instead of gold */
     --background: 0 0% 98%;
     --foreground: 215 28% 17%;
 
@@ -25,7 +25,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 42 71% 71%;
+    --accent: 210 100% 60%;
     --accent-foreground: 215 28% 17%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 42 71% 71%;
+    --ring: 210 100% 60%;
 
     --radius: 0.5rem;
   }
@@ -88,16 +88,16 @@
   }
   
   a {
-    @apply text-gold hover:text-gold-dark transition-colors duration-300;
+    @apply text-blue-500 hover:text-blue-600 transition-colors duration-300;
   }
   
   /* Consistent focus styles */
   :focus-visible {
-    @apply outline-none ring-2 ring-gold ring-offset-2;
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
   }
   
   /* Better selection styling */
   ::selection {
-    @apply bg-gold/20 text-charcoal;
+    @apply bg-blue-500/20 text-charcoal;
   }
 }

@@ -68,11 +68,10 @@ const Navbar = () => {
         <a 
           href="#" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="font-heading text-charcoal text-xl font-medium tracking-tight hover:text-gold transition-colors duration-300"
+          className="font-heading text-charcoal text-xl font-medium tracking-tight hover:text-blue-500 transition-colors duration-300"
         >
           <span className="inline-flex items-center">
-            <span className="text-gold mr-1">•</span> 
-            Smart Financial Planning
+            Wealth Advisory
           </span>
         </a>
 
@@ -87,7 +86,7 @@ const Navbar = () => {
                 handleNavClick(item.id);
               }}
               className={`relative px-1 py-1 overflow-hidden text-sm font-medium transition-colors duration-300 group ${
-                activeSection === item.id ? 'text-gold' : 'text-charcoal/80 hover:text-charcoal'
+                activeSection === item.id ? 'text-blue-500' : 'text-charcoal/80 hover:text-charcoal'
               }`}
               style={{ 
                 transitionDelay: `${index * 50}ms`,
@@ -98,7 +97,7 @@ const Navbar = () => {
             >
               {item.name}
               <span 
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-gold transform origin-left transition-transform duration-300 ${
+                className={`absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 transform origin-left transition-transform duration-300 ${
                   activeSection === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                 }`} 
               />
@@ -125,7 +124,7 @@ const Navbar = () => {
         {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-charcoal focus:outline-none hover:text-gold transition-colors duration-300 p-2"
+          className="md:hidden text-charcoal focus:outline-none hover:text-blue-500 transition-colors duration-300 p-2"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -151,7 +150,7 @@ const Navbar = () => {
               }}
               className={`py-2 px-3 rounded-md transition-all duration-300 ${
                 activeSection === item.id 
-                  ? 'bg-gold/10 text-gold' 
+                  ? 'bg-blue-500/10 text-blue-500' 
                   : 'hover:bg-charcoal/5'
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}

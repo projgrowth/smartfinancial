@@ -73,15 +73,20 @@ export default {
 					300: '#C6CCE3',
 					400: '#B1B9D8'
 				},
-				gold: {
-					DEFAULT: '#E6C683',
-					light: '#F0D9A5',
-					dark: '#C7A85C',
-					50: '#FBF6EA',
-					100: '#F8EDD0',
-					200: '#F2E1B0',
-					300: '#EDD590',
-					400: '#E8C970'
+				blue: {
+					DEFAULT: '#3B82F6',
+					light: '#60A5FA',
+					dark: '#2563EB',
+					50: '#EFF6FF',
+					100: '#DBEAFE',
+					200: '#BFDBFE',
+					300: '#93C5FD',
+					400: '#60A5FA',
+					500: '#3B82F6',
+					600: '#2563EB',
+					700: '#1D4ED8',
+					800: '#1E40AF',
+					900: '#1E3A8A'
 				},
 				charcoal: {
 					DEFAULT: '#1F2937',
