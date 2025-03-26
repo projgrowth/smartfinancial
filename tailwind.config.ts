@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -131,8 +130,8 @@ export default {
 					to: { width: '100%' }
 				},
 				'blink': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0' }
+					'0%, 100%': { borderColor: 'transparent' },
+					'50%': { borderColor: 'currentColor' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
@@ -154,8 +153,8 @@ export default {
 				'slide-up': 'slide-up 0.5s ease-out forwards',
 				'scale-in': 'scale-in 0.3s ease-out forwards',
 				'scale-out': 'scale-out 0.3s ease-out forwards',
-				'typing': 'typing 3.5s steps(40, end)',
-				'blink': 'blink 1s step-end infinite',
+				'typing': 'typing 2.5s steps(30, end)',
+				'blink': 'blink 0.75s step-end infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'bounce-fade': 'bounce-fade 0.5s ease-out forwards',
 				'fadeIn': 'fade-in 0.6s ease-out forwards',

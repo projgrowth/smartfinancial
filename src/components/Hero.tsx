@@ -5,9 +5,13 @@ const Hero = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const [typing, setTyping] = useState(false);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Make elements visible on load to prevent flickering
+    setIsVisible(true);
+    
     // Animate elements when component mounts
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -22,12 +26,15 @@ const Hero = () => {
     if (subheadingRef.current) observer.observe(subheadingRef.current);
     if (ctaRef.current) observer.observe(ctaRef.current);
 
-    // Start typing animation after a brief delay
-    setTimeout(() => {
-      setTyping(true);
-    }, 500);
+    // Set typing complete after animation duration
+    const typingTimer = setTimeout(() => {
+      setIsTypingComplete(true);
+    }, 3000); // Match this with the typing animation duration
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(typingTimer);
+    };
   }, []);
 
   return (
@@ -43,24 +50,23 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           <h1 
             ref={headingRef}
-            className="heading-xl text-charcoal mb-6 opacity-0"
+            className={`heading-xl text-charcoal mb-6 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
             style={{ transitionDelay: '100ms' }}
           >
-            {typing ? (
-              <>
-                <span className="typing-wrapper mr-2">
-                  <span className="typing-text">Your wealth.</span>
-                </span>
-                <span className="text-amber-dark opacity-0 animate-fadeInSlow" style={{ animationDelay: '3s' }}>Elevated.</span>
-              </>
-            ) : (
-              <>Your wealth. <span className="text-amber-dark">Elevated.</span></>
-            )}
+            <span className="typing-wrapper mr-2">
+              <span className="typing-text">Your wealth.</span>
+            </span>
+            <span 
+              className={`text-gold transition-all duration-1000 ease-in-out ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}
+              style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.3)' }}
+            >
+              Elevated.
+            </span>
           </h1>
           
           <p 
             ref={subheadingRef}
-            className="paragraph text-darkgray/80 mb-10 max-w-2xl mx-auto opacity-0"
+            className={`paragraph text-darkgray/80 mb-10 max-w-2xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             style={{ transitionDelay: '300ms' }}
           >
             Tailored financial strategies for ambitious professionals who demand more than cookie-cutter solutions.
@@ -68,7 +74,7 @@ const Hero = () => {
           
           <div 
             ref={ctaRef}
-            className="opacity-0"
+            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             style={{ transitionDelay: '500ms' }}
           >
             <a 

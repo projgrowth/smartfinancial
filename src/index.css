@@ -91,7 +91,7 @@
   }
   
   .button-primary::after {
-    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-amber scale-x-0 origin-bottom-right transition-transform duration-300;
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
   }
   
   .button-primary:hover::after {
@@ -163,13 +163,26 @@
     @apply bg-opacity-90 opacity-100;
   }
 
-  /* Typing animation wrapper */
+  /* Typing animation wrapper - improved to prevent flashing */
   .typing-wrapper {
     @apply relative inline-block overflow-hidden whitespace-nowrap;
   }
 
   .typing-text {
-    @apply animate-typing overflow-hidden whitespace-nowrap border-r-2 border-charcoal animate-blink;
+    @apply overflow-hidden whitespace-nowrap border-r-2 border-charcoal;
+    animation: typing 2.5s steps(30, end), blink 0.75s step-end infinite;
+    width: 100%; /* Start with full width to prevent flashing */
+  }
+
+  /* Revised keyframes */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: currentColor }
   }
 
   /* Subtle background patterns */
