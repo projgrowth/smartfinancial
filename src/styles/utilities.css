@@ -1,3 +1,4 @@
+
 @tailwind utilities;
 
 @layer utilities {
@@ -292,15 +293,15 @@
   
   /* Enhanced aspect ratio utilities */
   .aspect-wide {
-    @apply aspect-[16/9];
+    aspect-ratio: 16/9;
   }
   
-  .aspect-square {
-    @apply aspect-square;
+  .aspect-square-custom {
+    aspect-ratio: 1/1;
   }
   
   .aspect-ultrawide {
-    @apply aspect-[21/9];
+    aspect-ratio: 21/9;
   }
   
   /* Enhanced interaction utilities */
