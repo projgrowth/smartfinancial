@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import IntroSection from '../components/IntroSection';
 import Process from '../components/Process';
 import ServiceCards from '../components/ServiceCards';
+import CaseStudies from '../components/CaseStudies';
 import Advisors from '../components/Advisors';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
@@ -16,18 +16,15 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading and stop showing loading state after everything is loaded
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500); // Short timeout for better perceived performance
+    }, 500);
 
-    // Add intersection observer for animation on scroll with better performance
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-            // Unobserve after animation to improve performance
             observer.unobserve(entry.target);
           }
         });
@@ -38,7 +35,6 @@ const Index = () => {
       }
     );
 
-    // Observe all elements with animate-on-scroll class
     document.querySelectorAll('.animate-on-scroll').forEach((element) => {
       observer.observe(element);
     });
@@ -49,9 +45,7 @@ const Index = () => {
     };
   }, []);
 
-  // Add Google Fonts to head - optimized loading
   useEffect(() => {
-    // Load fonts with better performance practices
     const loadFonts = () => {
       const spaceGroteskLink = document.createElement('link');
       spaceGroteskLink.rel = 'stylesheet';
@@ -101,6 +95,7 @@ const Index = () => {
       <IntroSection />
       <Process />
       <ServiceCards />
+      <CaseStudies />
       <Advisors />
       <Testimonials />
       <CTA />

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
@@ -9,25 +8,21 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
-  // Handle scroll events for menu highlighting and navbar appearance
   useEffect(() => {
     const handleScroll = () => {
-      // Update navbar style based on scroll position
       if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
       
-      // Determine which section is currently in view
-      const sections = ['services', 'process', 'team', 'testimonials', 'contact'];
+      const sections = ['services', 'process', 'case-studies', 'team', 'testimonials'];
       let currentSection = '';
       
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // If the section is in view (with some buffer)
           if (rect.top <= 100 && rect.bottom >= 100) {
             currentSection = section;
             break;
@@ -52,6 +47,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Services', id: 'services' },
     { name: 'Process', id: 'process' },
+    { name: 'Case Studies', id: 'case-studies' },
     { name: 'Team', id: 'team' },
     { name: 'Testimonials', id: 'testimonials' }
   ];
@@ -76,11 +72,10 @@ const Navbar = () => {
           aria-label="Back to top"
         >
           <span className="inline-flex items-center">
-            Wealth Advisory
+            Smart Financial Planning
           </span>
         </a>
 
-        {/* Desktop navigation with improved animations and active states */}
         <div 
           className="hidden md:flex items-center space-x-8"
           role="navigation"
@@ -131,7 +126,6 @@ const Navbar = () => {
           </PrimaryButton>
         </div>
 
-        {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
           className="md:hidden text-charcoal focus:outline-none hover:text-blue-500 transition-colors duration-300 p-2 focus:ring-2 focus:ring-blue-500 rounded-md"
@@ -142,7 +136,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu with improved animation */}
       <div 
         className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
           isOpen 

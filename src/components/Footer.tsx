@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ChevronRight, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -32,14 +31,14 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-heading text-base font-medium text-charcoal">Quick Links</h4>
             <ul className="space-y-2">
-              {['Services', 'Process', 'Team', 'Testimonials', 'Contact'].map(item => (
+              {['Services', 'Process', 'Case Studies', 'Team', 'Testimonials', 'Contact'].map(item => (
                 <li key={item}>
                   <a 
-                    href={`#${item.toLowerCase()}`} 
+                    href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
                     className="text-charcoal/70 hover:text-gold transition-colors duration-300 text-sm inline-flex items-center group"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                      document.getElementById(item.toLowerCase().replace(/\s+/g, '-'))?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <ChevronRight className="w-3 h-3 mr-1 transition-transform duration-300 group-hover:translate-x-1" />
