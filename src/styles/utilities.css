@@ -1,2 +1,57 @@
 
 @tailwind utilities;
+
+@layer utilities {
+  /* Interactive utilities */
+  .hover-highlight {
+    @apply transition-colors duration-300;
+  }
+  
+  .hover-highlight:hover {
+    @apply bg-gold/10;
+  }
+  
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Focus utilities */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+  
+  /* Spacing utilities */
+  .space-x-safe {
+    @apply space-x-4 lg:space-x-6;
+  }
+  
+  .space-y-safe {
+    @apply space-y-4 lg:space-y-6;
+  }
+  
+  /* Animation delay utilities */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+}

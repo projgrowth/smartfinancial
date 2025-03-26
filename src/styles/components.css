@@ -30,8 +30,10 @@
     @apply text-base md:text-lg;
   }
   
+  /* Enhanced button styles */
   .button-primary {
-    @apply px-6 py-3 bg-charcoal text-white rounded-md font-medium transition-all duration-300 hover:bg-charcoal/90 hover:shadow-lg relative overflow-hidden;
+    @apply px-6 py-3 bg-charcoal text-white rounded-md font-medium transition-all duration-300 
+           hover:bg-charcoal/90 hover:shadow-lg active:scale-95 relative overflow-hidden;
   }
   
   .button-primary::after {
@@ -43,13 +45,16 @@
   }
   
   .button-secondary {
-    @apply px-6 py-3 bg-transparent text-charcoal border border-charcoal/20 rounded-md font-medium transition-all duration-300 hover:bg-charcoal/5;
+    @apply px-6 py-3 bg-transparent text-charcoal border border-charcoal/20 rounded-md font-medium 
+           transition-all duration-300 hover:bg-charcoal/5 active:scale-95;
   }
   
+  /* Enhanced card styles */
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl rounded-md hover:-translate-y-1;
   }
   
+  /* Navigation link with enhanced interaction */
   .nav-link {
     @apply relative overflow-hidden inline-block px-1;
   }
@@ -62,36 +67,42 @@
     @apply scale-x-100 origin-bottom-left;
   }
   
+  /* Glass morphism effects */
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md shadow-md border border-white/20 rounded-lg;
+    @apply bg-white/80 backdrop-blur-md shadow-md border border-white/20 rounded-lg 
+           transition-all duration-300 hover:shadow-lg hover:bg-white/90;
   }
 
   .glass-dark {
-    @apply bg-charcoal/80 backdrop-blur-md shadow-md border border-charcoal/10 rounded-lg;
+    @apply bg-charcoal/80 backdrop-blur-md shadow-md border border-charcoal/10 rounded-lg 
+           transition-all duration-300 hover:bg-charcoal/90;
   }
   
+  /* Enhanced tooltip */
   .tooltip {
-    @apply invisible absolute opacity-0 transition-all duration-300 ease-in-out bg-charcoal text-white text-sm p-2 rounded-md -translate-y-2;
+    @apply invisible absolute opacity-0 transition-all duration-300 ease-in-out bg-charcoal text-white 
+           text-sm p-2 rounded-md -translate-y-2 z-50;
   }
   
   .tooltip-trigger:hover .tooltip {
-    @apply visible opacity-100 -translate-y-4 z-10;
+    @apply visible opacity-100 -translate-y-4;
   }
 
-  /* Hover card effect for service cards - enhanced */
+  /* Interactive service cards */
   .hover-card {
     @apply relative rounded-md overflow-hidden transition-all duration-500 ease-in-out;
   }
   
   .hover-card-content {
-    @apply absolute inset-0 flex flex-col justify-center items-center p-8 bg-charcoal bg-opacity-0 opacity-0 transition-all duration-300 ease-in-out;
+    @apply absolute inset-0 flex flex-col justify-center items-center p-8 bg-charcoal bg-opacity-0 
+           opacity-0 transition-all duration-300 ease-in-out;
   }
   
   .hover-card:hover .hover-card-content {
     @apply bg-opacity-90 opacity-100;
   }
   
-  /* Background patterns and effects */
+  /* Background patterns with subtle animations */
   .bg-pattern {
     @apply relative;
   }
@@ -100,41 +111,76 @@
     @apply content-[''] absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOEgwdjE4aDM2eiIgZmlsbD0iI0YxRjVGOSIvPjwvZz48L3N2Zz4=')] opacity-5 pointer-events-none z-0;
   }
 
-  /* Gradient backgrounds */
+  /* Gradient backgrounds with animation potential */
   .bg-gradient-light {
-    @apply bg-gradient-to-br from-white to-lightgray/30;
+    @apply bg-gradient-to-br from-white to-lightgray/30 bg-size-200 hover:animate-bg-shift;
   }
 
   .bg-gradient-dark {
-    @apply bg-gradient-to-br from-charcoal to-charcoal/80;
+    @apply bg-gradient-to-br from-charcoal to-charcoal/80 bg-size-200 hover:animate-bg-shift;
   }
 
   .bg-gradient-amber {
-    @apply bg-gradient-to-br from-amber-light to-amber;
+    @apply bg-gradient-to-br from-amber-light to-amber bg-size-200 hover:animate-bg-shift;
   }
 
-  /* Blob backgrounds */
+  /* Interactive blob backgrounds */
   .blob-bg {
     @apply relative overflow-hidden;
   }
 
   .blob {
-    @apply absolute rounded-full blur-3xl opacity-20;
+    @apply absolute rounded-full blur-3xl opacity-20 transition-all duration-[3000ms];
+  }
+  
+  .blob-bg:hover .blob {
+    @apply transform scale-110;
   }
 
+  /* Subtle noise texture */
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
   
+  /* Premium card with interactive effects */
   .premium-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-xl overflow-hidden;
+    @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-xl hover:shadow-2xl 
+           transition-all duration-300 rounded-xl overflow-hidden hover:-translate-y-1;
   }
   
+  /* Interactive gradients */
   .premium-gradient-blue {
-    @apply bg-gradient-to-br from-sky-100 to-blue-100;
+    @apply bg-gradient-to-br from-sky-100 to-blue-100 bg-size-200 hover:bg-pos-100;
   }
   
   .premium-gradient-amber {
-    @apply bg-gradient-to-br from-amber-100 to-amber-50;
+    @apply bg-gradient-to-br from-amber-100 to-amber-50 bg-size-200 hover:bg-pos-100;
+  }
+  
+  /* Interactive features for educational content */
+  .info-reveal {
+    @apply relative cursor-help;
+  }
+  
+  .info-content {
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 w-64 p-4 rounded-md bg-white shadow-lg
+           opacity-0 invisible transition-all duration-300 -translate-y-2 z-20;
+  }
+  
+  .info-reveal:hover .info-content {
+    @apply opacity-100 visible -translate-y-4;
+  }
+  
+  /* Utility classes for background animation */
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+  
+  .hover\:bg-pos-100:hover {
+    background-position: 100% 100%;
+  }
+  
+  .hover\:animate-bg-shift:hover {
+    animation: background-shift 3s ease infinite;
   }
 }

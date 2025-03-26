@@ -2,11 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { ChevronDown, TrendingUp } from 'lucide-react';
+import { smoothScrollTo } from '../utils/smoothScroll';
+import { InteractiveTooltip } from './ui/interactive-tooltip';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [isSecondLineVisible, setIsSecondLineVisible] = useState(false);
+  const [hoverState, setHoverState] = useState(false);
   
   useEffect(() => {
     setIsVisible(true);
@@ -23,12 +26,24 @@ const Hero = () => {
     return () => clearTimeout(typingTimer);
   }, []);
 
+  const handleScrollDown = () => {
+    smoothScrollTo('services');
+  };
+
   return (
     <section className="relative min-h-[85vh] flex flex-col justify-center pt-16">
       <div className="container-custom mx-auto z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex items-center justify-center mb-2">
-            <TrendingUp className="w-6 h-6 text-gold mr-2 animate-float" />
+            <InteractiveTooltip
+              trigger={
+                <div className="group">
+                  <TrendingUp className="w-6 h-6 text-gold mr-2 animate-float group-hover:text-gold-dark transition-colors duration-300" />
+                </div>
+              }
+              content="Our clients consistently outperform market averages"
+              interactive={true}
+            />
             <span className="text-sm uppercase tracking-wider text-gold/80 font-medium">Smart Financial Planning</span>
           </div>
           
@@ -54,7 +69,7 @@ const Hero = () => {
           >
             <span className="text-charcoal">Your future.</span>
             <span 
-              className="text-gold ml-2"
+              className="text-gold ml-2 hover-glow cursor-default"
               style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.3)' }}
             >
               Secured.
@@ -75,18 +90,24 @@ const Hero = () => {
           >
             <a 
               href="#contact" 
-              className="button-primary inline-block shadow-lg group"
+              className={`button-primary inline-block shadow-lg group ${hoverState ? 'hover-glow' : ''}`}
+              onMouseEnter={() => setHoverState(true)}
+              onMouseLeave={() => setHoverState(false)}
             >
               <span className="relative z-10">Schedule Your Private Strategy Call</span>
               <span className="absolute inset-0 bg-gradient-to-r from-gold/10 to-gold/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-md"></span>
             </a>
           </div>
           
-          {/* Modern scroll indicator */}
-          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-charcoal/40 animate-bounce-subtle">
+          {/* Modern scroll indicator with smooth scroll */}
+          <button 
+            onClick={handleScrollDown}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-charcoal/40 animate-bounce-subtle cursor-pointer hover:text-charcoal/60 transition-colors duration-300 focus:outline-none"
+            aria-label="Scroll down"
+          >
             <span className="text-sm mb-2 tracking-wide font-light">Scroll</span>
             <ChevronDown className="w-5 h-5" />
-          </div>
+          </button>
         </div>
       </div>
     </section>

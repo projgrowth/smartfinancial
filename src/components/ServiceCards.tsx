@@ -1,38 +1,24 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useIntersectionObserver, useStaggeredAnimation } from '../hooks/useIntersectionObserver';
 
 interface ServiceCardProps {
   title: string;
   hoverText: string;
   delay: number;
+  iconElement?: React.ReactNode;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, hoverText, delay }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, hoverText, delay, iconElement }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) observer.observe(cardRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
+  
   return (
     <div 
-      ref={cardRef} 
-      className="animate-on-scroll" 
+      ref={ref as React.RefObject<HTMLDivElement>} 
+      className={`transform transition-all duration-700 ease-out ${
+        isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`} 
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div 
@@ -40,14 +26,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, hoverText, delay }) =>
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <h3 className="heading-sm text-charcoal mb-4 transition-opacity duration-300 ease-in-out"
-            style={{ opacity: isHovered ? 0 : 1 }}>
+        {iconElement && (
+          <div className={`mb-4 text-gold transition-all duration-300 ${isHovered ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}>
+            {iconElement}
+          </div>
+        )}
+        
+        <h3 className={`heading-sm text-charcoal mb-4 transition-all duration-300 ease-in-out ${
+          isHovered ? 'opacity-0 transform -translate-y-4' : 'opacity-100 transform translate-y-0'
+        }`}>
           {title}
         </h3>
         
-        <div className="hover-card-content">
+        <div className={`hover-card-content transition-all duration-500 ease-in-out ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}>
           <p className="text-white mb-3 font-medium">{title}</p>
           <p className="text-lightgray text-sm">{hoverText}</p>
+          <div className="mt-4 h-[1px] w-12 bg-gold/30"></div>
         </div>
       </div>
     </div>
@@ -74,32 +70,17 @@ const ServiceCards = () => {
     }
   ];
 
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (titleRef.current) observer.observe(titleRef.current);
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
+  const staggerDelays = useStaggeredAnimation(services.length, 150);
 
   return (
     <section id="services" className="section bg-offwhite bg-pattern">
       <div className="container-custom">
         <h2 
-          ref={titleRef}
-          className="heading-lg text-charcoal text-center mb-16 animate-on-scroll"
+          ref={ref as React.RefObject<HTMLHeadingElement>}
+          className={`heading-lg text-charcoal text-center mb-16 transition-all duration-700 ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
         >
           Services Tailored to Your Needs
         </h2>
@@ -110,7 +91,7 @@ const ServiceCards = () => {
               key={index} 
               title={service.title} 
               hoverText={service.hoverText} 
-              delay={index * 100}
+              delay={staggerDelays[index]}
             />
           ))}
         </div>

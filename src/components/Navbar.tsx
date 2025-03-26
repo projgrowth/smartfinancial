@@ -1,18 +1,40 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { smoothScrollTo } from '../utils/smoothScroll';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
+  // Handle scroll events for menu highlighting and navbar appearance
   useEffect(() => {
     const handleScroll = () => {
+      // Update navbar style based on scroll position
       if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+      
+      // Determine which section is currently in view
+      const sections = ['services', 'process', 'team', 'testimonials', 'contact'];
+      let currentSection = '';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the section is in view (with some buffer)
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -20,6 +42,18 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleNavClick = (sectionId: string) => {
+    setIsOpen(false);
+    smoothScrollTo(sectionId);
+  };
+
+  const navItems = [
+    { name: 'Services', id: 'services' },
+    { name: 'Process', id: 'process' },
+    { name: 'Team', id: 'team' },
+    { name: 'Testimonials', id: 'testimonials' }
+  ];
 
   return (
     <nav 
@@ -30,19 +64,27 @@ const Navbar = () => {
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <div className="flex items-center">
-          <a href="/" className="font-heading text-charcoal text-xl font-medium tracking-tight">
-            Smart Financial Planning
-          </a>
-        </div>
+        <a 
+          href="#" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="font-heading text-charcoal text-xl font-medium tracking-tight hover:opacity-80 transition-opacity duration-300"
+        >
+          Smart Financial Planning
+        </a>
 
-        {/* Desktop navigation with improved animations */}
+        {/* Desktop navigation with improved animations and active states */}
         <div className="hidden md:flex items-center space-x-8">
-          {['Services', 'Process', 'Team', 'Testimonials'].map((item, index) => (
+          {navItems.map((item, index) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className="nav-link text-charcoal hover:text-amber-dark transition-colors"
+              key={item.id} 
+              href={`#${item.id}`} 
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.id);
+              }}
+              className={`nav-link text-charcoal transition-all duration-300 ${
+                activeSection === item.id ? 'text-gold' : 'hover:text-amber-dark'
+              }`}
               style={{ 
                 transitionDelay: `${index * 50}ms`,
                 opacity: isScrolled ? 1 : 0.9,
@@ -50,11 +92,18 @@ const Navbar = () => {
                 transition: 'opacity 0.3s ease, transform 0.3s ease, color 0.3s ease'
               }}
             >
-              {item}
+              {item.name}
+              {activeSection === item.id && (
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold" />
+              )}
             </a>
           ))}
           <a 
             href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('contact');
+            }}
             className="button-primary transition-all duration-300 hover:shadow-md"
             style={{ 
               transitionDelay: '200ms',
@@ -68,11 +117,13 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-charcoal focus:outline-none">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="md:hidden text-charcoal focus:outline-none hover:opacity-70 transition-opacity p-2"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile menu with improved animation */}
@@ -84,21 +135,31 @@ const Navbar = () => {
         }`}
       >
         <div className="container-custom py-4 bg-white/95 backdrop-blur-sm flex flex-col space-y-4">
-          {['Services', 'Process', 'Team', 'Testimonials'].map((item, index) => (
+          {navItems.map((item, index) => (
             <a 
-              key={item}
-              href={`#${item.toLowerCase()}`} 
-              className="nav-link text-charcoal hover:text-amber-dark py-2" 
-              onClick={() => setIsOpen(false)}
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.id);
+              }}
+              className={`py-2 px-3 rounded-md transition-all duration-300 ${
+                activeSection === item.id 
+                  ? 'bg-charcoal/5 text-gold' 
+                  : 'hover:bg-charcoal/5'
+              }`}
               style={{ transitionDelay: `${index * 50}ms` }}
             >
-              {item}
+              {item.name}
             </a>
           ))}
           <a 
             href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('contact');
+            }}
             className="button-primary inline-block text-center" 
-            onClick={() => setIsOpen(false)}
           >
             Schedule a Call
           </a>
