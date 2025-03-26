@@ -163,34 +163,18 @@
     @apply bg-opacity-90 opacity-100;
   }
 
-  /* Typing animation wrapper - improved to be smoother */
+  /* Typing animation wrapper - improved for better performance */
   .typing-wrapper {
-    @apply relative inline-block overflow-hidden whitespace-nowrap;
+    @apply relative overflow-hidden;
+    max-width: fit-content;
+    display: inline-block;
   }
 
   .typing-text {
-    @apply overflow-hidden whitespace-nowrap border-r-2 border-charcoal;
+    @apply whitespace-nowrap border-r-2 border-charcoal;
     animation: typing 2s steps(25, end), blink 0.75s step-end infinite;
-    width: 100%; /* Start with full width to prevent flashing */
   }
   
-  .typing-text-secondary {
-    @apply overflow-hidden whitespace-nowrap border-r-2 border-charcoal;
-    animation: typing 1.5s steps(18, end) 0.5s forwards, blink 0.75s step-end infinite;
-    width: 0; /* Start with zero width for second animation */
-  }
-
-  /* Revised keyframes for smoother animations */
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-
-  @keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: currentColor }
-  }
-
   /* Background patterns and effects */
   .bg-pattern {
     @apply relative;
@@ -268,7 +252,17 @@
   }
 }
 
-/* New keyframes for modern animations */
+/* Animation keyframes */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
 @keyframes float {
   0%, 100% { 
     transform: translateY(0) rotate(0deg); 

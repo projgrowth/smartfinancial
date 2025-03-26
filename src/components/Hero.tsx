@@ -35,15 +35,17 @@ const Hero = () => {
           <h1 
             className={`heading-xl text-charcoal mb-6 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
           >
-            <span className="typing-wrapper inline-block">
-              <span className="typing-text">Your wealth.</span>
-            </span>
-            <span 
-              className={`text-gold inline-block transition-all duration-1000 ease-in-out ${isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.4)' }}
-            >
-              Elevated.
-            </span>
+            <div className="flex items-center justify-center whitespace-nowrap">
+              <span className="typing-wrapper inline-block">
+                <span className="typing-text">Your wealth.</span>
+              </span>
+              <span 
+                className={`text-gold inline-block transition-all duration-1000 ease-in-out ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}
+                style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.4)' }}
+              >
+                Elevated.
+              </span>
+            </div>
           </h1>
           
           <p 
