@@ -21,8 +21,11 @@ const Process = () => {
       observer.observe(sectionRef.current);
     }
 
-    processStepRefs.current.forEach((step) => {
-      if (step) observer.observe(step);
+    processStepRefs.current.forEach((step, index) => {
+      if (step) {
+        step.style.transitionDelay = `${index * 150}ms`;
+        observer.observe(step);
+      }
     });
 
     return () => observer.disconnect();
@@ -47,13 +50,13 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="section bg-navy-dark text-white">
+    <section id="process" className="section bg-charcoal text-white bg-pattern">
       <div className="container-custom">
         <div 
           ref={sectionRef}
           className="animate-on-scroll"
         >
-          <h2 className="heading-lg text-center mb-16">Our Process</h2>
+          <h2 className="heading-lg text-center mb-16 text-white">Our Process</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
@@ -62,16 +65,15 @@ const Process = () => {
               key={index}
               ref={(el) => (processStepRefs.current[index] = el)}
               className="animate-on-scroll relative"
-              style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="glass-card bg-navy-light/30 hover:bg-navy-light/50 transition-all duration-500 p-8 rounded-lg h-full">
-                <span className="text-gold text-4xl font-neue font-semibold opacity-80 block mb-4">
+              <div className="glass-dark hover:bg-charcoal/40 transition-all duration-500 p-8 rounded-lg h-full border border-white/10">
+                <span className="text-amber text-4xl font-heading font-medium opacity-80 block mb-4">
                   {step.number}
                 </span>
-                <h3 className="text-xl font-neue font-semibold mb-4">
+                <h3 className="text-xl font-heading font-medium mb-4 text-white">
                   {step.title}
                 </h3>
-                <p className="text-slate-light">
+                <p className="text-lightgray">
                   {step.description}
                 </p>
               </div>

@@ -37,6 +37,25 @@ const Index = () => {
     };
   }, []);
 
+  // Add Google Fonts to head
+  useEffect(() => {
+    const spaceGroteskLink = document.createElement('link');
+    spaceGroteskLink.rel = 'stylesheet';
+    spaceGroteskLink.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap';
+    document.head.appendChild(spaceGroteskLink);
+
+    // Inter is already included in index.css, but this ensures it's loaded
+    const interLink = document.createElement('link');
+    interLink.rel = 'stylesheet';
+    interLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+    document.head.appendChild(interLink);
+
+    return () => {
+      document.head.removeChild(spaceGroteskLink);
+      document.head.removeChild(interLink);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <Navbar />

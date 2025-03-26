@@ -36,18 +36,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, hoverText, delay }) =>
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div 
-        className="hover-card bg-white rounded-lg p-8 h-64 flex flex-col justify-center items-center text-center shadow-md"
+        className="hover-card bg-white rounded-md p-8 h-64 flex flex-col justify-center items-center text-center shadow-md border border-lightgray/20 hover:shadow-xl transition-all duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <h3 className="heading-sm text-navy-dark mb-4 transition-opacity duration-300 ease-in-out"
+        <h3 className="heading-sm text-charcoal mb-4 transition-opacity duration-300 ease-in-out"
             style={{ opacity: isHovered ? 0 : 1 }}>
           {title}
         </h3>
         
         <div className="hover-card-content">
           <p className="text-white mb-3 font-medium">{title}</p>
-          <p className="text-slate-lightest text-sm">{hoverText}</p>
+          <p className="text-lightgray text-sm">{hoverText}</p>
         </div>
       </div>
     </div>
@@ -95,11 +95,11 @@ const ServiceCards = () => {
   }, []);
 
   return (
-    <section id="services" className="section bg-slate-lightest/30">
+    <section id="services" className="section bg-offwhite bg-pattern">
       <div className="container-custom">
         <h2 
           ref={titleRef}
-          className="heading-lg text-navy-dark text-center mb-16 animate-on-scroll"
+          className="heading-lg text-charcoal text-center mb-16 animate-on-scroll"
         >
           Services Tailored to Your Needs
         </h2>
