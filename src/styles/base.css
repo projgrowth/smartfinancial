@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Refined color system with blue accent instead of gold */
+    /* Refined color system with blue accent */
     --background: 0 0% 98%;
     --foreground: 215 28% 17%;
 
@@ -56,19 +56,23 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-medium text-charcoal;
     line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   
-  /* Consistent heading classes */
+  /* Enhanced typography with refined spacing and sizing */
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl tracking-tight;
+    letter-spacing: -0.02em;
   }
   
   h2 {
     @apply text-3xl md:text-4xl tracking-tight;
+    letter-spacing: -0.015em;
   }
   
   h3 {
     @apply text-2xl md:text-3xl tracking-tight;
+    letter-spacing: -0.01em;
   }
   
   h4 {
@@ -85,6 +89,7 @@
   
   p {
     @apply mb-4 text-charcoal/90;
+    max-width: 70ch;
   }
   
   a {
@@ -99,5 +104,55 @@
   /* Better selection styling */
   ::selection {
     @apply bg-blue-500/20 text-charcoal;
+  }
+  
+  /* Enhanced form elements */
+  input, select, textarea {
+    @apply rounded-md border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200;
+  }
+  
+  /* Improved buttons */
+  button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  }
+  
+  /* Responsive containers */
+  .container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Improved list styling */
+  ul, ol {
+    @apply pl-6 mb-4;
+  }
+  
+  li {
+    @apply mb-1;
+  }
+  
+  /* Better code blocks */
+  pre, code {
+    @apply rounded-md bg-slate-100 px-1.5 py-0.5 text-sm;
+  }
+  
+  pre {
+    @apply p-4 overflow-x-auto;
+  }
+  
+  pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  /* Tables */
+  table {
+    @apply w-full border-collapse mb-4;
+  }
+  
+  th, td {
+    @apply border border-slate-200 p-2 text-left;
+  }
+  
+  th {
+    @apply bg-slate-50;
   }
 }

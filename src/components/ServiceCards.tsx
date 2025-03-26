@@ -1,97 +1,92 @@
 
-import React, { useState } from 'react';
-import { useIntersectionObserver, useStaggeredAnimation } from '../hooks/useIntersectionObserver';
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import GradientAccent from './GradientAccent';
+import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
-  hoverText: string;
+  description: string;
   delay: number;
-  iconElement?: React.ReactNode;
+  icon: React.ReactNode;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, hoverText, delay, iconElement }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
-  
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, icon }) => {
   return (
-    <div 
-      ref={ref as React.RefObject<HTMLDivElement>} 
-      className={`transform transition-all duration-700 ease-out ${
-        isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`} 
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div 
-        className="hover-card bg-white rounded-md p-8 h-64 flex flex-col justify-center items-center text-center shadow-md border border-lightgray/20 hover:shadow-xl transition-all duration-300"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {iconElement && (
-          <div className={`mb-4 text-gold transition-all duration-300 ${isHovered ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}>
-            {iconElement}
+    <ScrollReveal delay={delay}>
+      <div className="group h-full">
+        <div className="h-full bg-white rounded-lg p-8 shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md hover:border-blue-100 hover:translate-y-[-4px] flex flex-col">
+          <div className="text-blue-500 mb-5 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">
+            {icon}
           </div>
-        )}
-        
-        <h3 className={`heading-sm text-charcoal mb-4 transition-all duration-300 ease-in-out ${
-          isHovered ? 'opacity-0 transform -translate-y-4' : 'opacity-100 transform translate-y-0'
-        }`}>
-          {title}
-        </h3>
-        
-        <div className={`hover-card-content transition-all duration-500 ease-in-out ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
-          <p className="text-white mb-3 font-medium">{title}</p>
-          <p className="text-lightgray text-sm">{hoverText}</p>
-          <div className="mt-4 h-[1px] w-12 bg-gold/30"></div>
+          
+          <h3 className="heading-sm text-charcoal mb-3 group-hover:text-blue-800 transition-colors duration-300">
+            {title}
+          </h3>
+          
+          <p className="text-charcoal/70 flex-grow mb-4">
+            {description}
+          </p>
+          
+          <div className="flex items-center text-blue-500 font-medium mt-auto opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+            <span className="mr-1">Learn more</span>
+            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
         </div>
       </div>
-    </div>
+    </ScrollReveal>
   );
 };
 
 const ServiceCards = () => {
   const services = [
     {
-      title: "Sophisticated Retirement Design",
-      hoverText: "Architect your ideal retirement, optimized for tax efficiency and lifetime wealth."
+      title: "Retirement Design",
+      description: "Architect your ideal retirement, optimized for tax efficiency and lifetime wealth preservation.",
+      icon: <FileSearch size={24} strokeWidth={1.5} />
     },
     {
-      title: "Advanced Tax Strategy",
-      hoverText: "Maximize your earnings with proactive, tailored tax strategies typically reserved for elite earners."
+      title: "Tax Strategy",
+      description: "Maximize your earnings with proactive, tailored tax strategies reserved for elite earners.",
+      icon: <CreditCard size={24} strokeWidth={1.5} />
     },
     {
-      title: "Strategic Investment Management",
-      hoverText: "Customized investment solutions calibrated to your ambitions, risk tolerance, and professional growth."
+      title: "Investment Management",
+      description: "Custom investment solutions calibrated to your ambitions, risk tolerance, and growth targets.",
+      icon: <BarChart4 size={24} strokeWidth={1.5} />
     },
     {
-      title: "Executive Insurance Solutions",
-      hoverText: "Specialized coverage ensuring comprehensive protection without excess or gaps."
+      title: "Wealth Protection",
+      description: "Specialized coverage ensuring comprehensive protection for all your assets.",
+      icon: <Shield size={24} strokeWidth={1.5} />
     }
   ];
 
-  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
-  const staggerDelays = useStaggeredAnimation(services.length, 150);
-
   return (
-    <section id="services" className="section bg-offwhite bg-pattern">
-      <div className="container-custom">
-        <h2 
-          ref={ref as React.RefObject<HTMLHeadingElement>}
-          className={`heading-lg text-charcoal text-center mb-16 transition-all duration-700 ${
-            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          Services Tailored to Your Needs
-        </h2>
+    <section id="services" className="section bg-offwhite relative overflow-hidden py-24">
+      <GradientAccent variant="subtle" position="top-left" intensity="low" />
+      
+      <div className="container-custom relative z-10">
+        <ScrollReveal>
+          <h2 className="heading-lg text-charcoal text-center mb-4">
+            Services Tailored to Your Needs
+          </h2>
+        </ScrollReveal>
+
+        <ScrollReveal delay={100}>
+          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-16">
+            Strategic financial planning designed for high-performing professionals who expect exceptional results.
+          </p>
+        </ScrollReveal>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <ServiceCard 
               key={index} 
               title={service.title} 
-              hoverText={service.hoverText} 
-              delay={staggerDelays[index]}
+              description={service.description} 
+              delay={index * 100} 
+              icon={service.icon}
             />
           ))}
         </div>

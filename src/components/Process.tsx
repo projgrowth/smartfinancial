@@ -1,36 +1,9 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import GradientAccent from './GradientAccent';
 
 const Process = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const processStepRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -100px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    processStepRefs.current.forEach((step, index) => {
-      if (step) {
-        step.style.transitionDelay = `${index * 200}ms`;
-        observer.observe(step);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const steps = [
     {
       number: '01',
@@ -50,29 +23,25 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="section bg-charcoal text-white relative overflow-hidden">
+    <section id="process" className="section bg-charcoal text-white relative overflow-hidden py-24">
       {/* Modern background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-charcoal to-charcoal/90"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-noise opacity-[0.03] mix-blend-overlay"></div>
-      <div className="absolute -bottom-[10%] -right-[5%] w-[40%] h-[60%] bg-gradient-to-br from-gold/5 to-amber/5 blur-3xl rounded-full"></div>
+      
+      {/* Gradient accents */}
+      <GradientAccent variant="blue" position="top-right" intensity="low" size="xl" />
+      <GradientAccent variant="dark" position="bottom-left" intensity="medium" size="lg" />
       
       <div className="container-custom relative z-10">
-        <div 
-          ref={sectionRef}
-          className="animate-on-scroll"
-        >
+        <ScrollReveal>
           <h2 className="heading-lg text-center mb-16 text-white">Our Process</h2>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
           {steps.map((step, index) => (
-            <div
-              key={index}
-              ref={(el) => (processStepRefs.current[index] = el)}
-              className="animate-on-scroll relative"
-            >
+            <ScrollReveal key={index} delay={index * 150}>
               <div className="glass-dark hover:bg-charcoal/40 transition-all duration-500 p-8 rounded-lg h-full border border-white/10 group">
-                <span className="text-gold text-4xl font-heading font-medium opacity-80 block mb-4 group-hover:text-gold-light transition-colors duration-300">
+                <span className="text-blue-400 text-4xl font-heading font-medium opacity-80 block mb-4 group-hover:text-blue-300 transition-colors duration-300">
                   {step.number}
                 </span>
                 <h3 className="text-xl font-heading font-medium mb-4 text-white">
@@ -82,7 +51,7 @@ const Process = () => {
                   {step.description}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

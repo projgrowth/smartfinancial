@@ -1,24 +1,28 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import ScrollReveal from './ScrollReveal';
+import GradientAccent from './GradientAccent';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 interface TestimonialProps {
   quote: string;
   author: string;
   position: string;
+  isActive: boolean;
 }
 
-const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position }) => {
+const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position, isActive }) => {
   return (
-    <div className="testimonial glass-card bg-navy-dark/10 backdrop-blur-sm p-8 rounded-lg">
-      <div className="mb-6">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 20L4 32V20H10ZM22 20L16 32V20H22Z" fill="#E6C683" fillOpacity="0.5"/>
-        </svg>
+    <div className={`testimonial p-8 rounded-lg border border-slate-200 bg-white shadow-sm transition-all duration-500 transform ${
+      isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+    }`}>
+      <div className="mb-6 text-blue-500 opacity-80">
+        <Quote size={32} />
       </div>
-      <p className="text-slate mb-6">{quote}</p>
+      <p className="text-charcoal/80 mb-6 text-lg leading-relaxed">{quote}</p>
       <div>
-        <p className="font-semibold text-navy-dark">{author}</p>
-        <p className="text-sm text-slate">{position}</p>
+        <p className="font-semibold text-charcoal">{author}</p>
+        <p className="text-sm text-charcoal/60">{position}</p>
       </div>
     </div>
   );
@@ -26,11 +30,11 @@ const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position }) =>
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
   
   const testimonials = [
     {
-      quote: "Working with Smart Financial Planning feels like having a personal CFO—strategic, responsive, and genuinely tailored to my needs.",
+      quote: "Working with this team feels like having a personal CFO—strategic, responsive, and genuinely tailored to my needs.",
       author: "Dr. Alex Rivera",
       position: "Orthopedic Surgeon"
     },
@@ -48,99 +52,104 @@ const Testimonials = () => {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    setIsPaused(true);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    setIsPaused(true);
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Auto slideshow
-  useEffect(() => {
+    if (isPaused) {
+      const timeout = setTimeout(() => setIsPaused(false), 10000);
+      return () => clearTimeout(timeout);
+    }
+    
     const interval = setInterval(() => {
-      nextSlide();
+      if (!isPaused) {
+        setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+      }
     }, 6000);
     
     return () => clearInterval(interval);
-  }, [currentSlide]);
+  }, [currentSlide, isPaused, testimonials.length]);
 
   return (
-    <section id="testimonials" className="section bg-slate-lightest/30">
-      <div 
-        ref={sectionRef}
-        className="container-custom animate-on-scroll"
-      >
-        <h2 className="heading-lg text-navy-dark text-center mb-16">
-          What Our Clients Say
-        </h2>
+    <section id="testimonials" className="section bg-slate-lightest/30 relative overflow-hidden py-24">
+      <GradientAccent variant="blue" position="bottom-right" intensity="low" />
+      
+      <div className="container-custom relative z-10">
+        <ScrollReveal>
+          <h2 className="heading-lg text-charcoal text-center mb-4">
+            What Our Clients Say
+          </h2>
+        </ScrollReveal>
+        
+        <ScrollReveal delay={100}>
+          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-16">
+            Hear from professionals who've experienced the difference strategic wealth management makes.
+          </p>
+        </ScrollReveal>
         
         <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out" 
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0">
-                  <Testimonial
-                    quote={testimonial.quote}
-                    author={testimonial.author}
-                    position={testimonial.position}
-                  />
-                </div>
-              ))}
-            </div>
+          <div 
+            className="relative overflow-hidden"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className={`transition-all duration-500 absolute inset-0 ${
+                  currentSlide === index ? 'translate-x-0 opacity-100 z-10' : 'translate-x-full opacity-0 -z-10'
+                }`}
+              >
+                <Testimonial
+                  quote={testimonial.quote}
+                  author={testimonial.author}
+                  position={testimonial.position}
+                  isActive={currentSlide === index}
+                />
+              </div>
+            ))}
           </div>
           
           {/* Navigation buttons */}
-          <div className="flex justify-center mt-8 space-x-4">
+          <div className="flex justify-center mt-8 space-x-2">
             <button 
               onClick={prevSlide}
-              className="p-2 rounded-full bg-white shadow-md hover:bg-navy-light hover:text-white transition-colors duration-300"
+              className="p-2 rounded-full bg-white shadow-sm hover:bg-blue-50 text-charcoal transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               aria-label="Previous testimonial"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 19L8 12L15 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ChevronLeft size={20} />
             </button>
             
             <div className="flex items-center space-x-2">
               {testimonials.map((_, index) => (
                 <button 
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? 'bg-gold scale-110' : 'bg-slate-light scale-100'
+                  onClick={() => {
+                    setCurrentSlide(index);
+                    setIsPaused(true);
+                  }}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                    currentSlide === index 
+                      ? 'bg-blue-500 scale-110 shadow-sm' 
+                      : 'bg-slate-300 scale-100 hover:bg-slate-400'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
+                  aria-current={currentSlide === index ? 'true' : 'false'}
                 />
               ))}
             </div>
             
             <button 
               onClick={nextSlide}
-              className="p-2 rounded-full bg-white shadow-md hover:bg-navy-light hover:text-white transition-colors duration-300"
+              className="p-2 rounded-full bg-white shadow-sm hover:bg-blue-50 text-charcoal transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               aria-label="Next testimonial"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 5L16 12L9 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>

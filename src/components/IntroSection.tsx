@@ -1,78 +1,42 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import GradientAccent from './GradientAccent';
+import { ArrowRight } from 'lucide-react';
+import PrimaryButton from './PrimaryButton';
 
 const IntroSection = () => {
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-on-scroll', 'in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (titleRef.current) observer.observe(titleRef.current);
-    if (textRef.current) observer.observe(textRef.current);
-    if (buttonRef.current) observer.observe(buttonRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className="section bg-white">
-      <div className="container-custom">
+    <section className="section bg-white relative overflow-hidden py-24">
+      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
+      
+      <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 
-            ref={titleRef} 
-            className="heading-lg text-navy-dark text-center mb-6 animate-on-scroll"
-          >
-            Generic plans weren't made for <span className="text-navy">you</span>.
-          </h2>
+          <ScrollReveal>
+            <h2 className="heading-lg text-charcoal text-center mb-6">
+              Generic plans weren't made for <span className="text-blue-500">you</span>.
+            </h2>
+          </ScrollReveal>
           
-          <p 
-            ref={textRef} 
-            className="paragraph text-slate text-center mb-10 animate-on-scroll"
-            style={{ transitionDelay: '100ms' }}
-          >
-            Smart Financial Planning delivers highly personalized financial guidance for business owners, 
-            top-tier executives, doctors, and legal professionals—crafted around your distinct ambitions, 
-            career trajectory, and lifestyle.
-          </p>
+          <ScrollReveal delay={100}>
+            <p className="paragraph text-charcoal/70 text-center mb-10">
+              We deliver highly personalized financial guidance for business owners, 
+              top-tier executives, doctors, and legal professionals—crafted around your distinct ambitions, 
+              career trajectory, and lifestyle.
+            </p>
+          </ScrollReveal>
           
-          <div className="text-center">
-            <a 
-              ref={buttonRef}
-              href="#profile" 
-              className="button-secondary inline-flex items-center animate-on-scroll"
-              style={{ transitionDelay: '200ms' }}
+          <ScrollReveal delay={200} className="text-center">
+            <PrimaryButton
+              variant="outline"
+              icon={<ArrowRight />}
+              iconPosition="right"
+              className="group"
+              onClick={() => document.getElementById('profile')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Discover Your Financial Profile
-              <svg 
-                className="ml-2" 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path 
-                  d="M5 12H19M19 12L12 5M19 12L12 19" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
+            </PrimaryButton>
+          </ScrollReveal>
         </div>
       </div>
     </section>

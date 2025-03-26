@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
-import { Button } from './ui/button';
+import PrimaryButton from './PrimaryButton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,12 +63,17 @@ const Navbar = () => {
           ? 'bg-white/95 shadow-sm backdrop-blur-safe py-3' 
           : 'bg-transparent py-5'
       }`}
+      aria-label="Main navigation"
     >
       <div className="container-custom flex justify-between items-center">
         <a 
           href="#" 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="font-heading text-charcoal text-xl font-medium tracking-tight hover:text-blue-500 transition-colors duration-300"
+          aria-label="Back to top"
         >
           <span className="inline-flex items-center">
             Wealth Advisory
@@ -76,7 +81,11 @@ const Navbar = () => {
         </a>
 
         {/* Desktop navigation with improved animations and active states */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div 
+          className="hidden md:flex items-center space-x-8"
+          role="navigation"
+          aria-label="Desktop navigation"
+        >
           {navItems.map((item, index) => (
             <a 
               key={item.id} 
@@ -94,21 +103,23 @@ const Navbar = () => {
                 transform: `translateY(${isScrolled ? '0' : '4px'})`,
                 transition: 'opacity 0.3s ease, transform 0.3s ease, color 0.3s ease'
               }}
+              aria-current={activeSection === item.id ? 'page' : undefined}
             >
               {item.name}
               <span 
                 className={`absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 transform origin-left transition-transform duration-300 ${
                   activeSection === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                 }`} 
+                aria-hidden="true"
               />
             </a>
           ))}
-          <Button 
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('contact');
-            }}
-            className="bg-charcoal text-white hover:bg-charcoal/90 transition-all duration-300 group"
+          <PrimaryButton 
+            onClick={() => handleNavClick('contact')}
+            className="group"
+            size="sm"
+            icon={<ChevronRight size={16} />}
+            iconPosition="right"
             style={{ 
               transitionDelay: '200ms',
               opacity: isScrolled ? 1 : 0.9,
@@ -116,15 +127,15 @@ const Navbar = () => {
               transition: 'opacity 0.3s ease, transform 0.3s ease'
             }}
           >
-            <span>Schedule a Call</span>
-            <ChevronRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Button>
+            Schedule a Call
+          </PrimaryButton>
         </div>
 
         {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-charcoal focus:outline-none hover:text-blue-500 transition-colors duration-300 p-2"
+          className="md:hidden text-charcoal focus:outline-none hover:text-blue-500 transition-colors duration-300 p-2 focus:ring-2 focus:ring-blue-500 rounded-md"
+          aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -138,6 +149,9 @@ const Navbar = () => {
             ? 'max-h-[300px] opacity-100' 
             : 'max-h-0 opacity-0'
         }`}
+        role="navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
       >
         <div className="container-custom py-4 bg-white/95 backdrop-blur-sm flex flex-col space-y-4">
           {navItems.map((item, index) => (
@@ -154,6 +168,7 @@ const Navbar = () => {
                   : 'hover:bg-charcoal/5'
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}
+              aria-current={activeSection === item.id ? 'page' : undefined}
             >
               <span className="inline-flex items-center">
                 {item.name}
@@ -161,15 +176,14 @@ const Navbar = () => {
               </span>
             </a>
           ))}
-          <Button 
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('contact');
-            }}
-            className="w-full bg-charcoal text-white hover:bg-charcoal/90 justify-center"
+          <PrimaryButton 
+            onClick={() => handleNavClick('contact')}
+            className="w-full justify-center"
+            icon={<ChevronRight size={16} />}
+            iconPosition="right"
           >
             Schedule a Call
-          </Button>
+          </PrimaryButton>
         </div>
       </div>
     </nav>
