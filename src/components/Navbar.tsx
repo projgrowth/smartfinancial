@@ -25,8 +25,8 @@ const Navbar = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 shadow-md backdrop-blur-md py-4' 
-          : 'bg-transparent py-6'
+          ? 'bg-white/90 shadow-sm backdrop-blur-md py-3' 
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
@@ -36,13 +36,35 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Desktop navigation */}
+        {/* Desktop navigation with improved animations */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="nav-link text-charcoal hover:text-amber-dark transition-colors">Services</a>
-          <a href="#process" className="nav-link text-charcoal hover:text-amber-dark transition-colors">Process</a>
-          <a href="#team" className="nav-link text-charcoal hover:text-amber-dark transition-colors">Team</a>
-          <a href="#testimonials" className="nav-link text-charcoal hover:text-amber-dark transition-colors">Testimonials</a>
-          <a href="#contact" className="button-primary">Schedule a Call</a>
+          {['Services', 'Process', 'Team', 'Testimonials'].map((item, index) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              className="nav-link text-charcoal hover:text-amber-dark transition-colors"
+              style={{ 
+                transitionDelay: `${index * 50}ms`,
+                opacity: isScrolled ? 1 : 0.9,
+                transform: `translateY(${isScrolled ? '0' : '4px'})`,
+                transition: 'opacity 0.3s ease, transform 0.3s ease, color 0.3s ease'
+              }}
+            >
+              {item}
+            </a>
+          ))}
+          <a 
+            href="#contact" 
+            className="button-primary transition-all duration-300 hover:shadow-md"
+            style={{ 
+              transitionDelay: '200ms',
+              opacity: isScrolled ? 1 : 0.9,
+              transform: `translateY(${isScrolled ? '0' : '4px'})`,
+              transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease'
+            }}
+          >
+            Schedule a Call
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -53,20 +75,33 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu with improved animation */}
       <div 
-        className={`md:hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
           isOpen 
-            ? 'max-h-screen opacity-100' 
-            : 'max-h-0 opacity-0 invisible'
+            ? 'max-h-[300px] opacity-100' 
+            : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="container-custom py-4 bg-white flex flex-col space-y-6">
-          <a href="#services" className="nav-link text-charcoal hover:text-amber-dark py-2" onClick={() => setIsOpen(false)}>Services</a>
-          <a href="#process" className="nav-link text-charcoal hover:text-amber-dark py-2" onClick={() => setIsOpen(false)}>Process</a>
-          <a href="#team" className="nav-link text-charcoal hover:text-amber-dark py-2" onClick={() => setIsOpen(false)}>Team</a>
-          <a href="#testimonials" className="nav-link text-charcoal hover:text-amber-dark py-2" onClick={() => setIsOpen(false)}>Testimonials</a>
-          <a href="#contact" className="button-primary inline-block text-center" onClick={() => setIsOpen(false)}>Schedule a Call</a>
+        <div className="container-custom py-4 bg-white/95 backdrop-blur-sm flex flex-col space-y-4">
+          {['Services', 'Process', 'Team', 'Testimonials'].map((item, index) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`} 
+              className="nav-link text-charcoal hover:text-amber-dark py-2" 
+              onClick={() => setIsOpen(false)}
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {item}
+            </a>
+          ))}
+          <a 
+            href="#contact" 
+            className="button-primary inline-block text-center" 
+            onClick={() => setIsOpen(false)}
+          >
+            Schedule a Call
+          </a>
         </div>
       </div>
     </nav>

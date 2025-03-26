@@ -23,7 +23,7 @@ const Process = () => {
 
     processStepRefs.current.forEach((step, index) => {
       if (step) {
-        step.style.transitionDelay = `${index * 150}ms`;
+        step.style.transitionDelay = `${index * 200}ms`;
         observer.observe(step);
       }
     });
@@ -50,8 +50,13 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="section bg-charcoal text-white bg-pattern">
-      <div className="container-custom">
+    <section id="process" className="section bg-charcoal text-white relative overflow-hidden">
+      {/* Modern background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-charcoal to-charcoal/90"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-noise opacity-[0.03] mix-blend-overlay"></div>
+      <div className="absolute -bottom-[10%] -right-[5%] w-[40%] h-[60%] bg-gradient-to-br from-gold/5 to-amber/5 blur-3xl rounded-full"></div>
+      
+      <div className="container-custom relative z-10">
         <div 
           ref={sectionRef}
           className="animate-on-scroll"
@@ -59,21 +64,21 @@ const Process = () => {
           <h2 className="heading-lg text-center mb-16 text-white">Our Process</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
           {steps.map((step, index) => (
             <div
               key={index}
               ref={(el) => (processStepRefs.current[index] = el)}
               className="animate-on-scroll relative"
             >
-              <div className="glass-dark hover:bg-charcoal/40 transition-all duration-500 p-8 rounded-lg h-full border border-white/10">
-                <span className="text-amber text-4xl font-heading font-medium opacity-80 block mb-4">
+              <div className="glass-dark hover:bg-charcoal/40 transition-all duration-500 p-8 rounded-lg h-full border border-white/10 group">
+                <span className="text-gold text-4xl font-heading font-medium opacity-80 block mb-4 group-hover:text-gold-light transition-colors duration-300">
                   {step.number}
                 </span>
                 <h3 className="text-xl font-heading font-medium mb-4 text-white">
                   {step.title}
                 </h3>
-                <p className="text-lightgray">
+                <p className="text-lightgray group-hover:text-white/90 transition-colors duration-300">
                   {step.description}
                 </p>
               </div>
