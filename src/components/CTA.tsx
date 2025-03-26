@@ -23,12 +23,15 @@ const CTA = () => {
   }, []);
 
   return (
-    <section id="contact" className="section bg-charcoal text-white bg-pattern blob-bg">
-      <div className="blob top-20 right-10 w-80 h-80 bg-amber/10"></div>
+    <section id="contact" className="section text-white relative overflow-hidden bg-gradient-to-br from-charcoal/95 to-charcoal/90 backdrop-blur-sm">
+      {/* Premium glass morphic decoration */}
+      <div className="absolute left-0 top-0 w-[40%] h-[80%] bg-gradient-to-br from-sky-400/10 to-blue-500/5 blur-3xl rounded-full transform -translate-x-1/4"></div>
+      <div className="absolute right-0 bottom-0 w-[40%] h-[80%] bg-gradient-to-tl from-amber-400/10 to-amber-300/5 blur-3xl rounded-full transform translate-x-1/4"></div>
+      
       <div className="container-custom relative z-10">
         <div 
           ref={ctaRef}
-          className="max-w-4xl mx-auto text-center animate-on-scroll"
+          className="max-w-4xl mx-auto text-center animate-on-scroll backdrop-blur-sm py-10 px-6 rounded-2xl border border-white/5"
         >
           <h2 className="heading-lg mb-6 text-white">
             Ready for smarter financial strategies designed exclusively around you?
@@ -38,11 +41,11 @@ const CTA = () => {
           </p>
           <a 
             href="#" 
-            className="inline-flex items-center justify-center px-8 py-4 bg-amber text-charcoal font-medium rounded-md hover:bg-amber-light transition-all duration-300 shadow-lg"
+            className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber to-amber-light text-charcoal font-medium rounded-md hover:from-amber-light hover:to-amber transition-all duration-300 shadow-lg"
           >
             Schedule Your Strategy Session
             <svg 
-              className="ml-2" 
+              className="ml-2 group-hover:translate-x-1 transition-transform duration-300" 
               width="20" 
               height="20" 
               viewBox="0 0 24 24" 

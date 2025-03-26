@@ -9,6 +9,7 @@ import Advisors from '../components/Advisors';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
+import PremiumBackground from '../components/PremiumBackground';
 
 const Index = () => {
   useEffect(() => {
@@ -58,6 +59,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
+      <PremiumBackground />
       <Navbar />
       <Hero />
       <IntroSection />
