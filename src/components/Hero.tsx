@@ -1,43 +1,74 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Button } from './ui/button';
+import { ChevronDown, TrendingUp } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [isSecondLineVisible, setIsSecondLineVisible] = useState(false);
   
   useEffect(() => {
     setIsVisible(true);
     
     const typingTimer = setTimeout(() => {
       setIsTypingComplete(true);
+      
+      // Show second line after first animation completes
+      setTimeout(() => {
+        setIsSecondLineVisible(true);
+      }, 800);
     }, 2200);
     
     return () => clearTimeout(typingTimer);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24">
+    <section className="relative min-h-[85vh] flex flex-col justify-center pt-16">
       <div className="container-custom mx-auto z-10">
         <div className="max-w-3xl mx-auto text-center">
+          <div className="flex items-center justify-center mb-2">
+            <TrendingUp className="w-6 h-6 text-gold mr-2 animate-float" />
+            <span className="text-sm uppercase tracking-wider text-gold/80 font-medium">Smart Financial Planning</span>
+          </div>
+          
           <h1 
-            className={`heading-xl text-charcoal mb-6 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`heading-xl text-charcoal mb-4 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
           >
-            <span className="typing-wrapper mr-2">
+            <span className="typing-wrapper mr-2 inline-block">
               <span className="typing-text">Your wealth.</span>
             </span>
             <span 
-              className={`text-gold transition-all duration-1000 ease-in-out ${isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              className={`text-gold inline-block transition-all duration-1000 ease-in-out ${isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.4)' }}
             >
               Elevated.
             </span>
           </h1>
           
+          <div className="h-8 mb-2 overflow-hidden">
+            <p 
+              className={`transition-all duration-700 text-lg font-heading ${isSecondLineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              style={{ transitionDelay: '200ms' }}
+            >
+              <span className="typing-wrapper inline-block">
+                <span className="typing-text-secondary">Your future.</span>
+              </span>
+              <span 
+                className={`text-gold ml-2 transition-all duration-700 ease-in-out ${isSecondLineVisible ? 'opacity-100' : 'opacity-0'}`}
+                style={{ textShadow: '0 0 1px rgba(199, 168, 92, 0.3)' }}
+              >
+                Secured.
+              </span>
+            </p>
+          </div>
+          
           <p 
             className={`paragraph text-darkgray/90 mb-10 max-w-2xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             style={{ transitionDelay: '400ms' }}
           >
-            Tailored financial strategies for ambitious professionals who demand more than cookie-cutter solutions.
+            Tailored financial strategies for ambitious professionals who demand more than 
+            cookie-cutter solutions. We help you build, protect, and grow your wealth.
           </p>
           
           <div 
@@ -56,9 +87,7 @@ const Hero = () => {
           {/* Modern scroll indicator */}
           <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-charcoal/40 animate-bounce-subtle">
             <span className="text-sm mb-2 tracking-wide font-light">Scroll</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronDown className="w-5 h-5" />
           </div>
         </div>
       </div>
