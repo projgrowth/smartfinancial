@@ -1,124 +1,168 @@
 
 import React from 'react';
-import { ChevronRight, Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import ScrollReveal from './ScrollReveal';
+import NewsletterSignup from './NewsletterSignup';
+import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="bg-white/80 backdrop-blur-sm py-12 border-t border-blue-50">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Brand column */}
-          <div className="space-y-4">
-            <a href="/" className="font-heading text-charcoal text-xl font-medium tracking-tight inline-flex items-center group">
-              <span className="text-blue-500 mr-1 group-hover:text-blue-600 transition-colors duration-300">•</span>
-              <span className="group-hover:text-blue-500 transition-colors duration-300">Smart Financial Planning</span>
-            </a>
-            <p className="text-sm text-charcoal/70 mt-2 max-w-xs">
-              Helping ambitious professionals build and protect wealth through tailored financial strategies.
-            </p>
-            <div className="flex space-x-2 pt-2">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-600">
-                Fiduciary
-              </span>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-600">
-                Fee-only
-              </span>
-            </div>
+    <footer id="contact" className="bg-charcoal text-slate-lightest">
+      <div className="container-custom pt-16 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <ScrollReveal>
+              <div className="mb-6">
+                <Link to="/" className="font-heading text-white text-xl font-medium tracking-tight mb-2 block">
+                  Smart Financial Planning
+                </Link>
+                <p className="text-slate-light text-sm mt-3">
+                  Tailored financial strategies for ambitious professionals who demand more than 
+                  cookie-cutter solutions.
+                </p>
+              </div>
+              
+              <div className="flex space-x-4">
+                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                  <Facebook size={18} />
+                  <span className="sr-only">Facebook</span>
+                </a>
+                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                  <Twitter size={18} />
+                  <span className="sr-only">Twitter</span>
+                </a>
+                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                  <Linkedin size={18} />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                  <Instagram size={18} />
+                  <span className="sr-only">Instagram</span>
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
           
-          {/* Links column */}
-          <div className="space-y-4">
-            <h4 className="font-heading text-base font-medium text-charcoal">Quick Links</h4>
-            <ul className="space-y-2">
-              {['Services', 'Process', 'Case Studies', 'Team', 'Testimonials', 'Contact'].map(item => (
-                <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                    className="text-charcoal/70 hover:text-blue-500 transition-colors duration-300 text-sm inline-flex items-center group"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.getElementById(item.toLowerCase().replace(/\s+/g, '-'))?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    <ChevronRight className="w-3 h-3 mr-1 transition-transform duration-300 group-hover:translate-x-1" />
-                    {item}
+          <div className="lg:col-span-2">
+            <ScrollReveal delay={100}>
+              <h3 className="text-white font-medium mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="text-slate-light hover:text-white transition-colors text-sm">
+                    About Us
                   </a>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <a href="#team" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Our Team
+                  </a>
+                </li>
+                <li>
+                  <Link to="/education" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Education Center
+                  </Link>
+                </li>
+                <li>
+                  <a href="#case-studies" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Case Studies
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Careers
+                  </a>
+                </li>
+              </ul>
+            </ScrollReveal>
           </div>
           
-          {/* Contact column */}
-          <div className="space-y-4">
-            <h4 className="font-heading text-base font-medium text-charcoal">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <Mail className="w-4 h-4 text-blue-500 mt-1 mr-2 flex-shrink-0" />
-                <a href="mailto:contact@smartfinancial.com" className="text-sm text-charcoal/70 hover:text-blue-500 transition-colors duration-300">
-                  contact@smartfinancial.com
-                </a>
-              </li>
-              <li className="flex items-start">
-                <Phone className="w-4 h-4 text-blue-500 mt-1 mr-2 flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-sm text-charcoal/70 hover:text-blue-500 transition-colors duration-300">
-                  (123) 456-7890
-                </a>
-              </li>
-              <li className="flex items-start">
-                <MapPin className="w-4 h-4 text-blue-500 mt-1 mr-2 flex-shrink-0" />
-                <span className="text-sm text-charcoal/70">
-                  123 Financial District<br />
-                  New York, NY 10004
-                </span>
-              </li>
-            </ul>
+          <div className="lg:col-span-2">
+            <ScrollReveal delay={200}>
+              <h3 className="text-white font-medium mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Wealth Management
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Investment Planning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Retirement Planning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Tax Optimization
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                    Estate Planning
+                  </a>
+                </li>
+              </ul>
+            </ScrollReveal>
           </div>
           
-          {/* Hours column */}
-          <div className="space-y-4">
-            <h4 className="font-heading text-base font-medium text-charcoal">Hours</h4>
-            <ul className="space-y-2">
-              <li className="text-sm text-charcoal/70 flex justify-between">
-                <span>Monday - Friday</span>
-                <span>9:00 AM - 5:00 PM</span>
-              </li>
-              <li className="text-sm text-charcoal/70 flex justify-between">
-                <span>Saturday</span>
-                <span>By appointment</span>
-              </li>
-              <li className="text-sm text-charcoal/70 flex justify-between">
-                <span>Sunday</span>
-                <span>Closed</span>
-              </li>
-            </ul>
-            <div className="pt-2">
-              <a 
-                href="#contact" 
-                className="inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors duration-300 group"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Schedule a Consultation
-                <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </div>
+          <div className="lg:col-span-4">
+            <ScrollReveal delay={300}>
+              <h3 className="text-white font-medium mb-4">Contact Information</h3>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <MapPin className="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-slate-light text-sm">
+                    123 Financial District, Suite 400<br />
+                    New York, NY 10001
+                  </span>
+                </li>
+                <li className="flex items-center">
+                  <Phone className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
+                  <a href="tel:+12125551234" className="text-slate-light hover:text-white transition-colors text-sm">
+                    (212) 555-1234
+                  </a>
+                </li>
+                <li className="flex items-center">
+                  <Mail className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
+                  <a href="mailto:info@smartfinancialplanning.com" className="text-slate-light hover:text-white transition-colors text-sm">
+                    info@smartfinancialplanning.com
+                  </a>
+                </li>
+              </ul>
+              
+              <NewsletterSignup 
+                compact={true} 
+                title="Financial Insights Newsletter"
+                description="Stay updated with the latest in personal finance and wealth management."
+              />
+            </ScrollReveal>
           </div>
         </div>
         
-        <div className="pt-6 border-t border-blue-50 flex flex-col md:flex-row justify-between items-center text-sm text-charcoal/60">
-          <div className="mb-4 md:mb-0">
-            &copy; {currentYear} Smart Financial Planning. All rights reserved.
+        <ScrollReveal>
+          <div className="mt-16 pt-6 border-t border-charcoal-light/30 text-slate-light/70 text-sm flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              © {currentYear} Smart Financial Planning. All rights reserved.
+            </div>
+            <div className="flex space-x-6">
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Cookie Policy
+              </a>
+            </div>
           </div>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-blue-500 transition-colors duration-300">Terms of Service</a>
-            <a href="#" className="hover:text-blue-500 transition-colors duration-300">Disclosures</a>
-          </div>
-        </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

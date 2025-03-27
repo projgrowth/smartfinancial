@@ -12,6 +12,7 @@ import './index.css';
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Education = lazy(() => import("./pages/Education"));
 
 // Handle scroll restoration
 const ScrollToTop = () => {
@@ -57,6 +58,7 @@ const App = () => (
         <Suspense fallback={<LoadingIndicator />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/education" element={<Education />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
