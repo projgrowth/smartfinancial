@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -6,7 +5,6 @@ import IntroSection from '../components/IntroSection';
 import Process from '../components/Process';
 import ServiceCards from '../components/ServiceCards';
 import CaseStudies from '../components/CaseStudies';
-import Advisors from '../components/Advisors';
 import TeamDetails from '../components/TeamDetails';
 import FAQSection from '../components/FAQSection';
 import FinancialCalculator from '../components/FinancialCalculator';
@@ -125,7 +123,6 @@ const Index = () => {
         <FinancialCalculator />
         
         <CaseStudies key="case-studies" />
-        <Advisors />
         <TeamDetails />
         <MeetingScheduler />
         <Testimonials />
