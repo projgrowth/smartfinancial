@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -20,27 +21,7 @@ const Index = () => {
       setIsLoading(false);
     }, 500);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px',
-      }
-    );
-
-    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
-      observer.observe(element);
-    });
-
     return () => {
-      observer.disconnect();
       clearTimeout(timer);
     };
   }, []);
@@ -72,7 +53,7 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-sky-50/30 via-white/80 to-amber-50/30">
+      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-sky-50/30 via-white/80 to-blue-50/30">
         <div className="container-custom mx-auto py-24">
           <Skeleton className="h-12 w-3/4 max-w-lg mx-auto mb-8" />
           <Skeleton className="h-6 w-2/3 max-w-md mx-auto mb-12" />

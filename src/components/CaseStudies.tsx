@@ -11,6 +11,8 @@ import {
 import { Briefcase, Users, ChartBar, DollarSign } from 'lucide-react';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import PrimaryButton from './PrimaryButton';
+import ScrollReveal from './ScrollReveal';
+import GradientAccent from './GradientAccent';
 
 const CaseStudies = () => {
   const caseStudies = [
@@ -61,71 +63,78 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section id="case-studies" className="py-16 md:py-24 bg-white relative overflow-hidden">
-      <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-charcoal mb-4">
+    <section id="case-studies" className="section relative overflow-hidden bg-slate-lightest/30 py-24">
+      <GradientAccent variant="blue" position="bottom-right" intensity="low" />
+      
+      <div className="container-custom relative z-10">
+        <ScrollReveal>
+          <h2 className="heading-lg text-charcoal text-center mb-4">
             How We've Helped Clients Like You
           </h2>
-          <p className="text-charcoal/70 text-lg text-pretty">
+        </ScrollReveal>
+
+        <ScrollReveal delay={100}>
+          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-16">
             Our tailored financial strategies have helped professionals at all stages achieve their goals. 
             See how we might help someone in your situation.
           </p>
-        </div>
-
+        </ScrollReveal>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {caseStudies.map((study) => (
-            <Card key={study.id} className="group overflow-hidden border-blue-50 shadow-blue-sm hover:shadow-blue-md transition-all duration-300">
-              <CardHeader className="p-0">
-                <AspectRatio ratio={16/9} className="bg-blue-50">
-                  <img 
-                    src={study.image} 
-                    alt={study.title} 
-                    className="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                </AspectRatio>
-              </CardHeader>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center">
-                    <div className="bg-blue-50 p-2 rounded-lg mr-3">
-                      {study.icon}
+          {caseStudies.map((study, index) => (
+            <ScrollReveal key={study.id} delay={index * 100}>
+              <Card className="group overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border-blue-50">
+                <CardHeader className="p-0">
+                  <AspectRatio ratio={16/9} className="bg-blue-50">
+                    <img 
+                      src={study.image} 
+                      alt={study.title} 
+                      className="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </AspectRatio>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="flex items-center">
+                      <div className="bg-blue-50 p-2 rounded-lg mr-3">
+                        {study.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-heading text-xl font-medium text-charcoal">{study.title}</h3>
+                        <p className="text-sm text-charcoal/60">{study.name}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-charcoal/70 mb-4">{study.description}</p>
+                  <div className="space-y-3 mb-4">
+                    <div>
+                      <h4 className="font-medium text-sm text-charcoal">Challenge:</h4>
+                      <p className="text-sm text-charcoal/80">{study.challenge}</p>
                     </div>
                     <div>
-                      <h3 className="font-heading text-xl font-medium text-charcoal">{study.title}</h3>
-                      <p className="text-sm text-charcoal/60">{study.name}</p>
+                      <h4 className="font-medium text-sm text-charcoal">Our Approach:</h4>
+                      <p className="text-sm text-charcoal/80">{study.solution}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-sm text-charcoal">Outcome:</h4>
+                      <p className="text-sm text-charcoal/80">{study.result}</p>
                     </div>
                   </div>
-                </div>
-                <p className="text-charcoal/70 mb-4">{study.description}</p>
-                <div className="space-y-3 mb-4">
-                  <div>
-                    <h4 className="font-medium text-sm text-charcoal">Challenge:</h4>
-                    <p className="text-sm text-charcoal/80">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-sm text-charcoal">Our Approach:</h4>
-                    <p className="text-sm text-charcoal/80">{study.solution}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-sm text-charcoal">Outcome:</h4>
-                    <p className="text-sm text-charcoal/80">{study.result}</p>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter className="px-6 pb-6 pt-0">
-                <PrimaryButton 
-                  onClick={() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  variant="outline"
-                  size="sm"
-                  className="w-full justify-center text-blue-600 border-blue-200 hover:bg-blue-50"
-                >
-                  See If We're a Good Fit
-                </PrimaryButton>
-              </CardFooter>
-            </Card>
+                </CardContent>
+                <CardFooter className="px-6 pb-6 pt-0">
+                  <PrimaryButton 
+                    onClick={() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    variant="outline"
+                    size="sm"
+                    className="w-full justify-center text-blue-600 border-blue-200 hover:bg-blue-50"
+                  >
+                    See If We're a Good Fit
+                  </PrimaryButton>
+                </CardFooter>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
       </div>

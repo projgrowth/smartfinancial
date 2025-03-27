@@ -13,7 +13,7 @@ interface TestimonialProps {
 
 const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position, isActive }) => {
   return (
-    <div className={`testimonial p-8 rounded-lg border border-slate-200 bg-white shadow-sm transition-all duration-500 transform ${
+    <div className={`testimonial p-8 rounded-lg border border-blue-100 bg-white shadow-sm transition-all duration-500 transform ${
       isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
     }`}>
       <div className="mb-6 text-blue-500 opacity-80">
@@ -76,8 +76,8 @@ const Testimonials = () => {
   }, [currentSlide, isPaused, testimonials.length]);
 
   return (
-    <section id="testimonials" className="section bg-slate-lightest/30 relative overflow-hidden py-24">
-      <GradientAccent variant="blue" position="bottom-right" intensity="low" />
+    <section id="testimonials" className="section bg-slate-lightest relative overflow-hidden py-24">
+      <GradientAccent variant="blue" position="bottom-left" intensity="low" />
       
       <div className="container-custom relative z-10">
         <ScrollReveal>
