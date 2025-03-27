@@ -5,12 +5,29 @@ import GradientAccent from './GradientAccent';
 import { ArrowRight } from 'lucide-react';
 import PrimaryButton from './PrimaryButton';
 import { MicroAnimations } from './ui/micro-animations';
+import { useLocation } from 'react-router-dom';
 
 const IntroSection = () => {
+  const location = useLocation();
+  const isEducationPage = location.pathname === '/education';
+  
   return (
     <section className="section bg-white relative overflow-hidden py-24">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" animated />
       <GradientAccent variant="gold" position="top-right" size="sm" intensity="low" className="translate-x-1/2" animated />
+      
+      {/* Education-specific bull gradient (ultra subtle) */}
+      {isEducationPage && (
+        <GradientAccent 
+          variant="bull" 
+          position="top-left" 
+          size="xl" 
+          intensity="ultra-low" 
+          shape="bull" 
+          animated 
+          className="opacity-[0.03] mix-blend-screen rotate-45" 
+        />
+      )}
       
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">

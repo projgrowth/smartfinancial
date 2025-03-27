@@ -6,13 +6,30 @@ import ScrollReveal from './ScrollReveal';
 import PrimaryButton from './PrimaryButton';
 import GradientAccent from './GradientAccent';
 import { MicroAnimations } from './ui/micro-animations';
+import { useLocation } from 'react-router-dom';
 
 const Hero = () => {
+  const location = useLocation();
+  const isEducationPage = location.pathname === '/education';
+  
   return (
     <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
       <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
+      
+      {/* Bull shape gradient only on education page */}
+      {isEducationPage && (
+        <GradientAccent 
+          variant="bull" 
+          position="center" 
+          size="2xl" 
+          intensity="ultra-low" 
+          shape="bull" 
+          animated 
+          className="opacity-[0.05] mix-blend-screen" 
+        />
+      )}
       
       <div className="container-custom mx-auto z-10">
         <div className="max-w-3xl mx-auto text-center">
