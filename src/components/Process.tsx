@@ -40,15 +40,15 @@ const Process = () => {
         <div className="container-custom relative z-10">
           <ScrollReveal>
             <h2 id="process-heading" className="heading-lg text-center mb-6 text-white">Our Process</h2>
-            <p className="text-center text-white/90 max-w-2xl mx-auto mb-16">
+            <p className="text-center text-white/95 max-w-2xl mx-auto mb-16 leading-relaxed">
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
 
           <Tabs defaultValue="cards" className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-8 bg-charcoal/40 border border-white/10" aria-label="Process view options">
-              <TabsTrigger value="cards" className="flex-1 data-[state=active]:bg-blue-500/20 text-white/90 data-[state=active]:text-white">Visual Overview</TabsTrigger>
-              <TabsTrigger value="timeline" className="flex-1 data-[state=active]:bg-blue-500/20 text-white/90 data-[state=active]:text-white">Timeline View</TabsTrigger>
+            <TabsList className="w-full max-w-md mx-auto mb-8 bg-charcoal/50 border border-white/15 shadow-md" aria-label="Process view options">
+              <TabsTrigger value="cards" className="flex-1 data-[state=active]:bg-blue-600/30 text-white/90 data-[state=active]:text-white font-medium">Visual Overview</TabsTrigger>
+              <TabsTrigger value="timeline" className="flex-1 data-[state=active]:bg-blue-600/30 text-white/90 data-[state=active]:text-white font-medium">Timeline View</TabsTrigger>
             </TabsList>
             
             <TabsContent value="cards" className="mt-0">

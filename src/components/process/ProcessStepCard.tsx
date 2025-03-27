@@ -19,13 +19,15 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
 }) => {
   return (
     <div 
-      className={`glass-dark hover:bg-charcoal/40 transition-all duration-500 p-8 rounded-lg h-full border border-white/10 group ${activeStep === step.id ? 'bg-charcoal/40 border-blue-400/30' : ''}`}
+      className={`glass-dark hover:bg-charcoal/50 transition-all duration-500 p-8 rounded-lg h-full border ${activeStep === step.id ? 'border-blue-400/50 shadow-lg shadow-blue-900/10' : 'border-white/15'} group`}
     >
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-blue-400 text-4xl font-heading font-medium opacity-80 block group-hover:text-blue-300 transition-colors duration-300">
+      <div className="flex items-center justify-between mb-5">
+        <span className="text-blue-300 text-4xl font-heading font-medium opacity-90 block group-hover:text-blue-200 transition-colors duration-300">
           {step.number}
         </span>
-        {step.icon}
+        <div className="text-blue-300 group-hover:text-blue-200 transition-colors duration-300">
+          {step.icon}
+        </div>
       </div>
       
       <h3 className="text-xl font-heading font-medium mb-4 text-white flex items-center">
@@ -33,19 +35,19 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         {step.keyTerms.length > 0 && (
           <InteractiveTooltip
             trigger={
-              <button className="ml-2 text-blue-400 cursor-pointer text-xs border border-blue-400/30 px-1 rounded hover:bg-blue-400/10 flex items-center" aria-label={`Learn more about ${step.title}`}>
+              <button className="ml-2 text-blue-300 cursor-pointer text-xs border border-blue-400/40 px-2 py-0.5 rounded-full hover:bg-blue-400/20 flex items-center" aria-label={`Learn more about ${step.title}`}>
                 <span className="sr-only">Learn about key terms</span>
                 <Info className="w-3 h-3 mr-1" />
                 <span>Learn</span>
               </button>
             }
             content={
-              <div className="space-y-2">
-                <h4 className="font-medium text-sm mb-1">Key Financial Concepts:</h4>
+              <div className="space-y-3">
+                <h4 className="font-medium text-sm mb-2 border-b pb-1">Key Financial Concepts:</h4>
                 {step.keyTerms.map((term, idx) => (
-                  <div key={idx} className="mb-2">
+                  <div key={idx} className="mb-3 last:mb-0">
                     <h5 className="text-sm font-medium">{term.term}</h5>
-                    <p className="text-xs text-charcoal/70">{term.definition}</p>
+                    <p className="text-xs text-charcoal/80 mt-0.5 leading-relaxed">{term.definition}</p>
                   </div>
                 ))}
               </div>
@@ -58,7 +60,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </h3>
       
-      <p className="text-white/90 group-hover:text-white transition-colors duration-300 mb-4">
+      <p className="text-white/95 group-hover:text-white transition-colors duration-300 mb-5 leading-relaxed">
         {step.description}
       </p>
       
@@ -66,24 +68,24 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         open={activeStep === step.id} 
         onOpenChange={() => onStepClick(step.id)}
       >
-        <CollapsibleTrigger className="flex items-center text-sm text-blue-300 hover:text-blue-200 transition-colors duration-300" aria-expanded={activeStep === step.id}>
+        <CollapsibleTrigger className="flex items-center text-sm text-blue-200 hover:text-blue-100 transition-colors duration-300 font-medium px-3 py-1.5 rounded-full bg-blue-900/30 hover:bg-blue-900/50 border border-blue-700/30" aria-expanded={activeStep === step.id}>
           {activeStep === step.id ? (
             <>
               <span>Show less</span>
-              <ChevronUp className="ml-1 h-4 w-4" aria-hidden="true" />
+              <ChevronUp className="ml-1.5 h-4 w-4" aria-hidden="true" />
             </>
           ) : (
             <>
               <span>Learn more</span>
-              <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
+              <ChevronDown className="ml-1.5 h-4 w-4" aria-hidden="true" />
             </>
           )}
         </CollapsibleTrigger>
-        <CollapsibleContent className="mt-4 space-y-3 border-t border-white/10 pt-3">
+        <CollapsibleContent className="mt-5 space-y-4 border-t border-white/15 pt-4">
           {step.details.map((detail, idx) => (
-            <ScaleOnHover key={idx} scale="sm" className="bg-charcoal/30 p-3 rounded-md hover:bg-charcoal/50">
-              <h4 className="text-sm font-medium text-blue-200 mb-1">{detail.title}</h4>
-              <p className="text-xs text-white/80">{detail.description}</p>
+            <ScaleOnHover key={idx} scale="sm" className="bg-charcoal/40 p-4 rounded-md hover:bg-charcoal/60 border border-charcoal/80 shadow-sm">
+              <h4 className="text-sm font-medium text-blue-100 mb-2">{detail.title}</h4>
+              <p className="text-xs text-white/90 leading-relaxed">{detail.description}</p>
             </ScaleOnHover>
           ))}
         </CollapsibleContent>

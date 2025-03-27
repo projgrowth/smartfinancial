@@ -57,10 +57,10 @@ export function InteractiveTooltip({
   }, [isOpen, interactive, closeOnClickOutside]);
 
   const variantClasses = {
-    default: "bg-white border-gray-200 text-charcoal",
-    info: "bg-blue-50 border-blue-200 text-blue-800",
-    success: "bg-green-50 border-green-200 text-green-800",
-    warning: "bg-amber-50 border-amber-200 text-amber-800",
+    default: "bg-white border-gray-200 text-charcoal shadow-lg",
+    info: "bg-blue-50 border-blue-300 text-blue-900 shadow-lg shadow-blue-900/5",
+    success: "bg-green-50 border-green-300 text-green-900 shadow-lg shadow-green-900/5",
+    warning: "bg-amber-50 border-amber-300 text-amber-900 shadow-lg shadow-amber-900/5",
   };
 
   const maxWidthClasses = {
@@ -87,14 +87,14 @@ export function InteractiveTooltip({
           <span className="inline-flex items-center">
             {trigger}
             {showIcon && !interactive && (
-              <Info className="ml-1 h-3.5 w-3.5 text-blue-500 opacity-70" />
+              <Info className="ml-1 h-3.5 w-3.5 text-blue-500 opacity-80" />
             )}
           </span>
         </TooltipTrigger>
         <TooltipContent 
           side={side} 
           className={cn(
-            "text-sm shadow-md p-3 animate-in fade-in-50 zoom-in-95", 
+            "text-sm p-4 animate-in fade-in-50 zoom-in-95", 
             variantClasses[variant],
             maxWidthClasses[maxWidth as keyof typeof maxWidthClasses] || "max-w-xs",
             interactive && "cursor-default border-2", 
@@ -103,10 +103,10 @@ export function InteractiveTooltip({
           onClick={(e) => interactive ? e.stopPropagation() : undefined}
         >
           {interactive && title && (
-            <div className="flex items-center justify-between border-b pb-2 mb-2">
+            <div className="flex items-center justify-between border-b pb-2 mb-3">
               <h4 className="font-medium">{title}</h4>
               <button 
-                className="p-1 rounded-full hover:bg-gray-200/50 text-gray-500 transition-colors"
+                className="p-1 rounded-full hover:bg-gray-200/70 text-gray-600 transition-colors"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close"
               >
@@ -117,7 +117,7 @@ export function InteractiveTooltip({
           
           {interactive && !title && (
             <button 
-              className="absolute top-1 right-1 p-1 rounded-full hover:bg-gray-200/50 text-gray-500 transition-colors"
+              className="absolute top-1 right-1 p-1 rounded-full hover:bg-gray-200/70 text-gray-600 transition-colors"
               onClick={() => setIsOpen(false)}
               aria-label="Close"
             >
