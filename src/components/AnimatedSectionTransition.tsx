@@ -4,7 +4,7 @@ import { ChevronDown, ChevronUp, ChevronsDown, ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type TransitionStyle = 'wave' | 'chevron' | 'arrow' | 'diagonal' | 'curved';
-type TransitionColorScheme = 'light-to-dark' | 'dark-to-light' | 'blue-to-white' | 'white-to-blue' | 'custom';
+type TransitionColorScheme = 'light-to-dark' | 'dark-to-light' | 'blue-to-white' | 'white-to-blue' | 'white-to-dark' | 'custom';
 
 interface AnimatedSectionTransitionProps {
   style?: TransitionStyle;
@@ -48,6 +48,8 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
         return { from: 'from-blue-50', to: 'to-white' };
       case 'white-to-blue':
         return { from: 'from-white', to: 'to-blue-50' };
+      case 'white-to-dark':
+        return { from: 'from-white', to: 'to-charcoal' };
       default:
         return { from: 'from-white', to: 'to-charcoal' };
     }
