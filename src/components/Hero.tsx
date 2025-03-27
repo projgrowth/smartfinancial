@@ -37,8 +37,8 @@ const Hero = () => {
             <h1 className="heading-xl text-charcoal mb-6">
               <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
-                <span className="text-blue-500">
-                  Elevated.
+                <span className="text-blue-500 typing-wrapper">
+                  <span className="typing-text">Elevated.</span>
                 </span>
               </div>
             </h1>
@@ -47,7 +47,7 @@ const Hero = () => {
           <ScrollReveal delay={100}>
             <p className="text-lg font-heading mb-8">
               <span className="text-charcoal">Your future.</span>
-              <span className="text-blue-500 ml-2">
+              <span className="text-blue-500 ml-2 text-gradient-animate">
                 Secured.
               </span>
             </p>
@@ -64,7 +64,7 @@ const Hero = () => {
             <MicroAnimations.ScaleOnHover scale="sm">
               <PrimaryButton 
                 onClick={() => smoothScrollTo('contact')}
-                className="px-6 py-3 bg-charcoal text-white group"
+                className="px-6 py-3 bg-charcoal text-white group hover:shadow-blue-sm"
                 icon={<ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />}
                 iconPosition="right"
               >

@@ -133,3 +133,9 @@
     background-position: 0% 0%;
   }
 }
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
