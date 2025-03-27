@@ -1,0 +1,40 @@
+
+@tailwind components;
+
+@layer components {
+  /* Refined animations for modern feel */
+  .animate-float {
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+  
+  /* Background animations */
+  .bg-pan {
+    background-size: 200% 200%;
+    animation: bg-position 15s ease infinite;
+  }
+  
+  /* Duration utilities */
+  .duration-10000 {
+    animation-duration: 10s;
+  }
+  
+  .duration-12000 {
+    animation-duration: 12s;
+  }
+  
+  .duration-15000 {
+    animation-duration: 15s;
+  }
+  
+  .duration-25000 {
+    animation-duration: 25s;
+  }
+  
+  .duration-30000 {
+    animation-duration: 30s;
+  }
+}

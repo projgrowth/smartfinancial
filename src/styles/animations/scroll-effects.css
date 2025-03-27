@@ -1,0 +1,70 @@
+
+@tailwind components;
+
+@layer components {
+  /* Enhanced staggered animations */
+  .stagger-fade-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .stagger-fade-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Improved scroll reveal animations */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .reveal-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .reveal-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .reveal-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .reveal-down {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .reveal-down.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Progressive disclosure animation */
+  .stagger-item {
+    @apply opacity-0 translate-y-4 transition-all duration-500;
+  }
+  
+  .stagger-item.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+}
