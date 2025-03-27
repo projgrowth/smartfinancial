@@ -135,18 +135,21 @@ interface ShimmerButtonProps {
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const ShimmerButton = ({
   children,
   onClick,
   className,
-  disabled = false
+  disabled = false,
+  type = 'button'
 }: ShimmerButtonProps) => {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
+      type={type}
       className={cn(
         "relative px-4 py-2 rounded-md font-medium text-white overflow-hidden bg-blue-600 hover:bg-blue-700 transition-colors",
         "after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-shimmer",

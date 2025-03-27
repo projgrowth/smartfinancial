@@ -169,8 +169,8 @@ const CompoundInterestCalculator = () => {
             <div className="h-52">
               <ChartContainer
                 config={{
-                  amount: { theme: { light: "#3B82F6" } },
-                  principal: { theme: { light: "#9CA3AF" } },
+                  amount: { theme: { light: "#3B82F6", dark: "#60A5FA" } },
+                  principal: { theme: { light: "#9CA3AF", dark: "#6B7280" } },
                 }}
                 className="h-full"
               >
