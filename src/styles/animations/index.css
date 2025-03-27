@@ -5,3 +5,46 @@
 @import './scroll-effects.css';
 @import './text-animations.css';
 @import './background-effects.css';
+
+/* Add a reduced motion section that respects user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-in,
+  .animate-scale-in,
+  .animate-bounce-fade,
+  .animate-float,
+  .animate-bounce-subtle,
+  .animate-bg-pulse,
+  .animate-shimmer,
+  .animate-border-pulse,
+  .animate-soft-spin,
+  .typing-text,
+  .text-gradient-animate,
+  [class*="animate-"] {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .transition-all,
+  .transition-colors,
+  .transition-opacity,
+  .transition-shadow,
+  .transition-transform,
+  .transition-safe,
+  .transition-bounce,
+  [class*="transition-"] {
+    transition: none !important;
+  }
+  
+  .hover-scale:hover,
+  .hover-lift:hover,
+  .hover-translate:hover,
+  .scale-on-hover:hover,
+  [class*="hover-"]:hover {
+    transform: none !important;
+  }
+  
+  html, body {
+    scroll-behavior: auto !important;
+  }
+}

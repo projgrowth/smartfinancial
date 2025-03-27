@@ -89,14 +89,15 @@
   
   p {
     @apply mb-4 text-charcoal/90;
-    max-width: 70ch;
+    max-width: 70ch; /* Better readability with controlled line length */
   }
   
   a {
     @apply text-blue-500 hover:text-blue-600 transition-colors duration-300;
+    text-underline-offset: 0.2em; /* Improved underline positioning */
   }
   
-  /* Consistent focus styles */
+  /* Improved focus styles for accessibility */
   :focus-visible {
     @apply outline-none ring-2 ring-blue-500 ring-offset-2;
   }
@@ -106,12 +107,18 @@
     @apply bg-blue-500/20 text-charcoal;
   }
   
-  /* Enhanced form elements */
+  /* Enhanced form elements with better accessibility */
   input, select, textarea {
     @apply rounded-md border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200;
+    font-size: 16px; /* Prevents zoom on mobile devices */
   }
   
-  /* Improved buttons */
+  /* Skip to content link for screen readers */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-blue-600 focus:shadow-md;
+  }
+  
+  /* Improved buttons with accessibility focus */
   button {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
   }
@@ -121,13 +128,13 @@
     @apply px-4 sm:px-6 lg:px-8;
   }
   
-  /* Improved list styling */
+  /* Improved list styling with better spacing */
   ul, ol {
     @apply pl-6 mb-4;
   }
   
   li {
-    @apply mb-1;
+    @apply mb-2; /* Increased spacing between list items */
   }
   
   /* Better code blocks */
@@ -154,5 +161,15 @@
   
   th {
     @apply bg-slate-50;
+  }
+  
+  /* Reduced motion preferences support */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

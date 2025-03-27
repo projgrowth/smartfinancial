@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import AnimatedSectionTransition from './AnimatedSectionTransition';
-import { ChevronDown, ChevronUp, Lightbulb, Layers, CheckCheck } from 'lucide-react';
+import { ChevronDown, ChevronUp, Lightbulb, Layers, CheckCheck, Info } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -18,7 +18,7 @@ const Process = () => {
       number: '01',
       title: 'Deep Discovery',
       description: 'We dive deep to understand your financial landscape, ambitions, and opportunities that others overlook.',
-      icon: <Lightbulb className="w-6 h-6 text-blue-400" />,
+      icon: <Lightbulb className="w-6 h-6 text-blue-400" aria-hidden="true" />,
       details: [
         {
           title: 'Comprehensive Assessment',
@@ -43,7 +43,7 @@ const Process = () => {
       number: '02',
       title: 'Bespoke Blueprint',
       description: 'Receive a custom-crafted financial strategy, from investments and tax optimization to advanced wealth protection.',
-      icon: <Layers className="w-6 h-6 text-blue-400" />,
+      icon: <Layers className="w-6 h-6 text-blue-400" aria-hidden="true" />,
       details: [
         {
           title: 'Custom Investment Strategy',
@@ -68,7 +68,7 @@ const Process = () => {
       number: '03',
       title: 'Growth & Guidance',
       description: 'Benefit from ongoing strategic reviews, adjustments, and proactive insights as your life evolves.',
-      icon: <CheckCheck className="w-6 h-6 text-blue-400" />,
+      icon: <CheckCheck className="w-6 h-6 text-blue-400" aria-hidden="true" />,
       details: [
         {
           title: 'Regular Portfolio Reviews',
@@ -104,7 +104,7 @@ const Process = () => {
         height={50}
       />
       
-      <section id="process" className="section bg-charcoal text-white relative overflow-hidden py-24">
+      <section id="process" className="section bg-charcoal text-white relative overflow-hidden py-24" aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal to-charcoal/90"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-noise opacity-[0.03] mix-blend-overlay"></div>
@@ -115,14 +115,14 @@ const Process = () => {
         
         <div className="container-custom relative z-10">
           <ScrollReveal>
-            <h2 className="heading-lg text-center mb-6 text-white">Our Process</h2>
+            <h2 id="process-heading" className="heading-lg text-center mb-6 text-white">Our Process</h2>
             <p className="text-center text-light-gray max-w-2xl mx-auto mb-16">
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
 
           <Tabs defaultValue="cards" className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-8 bg-charcoal/40 border border-white/10">
+            <TabsList className="w-full max-w-md mx-auto mb-8 bg-charcoal/40 border border-white/10" aria-label="Process view options">
               <TabsTrigger value="cards" className="flex-1 data-[state=active]:bg-blue-500/20">Visual Overview</TabsTrigger>
               <TabsTrigger value="timeline" className="flex-1 data-[state=active]:bg-blue-500/20">Timeline View</TabsTrigger>
             </TabsList>
@@ -145,7 +145,13 @@ const Process = () => {
                         {step.title}
                         {step.keyTerms.length > 0 && (
                           <InteractiveTooltip
-                            trigger={<span className="ml-2 text-blue-400 cursor-pointer text-xs border border-blue-400/30 px-1 rounded hover:bg-blue-400/10">Learn</span>}
+                            trigger={
+                              <button className="ml-2 text-blue-400 cursor-pointer text-xs border border-blue-400/30 px-1 rounded hover:bg-blue-400/10 flex items-center" aria-label={`Learn more about ${step.title}`}>
+                                <span className="sr-only">Learn about key terms</span>
+                                <Info className="w-3 h-3 mr-1" />
+                                <span>Learn</span>
+                              </button>
+                            }
                             content={
                               <div className="space-y-2">
                                 <h4 className="font-medium text-sm mb-1">Key Financial Concepts:</h4>
@@ -173,16 +179,16 @@ const Process = () => {
                         open={activeStep === step.id} 
                         onOpenChange={() => handleStepClick(step.id)}
                       >
-                        <CollapsibleTrigger className="flex items-center text-sm text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                        <CollapsibleTrigger className="flex items-center text-sm text-blue-300 hover:text-blue-200 transition-colors duration-300" aria-expanded={activeStep === step.id}>
                           {activeStep === step.id ? (
                             <>
                               <span>Show less</span>
-                              <ChevronUp className="ml-1 h-4 w-4" />
+                              <ChevronUp className="ml-1 h-4 w-4" aria-hidden="true" />
                             </>
                           ) : (
                             <>
                               <span>Learn more</span>
-                              <ChevronDown className="ml-1 h-4 w-4" />
+                              <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
                             </>
                           )}
                         </CollapsibleTrigger>
@@ -220,16 +226,16 @@ const Process = () => {
                           open={activeStep === step.id} 
                           onOpenChange={() => handleStepClick(step.id)}
                         >
-                          <CollapsibleTrigger className="flex items-center text-sm text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                          <CollapsibleTrigger className="flex items-center text-sm text-blue-300 hover:text-blue-200 transition-colors duration-300" aria-expanded={activeStep === step.id}>
                             {activeStep === step.id ? (
                               <>
                                 <span>Show less</span>
-                                <ChevronUp className="ml-1 h-4 w-4" />
+                                <ChevronUp className="ml-1 h-4 w-4" aria-hidden="true" />
                               </>
                             ) : (
                               <>
                                 <span>Learn more</span>
-                                <ChevronDown className="ml-1 h-4 w-4" />
+                                <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
                               </>
                             )}
                           </CollapsibleTrigger>

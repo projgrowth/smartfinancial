@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -19,12 +20,10 @@ import { FinancialTerm } from '@/components/FinancialTermGlossary';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SectionTransitionDemo from '../components/SectionTransitionDemo';
 import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [showTransitionDemo, setShowTransitionDemo] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,24 +37,10 @@ const Index = () => {
 
   useEffect(() => {
     const loadFonts = () => {
-      const spaceGroteskLink = document.createElement('link');
-      spaceGroteskLink.rel = 'stylesheet';
-      spaceGroteskLink.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap';
-      spaceGroteskLink.setAttribute('media', 'print');
-      spaceGroteskLink.setAttribute('onload', "this.media='all'");
-      document.head.appendChild(spaceGroteskLink);
-
-      const interLink = document.createElement('link');
-      interLink.rel = 'stylesheet';
-      interLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
-      interLink.setAttribute('media', 'print');
-      interLink.setAttribute('onload', "this.media='all'");
-      document.head.appendChild(interLink);
-
-      return () => {
-        document.head.removeChild(spaceGroteskLink);
-        document.head.removeChild(interLink);
-      };
+      // This ensures fonts are loaded efficiently with preconnect
+      document.title = "Smart Financial Planning | Tailored Financial Strategies";
+      
+      return () => {};
     };
 
     return loadFonts();
@@ -63,7 +48,7 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-sky-50/30 via-white/80 to-blue-50/30">
+      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-sky-50/30 via-white/80 to-blue-50/30" aria-live="polite" aria-busy="true">
         <div className="container-custom mx-auto py-24">
           <Skeleton className="h-12 w-3/4 max-w-lg mx-auto mb-8" />
           <Skeleton className="h-6 w-2/3 max-w-md mx-auto mb-12" />
@@ -99,12 +84,12 @@ const Index = () => {
         <Process />
         <ServiceCards />
         
-        <section className="relative py-12 bg-blue-50/30">
+        <section className="relative py-12 bg-blue-50/30" aria-labelledby="educational-resources-heading">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 md:p-8 shadow-sm border border-blue-100/50">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="md:max-w-[60%]">
-                  <h3 className="font-heading text-xl font-medium text-charcoal mb-3">
+                  <h3 id="educational-resources-heading" className="font-heading text-xl font-medium text-charcoal mb-3">
                     Expand Your Financial Knowledge
                   </h3>
                   <p className="text-charcoal/70 mb-4">
@@ -113,7 +98,7 @@ const Index = () => {
                   <Link to="/education">
                     <Button variant="outline" className="group border-blue-200 hover:bg-blue-50 hover:text-blue-700">
                       <span>Visit Our Knowledge Center</span>
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </Button>
                   </Link>
                 </div>
@@ -133,8 +118,6 @@ const Index = () => {
         </section>
         
         <FinancialCalculator />
-        
-        {showTransitionDemo && <SectionTransitionDemo />}
         
         <AnimatedSectionTransition 
           style="chevron" 
