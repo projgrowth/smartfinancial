@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -76,7 +75,7 @@ const Index = () => {
       <IntroSection />
       <Process />
       <ServiceCards />
-      <CaseStudies />
+      <CaseStudies key="case-studies" />
       <Advisors />
       <Testimonials />
       <CTA />
