@@ -27,7 +27,7 @@ const financialTerms: GlossaryTerm[] = [
   },
   {
     term: 'Diversification',
-    definition: 'The strategy of spreading investments across various financial instruments to reduce risk and minimize the impact of any single investment's poor performance.',
+    definition: "The strategy of spreading investments across various financial instruments to reduce risk and minimize the impact of any single investment's poor performance.",
     learnMoreLink: '#diversification'
   },
   {
@@ -37,7 +37,7 @@ const financialTerms: GlossaryTerm[] = [
   },
   {
     term: 'Fiduciary',
-    definition: 'A person or organization legally obligated to act in the best interest of another party, putting clients' interests ahead of their own.',
+    definition: "A person or organization legally obligated to act in the best interest of another party, putting clients' interests ahead of their own.",
     learnMoreLink: '#fiduciary'
   },
   {

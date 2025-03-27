@@ -10,7 +10,7 @@ import LoadingIndicator from "./components/LoadingIndicator";
 import './index.css';
 
 // Lazy load pages for better performance
-const Index = lazy(() => import("./pages/Index"));
+const Index = lazy(() => import("./pages/index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Education = lazy(() => import("./pages/Education"));
 
