@@ -82,7 +82,7 @@ const CaseStudies = () => {
           </BarChart>
         </ChartContainer>
       ),
-      lessons: 'The key insight from Alex's case is that with proper sequencing of financial priorities and automated systems, you can work toward multiple goals simultaneously without feeling overwhelmed.'
+      lessons: "The key insight from Alex's case is that with proper sequencing of financial priorities and automated systems, you can work toward multiple goals simultaneously without feeling overwhelmed."
     },
     {
       id: 'family-planner',
@@ -116,7 +116,7 @@ const CaseStudies = () => {
           </LineChart>
         </ChartContainer>
       ),
-      lessons: 'The Johnson case demonstrates the importance of starting education funding early and treating it as distinct from retirement planning, with each goal having its own strategy and timeline.'
+      lessons: "The Johnson case demonstrates the importance of starting education funding early and treating it as distinct from retirement planning, with each goal having its own strategy and timeline."
     },
     {
       id: 'business-owner',
@@ -150,7 +150,7 @@ const CaseStudies = () => {
           </BarChart>
         </ChartContainer>
       ),
-      lessons: 'Sarah's case illustrates how business owners need to intentionally separate business and personal finances, treating the business as an asset class with its own growth and exit strategy.'
+      lessons: "Sarah's case illustrates how business owners need to intentionally separate business and personal finances, treating the business as an asset class with its own growth and exit strategy."
     },
     {
       id: 'pre-retiree',
@@ -184,7 +184,7 @@ const CaseStudies = () => {
           </BarChart>
         </ChartContainer>
       ),
-      lessons: 'Michael's situation highlights the importance of having a clear retirement income plan with specific account withdrawal strategies to minimize taxes and maximize income stability.'
+      lessons: "Michael's situation highlights the importance of having a clear retirement income plan with specific account withdrawal strategies to minimize taxes and maximize income stability."
     }
   ];
 
