@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -6,6 +7,11 @@ import Process from '../components/Process';
 import ServiceCards from '../components/ServiceCards';
 import CaseStudies from '../components/CaseStudies';
 import Advisors from '../components/Advisors';
+import TeamDetails from '../components/TeamDetails';
+import FAQSection from '../components/FAQSection';
+import FinancialCalculator from '../components/FinancialCalculator';
+import MeetingScheduler from '../components/MeetingScheduler';
+import EnhancedNewsletter from '../components/EnhancedNewsletter';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
@@ -115,9 +121,16 @@ const Index = () => {
           </div>
         </section>
         
+        {/* Financial Calculators Section */}
+        <FinancialCalculator />
+        
         <CaseStudies key="case-studies" />
         <Advisors />
+        <TeamDetails />
+        <MeetingScheduler />
         <Testimonials />
+        <FAQSection />
+        <EnhancedNewsletter />
         <CTA />
       </main>
       <Footer />

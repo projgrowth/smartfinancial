@@ -2,7 +2,9 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface AdvisorProps {
   name: string;
@@ -75,6 +77,22 @@ const Advisors = () => {
               />
             </ScrollReveal>
           ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <Button 
+            variant="outline" 
+            className="border-blue-200 hover:bg-blue-50 hover:text-blue-700 group"
+            onClick={() => {
+              const teamDetails = document.getElementById('team-details');
+              if (teamDetails) {
+                teamDetails.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            Learn More About Our Team
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
       </div>
     </section>
