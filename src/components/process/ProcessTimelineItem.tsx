@@ -26,7 +26,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           <span className="text-blue-400 text-3xl font-heading font-medium mr-3">{step.number}</span>
           <h3 className="text-xl font-heading font-medium text-white">{step.title}</h3>
         </div>
-        <p className="text-lightgray mb-4">{step.description}</p>
+        <p className="text-white/90 mb-4">{step.description}</p>
         
         <Collapsible 
           open={activeStep === step.id} 
@@ -49,7 +49,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
             {step.details.map((detail, idx) => (
               <div key={idx} className="bg-charcoal/30 p-3 rounded-md">
                 <h4 className="text-sm font-medium text-blue-200 mb-1">{detail.title}</h4>
-                <p className="text-xs text-lightgray">{detail.description}</p>
+                <p className="text-xs text-white/80">{detail.description}</p>
               </div>
             ))}
             {step.keyTerms.length > 0 && (

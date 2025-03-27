@@ -10,7 +10,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
   if (terms.length === 0) return null;
   
   return (
-    <div className="bg-blue-900/30 p-4 rounded-md border border-blue-500/30">
+    <div className="bg-blue-900/40 p-4 rounded-md border border-blue-500/40">
       <h4 className="text-sm font-medium text-blue-100 mb-3">Key Financial Concepts:</h4>
       <div className="space-y-3">
         {terms.map((term, idx) => (
