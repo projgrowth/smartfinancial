@@ -19,9 +19,12 @@ import { FinancialTerm } from '@/components/FinancialTermGlossary';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SectionTransitionDemo from '../components/SectionTransitionDemo';
+import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showTransitionDemo, setShowTransitionDemo] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -82,10 +85,20 @@ const Index = () => {
       <main id="main-content">
         <Hero />
         <IntroSection />
+        
+        <AnimatedSectionTransition 
+          style="wave" 
+          colorScheme="white-to-dark" 
+          position="bottom" 
+          height={60}
+          showIcon={true}
+          iconType="chevron"
+          onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+        />
+        
         <Process />
         <ServiceCards />
         
-        {/* Educational Resource Teaser */}
         <section className="relative py-12 bg-blue-50/30">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 md:p-8 shadow-sm border border-blue-100/50">
@@ -119,10 +132,26 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Financial Calculators Section */}
         <FinancialCalculator />
         
+        {showTransitionDemo && <SectionTransitionDemo />}
+        
+        <AnimatedSectionTransition 
+          style="chevron" 
+          colorScheme="light-to-dark" 
+          position="bottom" 
+          height={50}
+        />
+        
         <CaseStudies key="case-studies" />
+        
+        <AnimatedSectionTransition 
+          style="curved" 
+          colorScheme="dark-to-light" 
+          position="bottom" 
+          height={50}
+        />
+        
         <TeamDetails />
         <MeetingScheduler />
         <Testimonials />

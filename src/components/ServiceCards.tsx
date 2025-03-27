@@ -2,6 +2,7 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
+import AnimatedSectionTransition from './AnimatedSectionTransition';
 import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -63,35 +64,50 @@ const ServiceCards = () => {
   ];
 
   return (
-    <section id="services" className="section bg-offwhite relative overflow-hidden py-24">
-      <GradientAccent variant="subtle" position="top-left" intensity="low" />
-      
-      <div className="container-custom relative z-10">
-        <ScrollReveal>
-          <h2 className="heading-lg text-charcoal text-center mb-4">
-            Services Tailored to Your Needs
-          </h2>
-        </ScrollReveal>
-
-        <ScrollReveal delay={100}>
-          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-16">
-            Strategic financial planning designed for high-performing professionals who expect exceptional results.
-          </p>
-        </ScrollReveal>
+    <>
+      <section id="services" className="section bg-offwhite relative overflow-hidden py-24">
+        <GradientAccent variant="subtle" position="top-left" intensity="low" />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              title={service.title} 
-              description={service.description} 
-              delay={index * 100} 
-              icon={service.icon}
-            />
-          ))}
+        <div className="container-custom relative z-10">
+          <ScrollReveal>
+            <h2 className="heading-lg text-charcoal text-center mb-4">
+              Services Tailored to Your Needs
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-16">
+              Strategic financial planning designed for high-performing professionals who expect exceptional results.
+            </p>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {services.map((service, index) => (
+              <ServiceCard 
+                key={index} 
+                title={service.title} 
+                description={service.description} 
+                delay={index * 100} 
+                icon={service.icon}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+        
+        {/* Add section transition at the bottom */}
+        <div className="relative z-10 mt-16">
+          <AnimatedSectionTransition 
+            style="diagonal" 
+            colorScheme="light-to-dark" 
+            position="bottom" 
+            height={50}
+            showIcon={true}
+            iconType="arrow"
+            onClick={() => document.getElementById('calculators')?.scrollIntoView({ behavior: 'smooth' })}
+          />
+        </div>
+      </section>
+    </>
   );
 };
 
