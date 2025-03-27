@@ -4,11 +4,13 @@ import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import { ArrowRight } from 'lucide-react';
 import PrimaryButton from './PrimaryButton';
+import { MicroAnimations } from './ui/micro-animations';
 
 const IntroSection = () => {
   return (
     <section className="section bg-white relative overflow-hidden py-24">
-      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
+      <GradientAccent variant="subtle" position="bottom-left" intensity="low" animated />
+      <GradientAccent variant="gold" position="top-right" size="sm" intensity="low" className="translate-x-1/2" animated />
       
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -27,15 +29,17 @@ const IntroSection = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200} className="text-center">
-            <PrimaryButton
-              variant="outline"
-              icon={<ArrowRight />}
-              iconPosition="right"
-              className="group"
-              onClick={() => document.getElementById('profile')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Discover Your Financial Profile
-            </PrimaryButton>
+            <MicroAnimations.ScaleOnHover scale="sm">
+              <PrimaryButton
+                variant="outline"
+                icon={<ArrowRight />}
+                iconPosition="right"
+                className="group"
+                onClick={() => document.getElementById('profile')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Discover Your Financial Profile
+              </PrimaryButton>
+            </MicroAnimations.ScaleOnHover>
           </ScrollReveal>
         </div>
       </div>

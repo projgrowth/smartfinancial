@@ -1,24 +1,85 @@
 
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 const PremiumBackground = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Track mouse position for subtle parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: e.clientX / window.innerWidth,
+        y: e.clientY / window.innerHeight,
+      });
+    };
+
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY * 0.05);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Calculate subtle movement based on mouse position
+  const translateX1 = mousePosition.x * -15;
+  const translateY1 = mousePosition.y * -15;
+  const translateX2 = mousePosition.x * 15;
+  const translateY2 = mousePosition.y * 15;
+
   return (
     <div className="fixed inset-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
-      {/* Modern gradient base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/30 via-white/90 to-amber-50/30"></div>
+      {/* Enhanced gradient base with subtle color shifts */}
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/40 via-white/90 to-amber-50/40"></div>
       
-      {/* Abstract blue gradient shape (left) - more subtle */}
-      <div className="absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/15 to-blue-300/10 blur-3xl rounded-full transform -rotate-12 animate-float duration-25000"></div>
+      {/* Geometric patterns for texture */}
+      <div className="absolute inset-0 opacity-[0.04]" 
+           style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}></div>
       
-      {/* Abstract amber gradient shape (right) - more subtle */}
-      <div className="absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full transform rotate-12 animate-float duration-20000"></div>
+      {/* Interactive blue gradient shape (left) */}
+      <div 
+        className="absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/20 to-blue-300/15 blur-3xl rounded-full transform -rotate-12 animate-float duration-25000"
+        style={{ 
+          transform: `rotate(-12deg) translate(${translateX1}px, ${translateY1 + scrollPosition}px)`,
+          transition: 'transform 0.5s ease-out'
+        }}
+      ></div>
       
-      {/* Additional subtle shapes with staggered animations */}
-      <div className="absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-blue-200/10 to-sky-300/5 blur-3xl rounded-full animate-float duration-15000"></div>
-      <div className="absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/10 to-gold/5 blur-3xl rounded-full animate-float duration-12000"></div>
+      {/* Interactive amber gradient shape (right) */}
+      <div 
+        className="absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/20 to-gold/15 blur-3xl rounded-full transform rotate-12 animate-float duration-20000"
+        style={{ 
+          transform: `rotate(12deg) translate(${translateX2}px, ${translateY2 + scrollPosition * 0.7}px)`,
+          transition: 'transform 0.5s ease-out'
+        }}
+      ></div>
       
-      {/* Add a subtle grid pattern for modern feel */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOEgwdjE4aDM2eiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=')] opacity-[0.02]"></div>
+      {/* Additional subtle shapes with staggered animations and interactivity */}
+      <div 
+        className="absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-blue-200/15 to-sky-300/10 blur-3xl rounded-full animate-float duration-15000"
+        style={{ 
+          transform: `translate(${translateX1 * 0.5}px, ${translateY1 * 0.5 - scrollPosition * 0.3}px)`,
+          transition: 'transform 0.7s ease-out'
+        }}
+      ></div>
+      
+      <div 
+        className="absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full animate-float duration-12000"
+        style={{ 
+          transform: `translate(${translateX2 * 0.7}px, ${translateY2 * 0.7 - scrollPosition * 0.2}px)`,
+          transition: 'transform 0.7s ease-out'
+        }}
+      ></div>
+      
+      {/* Dots pattern with subtle animation */}
+      <div className="absolute inset-0 opacity-[0.03]" 
+           style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E\")" }}></div>
       
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-noise opacity-[0.01] mix-blend-overlay"></div>

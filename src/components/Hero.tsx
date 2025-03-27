@@ -4,10 +4,16 @@ import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import PrimaryButton from './PrimaryButton';
+import GradientAccent from './GradientAccent';
+import { MicroAnimations } from './ui/micro-animations';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center pt-16">
+    <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">
+      {/* Enhanced background accents */}
+      <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
+      <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
+      
       <div className="container-custom mx-auto z-10">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
@@ -38,14 +44,16 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={300}>
-            <PrimaryButton 
-              onClick={() => smoothScrollTo('contact')}
-              className="px-6 py-3 bg-charcoal text-white group"
-              icon={<ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />}
-              iconPosition="right"
-            >
-              Schedule Your Private Strategy Call
-            </PrimaryButton>
+            <MicroAnimations.ScaleOnHover scale="sm">
+              <PrimaryButton 
+                onClick={() => smoothScrollTo('contact')}
+                className="px-6 py-3 bg-charcoal text-white group"
+                icon={<ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />}
+                iconPosition="right"
+              >
+                Schedule Your Private Strategy Call
+              </PrimaryButton>
+            </MicroAnimations.ScaleOnHover>
           </ScrollReveal>
         </div>
       </div>
