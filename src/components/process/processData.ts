@@ -10,7 +10,7 @@ export const getProcessSteps = (): ProcessStep[] => [
     number: '01',
     title: 'Deep Discovery',
     description: 'We dive deep to understand your financial landscape, ambitions, and opportunities that others overlook.',
-    icon: <Lightbulb className="w-6 h-6 text-blue-400" aria-hidden="true" />,
+    icon: React.createElement(Lightbulb, { className: "w-6 h-6 text-blue-400", "aria-hidden": "true" }),
     details: [
       {
         title: 'Comprehensive Assessment',
@@ -35,7 +35,7 @@ export const getProcessSteps = (): ProcessStep[] => [
     number: '02',
     title: 'Bespoke Blueprint',
     description: 'Receive a custom-crafted financial strategy, from investments and tax optimization to advanced wealth protection.',
-    icon: <Layers className="w-6 h-6 text-blue-400" aria-hidden="true" />,
+    icon: React.createElement(Layers, { className: "w-6 h-6 text-blue-400", "aria-hidden": "true" }),
     details: [
       {
         title: 'Custom Investment Strategy',
@@ -60,7 +60,7 @@ export const getProcessSteps = (): ProcessStep[] => [
     number: '03',
     title: 'Growth & Guidance',
     description: 'Benefit from ongoing strategic reviews, adjustments, and proactive insights as your life evolves.',
-    icon: <CheckCheck className="w-6 h-6 text-blue-400" aria-hidden="true" />,
+    icon: React.createElement(CheckCheck, { className: "w-6 h-6 text-blue-400", "aria-hidden": "true" }),
     details: [
       {
         title: 'Regular Portfolio Reviews',
