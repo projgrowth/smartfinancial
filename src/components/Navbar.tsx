@@ -6,6 +6,13 @@ import PrimaryButton from './PrimaryButton';
 import { useLocation, Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
+interface NavItem {
+  name: string;
+  id: string;
+  isLink?: boolean;
+  path?: string;
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,7 +63,7 @@ const Navbar = () => {
     }
   };
 
-  const mainNavItems = [
+  const mainNavItems: NavItem[] = [
     { name: 'Services', id: 'services' },
     { name: 'Process', id: 'process' },
     { name: 'Case Studies', id: 'case-studies' },
@@ -64,7 +71,7 @@ const Navbar = () => {
     { name: 'Testimonials', id: 'testimonials' }
   ];
 
-  const navItems = [
+  const navItems: NavItem[] = [
     ...mainNavItems,
     { name: 'Education', id: 'education', isLink: true, path: '/education' }
   ];

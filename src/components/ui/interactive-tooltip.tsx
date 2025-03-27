@@ -31,11 +31,30 @@ export function InteractiveTooltip({
 }: InteractiveTooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Create a handler that will be used for document click events
   const handleClickOutside = () => {
     if (interactive && closeOnClickOutside) {
       setIsOpen(false);
     }
   };
+
+  // Add event listener for clicks outside the tooltip when it's open
+  React.useEffect(() => {
+    if (isOpen && interactive && closeOnClickOutside) {
+      const handleDocumentClick = (e: MouseEvent) => {
+        // Check if the click was outside the tooltip
+        const tooltipContent = document.querySelector('[data-radix-tooltip-content]');
+        if (tooltipContent && !tooltipContent.contains(e.target as Node)) {
+          setIsOpen(false);
+        }
+      };
+      
+      document.addEventListener('click', handleDocumentClick);
+      return () => {
+        document.removeEventListener('click', handleDocumentClick);
+      };
+    }
+  }, [isOpen, interactive, closeOnClickOutside]);
 
   const variantClasses = {
     default: "bg-white border-gray-200 text-charcoal",
@@ -82,7 +101,6 @@ export function InteractiveTooltip({
             className
           )}
           onClick={(e) => interactive ? e.stopPropagation() : undefined}
-          onClickOutside={handleClickOutside}
         >
           {interactive && title && (
             <div className="flex items-center justify-between border-b pb-2 mb-2">
