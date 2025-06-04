@@ -38,7 +38,7 @@ const Index = () => {
   useEffect(() => {
     const loadFonts = () => {
       // This ensures fonts are loaded efficiently with preconnect
-      document.title = "Smart Financial Planning | Tailored Financial Strategies";
+      document.title = "Financial Planning Lake Nona Orlando | Smart Financial Planning";
       
       return () => {};
     };
@@ -90,10 +90,10 @@ const Index = () => {
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="md:max-w-[60%]">
                   <h3 id="educational-resources-heading" className="font-heading text-xl font-medium text-charcoal mb-3">
-                    Expand Your Financial Knowledge
+                    Financial Education for Lake Nona & Orlando Professionals
                   </h3>
                   <p className="text-charcoal/70 mb-4">
-                    We believe in empowering our clients through education. Understanding concepts like <FinancialTerm term="Asset Allocation">asset allocation</FinancialTerm> and <FinancialTerm term="Tax-Loss Harvesting">tax-loss harvesting</FinancialTerm> can help you make more informed decisions about your financial future.
+                    We believe in empowering our Lake Nona and Orlando clients through education. Understanding concepts like <FinancialTerm term="Asset Allocation">asset allocation</FinancialTerm> and <FinancialTerm term="Tax-Loss Harvesting">tax-loss harvesting</FinancialTerm> can help Central Florida professionals make more informed decisions about their financial future.
                   </p>
                   <Link to="/education">
                     <Button variant="outline" className="group border-blue-200 hover:bg-blue-50 hover:text-blue-700">
@@ -104,12 +104,12 @@ const Index = () => {
                 </div>
                 <div className="hidden md:block md:max-w-[40%] bg-blue-500/10 p-4 rounded-lg">
                   <h4 className="font-medium text-charcoal text-sm mb-2">Featured Financial Concept:</h4>
-                  <h5 className="font-medium text-blue-600">Compound Interest</h5>
+                  <h5 className="font-medium text-blue-600">Orlando Market Insights</h5>
                   <p className="text-sm text-charcoal/70 mt-1">
-                    Often called the eighth wonder of the world, compound interest allows your money to grow exponentially over time as you earn interest on both your principal and accumulated interest.
+                    Understanding Central Florida's unique economic landscape, from tourism impacts to tech sector growth in Lake Nona, helps shape better investment strategies for local professionals.
                   </p>
                   <Link to="/education" className="text-blue-600 hover:text-blue-800 text-xs font-medium mt-2 inline-block">
-                    Learn more financial concepts
+                    Learn more about local market trends
                   </Link>
                 </div>
               </div>

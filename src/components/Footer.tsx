@@ -19,7 +19,7 @@ const Footer = () => {
                   Smart Financial Planning
                 </Link>
                 <p className="text-slate-light text-sm mt-3">
-                  Tailored financial strategies for ambitious professionals who demand more than 
+                  Tailored financial strategies for ambitious professionals in Lake Nona and Orlando who demand more than 
                   cookie-cutter solutions.
                 </p>
               </div>
@@ -37,7 +37,7 @@ const Footer = () => {
                   <Linkedin size={18} />
                   <span className="sr-only">LinkedIn</span>
                 </a>
-                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                <a href="https://www.instagram.com/thesmartfinancialplan/" target="_blank" rel="noopener noreferrer" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
                   <Instagram size={18} />
                   <span className="sr-only">Instagram</span>
                 </a>
@@ -118,20 +118,20 @@ const Footer = () => {
                 <li className="flex items-start">
                   <MapPin className="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" />
                   <span className="text-slate-light text-sm">
-                    123 Financial District, Suite 400<br />
-                    New York, NY 10001
+                    111 N Orange Ave, STE 800<br />
+                    Orlando, Florida 32801
                   </span>
                 </li>
                 <li className="flex items-center">
                   <Phone className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
-                  <a href="tel:+12125551234" className="text-slate-light hover:text-white transition-colors text-sm">
-                    (212) 555-1234
+                  <a href="tel:+17066275729" className="text-slate-light hover:text-white transition-colors text-sm">
+                    (706) 627-5729
                   </a>
                 </li>
                 <li className="flex items-center">
                   <Mail className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
-                  <a href="mailto:info@smartfinancialplanning.com" className="text-slate-light hover:text-white transition-colors text-sm">
-                    info@smartfinancialplanning.com
+                  <a href="mailto:info@thesmartfinancialplan.com" className="text-slate-light hover:text-white transition-colors text-sm">
+                    info@thesmartfinancialplan.com
                   </a>
                 </li>
               </ul>
@@ -139,7 +139,7 @@ const Footer = () => {
               <NewsletterSignup 
                 compact={true} 
                 title="Financial Insights Newsletter"
-                description="Stay updated with the latest in personal finance and wealth management."
+                description="Stay updated with Lake Nona and Orlando financial planning insights."
               />
             </ScrollReveal>
           </div>
