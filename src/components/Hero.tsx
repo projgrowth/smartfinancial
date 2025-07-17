@@ -5,6 +5,7 @@ import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import PrimaryButton from './PrimaryButton';
 import GradientAccent from './GradientAccent';
+import BullIntegration from './BullIntegration';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
 
@@ -18,16 +19,21 @@ const Hero = () => {
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
       <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       
-      {/* Bull shape gradient only on education page */}
+      {/* Bull integration - subtle background element */}
+      <BullIntegration 
+        variant="hero" 
+        size="xl" 
+        animated 
+        className="opacity-[0.03] mix-blend-multiply"
+      />
+      
+      {/* Education page specific bull */}
       {isEducationPage && (
-        <GradientAccent 
-          variant="bull" 
-          position="center" 
-          size="2xl" 
-          intensity="ultra-low" 
-          shape="bull" 
+        <BullIntegration 
+          variant="section" 
+          size="lg" 
           animated 
-          className="opacity-[0.05] mix-blend-screen" 
+          className="opacity-[0.08] mix-blend-screen top-20 right-10"
         />
       )}
       

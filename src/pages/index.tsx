@@ -11,8 +11,8 @@ import FAQSection from '../components/FAQSection';
 import FinancialCalculator from '../components/FinancialCalculator';
 import MeetingScheduler from '../components/MeetingScheduler';
 import EnhancedNewsletter from '../components/EnhancedNewsletter';
-import Testimonials from '../components/Testimonials';
-import CTA from '../components/CTA';
+import EnhancedTestimonials from '../components/EnhancedTestimonials';
+import EnhancedCTA from '../components/EnhancedCTA';
 import Footer from '../components/Footer';
 import PremiumBackground from '../components/PremiumBackground';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -23,27 +23,11 @@ import { Link } from 'react-router-dom';
 import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // Removed artificial loading delay
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
-  useEffect(() => {
-    const loadFonts = () => {
-      // This ensures fonts are loaded efficiently with preconnect
-      document.title = "Financial Planning Lake Nona Orlando | Smart Financial Planning";
-      
-      return () => {};
-    };
-
-    return loadFonts();
+    // Set page title for SEO
+    document.title = "Financial Planning Lake Nona Orlando | Smart Financial Planning";
   }, []);
 
   if (isLoading) {
@@ -137,10 +121,10 @@ const Index = () => {
         
         <TeamDetails />
         <MeetingScheduler />
-        <Testimonials />
+        <EnhancedTestimonials />
         <FAQSection />
         <EnhancedNewsletter />
-        <CTA />
+        <EnhancedCTA />
       </main>
       <Footer />
     </div>
