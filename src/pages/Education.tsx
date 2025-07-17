@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import BullIntegration from '../components/BullIntegration';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -167,7 +168,14 @@ const Education = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
+      <section className="pt-32 pb-16 relative overflow-hidden">
+        {/* Bull Integration */}
+        <BullIntegration 
+          variant="section" 
+          size="xl" 
+          animated 
+          className="opacity-20 top-10 right-10 z-0"
+        />
         <div className="container-custom relative z-10">
           <ScrollReveal>
             <h1 className="heading-xl text-charcoal mb-6 text-center max-w-3xl mx-auto">
@@ -230,8 +238,13 @@ const Education = () => {
       </section>
       
       {/* Educational Resources Section */}
-      <section className="py-16 bg-slate-50/50">
-        <div className="container-custom">
+      <section className="py-16 bg-slate-50/50 relative overflow-hidden">
+        <BullIntegration 
+          variant="watermark" 
+          size="md" 
+          className="opacity-[0.05] bottom-0 left-10 z-0"
+        />
+        <div className="container-custom relative z-10">
           <ScrollReveal>
             <h2 className="heading-lg text-charcoal mb-8 text-center">
               Educational Resources
