@@ -8,6 +8,7 @@ import GradientAccent from './GradientAccent';
 import BullIntegration from './BullIntegration';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
+import bullHeroImage from '../assets/bull-hero.png';
 
 const Hero = () => {
   const location = useLocation();
@@ -19,12 +20,21 @@ const Hero = () => {
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
       <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       
-      {/* Bull integration - subtle background element */}
+      {/* Bull background image */}
+      <div className="absolute inset-0 z-0 opacity-40" aria-hidden="true">
+        <img 
+          src={bullHeroImage} 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-30" 
+        />
+      </div>
+      
+      {/* Bull integration as backup */}
       <BullIntegration 
         variant="hero" 
         size="xl" 
         animated 
-        className="opacity-[0.3] mix-blend-overlay absolute inset-0"
+        className="opacity-[0.6] mix-blend-overlay absolute inset-0 z-0"
       />
       
       {/* Education page specific bull */}
@@ -37,7 +47,7 @@ const Hero = () => {
         />
       )}
       
-      <div className="container-custom mx-auto z-10">
+      <div className="container-custom mx-auto z-20">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="heading-xl font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-charcoal mb-6">
