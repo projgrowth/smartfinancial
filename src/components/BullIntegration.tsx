@@ -22,10 +22,10 @@ const BullIntegration: React.FC<BullIntegrationProps> = ({
   };
 
   const variantStyles = {
-    hero: 'absolute inset-0 opacity-5 mix-blend-overlay',
-    section: 'absolute top-0 right-0 opacity-20 -z-10',
+    hero: 'absolute inset-0 opacity-40 mix-blend-overlay',
+    section: 'absolute top-0 right-0 opacity-30 -z-10',
     watermark: 'absolute bottom-4 right-4 opacity-30',
-    loading: 'mx-auto opacity-30'
+    loading: 'mx-auto opacity-40'
   };
 
   return (
@@ -46,9 +46,9 @@ const BullIntegration: React.FC<BullIntegrationProps> = ({
       >
         <defs>
           <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+            <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
           </linearGradient>
           <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
             <feDropShadow dx="2" dy="4" stdDeviation="3" floodOpacity="0.3"/>

@@ -24,7 +24,7 @@ const Hero = () => {
         variant="hero" 
         size="xl" 
         animated 
-        className="opacity-[0.15] mix-blend-overlay"
+        className="opacity-[0.3] mix-blend-overlay absolute inset-0"
       />
       
       {/* Education page specific bull */}
