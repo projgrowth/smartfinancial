@@ -21,11 +21,11 @@ const Hero = () => {
       <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       
       {/* Bull background image */}
-      <div className="absolute inset-0 z-0 opacity-40" aria-hidden="true">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <img 
           src={bullHeroImage} 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-30" 
+          className="w-full h-full object-cover object-center opacity-100" 
         />
       </div>
       
