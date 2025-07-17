@@ -24,7 +24,7 @@ const Hero = () => {
         variant="hero" 
         size="xl" 
         animated 
-        className="opacity-[0.03] mix-blend-multiply"
+        className="opacity-[0.15] mix-blend-overlay"
       />
       
       {/* Education page specific bull */}
@@ -40,11 +40,11 @@ const Hero = () => {
       <div className="container-custom mx-auto z-10">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="heading-xl text-charcoal mb-6">
+            <h1 className="heading-xl font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-charcoal mb-6">
               <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
-                <span className="text-blue-500 typing-wrapper">
-                  <span className="typing-text">Elevated.</span>
+                <span className="text-blue-500 font-bold">
+                  <span className="animate-fade-in">Elevated.</span>
                 </span>
               </div>
             </h1>
@@ -60,7 +60,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="paragraph text-charcoal/80 mb-10 max-w-2xl mx-auto">
+            <p className="paragraph text-charcoal/80 mb-10 max-w-2xl mx-auto shadow-sm p-4 bg-white/50 backdrop-blur-sm rounded-lg">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>

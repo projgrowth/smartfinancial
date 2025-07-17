@@ -22,9 +22,9 @@ const BullIntegration: React.FC<BullIntegrationProps> = ({
   };
 
   const variantStyles = {
-    hero: 'absolute inset-0 opacity-5 mix-blend-multiply',
-    section: 'absolute top-0 right-0 opacity-10 -z-10',
-    watermark: 'absolute bottom-4 right-4 opacity-20',
+    hero: 'absolute inset-0 opacity-5 mix-blend-overlay',
+    section: 'absolute top-0 right-0 opacity-20 -z-10',
+    watermark: 'absolute bottom-4 right-4 opacity-30',
     loading: 'mx-auto opacity-30'
   };
 
@@ -33,7 +33,7 @@ const BullIntegration: React.FC<BullIntegrationProps> = ({
       className={cn(
         sizeStyles[size],
         variantStyles[variant],
-        animated && 'animate-[float_20s_ease-in-out_infinite]',
+        animated && 'animate-[float_15s_ease-in-out_infinite]',
         className
       )}
       aria-hidden="true"
@@ -46,9 +46,9 @@ const BullIntegration: React.FC<BullIntegrationProps> = ({
       >
         <defs>
           <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
-            <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
           </linearGradient>
           <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
             <feDropShadow dx="2" dy="4" stdDeviation="3" floodOpacity="0.3"/>
