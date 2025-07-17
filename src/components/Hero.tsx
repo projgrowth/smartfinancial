@@ -21,21 +21,13 @@ const Hero = () => {
       <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       
       {/* Bull background image */}
-      <div className="absolute inset-0 z-0" aria-hidden="true">
+      <div className="absolute inset-0 z-0 flex items-center justify-center" aria-hidden="true">
         <img 
           src={bullHeroImage} 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-100" 
+          className="w-full h-full object-contain opacity-100 max-w-4xl mx-auto" 
         />
       </div>
-      
-      {/* Bull integration as backup */}
-      <BullIntegration 
-        variant="hero" 
-        size="xl" 
-        animated 
-        className="opacity-[0.6] mix-blend-overlay absolute inset-0 z-0"
-      />
       
       {/* Education page specific bull */}
       {isEducationPage && (
