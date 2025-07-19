@@ -37,7 +37,7 @@ const Hero = () => {
             <h1 className="heading-display mb-6">
               <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
-                <span className="text-primary typing-wrapper">
+                <span className="text-blue-400 typing-wrapper">
                   <span className="typing-text">Elevated.</span>
                 </span>
               </div>
