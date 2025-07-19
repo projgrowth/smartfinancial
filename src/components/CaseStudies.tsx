@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Briefcase, Users, ChartBar, DollarSign, ArrowRight, Target, TrendingUp, Clock } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
@@ -6,10 +5,12 @@ import GradientAccent from './GradientAccent';
 import { ChartContainer } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line } from 'recharts';
 import ClientStoryCard from './case-studies/ClientStoryCard';
-import StoryTimeline from './case-studies/StoryTimeline';
+import StoryNavigation from './case-studies/StoryNavigation';
+import InteractiveTimeline from './case-studies/InteractiveTimeline';
 
 const CaseStudies = () => {
   const [expandedCase, setExpandedCase] = useState<string | null>(null);
+  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
   const toggleCase = (id: string) => {
     setExpandedCase(expandedCase === id ? null : id);
@@ -64,30 +65,38 @@ const CaseStudies = () => {
       ],
       keyInsight: 'You don\'t have to choose between paying off debt and building wealth - with the right strategy and automation, you can make meaningful progress on both simultaneously.',
       icon: <Briefcase className="w-8 h-8 text-primary" />,
+      metrics: [
+        { before: 55000, after: 0, label: 'Debt', prefix: '$', suffix: '' },
+        { before: 10000, after: 52000, label: 'Savings', prefix: '$', suffix: '' },
+        { before: 0, after: 18000, label: 'Investments', prefix: '$', suffix: '' }
+      ],
       timeline: [
         {
-          phase: 'Discovery & Planning',
+          id: 'discovery',
           title: 'Debt Analysis & Strategy Design',
           description: 'We analyzed all debt types, interest rates, and cash flow to create a prioritized paydown strategy while maximizing employer retirement matching.',
-          timeframe: 'Month 1-2',
-          icon: <Target className="w-4 h-4 text-blue-500" />,
-          status: 'completed' as const
+          duration: 'Month 1-2',
+          icon: <Target className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Comprehensive financial assessment including debt consolidation analysis, cash flow optimization, and retirement account evaluation to create the foundation for wealth building.'
         },
         {
-          phase: 'Implementation',
+          id: 'implementation',
           title: 'Automated Wealth-Building System',
           description: 'Set up automated debt payments, retirement contributions, and home savings to remove decision fatigue and ensure consistent progress.',
-          timeframe: 'Month 3-6',
-          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
-          status: 'completed' as const
+          duration: 'Month 3-6',
+          icon: <TrendingUp className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Implementation of automated systems including high-yield savings accounts, investment portfolio setup, and debt payment automation to ensure consistent progress without manual intervention.'
         },
         {
-          phase: 'Acceleration',
+          id: 'acceleration',
           title: 'Income Optimization & Debt Elimination',
           description: 'Leveraged salary increases and bonuses to accelerate debt payoff while maintaining retirement and home savings momentum.',
-          timeframe: 'Year 1-3',
-          icon: <Clock className="w-4 h-4 text-orange-500" />,
-          status: 'completed' as const
+          duration: 'Year 1-3',
+          icon: <Clock className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Strategic use of salary increases, bonuses, and tax refunds to accelerate debt elimination while maintaining aggressive savings rates for retirement and home purchase goals.'
         }
       ],
       chartComponent: (
@@ -123,30 +132,37 @@ const CaseStudies = () => {
       ],
       keyInsight: 'Education and retirement planning don\'t have to compete - they can complement each other when you use the right accounts and timing strategies.',
       icon: <Users className="w-8 h-8 text-primary" />,
+      metrics: [
+        { before: 0, after: 70000, label: 'College Savings', prefix: '$', suffix: '' },
+        { before: 120000, after: 192000, label: 'Retirement Savings', prefix: '$', suffix: '' }
+      ],
       timeline: [
         {
-          phase: 'Goal Setting',
+          id: 'goal-setting',
           title: 'Education Cost Planning',
           description: 'Calculated realistic college costs and created funding targets based on each child\'s age and projected education timeline.',
-          timeframe: 'Month 1',
-          icon: <Target className="w-4 h-4 text-blue-500" />,
-          status: 'completed' as const
+          duration: 'Month 1',
+          icon: <Target className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Detailed analysis of projected college costs, inflation rates, and potential financial aid options to establish realistic savings targets for each child\'s education.'
         },
         {
-          phase: 'Strategy Design',
+          id: 'strategy-design',
           title: '529 Plan Optimization',
           description: 'Selected optimal 529 plans considering tax benefits, investment options, and flexibility for changing education needs.',
-          timeframe: 'Month 2-3',
-          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
-          status: 'completed' as const
+          duration: 'Month 2-3',
+          icon: <TrendingUp className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Careful selection of 529 plans based on state tax benefits, low-cost investment options, and flexibility to adapt to changing education needs or beneficiary changes.'
         },
         {
-          phase: 'Integration',
+          id: 'integration',
           title: 'Retirement Synchronization',
           description: 'Restructured retirement contributions to maximize tax benefits while maintaining aggressive education funding.',
-          timeframe: 'Ongoing',
-          icon: <Clock className="w-4 h-4 text-orange-500" />,
-          status: 'in-progress' as const
+          duration: 'Ongoing',
+          icon: <Clock className="w-4 h-4" />,
+          status: 'in-progress' as const,
+          details: 'Strategic adjustments to retirement contributions, asset allocation, and tax planning to ensure both education funding and retirement goals are achieved without compromising lifestyle.'
         }
       ],
       chartComponent: (
@@ -181,30 +197,37 @@ const CaseStudies = () => {
       ],
       keyInsight: 'Business owners need intentional separation between business growth and personal wealth building - your business should fund your freedom, not trap you.',
       icon: <ChartBar className="w-8 h-8 text-primary" />,
+      metrics: [
+        { before: 500000, after: 1250000, label: 'Business Value', prefix: '$', suffix: '' },
+        { before: 0, after: 600000, label: 'Personal Assets', prefix: '$', suffix: '' }
+      ],
       timeline: [
         {
-          phase: 'Assessment',
+          id: 'assessment',
           title: 'Business Valuation & Analysis',
           description: 'Established baseline business value and identified key growth levers while assessing personal financial needs.',
-          timeframe: 'Month 1-2',
-          icon: <Target className="w-4 h-4 text-blue-500" />,
-          status: 'completed' as const
+          duration: 'Month 1-2',
+          icon: <Target className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Professional business valuation to determine current market value, identify areas for improvement, and align business goals with personal financial objectives.'
         },
         {
-          phase: 'Diversification',
+          id: 'diversification',
           title: 'Personal Wealth Building',
           description: 'Restructured compensation to maximize personal savings while maintaining business growth capital.',
-          timeframe: 'Year 1-2',
-          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
-          status: 'completed' as const
+          duration: 'Year 1-2',
+          icon: <TrendingUp className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Implementation of tax-efficient compensation strategies, retirement plans, and investment accounts to build personal wealth outside of the business while optimizing cash flow for growth.'
         },
         {
-          phase: 'Exit Planning',
+          id: 'exit-planning',
           title: 'Strategic Exit Preparation',
           description: 'Developing multi-year exit strategy with value milestones and transition planning for financial independence.',
-          timeframe: 'Year 3-5',
-          icon: <Clock className="w-4 h-4 text-orange-500" />,
-          status: 'in-progress' as const
+          duration: 'Year 3-5',
+          icon: <Clock className="w-4 h-4" />,
+          status: 'in-progress' as const,
+          details: 'Development of a comprehensive exit strategy including business succession planning, potential sale options, and financial projections to ensure a smooth transition and financial security.'
         }
       ],
       chartComponent: (
@@ -239,30 +262,37 @@ const CaseStudies = () => {
       ],
       keyInsight: 'Pre-retirement is not about accumulating more - it\'s about orchestrating what you have into a reliable, tax-efficient income system.',
       icon: <DollarSign className="w-8 h-8 text-primary" />,
+      metrics: [
+        { before: 0, after: 145000, label: 'Retirement Income', prefix: '$', suffix: '' },
+        { before: 750000, after: 0, label: 'Funding Gap', prefix: '$', suffix: '' }
+      ],
       timeline: [
         {
-          phase: 'Income Analysis',
+          id: 'income-analysis',
           title: 'Retirement Income Planning',
           description: 'Analyzed all income sources including pension, 401k, stock options, and Social Security to create comprehensive income strategy.',
-          timeframe: 'Month 1-3',
-          icon: <Target className="w-4 h-4 text-blue-500" />,
-          status: 'completed' as const
+          duration: 'Month 1-3',
+          icon: <Target className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Detailed analysis of all potential retirement income sources including pensions, 401(k)s, stock options, Social Security, and real estate to create a comprehensive income strategy.'
         },
         {
-          phase: 'Tax Optimization',
+          id: 'tax-optimization',
           title: 'Withdrawal Strategy Design',
           description: 'Created tax-efficient withdrawal sequence across different account types to minimize lifetime tax burden.',
-          timeframe: 'Month 4-6',
-          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
-          status: 'completed' as const
+          duration: 'Month 4-6',
+          icon: <TrendingUp className="w-4 h-4" />,
+          status: 'completed' as const,
+          details: 'Development of a tax-efficient withdrawal sequence across different account types to minimize lifetime tax burden and maximize after-tax income.'
         },
         {
-          phase: 'Legacy Planning',
+          id: 'legacy-planning',
           title: 'Estate & Charitable Integration',
           description: 'Implemented estate planning strategies aligned with wealth transfer and charitable giving objectives.',
-          timeframe: 'Year 2-3',
-          icon: <Clock className="w-4 h-4 text-orange-500" />,
-          status: 'in-progress' as const
+          duration: 'Year 2-3',
+          icon: <Clock className="w-4 h-4" />,
+          status: 'in-progress' as const,
+          details: 'Implementation of estate planning strategies aligned with wealth transfer and charitable giving objectives, including trusts, wills, and charitable donations.'
         }
       ],
       chartComponent: (
@@ -280,6 +310,22 @@ const CaseStudies = () => {
     }
   ];
 
+  const storyTitles = caseStudies.map(study => study.title);
+
+  const handlePreviousStory = () => {
+    setCurrentStoryIndex(Math.max(0, currentStoryIndex - 1));
+    setExpandedCase(null);
+  };
+
+  const handleNextStory = () => {
+    setCurrentStoryIndex(Math.min(caseStudies.length - 1, currentStoryIndex + 1));
+    setExpandedCase(null);
+  };
+
+  const handleHomeStories = () => {
+    setExpandedCase(null);
+  };
+
   return (
     <section id="case-studies" className="section-premium bg-gradient-to-br from-accent/5 to-background relative overflow-hidden">
       <GradientAccent variant="blue" position="bottom-right" intensity="low" />
@@ -296,6 +342,17 @@ const CaseStudies = () => {
             </p>
           </div>
         </ScrollReveal>
+
+        <div className="mb-8">
+          <StoryNavigation
+            currentStory={currentStoryIndex}
+            totalStories={caseStudies.length}
+            onPrevious={handlePreviousStory}
+            onNext={handleNextStory}
+            onHome={handleHomeStories}
+            storyTitles={storyTitles}
+          />
+        </div>
         
         <div className="space-premium-lg">
           {caseStudies.map((study, index) => (
@@ -310,11 +367,12 @@ const CaseStudies = () => {
                 icon={study.icon}
                 isExpanded={expandedCase === study.id}
                 onToggle={() => toggleCase(study.id)}
+                metrics={study.metrics}
               >
-                <div className="grid lg:grid-cols-2 gap-6 mt-6">
+                <div className="space-y-6">
                   <div>
-                    <h4 className="font-medium text-charcoal mb-4">The Journey</h4>
-                    <StoryTimeline steps={study.timeline} />
+                    <h4 className="font-medium text-charcoal mb-4">Implementation Timeline</h4>
+                    <InteractiveTimeline phases={study.timeline} />
                   </div>
                   
                   <div className="bg-accent/5 p-6 rounded-xl">
@@ -324,23 +382,6 @@ const CaseStudies = () => {
                       Real results from implemented strategies
                     </p>
                   </div>
-                </div>
-                
-                <div className="mt-8 text-center p-6 bg-blue-50 rounded-xl border border-blue-100">
-                  <h4 className="font-medium text-blue-800 mb-2">Could This Be Your Story?</h4>
-                  <p className="text-blue-700 text-sm mb-4">
-                    If you're facing similar challenges, we'd love to explore how our approach might work for your unique situation.
-                  </p>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
-                  >
-                    Start Your Success Story
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </button>
                 </div>
               </ClientStoryCard>
             </ScrollReveal>
