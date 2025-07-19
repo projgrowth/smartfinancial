@@ -48,45 +48,37 @@ const TeamDetails = () => {
     },
     {
       name: "Vince Gallegos",
-      title: "Client Services / Associate Wealth Advisor",
-      bio: "Vince has been guiding clients toward their financial goals since 2021, with a specialized focus on business owners and the complexities they face. Known for his approachable style and commitment to personalized service, Vince brings clarity and confidence to the financial planning process. Outside the office, he's a proud husband to his wife Kirsten and dad to their daughter, Georgia. You'll often find him on the golf course, watching football, or enjoying music—with a coffee always close by.",
+      title: "[PLACEHOLDER - VERIFY EXACT TITLE]",
+      bio: "[PLACEHOLDER - WAITING FOR EXACT BIO FROM UPLOADED FILES]",
       imageUrl: "/placeholder.svg",
-      specialty: ["Business Owner Planning", "Client Relations", "Financial Goal Setting"],
+      specialty: ["[PLACEHOLDER - VERIFY SPECIALTIES]"],
       education: [
-        "BS, Business Administration, Arizona State University"
+        "[PLACEHOLDER - VERIFY EDUCATION]"
       ],
       certifications: [
-        "Series 7 & 66 Licenses",
-        "Life & Health Insurance Licensed"
+        "[PLACEHOLDER - VERIFY CERTIFICATIONS]"
       ],
       experience: [
-        "3 years, Smart Financial Planning, Associate Wealth Advisor",
-        "2 years, Regional Financial Group, Client Services Specialist",
-        "1 year, Independent Financial Consulting"
+        "[PLACEHOLDER - VERIFY EXPERIENCE]"
       ],
-      approach: "Vince focuses on building strong client relationships and making complex financial concepts accessible. He believes that clear communication and personalized attention are the foundations of successful financial planning."
+      approach: "[PLACEHOLDER - WAITING FOR EXACT APPROACH FROM UPLOADED FILES]"
     },
     {
       name: "Kelvin Mobley",
-      title: "Wealth & Asset Protection Specialist",
-      bio: "Kelvin blends financial expertise with entrepreneurial experience to help clients protect what they've built and plan for what's next. His work is grounded in real-world insight and a genuine commitment to long-term security for families and business owners alike. A lifelong learner and strategist, Kelvin is also a golfer, a proud father, and a passionate football fan.",
+      title: "[PLACEHOLDER - VERIFY EXACT TITLE]", 
+      bio: "[PLACEHOLDER - WAITING FOR EXACT BIO FROM UPLOADED FILES]",
       imageUrl: "/placeholder.svg",
-      specialty: ["Asset Protection", "Estate Planning", "Risk Management"],
+      specialty: ["[PLACEHOLDER - VERIFY SPECIALTIES]"],
       education: [
-        "MBA, Finance, University of Texas at Austin",
-        "BS, Economics, Texas A&M University"
+        "[PLACEHOLDER - VERIFY EDUCATION]"
       ],
       certifications: [
-        "Certified Financial Planner (CFP®)",
-        "Chartered Life Underwriter (CLU)",
-        "Estate Planning Specialist"
+        "[PLACEHOLDER - VERIFY CERTIFICATIONS]"
       ],
       experience: [
-        "8 years, Smart Financial Planning, Wealth & Asset Protection Specialist",
-        "5 years, Elite Wealth Management, Senior Advisor",
-        "3 years, Independent Entrepreneurial Ventures"
+        "[PLACEHOLDER - VERIFY EXPERIENCE]"
       ],
-      approach: "Kelvin takes a holistic approach to wealth protection, combining traditional financial planning with innovative strategies. His entrepreneurial background helps him understand the unique challenges business owners face in protecting their assets."
+      approach: "[PLACEHOLDER - WAITING FOR EXACT APPROACH FROM UPLOADED FILES]"
     }
   ];
 

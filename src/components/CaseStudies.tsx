@@ -161,7 +161,7 @@ const CaseStudies = () => {
           description: 'Restructured retirement contributions to maximize tax benefits while maintaining aggressive education funding.',
           duration: 'Ongoing',
           icon: <Clock className="w-4 h-4" />,
-          status: 'in-progress' as const,
+          status: 'current' as const,
           details: 'Strategic adjustments to retirement contributions, asset allocation, and tax planning to ensure both education funding and retirement goals are achieved without compromising lifestyle.'
         }
       ],
@@ -226,7 +226,7 @@ const CaseStudies = () => {
           description: 'Developing multi-year exit strategy with value milestones and transition planning for financial independence.',
           duration: 'Year 3-5',
           icon: <Clock className="w-4 h-4" />,
-          status: 'in-progress' as const,
+          status: 'current' as const,
           details: 'Development of a comprehensive exit strategy including business succession planning, potential sale options, and financial projections to ensure a smooth transition and financial security.'
         }
       ],
@@ -291,7 +291,7 @@ const CaseStudies = () => {
           description: 'Implemented estate planning strategies aligned with wealth transfer and charitable giving objectives.',
           duration: 'Year 2-3',
           icon: <Clock className="w-4 h-4" />,
-          status: 'in-progress' as const,
+          status: 'current' as const,
           details: 'Implementation of estate planning strategies aligned with wealth transfer and charitable giving objectives, including trusts, wills, and charitable donations.'
         }
       ],

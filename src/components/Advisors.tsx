@@ -43,14 +43,14 @@ const Advisors = () => {
     },
     {
       name: "Vince Gallegos",
-      title: "Client Services / Associate Wealth Advisor",
-      bio: "Vince has been guiding clients toward their financial goals since 2021, with a specialized focus on business owners and the complexities they face. Known for his approachable style and commitment to personalized service, Vince brings clarity and confidence to the financial planning process. Outside the office, he's a proud husband to his wife Kirsten and dad to their daughter, Georgia. You'll often find him on the golf course, watching football, or enjoying music—with a coffee always close by.",
+      title: "[PLACEHOLDER - VERIFY EXACT TITLE]",
+      bio: "[PLACEHOLDER - WAITING FOR EXACT BIO FROM UPLOADED FILES]",
       imageUrl: "/placeholder.svg"
     },
     {
-      name: "Kelvin Mobley",
-      title: "Wealth & Asset Protection Specialist",
-      bio: "Kelvin blends financial expertise with entrepreneurial experience to help clients protect what they've built and plan for what's next. His work is grounded in real-world insight and a genuine commitment to long-term security for families and business owners alike. A lifelong learner and strategist, Kelvin is also a golfer, a proud father, and a passionate football fan.",
+      name: "Kelvin Mobley", 
+      title: "[PLACEHOLDER - VERIFY EXACT TITLE]",
+      bio: "[PLACEHOLDER - WAITING FOR EXACT BIO FROM UPLOADED FILES]",
       imageUrl: "/placeholder.svg"
     }
   ];
