@@ -27,29 +27,25 @@ const TeamDetails = () => {
   const advisors: AdvisorData[] = [
     {
       name: "Razell Smart",
-      title: "Founder & CEO",
-      bio: "With a disciplined approach honed by 13 years in the Armed Forces, Razell specializes in delivering innovative, strategic financial solutions to high-achieving entrepreneurs and professionals. Razell's expertise lies in asset protection, growth optimization, and personalized financial strategy.",
+      title: "Founder & Lead Advisor",
+      bio: "Razell founded Smart Financial Planning with one mission: to provide high-level, personalized planning for individuals and families who want more than a cookie-cutter approach. With years of experience guiding business owners, professionals, and high-income earners, Razell's strategies balance growth, protection, and long-term impact. Outside of work, he's a devoted husband and father, a lifelong student of leadership, and a strong believer that financial planning should feel empowering—not overwhelming.",
       imageUrl: "/lovable-uploads/8b9ec04f-64ac-49d5-9530-f05fcf4c6240.png",
-      specialty: ["Business Owner Planning", "Wealth Optimization", "Tax Strategies"],
+      specialty: ["[PLACEHOLDER - VERIFY SPECIALTIES]"],
       education: [
-        "MBA, Finance, University of Florida",
-        "BS, Business Administration, Florida State University"
+        "[PLACEHOLDER - VERIFY EDUCATION]"
       ],
       certifications: [
-        "Certified Financial Planner (CFP®)",
-        "Chartered Financial Analyst (CFA)"
+        "[PLACEHOLDER - VERIFY CERTIFICATIONS]"
       ],
       experience: [
-        "13 years, United States Armed Forces, Leadership & Operations",
-        "7 years, SmartWealth Financial, Senior Advisor",
-        "5 years, Smart Financial Planning, Founder & CEO"
+        "[PLACEHOLDER - VERIFY EXPERIENCE]"
       ],
-      approach: "Razell combines military precision with innovative financial strategies to help clients build resilient wealth. His disciplined approach emphasizes long-term growth while protecting assets from market volatility and unnecessary taxation."
+      approach: "[PLACEHOLDER - VERIFY EXACT APPROACH]"
     },
     {
       name: "Vince Gallegos",
-      title: "[PLACEHOLDER - VERIFY EXACT TITLE]",
-      bio: "[PLACEHOLDER - WAITING FOR EXACT BIO FROM UPLOADED FILES]",
+      title: "Client Services / Associate Wealth Advisor",
+      bio: "Vince has been helping clients pursue their financial goals since 2021, with a focus on business owners and the unique challenges they face. His calm, service-first approach helps clients feel confident and supported at every step. Vince is a proud husband and father—married to his wife Kirsten and raising their energetic daughter, Georgia. Away from the office, he's most likely on the golf course, watching football, or listening to music—always with coffee in hand.",
       imageUrl: "/placeholder.svg",
       specialty: ["[PLACEHOLDER - VERIFY SPECIALTIES]"],
       education: [
@@ -61,12 +57,12 @@ const TeamDetails = () => {
       experience: [
         "[PLACEHOLDER - VERIFY EXPERIENCE]"
       ],
-      approach: "[PLACEHOLDER - WAITING FOR EXACT APPROACH FROM UPLOADED FILES]"
+      approach: "[PLACEHOLDER - VERIFY EXACT APPROACH]"
     },
     {
       name: "Kelvin Mobley",
-      title: "[PLACEHOLDER - VERIFY EXACT TITLE]", 
-      bio: "[PLACEHOLDER - WAITING FOR EXACT BIO FROM UPLOADED FILES]",
+      title: "Wealth & Asset Protection Specialist",
+      bio: "Kelvin brings a grounded, entrepreneurial perspective to financial protection and wealth-building. With deep experience in asset protection, he helps clients shield their legacy and maximize peace of mind. His approach is practical, proactive, and deeply personalized. Off the clock, Kelvin is a proud father, lifelong football fan, and golfer who believes that structure creates freedom—financially and personally.",
       imageUrl: "/placeholder.svg",
       specialty: ["[PLACEHOLDER - VERIFY SPECIALTIES]"],
       education: [
@@ -78,7 +74,7 @@ const TeamDetails = () => {
       experience: [
         "[PLACEHOLDER - VERIFY EXPERIENCE]"
       ],
-      approach: "[PLACEHOLDER - WAITING FOR EXACT APPROACH FROM UPLOADED FILES]"
+      approach: "[PLACEHOLDER - VERIFY EXACT APPROACH]"
     }
   ];
 
