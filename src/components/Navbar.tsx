@@ -29,7 +29,7 @@ const Navbar = () => {
       }
       
       if (isHomePage) {
-        const sections = ['services', 'process', 'case-studies', 'team', 'testimonials'];
+        const sections = ['services', 'process', 'case-studies', 'team'];
         let currentSection = '';
         
         for (const section of sections) {
@@ -67,8 +67,7 @@ const Navbar = () => {
     { name: 'Services', id: 'services' },
     { name: 'Process', id: 'process' },
     { name: 'Case Studies', id: 'case-studies' },
-    { name: 'Team', id: 'team' },
-    { name: 'Testimonials', id: 'testimonials' }
+    { name: 'Team', id: 'team' }
   ];
 
   const navItems: NavItem[] = [

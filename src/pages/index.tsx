@@ -11,7 +11,6 @@ import FAQSection from '../components/FAQSection';
 import FinancialCalculator from '../components/FinancialCalculator';
 import MeetingScheduler from '../components/MeetingScheduler';
 import EnhancedNewsletter from '../components/EnhancedNewsletter';
-import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import PremiumBackground from '../components/PremiumBackground';
@@ -137,7 +136,6 @@ const Index = () => {
         
         <TeamDetails />
         <MeetingScheduler />
-        <Testimonials />
         <FAQSection />
         <EnhancedNewsletter />
         <CTA />

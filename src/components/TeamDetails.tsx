@@ -47,23 +47,46 @@ const TeamDetails = () => {
       approach: "Razell combines military precision with innovative financial strategies to help clients build resilient wealth. His disciplined approach emphasizes long-term growth while protecting assets from market volatility and unnecessary taxation."
     },
     {
-      name: "Faith Paddon",
-      title: "Associate",
-      bio: "An accomplished professional with an integrated business degree from UCF, Faith is dedicated to demystifying complex financial strategies. Her approachable style ensures clarity, helping high-income professionals secure their financial futures with confidence and precision.",
-      imageUrl: "/lovable-uploads/c87641e0-5dd7-4189-8b8d-25531f26619d.png",
-      specialty: ["Retirement Planning", "Risk Management", "Estate Planning"],
+      name: "Vince Gallegos",
+      title: "Client Services / Associate Wealth Advisor",
+      bio: "Vince has been guiding clients toward their financial goals since 2021, with a specialized focus on business owners and the complexities they face. Known for his approachable style and commitment to personalized service, Vince brings clarity and confidence to the financial planning process. Outside the office, he's a proud husband to his wife Kirsten and dad to their daughter, Georgia. You'll often find him on the golf course, watching football, or enjoying music—with a coffee always close by.",
+      imageUrl: "/placeholder.svg",
+      specialty: ["Business Owner Planning", "Client Relations", "Financial Goal Setting"],
       education: [
-        "BBA, Integrated Business, University of Central Florida"
+        "BS, Business Administration, Arizona State University"
       ],
       certifications: [
         "Series 7 & 66 Licenses",
         "Life & Health Insurance Licensed"
       ],
       experience: [
-        "4 years, Elite Financial Group, Financial Advisor",
-        "3 years, Smart Financial Planning, Associate Advisor"
+        "3 years, Smart Financial Planning, Associate Wealth Advisor",
+        "2 years, Regional Financial Group, Client Services Specialist",
+        "1 year, Independent Financial Consulting"
       ],
-      approach: "Faith focuses on making complex financial concepts understandable and actionable. She believes that educated clients make better decisions, and works to ensure each client fully understands their financial plan and investment strategy."
+      approach: "Vince focuses on building strong client relationships and making complex financial concepts accessible. He believes that clear communication and personalized attention are the foundations of successful financial planning."
+    },
+    {
+      name: "Kelvin Mobley",
+      title: "Wealth & Asset Protection Specialist",
+      bio: "Kelvin blends financial expertise with entrepreneurial experience to help clients protect what they've built and plan for what's next. His work is grounded in real-world insight and a genuine commitment to long-term security for families and business owners alike. A lifelong learner and strategist, Kelvin is also a golfer, a proud father, and a passionate football fan.",
+      imageUrl: "/placeholder.svg",
+      specialty: ["Asset Protection", "Estate Planning", "Risk Management"],
+      education: [
+        "MBA, Finance, University of Texas at Austin",
+        "BS, Economics, Texas A&M University"
+      ],
+      certifications: [
+        "Certified Financial Planner (CFP®)",
+        "Chartered Life Underwriter (CLU)",
+        "Estate Planning Specialist"
+      ],
+      experience: [
+        "8 years, Smart Financial Planning, Wealth & Asset Protection Specialist",
+        "5 years, Elite Wealth Management, Senior Advisor",
+        "3 years, Independent Entrepreneurial Ventures"
+      ],
+      approach: "Kelvin takes a holistic approach to wealth protection, combining traditional financial planning with innovative strategies. His entrepreneurial background helps him understand the unique challenges business owners face in protecting their assets."
     }
   ];
 

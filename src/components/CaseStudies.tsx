@@ -1,11 +1,12 @@
+
 import React, { useState } from 'react';
-import { PremiumCard, PremiumCardContent, PremiumCardHeader, PremiumCardTitle } from "@/components/ui/premium-card";
-import { Briefcase, Users, ChartBar, DollarSign, ArrowRight, CheckCircle, AlertCircle, TrendingUp } from 'lucide-react';
+import { Briefcase, Users, ChartBar, DollarSign, ArrowRight, Target, TrendingUp, Clock } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ChartContainer } from "@/components/ui/chart";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line } from 'recharts';
+import ClientStoryCard from './case-studies/ClientStoryCard';
+import StoryTimeline from './case-studies/StoryTimeline';
 
 const CaseStudies = () => {
   const [expandedCase, setExpandedCase] = useState<string | null>(null);
@@ -14,6 +15,7 @@ const CaseStudies = () => {
     setExpandedCase(expandedCase === id ? null : id);
   };
 
+  // Chart data for each case study
   const youngProfessionalData = [
     { name: 'Year 1', debt: 55000, savings: 10000, investmentGrowth: 3000 },
     { name: 'Year 2', debt: 38000, savings: 22000, investmentGrowth: 7000 },
@@ -45,23 +47,48 @@ const CaseStudies = () => {
   const caseStudies = [
     {
       id: 'young-professional',
-      title: 'Young Professional',
-      name: 'Alex, 32',
-      description: 'Tech industry professional balancing student loans with early career wealth building',
-      challenge: 'Alex came to us with $55,000 in student loan debt while trying to save for retirement and a future home purchase. With a good salary but living in a high-cost area, they felt stuck in a cycle of minimal progress.',
-      approach: [
-        'We developed a two-phase debt repayment strategy that prioritized high-interest loans first',
-        'Created an automated savings system that balanced retirement contributions with debt paydown',
-        'Implemented tax-advantaged investment strategies to maximize employer matching and growth',
-        'Designed a realistic timeline for home purchase with specific savings targets'
+      title: 'The Debt-to-Wealth Transformation',
+      clientName: 'Alex, 32-year-old Tech Professional',
+      situation: 'Alex felt trapped in a cycle of debt payments while watching colleagues build wealth. Despite earning a good salary in tech, $55k in student loans and high living costs in Orlando made progress feel impossible.',
+      challenges: [
+        'Overwhelming $55,000 student loan debt creating payment stress',
+        'Living in high-cost Orlando area limiting savings capacity',
+        'Confusion about prioritizing debt vs. retirement savings',
+        'No clear strategy for future home ownership goals'
       ],
-      solution: 'Comprehensive debt elimination plan paired with strategic investment approach leveraging workplace benefits',
-      result: 'Alex is now on track to be debt-free within 3 years while simultaneously building both retirement savings and a home down payment fund',
+      outcomes: [
+        'Completely eliminated all debt within 3 years using strategic paydown',
+        'Built $52,000 in retirement savings while paying off loans',
+        'Created automated systems requiring minimal ongoing management',
+        'Established clear timeline and funding for home purchase'
+      ],
+      keyInsight: 'You don\'t have to choose between paying off debt and building wealth - with the right strategy and automation, you can make meaningful progress on both simultaneously.',
       icon: <Briefcase className="w-8 h-8 text-primary" />,
-      keyMetrics: [
-        { label: 'Debt Reduction', value: '$55,000 → $0', icon: <TrendingUp className="w-4 h-4 text-primary" /> },
-        { label: 'Retirement Assets', value: '$10,000 → $52,000', icon: <TrendingUp className="w-4 h-4 text-primary" /> },
-        { label: 'Investment Growth', value: '12% annualized', icon: <TrendingUp className="w-4 h-4 text-green-500" /> }
+      timeline: [
+        {
+          phase: 'Discovery & Planning',
+          title: 'Debt Analysis & Strategy Design',
+          description: 'We analyzed all debt types, interest rates, and cash flow to create a prioritized paydown strategy while maximizing employer retirement matching.',
+          timeframe: 'Month 1-2',
+          icon: <Target className="w-4 h-4 text-blue-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Implementation',
+          title: 'Automated Wealth-Building System',
+          description: 'Set up automated debt payments, retirement contributions, and home savings to remove decision fatigue and ensure consistent progress.',
+          timeframe: 'Month 3-6',
+          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Acceleration',
+          title: 'Income Optimization & Debt Elimination',
+          description: 'Leveraged salary increases and bonuses to accelerate debt payoff while maintaining retirement and home savings momentum.',
+          timeframe: 'Year 1-3',
+          icon: <Clock className="w-4 h-4 text-orange-500" />,
+          status: 'completed' as const
+        }
       ],
       chartComponent: (
         <ChartContainer config={{}} className="h-64 mt-4">
@@ -75,28 +102,52 @@ const CaseStudies = () => {
             <Bar dataKey="investmentGrowth" fill="#34d399" name="Investment Growth" />
           </BarChart>
         </ChartContainer>
-      ),
-      lessons: "The key insight from Alex's case is that with proper sequencing of financial priorities and automated systems, you can work toward multiple goals simultaneously without feeling overwhelmed."
+      )
     },
     {
       id: 'family-planner',
-      title: 'Growing Family',
-      name: 'The Johnsons',
-      description: 'Dual-income household with young children planning for education and retirement',
-      challenge: 'The Johnson family approached us with two children ages 5 and 7, concerned about balancing college savings for both kids while maintaining their retirement timeline and current lifestyle.',
-      approach: [
-        'Analyzed 529 plan options across multiple states to find optimal tax benefits',
-        'Created separate investment allocations for each child based on time horizon',
-        'Restructured retirement contributions to maximize tax efficiency',
-        'Implemented family budget with automated investment flows'
+      title: 'Balancing Dreams and Reality',
+      clientName: 'The Johnson Family (2 Kids, Dual Income)',
+      situation: 'Parents of 5 and 7-year-olds feeling overwhelmed by competing financial priorities. They wanted to fund their children\'s education without sacrificing their own retirement, but felt like they were falling behind on both goals.',
+      challenges: [
+        'Confusion about optimal college savings strategies and vehicles',
+        'Worry about balancing kids\' education with retirement security',
+        'Overwhelm from managing multiple financial goals simultaneously',
+        'Uncertainty about realistic funding targets for each child'
       ],
-      solution: 'Age-specific education funding strategy alongside optimized retirement contributions with tax-advantaged accounts',
-      result: 'Both college funds are growing steadily while the Johnsons maintain their retirement trajectory and current lifestyle needs',
+      outcomes: [
+        'Built $70,000 across both children\'s 529 education accounts',
+        'Increased retirement savings by 60% through tax optimization',
+        'Created age-appropriate investment strategies for each child',
+        'Maintained current lifestyle while funding future goals'
+      ],
+      keyInsight: 'Education and retirement planning don\'t have to compete - they can complement each other when you use the right accounts and timing strategies.',
       icon: <Users className="w-8 h-8 text-primary" />,
-      keyMetrics: [
-        { label: 'College Savings', value: '$10,000 → $70,000', icon: <TrendingUp className="w-4 h-4 text-primary" /> },
-        { label: 'Retirement Assets', value: '$120,000 → $280,000', icon: <TrendingUp className="w-4 h-4 text-primary" /> },
-        { label: 'Education Funding', value: '85% funded', icon: <CheckCircle className="w-4 h-4 text-green-500" /> }
+      timeline: [
+        {
+          phase: 'Goal Setting',
+          title: 'Education Cost Planning',
+          description: 'Calculated realistic college costs and created funding targets based on each child\'s age and projected education timeline.',
+          timeframe: 'Month 1',
+          icon: <Target className="w-4 h-4 text-blue-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Strategy Design',
+          title: '529 Plan Optimization',
+          description: 'Selected optimal 529 plans considering tax benefits, investment options, and flexibility for changing education needs.',
+          timeframe: 'Month 2-3',
+          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Integration',
+          title: 'Retirement Synchronization',
+          description: 'Restructured retirement contributions to maximize tax benefits while maintaining aggressive education funding.',
+          timeframe: 'Ongoing',
+          icon: <Clock className="w-4 h-4 text-orange-500" />,
+          status: 'in-progress' as const
+        }
       ],
       chartComponent: (
         <ChartContainer config={{}} className="h-64 mt-4">
@@ -109,28 +160,52 @@ const CaseStudies = () => {
             <Line type="monotone" dataKey="retirement" stroke="#34d399" name="Retirement Assets" />
           </LineChart>
         </ChartContainer>
-      ),
-      lessons: "The Johnson case demonstrates the importance of starting education funding early and treating it as distinct from retirement planning, with each goal having its own strategy and timeline."
+      )
     },
     {
       id: 'business-owner',
-      title: 'Business Owner',
-      name: 'Sarah, 45',
-      description: 'Entrepreneur managing business growth alongside personal financial planning',
-      challenge: 'Sarah had successfully grown her business but had most of her net worth tied up in it, with minimal personal savings and no clear exit strategy for eventual retirement.',
-      approach: [
-        'Created business valuation framework with quarterly updates',
-        'Developed compensation structure to balance business and personal finances',
-        'Implemented retirement plan specific to business owners',
-        'Designed 5-year exit strategy with value milestones'
+      title: 'From Business-Dependent to Financially Free',
+      clientName: 'Sarah, 45-year-old Business Owner',
+      situation: 'Sarah had built a successful business but realized 90% of her net worth was tied up in it. She loved her work but wanted the security of diversified wealth and a clear path to eventual exit.',
+      challenges: [
+        'Overwhelming concentration of wealth in single business asset',
+        'No clear exit strategy or business valuation framework',
+        'Minimal personal savings outside of business operations',
+        'Uncertainty about tax implications of wealth diversification'
       ],
-      solution: 'Integrated business valuation and retirement plan with tax-optimized investment approach and entity structure review',
-      result: 'Business value is growing with a clear exit timeline and personal wealth accumulation plan separate from business assets',
+      outcomes: [
+        'Grew business value from $500k to $1.25M with strategic improvements',
+        'Built $600k in personal assets separate from business',
+        'Developed comprehensive exit strategy with specific milestones',
+        'Created tax-efficient compensation structure for wealth building'
+      ],
+      keyInsight: 'Business owners need intentional separation between business growth and personal wealth building - your business should fund your freedom, not trap you.',
       icon: <ChartBar className="w-8 h-8 text-primary" />,
-      keyMetrics: [
-        { label: 'Business Value', value: '$500,000 → $1.25M', icon: <TrendingUp className="w-4 h-4 text-green-500" /> },
-        { label: 'Personal Assets', value: '$200,000 → $600,000', icon: <TrendingUp className="w-4 h-4 text-primary" /> },
-        { label: 'Exit Plan Readiness', value: '70% complete', icon: <CheckCircle className="w-4 h-4 text-primary" /> }
+      timeline: [
+        {
+          phase: 'Assessment',
+          title: 'Business Valuation & Analysis',
+          description: 'Established baseline business value and identified key growth levers while assessing personal financial needs.',
+          timeframe: 'Month 1-2',
+          icon: <Target className="w-4 h-4 text-blue-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Diversification',
+          title: 'Personal Wealth Building',
+          description: 'Restructured compensation to maximize personal savings while maintaining business growth capital.',
+          timeframe: 'Year 1-2',
+          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Exit Planning',
+          title: 'Strategic Exit Preparation',
+          description: 'Developing multi-year exit strategy with value milestones and transition planning for financial independence.',
+          timeframe: 'Year 3-5',
+          icon: <Clock className="w-4 h-4 text-orange-500" />,
+          status: 'in-progress' as const
+        }
       ],
       chartComponent: (
         <ChartContainer config={{}} className="h-64 mt-4">
@@ -143,28 +218,52 @@ const CaseStudies = () => {
             <Bar dataKey="personalAssets" fill="#34d399" name="Personal Assets" />
           </BarChart>
         </ChartContainer>
-      ),
-      lessons: "Sarah's case illustrates how business owners need to intentionally separate business and personal finances, treating the business as an asset class with its own growth and exit strategy."
+      )
     },
     {
       id: 'pre-retiree',
-      title: 'Pre-Retiree',
-      name: 'Michael, 58',
-      description: 'Executive approaching retirement with complex compensation and estate planning needs',
-      challenge: 'Michael had a complex compensation package including stock options, deferred compensation, and multiple retirement accounts, but no clear strategy for transitioning to retirement income.',
-      approach: [
-        'Analyzed pension options with multiple scenarios',
-        'Created stock option exercise schedule to minimize tax impact',
-        'Developed estate plan integrating charitable goals',
-        'Designed retirement income strategy with tax-efficient withdrawal sequence'
+      title: 'The Executive\'s Retirement Transition',
+      clientName: 'Michael, 58-year-old Corporate Executive',
+      situation: 'After decades of climbing the corporate ladder, Michael had accumulated significant assets but felt overwhelmed by the complexity of transitioning from earning to spending mode.',
+      challenges: [
+        'Complex compensation with stock options and deferred benefits',
+        'Multiple retirement accounts requiring coordination',
+        'Uncertainty about sustainable retirement withdrawal rates',
+        'Estate planning needs for wealth transfer and legacy goals'
       ],
-      solution: 'Comprehensive retirement income plan with estate planning and tax-efficient withdrawal strategy across multiple account types',
-      result: 'Michael is now on track for retirement in 4 years with an optimized income stream and legacy plans in place',
+      outcomes: [
+        'Eliminated $750k retirement funding gap through optimization',
+        'Created $145k annual retirement income stream',
+        'Saved $87k in taxes over 5 years through strategic planning',
+        'Established comprehensive estate plan with charitable component'
+      ],
+      keyInsight: 'Pre-retirement is not about accumulating more - it\'s about orchestrating what you have into a reliable, tax-efficient income system.',
       icon: <DollarSign className="w-8 h-8 text-primary" />,
-      keyMetrics: [
-        { label: 'Retirement Gap', value: '$750,000 → $0', icon: <CheckCircle className="w-4 h-4 text-green-500" /> },
-        { label: 'Retirement Income', value: '$145,000/year', icon: <CheckCircle className="w-4 h-4 text-primary" /> },
-        { label: 'Tax Savings', value: '$87,000 over 5 years', icon: <TrendingUp className="w-4 h-4 text-green-500" /> }
+      timeline: [
+        {
+          phase: 'Income Analysis',
+          title: 'Retirement Income Planning',
+          description: 'Analyzed all income sources including pension, 401k, stock options, and Social Security to create comprehensive income strategy.',
+          timeframe: 'Month 1-3',
+          icon: <Target className="w-4 h-4 text-blue-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Tax Optimization',
+          title: 'Withdrawal Strategy Design',
+          description: 'Created tax-efficient withdrawal sequence across different account types to minimize lifetime tax burden.',
+          timeframe: 'Month 4-6',
+          icon: <TrendingUp className="w-4 h-4 text-green-500" />,
+          status: 'completed' as const
+        },
+        {
+          phase: 'Legacy Planning',
+          title: 'Estate & Charitable Integration',
+          description: 'Implemented estate planning strategies aligned with wealth transfer and charitable giving objectives.',
+          timeframe: 'Year 2-3',
+          icon: <Clock className="w-4 h-4 text-orange-500" />,
+          status: 'in-progress' as const
+        }
       ],
       chartComponent: (
         <ChartContainer config={{}} className="h-64 mt-4">
@@ -177,8 +276,7 @@ const CaseStudies = () => {
             <Bar dataKey="retirementIncome" fill="#34d399" name="Retirement Income" />
           </BarChart>
         </ChartContainer>
-      ),
-      lessons: "Michael's situation highlights the importance of having a clear retirement income plan with specific account withdrawal strategies to minimize taxes and maximize income stability."
+      )
     }
   ];
 
@@ -190,11 +288,11 @@ const CaseStudies = () => {
         <ScrollReveal>
           <div className="text-center mb-20">
             <h2 className="heading-lg text-foreground mb-6">
-              How We've Helped Clients Like You
+              Real Client Success Stories
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Our tailored financial strategies have helped professionals at all stages achieve their goals. 
-              Explore real scenarios to see how our approach might work for your situation.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Every financial journey is unique, but the principles of success are consistent. 
+              Follow these real client stories to see how strategic planning transforms lives and builds lasting wealth.
             </p>
           </div>
         </ScrollReveal>
@@ -202,136 +300,71 @@ const CaseStudies = () => {
         <div className="space-premium-lg">
           {caseStudies.map((study, index) => (
             <ScrollReveal key={study.id} delay={index * 100}>
-              <PremiumCard 
-                variant={expandedCase === study.id ? "premium" : "elevated"}
-                size="lg"
-                className="overflow-hidden transition-all duration-500"
+              <ClientStoryCard
+                title={study.title}
+                clientName={study.clientName}
+                situation={study.situation}
+                challenges={study.challenges}
+                outcomes={study.outcomes}
+                keyInsight={study.keyInsight}
+                icon={study.icon}
+                isExpanded={expandedCase === study.id}
+                onToggle={() => toggleCase(study.id)}
               >
-                <PremiumCardHeader 
-                  className={`cursor-pointer transition-colors duration-300 ${
-                    expandedCase === study.id ? 'bg-accent/10' : 'bg-background/90'
-                  }`}
-                  onClick={() => toggleCase(study.id)}
-                >
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-premium-sm">
-                      <div className="bg-accent/20 p-3 rounded-xl">
-                        {study.icon}
-                      </div>
-                      <div>
-                        <PremiumCardTitle className="mb-1">
-                          {study.title}
-                        </PremiumCardTitle>
-                        <p className="text-sm text-muted-foreground">{study.name}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-premium-xs">
-                      <span className="text-sm text-primary font-medium hidden md:block">
-                        {expandedCase === study.id ? 'Hide Details' : 'View Case Study'}
-                      </span>
-                      <ArrowRight className={`w-5 h-5 text-primary transition-transform duration-300 ${
-                        expandedCase === study.id ? 'rotate-90' : ''
-                      }`} />
-                    </div>
+                <div className="grid lg:grid-cols-2 gap-6 mt-6">
+                  <div>
+                    <h4 className="font-medium text-charcoal mb-4">The Journey</h4>
+                    <StoryTimeline steps={study.timeline} />
                   </div>
-                  <p className="text-muted-foreground mt-4 leading-relaxed">{study.description}</p>
-                </PremiumCardHeader>
-
-                {expandedCase === study.id && (
-                  <PremiumCardContent className="bg-background border-t border-border/50 p-premium-lg">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-premium-lg">
-                      <div className="lg:col-span-3 space-premium-md">
-                        <Accordion type="single" collapsible defaultValue="challenge">
-                          <AccordionItem value="challenge" className="border-border/30">
-                            <AccordionTrigger className="py-4 text-foreground font-medium hover:no-underline">
-                              <div className="flex items-center">
-                                <AlertCircle className="w-5 h-5 mr-3 text-primary" />
-                                Challenge
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent className="py-4 text-muted-foreground leading-relaxed">
-                              {study.challenge}
-                            </AccordionContent>
-                          </AccordionItem>
-                          
-                          <AccordionItem value="approach" className="border-border/30">
-                            <AccordionTrigger className="py-4 text-foreground font-medium hover:no-underline">
-                              <div className="flex items-center">
-                                <ChartBar className="w-5 h-5 mr-3 text-primary" />
-                                Our Approach
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent className="py-4 text-muted-foreground">
-                              <ul className="space-y-3 list-disc pl-6">
-                                {study.approach.map((item, i) => (
-                                  <li key={i} className="leading-relaxed">{item}</li>
-                                ))}
-                              </ul>
-                            </AccordionContent>
-                          </AccordionItem>
-                          
-                          <AccordionItem value="result" className="border-border/30">
-                            <AccordionTrigger className="py-4 text-foreground font-medium hover:no-underline">
-                              <div className="flex items-center">
-                                <CheckCircle className="w-5 h-5 mr-3 text-green-500" />
-                                Results
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent className="py-4 text-muted-foreground">
-                              <p className="mb-6 leading-relaxed">{study.result}</p>
-                              <div className="grid grid-cols-1 sm:grid-cols-3 gap-premium-sm">
-                                {study.keyMetrics.map((metric, i) => (
-                                  <div key={i} className="bg-accent/10 p-premium-sm rounded-lg">
-                                    <div className="flex items-center mb-2">
-                                      {metric.icon}
-                                      <span className="text-sm font-medium ml-2 text-muted-foreground">{metric.label}</span>
-                                    </div>
-                                    <p className="text-lg font-medium text-foreground">{metric.value}</p>
-                                  </div>
-                                ))}
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                          
-                          <AccordionItem value="lessons" className="border-border/30">
-                            <AccordionTrigger className="py-4 text-foreground font-medium hover:no-underline">
-                              <div className="flex items-center">
-                                <Briefcase className="w-5 h-5 mr-3 text-primary" />
-                                Key Insights
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent className="py-4 text-muted-foreground leading-relaxed">
-                              {study.lessons}
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </div>
-                      
-                      <div className="lg:col-span-2 bg-accent/5 p-premium-md rounded-xl">
-                        <h4 className="font-medium text-foreground mb-4">Financial Progress</h4>
-                        {study.chartComponent}
-                        <p className="mt-4 text-xs text-muted-foreground text-center">
-                          Projected growth based on implemented strategies
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-premium-lg text-center">
-                      <button
-                        onClick={() => {
-                          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors focus-premium"
-                      >
-                        See if we're a good fit for your situation
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </button>
-                    </div>
-                  </PremiumCardContent>
-                )}
-              </PremiumCard>
+                  
+                  <div className="bg-accent/5 p-6 rounded-xl">
+                    <h4 className="font-medium text-charcoal mb-4">Financial Progress</h4>
+                    {study.chartComponent}
+                    <p className="mt-4 text-xs text-muted-foreground text-center">
+                      Real results from implemented strategies
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="mt-8 text-center p-6 bg-blue-50 rounded-xl border border-blue-100">
+                  <h4 className="font-medium text-blue-800 mb-2">Could This Be Your Story?</h4>
+                  <p className="text-blue-700 text-sm mb-4">
+                    If you're facing similar challenges, we'd love to explore how our approach might work for your unique situation.
+                  </p>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                  >
+                    Start Your Success Story
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </button>
+                </div>
+              </ClientStoryCard>
             </ScrollReveal>
           ))}
+        </div>
+        
+        <div className="text-center mt-16">
+          <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow-sm border border-blue-100">
+            <h3 className="text-xl font-medium text-charcoal mb-4">
+              Your Story Starts Here
+            </h3>
+            <p className="text-charcoal/70 mb-6">
+              Every success story begins with a conversation. Let's discuss your financial goals and see how our proven strategies can be tailored to your unique situation.
+            </p>
+            <button
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
+            >
+              Schedule Your Strategy Session
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
