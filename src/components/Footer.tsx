@@ -9,37 +9,51 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-charcoal text-slate-lightest">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <footer id="contact" className="bg-primary text-primary-foreground">
+      <div className="container-unified section-lg pb-8">
+        <div className="grid-four-col gap-unified-xl">
           <div className="md:col-span-2 lg:col-span-1">
             <ScrollReveal>
-              <div className="mb-6">
-                <Link to="/" className="font-heading text-white text-xl font-medium tracking-tight mb-2 block">
+              <div className="space-component-md">
+                <Link to="/" className="heading-sm text-primary-foreground block mb-3">
                   Smart Financial Planning
                 </Link>
-                <p className="text-slate-light text-sm mt-3">
+                <p className="text-body-sm text-primary-foreground/80">
                   Tailored financial strategies for ambitious professionals in Lake Nona and Orlando who demand more than 
                   cookie-cutter solutions.
                 </p>
               </div>
               
-              <div className="flex space-x-4">
-                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+              <div className="flex gap-3">
+                <a 
+                  href="#" 
+                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  aria-label="Facebook"
+                >
                   <Facebook size={18} />
-                  <span className="sr-only">Facebook</span>
                 </a>
-                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                <a 
+                  href="#" 
+                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  aria-label="Twitter"
+                >
                   <Twitter size={18} />
-                  <span className="sr-only">Twitter</span>
                 </a>
-                <a href="#" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                <a 
+                  href="#" 
+                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  aria-label="LinkedIn"
+                >
                   <Linkedin size={18} />
-                  <span className="sr-only">LinkedIn</span>
                 </a>
-                <a href="https://www.instagram.com/thesmartfinancialplan/" target="_blank" rel="noopener noreferrer" className="bg-charcoal-light/30 hover:bg-blue-500/30 transition-colors p-2 rounded-full text-white">
+                <a 
+                  href="https://www.instagram.com/thesmartfinancialplan/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  aria-label="Instagram"
+                >
                   <Instagram size={18} />
-                  <span className="sr-only">Instagram</span>
                 </a>
               </div>
             </ScrollReveal>
@@ -47,30 +61,30 @@ const Footer = () => {
           
           <div className="lg:col-span-1">
             <ScrollReveal delay={100}>
-              <h3 className="text-white font-medium mb-4">Company</h3>
-              <ul className="space-y-2">
+              <h3 className="heading-xs text-primary-foreground mb-4">Company</h3>
+              <ul className="space-component-xs">
                 <li>
-                  <a href="#" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#team" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#team" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Our Team
                   </a>
                 </li>
                 <li>
-                  <Link to="/education" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <Link to="/education" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Education Center
                   </Link>
                 </li>
                 <li>
-                  <a href="#case-studies" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#case-studies" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Case Studies
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Careers
                   </a>
                 </li>
@@ -80,30 +94,30 @@ const Footer = () => {
           
           <div className="lg:col-span-1">
             <ScrollReveal delay={200}>
-              <h3 className="text-white font-medium mb-4">Services</h3>
-              <ul className="space-y-2">
+              <h3 className="heading-xs text-primary-foreground mb-4">Services</h3>
+              <ul className="space-component-xs">
                 <li>
-                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Wealth Management
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Investment Planning
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Retirement Planning
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Tax Optimization
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-slate-light hover:text-white transition-colors text-sm">
+                  <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                     Estate Planning
                   </a>
                 </li>
@@ -113,24 +127,30 @@ const Footer = () => {
           
           <div className="lg:col-span-1">
             <ScrollReveal delay={300}>
-              <h3 className="text-white font-medium mb-4">Contact Information</h3>
-              <ul className="space-y-3 mb-6">
+              <h3 className="heading-xs text-primary-foreground mb-4">Contact Information</h3>
+              <ul className="space-component-sm mb-6">
                 <li className="flex items-start">
-                  <MapPin className="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-light text-sm">
+                  <MapPin className="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-body-sm text-primary-foreground/80">
                     111 N Orange Ave, STE 800<br />
                     Orlando, Florida 32801
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <Phone className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
-                  <a href="tel:+17066275729" className="text-slate-light hover:text-white transition-colors text-sm">
+                <li className="flex items-center touch-target">
+                  <Phone className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
+                  <a 
+                    href="tel:+17066275729" 
+                    className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced"
+                  >
                     (706) 627-5729
                   </a>
                 </li>
-                <li className="flex items-center">
-                  <Mail className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
-                  <a href="mailto:info@thesmartfinancialplan.com" className="text-slate-light hover:text-white transition-colors text-sm">
+                <li className="flex items-center touch-target">
+                  <Mail className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
+                  <a 
+                    href="mailto:info@thesmartfinancialplan.com" 
+                    className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced break-all"
+                  >
                     info@thesmartfinancialplan.com
                   </a>
                 </li>
@@ -146,18 +166,18 @@ const Footer = () => {
         </div>
         
         <ScrollReveal>
-          <div className="mt-16 pt-6 border-t border-charcoal-light/30 text-slate-light/70 text-sm flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
+          <div className="mt-16 pt-6 border-t border-primary-foreground/20 text-primary-foreground/70 text-body-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
-            <div className="flex space-x-6">
-              <a href="#" className="hover:text-white transition-colors">
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="#" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                 Terms of Service
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="#" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                 Cookie Policy
               </a>
             </div>

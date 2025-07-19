@@ -86,12 +86,12 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-sky-50/30 via-white/80 to-blue-50/30" aria-live="polite" aria-busy="true">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16 md:py-24">
+      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-accent/10" aria-live="polite" aria-busy="true">
+        <div className="container-unified section-lg">
           <Skeleton className="h-8 md:h-12 w-3/4 max-w-lg mx-auto mb-6 md:mb-8" />
           <Skeleton className="h-4 md:h-6 w-2/3 max-w-md mx-auto mb-8 md:mb-12" />
           <Skeleton className="h-8 md:h-10 w-36 md:w-48 mx-auto mb-12 md:mb-20" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid-three-col gap-unified-lg">
             <Skeleton className="h-48 md:h-64 w-full" />
             <Skeleton className="h-48 md:h-64 w-full" />
             <Skeleton className="h-48 md:h-64 w-full lg:block hidden" />
@@ -122,31 +122,31 @@ const Index = () => {
         <Process />
         <ServiceCards />
         
-        <section className="relative py-8 md:py-12 bg-blue-50/30" aria-labelledby="educational-resources-heading">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="max-w-4xl mx-auto bg-white rounded-lg p-4 md:p-6 lg:p-8 shadow-sm border border-blue-100/50">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-4 md:gap-6">
-                <div className="lg:max-w-[60%]">
-                  <h3 id="educational-resources-heading" className="font-heading text-lg md:text-xl font-medium text-charcoal mb-2 md:mb-3">
+        <section className="section-md bg-accent/5 relative" aria-labelledby="educational-resources-heading">
+          <div className="container-unified">
+            <div className="max-w-4xl mx-auto bg-card rounded-lg p-6 lg:p-8 shadow-sm border border-border/50">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+                <div className="lg:max-w-[60%] space-component-sm">
+                  <h3 id="educational-resources-heading" className="heading-sm text-card-foreground mb-3">
                     Financial Education for Lake Nona & Orlando Professionals
                   </h3>
-                  <p className="text-charcoal/70 mb-3 md:mb-4 text-sm md:text-base leading-relaxed">
+                  <p className="text-body text-card-foreground/80 mb-4">
                     We believe in empowering our Lake Nona and Orlando clients through education. Understanding concepts like <FinancialTerm term="Asset Allocation">asset allocation</FinancialTerm> and <FinancialTerm term="Tax-Loss Harvesting">tax-loss harvesting</FinancialTerm> can help Central Florida professionals make more informed decisions about their financial future.
                   </p>
                   <Link to="/education">
-                    <Button variant="outline" className="group border-blue-200 hover:bg-blue-50 hover:text-blue-700 text-sm md:text-base px-4 md:px-6 py-2 md:py-3">
-                      <span>Visit Our Knowledge Center</span>
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    <Button variant="outline" className="btn-outline group">
+                      <span className="mr-2">Visit Our Knowledge Center</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </Button>
                   </Link>
                 </div>
-                <div className="hidden lg:block lg:max-w-[40%] bg-blue-500/10 p-4 rounded-lg">
-                  <h4 className="font-medium text-charcoal text-sm mb-2">Featured Financial Concept:</h4>
-                  <h5 className="font-medium text-blue-600">Orlando Market Insights</h5>
-                  <p className="text-sm text-charcoal/70 mt-1 leading-relaxed">
+                <div className="hidden lg:block lg:max-w-[40%] bg-accent/10 p-4 rounded-lg">
+                  <h4 className="heading-xs text-card-foreground mb-2">Featured Financial Concept:</h4>
+                  <h5 className="heading-xs text-primary">Orlando Market Insights</h5>
+                  <p className="text-body-sm text-card-foreground/70 mt-2">
                     Understanding Central Florida's unique economic landscape, from tourism impacts to tech sector growth in Lake Nona, helps shape better investment strategies for local professionals.
                   </p>
-                  <Link to="/education" className="text-blue-600 hover:text-blue-800 text-xs font-medium mt-2 inline-block">
+                  <Link to="/education" className="text-primary hover:text-primary/80 text-body-sm font-medium mt-3 inline-block touch-target focus-enhanced">
                     Learn more about local market trends
                   </Link>
                 </div>

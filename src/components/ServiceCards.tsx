@@ -19,25 +19,25 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
       <PremiumCard 
         variant="elevated" 
         size="lg"
-        className="h-full group"
+        className="card-equal-height group"
       >
         <PremiumCardHeader>
           <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80">
             {icon}
           </div>
-          <PremiumCardTitle className="mb-4">
+          <PremiumCardTitle className="heading-sm mb-4">
             {title}
           </PremiumCardTitle>
         </PremiumCardHeader>
         
-        <PremiumCardContent>
-          <p className="text-muted-foreground leading-relaxed">
+        <PremiumCardContent className="card-content-grow">
+          <p className="text-body">
             {description}
           </p>
         </PremiumCardContent>
         
         <PremiumCardFooter>
-          <div className="flex items-center text-primary font-medium">
+          <div className="flex items-center text-primary font-medium touch-target">
             <span className="mr-2">Learn more</span>
             <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </div>
@@ -73,22 +73,22 @@ const ServiceCards = () => {
 
   return (
     <>
-      <section id="services" className="section bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden py-32">
+      <section id="services" className="section-xl bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden">
         <GradientAccent variant="subtle" position="top-left" intensity="low" />
         
-        <div className="container-custom relative z-10">
+        <div className="container-unified relative z-10">
           <ScrollReveal>
-            <div className="text-center mb-20">
-              <h2 className="heading-lg text-foreground mb-6">
+            <div className="text-center space-component-lg">
+              <h2 className="heading-lg mb-6">
                 Services Tailored to Your Needs
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-body-lg mx-auto">
                 Strategic financial planning designed for high-performing professionals who expect exceptional results.
               </p>
             </div>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid-four-col gap-unified-lg mt-16">
             {services.map((service, index) => (
               <ServiceCard 
                 key={index} 
