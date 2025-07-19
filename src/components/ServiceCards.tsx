@@ -66,7 +66,9 @@ const ServiceCards = () => {
               <div className="card-premium group h-full">
                 <div className="flex items-start mb-6">
                   <div className="p-3 bg-accent/10 rounded-lg mr-4 group-hover:bg-accent/20 transition-colors duration-300">
-                    <service.icon className="w-6 h-6 text-accent" />
+                    <div className="w-6 h-6 text-accent">
+                      {service.icon()}
+                    </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="heading-4 text-foreground mb-2">{service.title}</h3>
