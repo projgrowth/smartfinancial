@@ -42,10 +42,16 @@ const Advisors = () => {
       imageUrl: "/lovable-uploads/8b9ec04f-64ac-49d5-9530-f05fcf4c6240.png"
     },
     {
-      name: "Faith Paddon",
-      title: "Associate",
-      bio: "An accomplished professional with an integrated business degree from UCF, Faith is dedicated to demystifying complex financial strategies. Her approachable style ensures clarity, helping high-income professionals secure their financial futures with confidence and precision.",
-      imageUrl: "/lovable-uploads/c87641e0-5dd7-4189-8b8d-25531f26619d.png"
+      name: "Vince Gallegos",
+      title: "Client Services / Associate Wealth Advisor",
+      bio: "Vince has been guiding clients toward their financial goals since 2021, with a specialized focus on business owners and the complexities they face. Known for his approachable style and commitment to personalized service, Vince brings clarity and confidence to the financial planning process. Outside the office, he's a proud husband to his wife Kirsten and dad to their daughter, Georgia. You'll often find him on the golf course, watching football, or enjoying music—with a coffee always close by.",
+      imageUrl: "/placeholder.svg"
+    },
+    {
+      name: "Kelvin Mobley",
+      title: "Wealth & Asset Protection Specialist",
+      bio: "Kelvin blends financial expertise with entrepreneurial experience to help clients protect what they've built and plan for what's next. His work is grounded in real-world insight and a genuine commitment to long-term security for families and business owners alike. A lifelong learner and strategist, Kelvin is also a golfer, a proud father, and a passionate football fan.",
+      imageUrl: "/placeholder.svg"
     }
   ];
 
@@ -66,7 +72,7 @@ const Advisors = () => {
           </p>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {advisors.map((advisor, index) => (
             <ScrollReveal key={index} delay={index * 150}>
               <Advisor
