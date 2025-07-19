@@ -10,9 +10,9 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="bg-charcoal text-slate-lightest">
-      <div className="container-custom pt-16 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="md:col-span-2 lg:col-span-1">
             <ScrollReveal>
               <div className="mb-6">
                 <Link to="/" className="font-heading text-white text-xl font-medium tracking-tight mb-2 block">
@@ -45,7 +45,7 @@ const Footer = () => {
             </ScrollReveal>
           </div>
           
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <ScrollReveal delay={100}>
               <h3 className="text-white font-medium mb-4">Company</h3>
               <ul className="space-y-2">
@@ -78,7 +78,7 @@ const Footer = () => {
             </ScrollReveal>
           </div>
           
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <ScrollReveal delay={200}>
               <h3 className="text-white font-medium mb-4">Services</h3>
               <ul className="space-y-2">
@@ -111,7 +111,7 @@ const Footer = () => {
             </ScrollReveal>
           </div>
           
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-1">
             <ScrollReveal delay={300}>
               <h3 className="text-white font-medium mb-4">Contact Information</h3>
               <ul className="space-y-3 mb-6">

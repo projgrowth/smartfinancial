@@ -22,19 +22,32 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email) return;
     
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // This would connect to your email service (Mailchimp, ConvertKit, etc.)
+      // For now, we'll log the email and show success
+      console.log('Newsletter signup:', { email, timestamp: new Date().toISOString() });
+      
+      // In production, replace this with your actual API call:
+      // await fetch('/api/newsletter-signup', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email })
+      // });
+      
       setIsSubscribed(true);
       setEmail('');
-    }, 1000);
+    } catch (error) {
+      console.error('Newsletter signup error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubscribed) {

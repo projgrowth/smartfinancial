@@ -39,33 +39,50 @@ const MeetingScheduler = () => {
     setContactInfo(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // In a real implementation, this would send the data to your backend or scheduling service
-    console.log('Scheduling meeting:', {
-      date,
-      time,
-      meetingType,
-      contactInfo
-    });
-    
-    toast({
-      title: "Meeting Scheduled",
-      description: `Your ${MEETING_TYPES.find(t => t.id === meetingType)?.name} is scheduled for ${format(date as Date, 'EEEE, MMMM d, yyyy')} at ${time}.`,
-    });
-    
-    // Reset form
-    setDate(undefined);
-    setTime(null);
-    setMeetingType('initial');
-    setContactInfo({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
-    setStep(1);
+    try {
+      // This would integrate with Calendly, Acuity, or your CRM system
+      console.log('Meeting request:', {
+        date,
+        time,
+        meetingType,
+        contactInfo,
+        timestamp: new Date().toISOString()
+      });
+      
+      // In production, replace with your scheduling API:
+      // await fetch('/api/schedule-meeting', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ date, time, meetingType, contactInfo })
+      // });
+      
+      toast({
+        title: "Meeting Request Received",
+        description: `We'll contact you within 24 hours to confirm your ${MEETING_TYPES.find(t => t.id === meetingType)?.name} for ${format(date as Date, 'EEEE, MMMM d, yyyy')} at ${time}.`,
+      });
+      
+      // Reset form
+      setDate(undefined);
+      setTime(null);
+      setMeetingType('initial');
+      setContactInfo({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      setStep(1);
+    } catch (error) {
+      console.error('Meeting scheduling error:', error);
+      toast({
+        title: "Error",
+        description: "There was an issue scheduling your meeting. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    }
   };
 
   const nextStep = () => {

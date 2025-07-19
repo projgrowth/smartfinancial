@@ -164,16 +164,6 @@ const Index = () => {
           height={50}
         />
         
-        <CaseStudies key="case-studies" />
-        
-        <AnimatedSectionTransition 
-          style="curved" 
-          colorScheme="dark-to-light" 
-          position="bottom" 
-          height={50}
-        />
-        
-        <Advisors />
         <TeamDetails />
         <MeetingScheduler />
         <FAQSection />
