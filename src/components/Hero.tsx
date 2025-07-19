@@ -5,10 +5,8 @@ import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import PrimaryButton from './PrimaryButton';
 import GradientAccent from './GradientAccent';
-import BullIntegration from './BullIntegration';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
-import bullHeroImage from '../assets/bull-hero.png';
 
 const Hero = () => {
   const location = useLocation();
@@ -20,33 +18,27 @@ const Hero = () => {
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
       <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       
-      {/* Bull background image */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center" aria-hidden="true">
-        <img 
-          src={bullHeroImage} 
-          alt="" 
-          className="w-full h-full object-contain opacity-100 max-w-4xl mx-auto" 
-        />
-      </div>
-      
-      {/* Education page specific bull */}
+      {/* Bull shape gradient only on education page */}
       {isEducationPage && (
-        <BullIntegration 
-          variant="section" 
-          size="lg" 
+        <GradientAccent 
+          variant="bull" 
+          position="center" 
+          size="2xl" 
+          intensity="ultra-low" 
+          shape="bull" 
           animated 
-          className="opacity-[0.08] mix-blend-screen top-20 right-10"
+          className="opacity-[0.05] mix-blend-screen" 
         />
       )}
       
-      <div className="container-custom mx-auto z-20">
+      <div className="container-custom mx-auto z-10">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="heading-xl font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-charcoal mb-6">
+            <h1 className="heading-xl text-charcoal mb-6">
               <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
-                <span className="text-blue-500 font-bold">
-                  <span className="animate-fade-in">Elevated.</span>
+                <span className="text-blue-500 typing-wrapper">
+                  <span className="typing-text">Elevated.</span>
                 </span>
               </div>
             </h1>
@@ -62,7 +54,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="paragraph text-charcoal/80 mb-10 max-w-2xl mx-auto shadow-sm p-4 bg-white/50 backdrop-blur-sm rounded-lg">
+            <p className="paragraph text-charcoal/80 mb-10 max-w-2xl mx-auto">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>

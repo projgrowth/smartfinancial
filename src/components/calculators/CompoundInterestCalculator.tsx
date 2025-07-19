@@ -7,6 +7,8 @@ import {
   CartesianGrid,
   Line,
   LineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -163,14 +165,8 @@ const CompoundInterestCalculator = () => {
             <div className="h-52">
               <ChartContainer
                 config={{
-                  amount: { 
-                    label: "Portfolio Value",
-                    color: "hsl(var(--primary))",
-                  },
-                  principal: { 
-                    label: "Total Contributions",
-                    color: "hsl(var(--muted-foreground))",
-                  },
+                  amount: { theme: { light: "#3B82F6", dark: "#60A5FA" } },
+                  principal: { theme: { light: "#9CA3AF", dark: "#6B7280" } },
                 }}
                 className="h-full"
               >
@@ -178,43 +174,37 @@ const CompoundInterestCalculator = () => {
                   data={chartData}
                   margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                  <CartesianGrid strokeDasharray="3 3" />
                   <XAxis
                     dataKey="year"
-                    tick={{ fontSize: 12 }}
-                    axisLine={false}
-                    tickLine={false}
+                    tickLine={true}
                   />
                   <YAxis
-                    tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+                    tickFormatter={(value) => `$${value.toLocaleString()}`}
                     width={80}
-                    tick={{ fontSize: 12 }}
-                    axisLine={false}
-                    tickLine={false}
                   />
                   <ChartTooltip
-                    content={({ active, payload, label }) => {
+                    content={({ active, payload }) => {
                       if (active && payload && payload.length) {
                         return (
-                          <div className="rounded-lg border bg-card p-3 shadow-md">
-                            <p className="text-sm font-medium text-card-foreground mb-1">Year {label}</p>
-                            <div className="space-y-1">
-                              {payload.map((entry, index) => (
-                                <div key={index} className="flex items-center justify-between gap-4">
-                                  <div className="flex items-center gap-2">
-                                    <div 
-                                      className="w-3 h-3 rounded-full" 
-                                      style={{ backgroundColor: entry.color }}
-                                    />
-                                    <span className="text-xs text-muted-foreground">
-                                      {entry.dataKey === 'amount' ? 'Portfolio Value' : 'Total Contributions'}
-                                    </span>
-                                  </div>
-                                  <span className="text-sm font-bold">
-                                    {formatCurrency(entry.value as number)}
-                                  </span>
-                                </div>
-                              ))}
+                          <div className="rounded-lg border bg-background p-2 shadow-sm">
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="flex flex-col">
+                                <span className="text-[0.70rem] uppercase text-muted-foreground">
+                                  Year
+                                </span>
+                                <span className="font-bold text-muted-foreground">
+                                  {payload[0].payload.year}
+                                </span>
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-[0.70rem] uppercase text-muted-foreground">
+                                  Amount
+                                </span>
+                                <span className="font-bold">
+                                  {formatCurrency(payload[0].payload.amount)}
+                                </span>
+                              </div>
                             </div>
                           </div>
                         )
@@ -224,22 +214,19 @@ const CompoundInterestCalculator = () => {
                   />
                   <Line
                     type="monotone"
+                    strokeWidth={2}
                     dataKey="amount"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth={3}
-                    dot={false}
                     activeDot={{
                       r: 6,
-                      fill: "hsl(var(--primary))",
-                      strokeWidth: 2,
-                      stroke: "hsl(var(--background))",
+                      fill: "#3B82F6",
+                      style: { cursor: "pointer" },
                     }}
                   />
                   <Line
                     type="monotone"
                     dataKey="principal"
-                    stroke="hsl(var(--muted-foreground))"
-                    strokeDasharray="5 5"
+                    stroke="#9CA3AF"
+                    strokeDasharray="4 4"
                     strokeWidth={2}
                     dot={false}
                   />
