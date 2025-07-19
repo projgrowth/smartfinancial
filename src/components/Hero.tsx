@@ -30,9 +30,6 @@ const Hero = () => {
             </h1>
           </ScrollReveal>
           
-          <ScrollReveal delay={100}>
-            
-          </ScrollReveal>
           
           <ScrollReveal delay={200}>
             <p className="paragraph text-charcoal/80 mb-10 max-w-2xl mx-auto">

@@ -61,6 +61,76 @@ const Testimonials = () => {
     }, 6000);
     return () => clearInterval(interval);
   }, [currentSlide, isPaused, testimonials.length]);
-  return;
+  return (
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50/50 to-white">
+      <div className="container-custom mx-auto">
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="heading-lg text-charcoal mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="paragraph text-charcoal/70 max-w-2xl mx-auto">
+              Hear from professionals who've transformed their financial future with our strategic guidance.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="relative max-w-4xl mx-auto">
+          <GradientAccent variant="blue" position="top-left" size="md" intensity="ultra-low" />
+          
+          {/* Navigation buttons */}
+          <div className="flex justify-center gap-4 mb-8">
+            <button
+              onClick={prevSlide}
+              className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 text-charcoal hover:text-blue-500"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 text-charcoal hover:text-blue-500"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* Testimonials */}
+          <div className="relative min-h-[300px] flex items-center justify-center">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-all duration-500 ${
+                  index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
+              >
+                <Testimonial
+                  {...testimonial}
+                  isActive={index === currentSlide}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Dots indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-blue-500 scale-110' 
+                    : 'bg-blue-200 hover:bg-blue-300'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 export default Testimonials;
