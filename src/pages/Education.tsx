@@ -167,15 +167,16 @@ const Education = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
-        <div className="container-custom relative z-10">
-          <ScrollReveal>
-            <h1 className="heading-xl text-charcoal mb-6 text-center max-w-3xl mx-auto">
-              Financial Knowledge Center
-            </h1>
-          </ScrollReveal>
+      <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">
+        <div className="container-custom mx-auto z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <h1 className="heading-xl text-charcoal mb-6">
+                Financial Knowledge Center
+              </h1>
+            </ScrollReveal>
           
-          <ScrollReveal delay={100}>
+            <ScrollReveal delay={100}>
             <p className="text-lg text-center text-charcoal/70 max-w-2xl mx-auto mb-8">
               Resources to help you make informed financial decisions and build your knowledge of personal finance concepts.
             </p>
@@ -226,6 +227,7 @@ const Education = () => {
               </Card>
             </div>
           </ScrollReveal>
+          </div>
         </div>
       </section>
       

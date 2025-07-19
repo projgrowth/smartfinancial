@@ -25,17 +25,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Skip to content for accessibility
-const SkipToContent = () => {
-  return (
-    <a 
-      href="#main-content" 
-      className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-blue-700 focus:font-medium"
-    >
-      Skip to main content
-    </a>
-  );
-};
 
 // Create a persistent query client
 const queryClient = new QueryClient({
@@ -53,7 +42,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <SkipToContent />
         <ScrollToTop />
         <Suspense fallback={<LoadingIndicator />}>
           <Routes>
