@@ -1,0 +1,263 @@
+
+@tailwind utilities;
+
+@layer utilities {
+  /* === TYPOGRAPHY SYSTEM === */
+  
+  /* Standardized Heading Scale */
+  .heading-hero {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-medium tracking-tight leading-[1.1];
+  }
+  
+  .heading-1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-medium tracking-tight leading-tight;
+  }
+  
+  .heading-2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-heading font-medium tracking-tight leading-tight;
+  }
+  
+  .heading-3 {
+    @apply text-xl md:text-2xl lg:text-3xl font-heading font-medium tracking-tight leading-tight;
+  }
+  
+  .heading-4 {
+    @apply text-lg md:text-xl lg:text-2xl font-heading font-medium tracking-tight leading-tight;
+  }
+  
+  .heading-5 {
+    @apply text-base md:text-lg lg:text-xl font-heading font-medium tracking-tight leading-tight;
+  }
+  
+  .heading-6 {
+    @apply text-sm md:text-base lg:text-lg font-heading font-medium tracking-tight leading-tight;
+  }
+  
+  /* Standardized Text Scale */
+  .text-hero {
+    @apply text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl;
+  }
+  
+  .text-large {
+    @apply text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl;
+  }
+  
+  .text-body {
+    @apply text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl;
+  }
+  
+  .text-small {
+    @apply text-xs md:text-sm text-muted-foreground leading-relaxed;
+  }
+  
+  .text-caption {
+    @apply text-xs text-muted-foreground leading-normal;
+  }
+
+  /* === SPACING SYSTEM === */
+  
+  /* Standardized Section Spacing */
+  .section-hero {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+  
+  .section-large {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .section-medium {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .section-small {
+    @apply py-8 md:py-12 lg:py-16;
+  }
+  
+  /* Standardized Container System */
+  .container-standard {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+  
+  .container-narrow {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl;
+  }
+  
+  .container-content {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl;
+  }
+  
+  /* Standardized Grid Gaps */
+  .grid-gap-small {
+    @apply gap-4 md:gap-6;
+  }
+  
+  .grid-gap-medium {
+    @apply gap-6 md:gap-8;
+  }
+  
+  .grid-gap-large {
+    @apply gap-8 md:gap-12;
+  }
+  
+  /* Standardized Spacing */
+  .spacing-small {
+    @apply space-y-4 md:space-y-6;
+  }
+  
+  .spacing-medium {
+    @apply space-y-6 md:space-y-8;
+  }
+  
+  .spacing-large {
+    @apply space-y-8 md:space-y-12;
+  }
+
+  /* === COMPONENT SYSTEM === */
+  
+  /* Standardized Card System */
+  .card-base {
+    @apply bg-card border border-border rounded-lg shadow-sm transition-all duration-300;
+  }
+  
+  .card-elevated {
+    @apply card-base hover:shadow-md hover:-translate-y-1;
+  }
+  
+  .card-premium {
+    @apply card-base p-6 md:p-8 hover:shadow-lg hover:border-accent/20 hover:-translate-y-1;
+  }
+  
+  .card-feature {
+    @apply card-base p-6 md:p-8 bg-gradient-to-br from-background to-muted/20;
+  }
+  
+  /* Standardized Button System */
+  .btn-base {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium text-sm md:text-base
+           transition-all duration-300 ease-out active:scale-[0.98] min-h-[44px]
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn-base bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply btn-base bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border;
+  }
+  
+  .btn-outline {
+    @apply btn-base bg-transparent border border-border hover:bg-accent hover:text-accent-foreground;
+  }
+  
+  .btn-ghost {
+    @apply btn-base bg-transparent hover:bg-accent hover:text-accent-foreground;
+  }
+
+  /* === LAYOUT SYSTEM === */
+  
+  /* Standardized Grid Systems */
+  .grid-auto {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .grid-two {
+    @apply grid grid-cols-1 md:grid-cols-2;
+  }
+  
+  .grid-three {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .grid-four {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+  
+  /* Standardized Flex Patterns */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+  
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+  
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  /* === INTERACTIVE STATES === */
+  
+  /* Standardized Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-lg;
+  }
+  
+  /* Standardized Focus States */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+  
+  /* === IMAGE SYSTEM === */
+  
+  /* Standardized Image Treatments */
+  .img-responsive {
+    @apply w-full h-auto object-cover;
+  }
+  
+  .img-square {
+    @apply aspect-square object-cover;
+  }
+  
+  .img-portrait {
+    @apply aspect-[3/4] object-cover object-top;
+  }
+  
+  .img-landscape {
+    @apply aspect-[4/3] object-cover;
+  }
+  
+  .img-hero {
+    @apply aspect-[16/9] object-cover;
+  }
+
+  /* === ACCESSIBILITY === */
+  
+  /* Touch-friendly targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Screen reader only */
+  .sr-only-focusable {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 
+           focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:shadow-md;
+  }
+
+  /* === ANIMATION SYSTEM === */
+  
+  /* Standardized Transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .transition-fast {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .transition-slow {
+    @apply transition-all duration-500 ease-out;
+  }
+}
