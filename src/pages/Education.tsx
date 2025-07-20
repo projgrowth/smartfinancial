@@ -432,7 +432,7 @@ const Education = () => {
           <ScrollReveal delay={200}>
             <PrimaryButton 
               className="mx-auto px-6 py-3"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.location.href = '/#contact'}
               icon={<ArrowRight className="w-5 h-5" />}
               iconPosition="right"
             >

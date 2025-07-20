@@ -218,7 +218,12 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                      const contactElement = document.getElementById('contact');
+                      if (contactElement) {
+                        contactElement.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        window.location.href = '/#contact';
+                      }
                     }}
                     className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
                   >
