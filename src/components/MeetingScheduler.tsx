@@ -343,7 +343,7 @@ const MeetingScheduler = () => {
                           <Phone className="h-6 w-6 text-blue-600" />
                         </div>
                         <h4 className="font-medium">Call Us</h4>
-                        <p className="text-charcoal/80">(555) 123-4567</p>
+                        <p className="text-charcoal/80">(706) 627-5729</p>
                         <p className="text-xs text-charcoal/60 mt-1">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
                       </div>
                       
@@ -352,7 +352,7 @@ const MeetingScheduler = () => {
                           <Mail className="h-6 w-6 text-blue-600" />
                         </div>
                         <h4 className="font-medium">Email Us</h4>
-                        <p className="text-charcoal/80">contact@smartfinancialplanning.com</p>
+                        <p className="text-charcoal/80">info@thesmartfinancialplan.com</p>
                         <p className="text-xs text-charcoal/60 mt-1">We'll respond within 24 business hours</p>
                       </div>
                     </div>

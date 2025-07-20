@@ -31,12 +31,10 @@ const TeamDetails = () => {
       imageUrl: "/lovable-uploads/83c79661-f83a-4390-a3ed-d2cbea760fab.png",
       specialty: ["Comprehensive Financial Planning", "Business Owner Solutions", "High-Income Strategies", "Leadership Development", "Personalized Wealth Management"],
       education: [
-        "Bachelor's Degree in Finance",
-        "Advanced Financial Planning Certification"
+        "Financial Services Professional Training"
       ],
       certifications: [
-        "Certified Financial Planner (CFP®)",
-        "Series 7 & 66 Licensed"
+        "Licensed Financial Professional"
       ],
       experience: [
         "Founded Smart Financial Planning to serve Lake Nona and Orlando professionals",
@@ -53,12 +51,10 @@ const TeamDetails = () => {
       imageUrl: "/lovable-uploads/9a1a6d90-cf14-4f3e-a92d-2ac3bb515025.png",
       specialty: ["Business Owner Planning", "Client Relations", "Goal-Based Planning", "Service Excellence", "Family Financial Planning"],
       education: [
-        "Bachelor's Degree in Business Administration",
-        "Financial Services Training Certification"
+        "Financial Services Training"
       ],
       certifications: [
-        "Series 7 & 66 Licensed",
-        "Life & Health Insurance Licensed"
+        "Licensed Financial Professional"
       ],
       experience: [
         "5+ years helping Central Florida clients pursue financial goals",
@@ -75,12 +71,10 @@ const TeamDetails = () => {
       imageUrl: "/lovable-uploads/c90c6dda-53e6-45f2-8b9b-d36329401aa9.png",
       specialty: ["Asset Protection", "Legacy Planning", "Wealth Preservation", "Entrepreneurial Finance", "Risk Management"],
       education: [
-        "Bachelor's Degree in Economics",
-        "Advanced Asset Protection Studies"
+        "Financial Services Training"
       ],
       certifications: [
-        "Chartered Financial Consultant (ChFC®)",
-        "Series 7 & 66 Licensed"
+        "Licensed Financial Professional"
       ],
       experience: [
         "Extensive background in asset protection strategies",
