@@ -171,14 +171,11 @@ const Footer = () => {
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+              <a href="/privacy" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+              <a href="/terms" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                 Terms of Service
-              </a>
-              <a href="#" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
-                Cookie Policy
               </a>
             </div>
           </div>

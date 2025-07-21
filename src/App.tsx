@@ -13,6 +13,8 @@ import './index.css';
 const Index = lazy(() => import("./pages/index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Education = lazy(() => import("./pages/Education"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 // Handle scroll restoration
 const ScrollToTop = () => {
@@ -47,6 +49,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/education" element={<Education />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

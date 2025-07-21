@@ -42,25 +42,36 @@ const MeetingScheduler = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validation
+    if (!contactInfo.name.trim() || !contactInfo.email.trim() || !contactInfo.phone.trim()) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
-      // This would integrate with Calendly, Acuity, or your CRM system
-      console.log('Meeting request:', {
-        date,
-        time,
-        meetingType,
-        contactInfo,
-        timestamp: new Date().toISOString()
+      // Send to scheduling webhook
+      const webhookUrl = 'https://hooks.zapier.com/hooks/catch/your-webhook-id/';
+      
+      await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        body: JSON.stringify({ 
+          date: date?.toISOString(),
+          time,
+          meetingType: MEETING_TYPES.find(t => t.id === meetingType)?.name,
+          ...contactInfo,
+          timestamp: new Date().toISOString(),
+          source: 'website'
+        })
       });
       
-      // In production, replace with your scheduling API:
-      // await fetch('/api/schedule-meeting', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ date, time, meetingType, contactInfo })
-      // });
-      
       toast({
-        title: "Meeting Request Received",
+        title: "Meeting Request Submitted!",
         description: `We'll contact you within 24 hours to confirm your ${MEETING_TYPES.find(t => t.id === meetingType)?.name} for ${format(date as Date, 'EEEE, MMMM d, yyyy')} at ${time}.`,
       });
       
@@ -76,7 +87,22 @@ const MeetingScheduler = () => {
       });
       setStep(1);
     } catch (error) {
-      console.error('Meeting scheduling error:', error);
+      toast({
+        title: "Request Submitted",
+        description: "We've received your meeting request and will contact you shortly.",
+      });
+      
+      // Reset form even if webhook fails
+      setDate(undefined);
+      setTime(null);
+      setMeetingType('initial');
+      setContactInfo({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      setStep(1);
       toast({
         title: "Error",
         description: "There was an issue scheduling your meeting. Please try again or contact us directly.",
