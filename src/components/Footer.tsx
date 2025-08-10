@@ -69,9 +69,9 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#team" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#team" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Our Team
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link to="/education" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
@@ -99,29 +99,29 @@ const Footer = () => {
               <nav aria-labelledby="footer-services">
                 <ul className="space-component-xs">
                   <li>
-                    <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Wealth Management
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Investment Planning
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Retirement Planning
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Tax Optimization
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Estate Planning
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -181,14 +181,14 @@ const Footer = () => {
               <nav aria-label="Legal">
                 <ul className="flex gap-6">
                   <li>
-                    <a href="/privacy" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
-                      Privacy Policy
-                    </a>
+                      <Link to="/privacy" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                        Privacy Policy
+                      </Link>
                   </li>
                   <li>
-                    <a href="/terms" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
-                      Terms of Service
-                    </a>
+                      <Link to="/terms" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                        Terms of Service
+                      </Link>
                   </li>
                 </ul>
               </nav>

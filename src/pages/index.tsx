@@ -1,18 +1,16 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import SEO from '@/components/SEO';
 import Hero from '../components/Hero';
 import IntroSection from '../components/IntroSection';
 import Process from '../components/Process';
 import ServiceCards from '../components/ServiceCards';
-import CaseStudies from '../components/CaseStudies';
-import Advisors from '../components/Advisors';
-import TeamDetails from '../components/TeamDetails';
-import FAQSection from '../components/FAQSection';
-import FinancialCalculator from '../components/FinancialCalculator';
-import MeetingScheduler from '../components/MeetingScheduler';
-import EnhancedNewsletter from '../components/EnhancedNewsletter';
-import CTA from '../components/CTA';
+const FinancialCalculator = React.lazy(() => import('../components/FinancialCalculator'));
+const TeamDetails = React.lazy(() => import('../components/TeamDetails'));
+const MeetingScheduler = React.lazy(() => import('../components/MeetingScheduler'));
+const FAQSection = React.lazy(() => import('../components/FAQSection'));
+const EnhancedNewsletter = React.lazy(() => import('../components/EnhancedNewsletter'));
+const CTA = React.lazy(() => import('../components/CTA'));
 import PremiumBackground from '../components/PremiumBackground';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FinancialTerm } from '@/components/FinancialTermGlossary';
@@ -145,7 +143,9 @@ const Index = () => {
           </div>
         </section>
         
-        <FinancialCalculator />
+        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
+          <FinancialCalculator />
+        </Suspense>
         
         <AnimatedSectionTransition 
           style="chevron" 
@@ -154,11 +154,21 @@ const Index = () => {
           height={50}
         />
         
-        <TeamDetails />
-        <MeetingScheduler />
-        <FAQSection />
-        <EnhancedNewsletter />
-        <CTA />
+        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-64 w-full" /></div>}>
+          <TeamDetails />
+        </Suspense>
+        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
+          <MeetingScheduler />
+        </Suspense>
+        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
+          <FAQSection />
+        </Suspense>
+        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-32 w-full" /></div>}>
+          <EnhancedNewsletter />
+        </Suspense>
+        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-24 w-full" /></div>}>
+          <CTA />
+        </Suspense>
       </main>
       <StickyCTA />
       

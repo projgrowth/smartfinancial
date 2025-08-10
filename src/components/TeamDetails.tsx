@@ -72,6 +72,9 @@ const TeamDetails = () => {
                       alt={generateTeamAltText(advisor.name, advisor.title)}
                       width={56}
                       height={56}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="56px"
                       style={{ objectPosition: getHeadshotPosition(advisor.imageUrl) }}
                     />
                     <AvatarFallback>{advisor.name.charAt(0)}</AvatarFallback>
@@ -98,6 +101,7 @@ const TeamDetails = () => {
                       decoding="async"
                       width={192}
                       height={192}
+                      sizes="(min-width: 1024px) 192px, (min-width: 768px) 160px, 128px"
                       style={{ objectPosition: getHeadshotPosition(advisors[activeAdvisor].imageUrl) }}
                     />
                   </div>

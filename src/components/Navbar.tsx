@@ -84,7 +84,7 @@ const Navbar = () => {
       }`}
       aria-label="Main navigation"
     >
-      <div className="container-custom flex justify-between items-center">
+      <div className="container-unified flex justify-between items-center">
         <Link 
           to="/"
           className="font-heading text-charcoal text-xl font-medium tracking-tight hover:text-blue-500 transition-colors duration-300"
@@ -197,7 +197,7 @@ const Navbar = () => {
         aria-label="Mobile navigation"
         aria-hidden={!isOpen}
       >
-        <div className="container-custom py-4 bg-white/95 backdrop-blur-sm flex flex-col space-y-4">
+        <div className="container-unified py-4 bg-white/95 backdrop-blur-sm flex flex-col space-y-4">
           {navItems.map((item, index) => 
             item.isLink ? (
               <Link
