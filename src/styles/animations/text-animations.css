@@ -53,9 +53,9 @@
   }
 
   /* Word rotator layers */
-  .word-rotator {
-    @apply relative inline-block align-baseline;
-  }
+.word-rotator {
+  @apply relative inline-block align-baseline text-left;
+}
 
   .word-layer {
     @apply absolute inset-0 whitespace-nowrap;

@@ -82,9 +82,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="heading-display-fluid leading-tight sm:leading-none mb-5 sm:mb-6">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-3 gap-y-1">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-1">
                 <span className="shrink-0">Your wealth.</span>
-                <span className="shrink-0 text-blue-400 word-rotator" aria-live="polite">
+                <span className="shrink-0 text-blue-400 word-rotator text-left" aria-live="polite">
                   <span className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
                     <span className="word-layer word-exit">{prevWord}</span>
