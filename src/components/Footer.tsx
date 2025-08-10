@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
 import NewsletterSignup from './NewsletterSignup';
 import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import ScrollReveal from './ScrollReveal';
-import NewsletterSignup from './NewsletterSignup';
-import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
