@@ -144,6 +144,8 @@ const TeamDetails = () => {
                       src={advisors[activeAdvisor].imageUrl} 
                       alt={`${advisors[activeAdvisor].name}, ${advisors[activeAdvisor].title} at Smart Financial Planning Orlando`}
                       className="object-cover object-center w-full h-full"
+                      loading="lazy"
+                      decoding="async"
                       style={{ objectPosition: advisors[activeAdvisor].imageUrl.includes('83c79661') ? 'center 20%' : 
                                               advisors[activeAdvisor].imageUrl.includes('c90c6dda') ? 'center 30%' : 
                                               'center 25%' }}

@@ -23,6 +23,7 @@ const Advisor: React.FC<AdvisorProps> = ({ name, title, bio, imageUrl, specialti
             alt={`${name}, ${title} at Smart Financial Planning`}
             className="object-cover object-center w-full h-full"
             loading="lazy"
+            decoding="async"
             style={{ objectPosition: imageUrl.includes('83c79661') ? 'center 20%' : 
                                     imageUrl.includes('c90c6dda') ? 'center 30%' : 
                                     'center 25%' }}

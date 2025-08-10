@@ -22,6 +22,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 import { preloadCriticalImages } from '../utils/imageOptimization';
+import StickyCTA from '../components/StickyCTA';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -170,6 +171,7 @@ const Index = () => {
         <EnhancedNewsletter />
         <CTA />
       </main>
+      <StickyCTA />
       <Footer />
     </div>
   );

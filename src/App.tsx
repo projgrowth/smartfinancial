@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import './index.css';
+import CookieConsent from "@/components/ui/CookieConsent";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -56,6 +57,7 @@ const App = () => (
           </Routes>
         </Suspense>
       </BrowserRouter>
+      <CookieConsent />
     </TooltipProvider>
   </QueryClientProvider>
 );
