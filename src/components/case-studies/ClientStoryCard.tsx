@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import StoryChapter from './StoryChapter';
 import MetricReveal from './MetricReveal';
 import FloatingInsights from './FloatingInsights';
+import useNavigateSection from '@/hooks/useNavigateSection';
 
 interface ClientStoryCardProps {
   title: string;
@@ -42,6 +43,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
   metrics = []
 }) => {
   const [activeChapter, setActiveChapter] = useState<string | null>(null);
+  const navigateToSection = useNavigateSection();
 
   const storyChapters = [
     {
@@ -218,12 +220,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      const contactElement = document.getElementById('contact');
-                      if (contactElement) {
-                        contactElement.scrollIntoView({ behavior: 'smooth' });
-                      } else {
-                        window.location.href = '/#contact';
-                      }
+                      navigateToSection('contact');
                     }}
                     className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
                   >

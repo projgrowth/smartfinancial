@@ -30,7 +30,8 @@ const Index = () => {
     const criticalImages = [
       '/lovable-uploads/83c79661-f83a-4390-a3ed-d2cbea760fab.png',
       '/lovable-uploads/9a1a6d90-cf14-4f3e-a92d-2ac3bb515025.png',
-      '/lovable-uploads/c90c6dda-53e6-45f2-8b9b-d36329401aa9.png'
+      '/lovable-uploads/c90c6dda-53e6-45f2-8b9b-d36329401aa9.png',
+      '/lovable-uploads/3dda3ab1-0f6f-4e70-bff1-ce75f2161c6f.png'
     ];
     preloadCriticalImages(criticalImages);
 

@@ -11,6 +11,7 @@ import LoadingIndicator from "./components/LoadingIndicator";
 import './index.css';
 import CookieConsent from "@/components/ui/CookieConsent";
 import Layout from "@/components/Layout";
+import HashScroll from "@/components/HashScroll";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -49,6 +50,7 @@ const App = () => (
       <SkipLink />
       <BrowserRouter>
         <ScrollToTop />
+        <HashScroll />
         <Suspense fallback={<LoadingIndicator />}>
           <Routes>
             <Route element={<Layout />}>

@@ -7,10 +7,12 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line } 
 import ClientStoryCard from './case-studies/ClientStoryCard';
 import StoryNavigation from './case-studies/StoryNavigation';
 import InteractiveTimeline from './case-studies/InteractiveTimeline';
+import useNavigateSection from '@/hooks/useNavigateSection';
 
 const CaseStudies = () => {
   const [expandedCase, setExpandedCase] = useState<string | null>(null);
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
+  const navigateToSection = useNavigateSection();
 
   const toggleCase = (id: string) => {
     setExpandedCase(expandedCase === id ? null : id);
@@ -397,14 +399,7 @@ const CaseStudies = () => {
               Every success story begins with a conversation. Let's discuss your financial goals and see how our proven strategies can be tailored to your unique situation.
             </p>
             <button
-              onClick={() => {
-                const contactElement = document.getElementById('contact');
-                if (contactElement) {
-                  contactElement.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/#contact';
-                }
-              }}
+              onClick={() => navigateToSection('contact')}
               className="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
             >
               Schedule Your Strategy Session

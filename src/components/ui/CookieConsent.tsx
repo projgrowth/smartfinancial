@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './button';
 import { X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -32,9 +33,9 @@ const CookieConsent = () => {
           <h2 id="cookie-consent-title" className="sr-only">Cookie consent</h2>
           <p id="cookie-consent-description" className="text-sm">
             We use cookies to improve your experience. By continuing to use our site, you agree to our{' '}
-            <a href="/privacy" className="text-primary underline hover:text-primary/80">
+            <Link to="/privacy" className="text-primary underline hover:text-primary/80">
               Privacy Policy
-            </a>
+            </Link>
             .
           </p>
         </div>

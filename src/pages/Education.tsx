@@ -10,8 +10,10 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import ScrollReveal from '../components/ScrollReveal';
 import PremiumBackground from '../components/PremiumBackground';
 import SEO from '@/components/SEO';
+import useNavigateSection from '@/hooks/useNavigateSection';
 
 const Education = () => {
+  const navigateToSection = useNavigateSection();
   // State for newsletter sign-up
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -437,7 +439,7 @@ const Education = () => {
           <ScrollReveal delay={200}>
             <PrimaryButton 
               className="mx-auto px-6 py-3"
-              onClick={() => window.location.href = '/#contact'}
+              onClick={() => navigateToSection('contact')}
               icon={<ArrowRight className="w-5 h-5" />}
               iconPosition="right"
             >

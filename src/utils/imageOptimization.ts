@@ -27,6 +27,7 @@ export const getHeadshotPosition = (imageUrl: string): string => {
   if (imageUrl.includes('83c79661')) return 'center 20%'; // Razell
   if (imageUrl.includes('c90c6dda')) return 'center 30%'; // Kelvin
   if (imageUrl.includes('9a1a6d90')) return 'center 25%'; // Vince
+  if (imageUrl.includes('3dda3ab1')) return 'center 22%'; // Joseph
   return 'center center'; // Default
 };
 

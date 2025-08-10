@@ -236,7 +236,6 @@ export default {
 				'slideInLeft': 'slide-in 0.5s ease-out forwards',
 				'scaleIn': 'scale-in 0.3s ease-out forwards',
 				'bounceFade': 'bounce-fade 0.5s ease-out forwards',
-				'float': 'float 6s ease-in-out infinite',
 				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
 				'bg-pulse': 'bg-pulse 3s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',

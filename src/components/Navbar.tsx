@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronRight, BookOpen } from 'lucide-react';
-import { smoothScrollTo } from '../utils/smoothScroll';
+
 import PrimaryButton from './PrimaryButton';
 import { useLocation, Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import useNavigateSection from '@/hooks/useNavigateSection';
 
 interface NavItem {
   name: string;
@@ -20,6 +21,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const navigateToSection = useNavigateSection();
 
   useEffect(() => {
     const root = document.documentElement;
@@ -76,12 +78,7 @@ const Navbar = () => {
 
   const handleNavClick = (sectionId: string) => {
     setIsOpen(false);
-    if (isHomePage) {
-      smoothScrollTo(sectionId);
-    } else {
-      // If not on home page, navigate to home page and then to section
-      window.location.href = `/#${sectionId}`;
-    }
+    navigateToSection(sectionId);
   };
 
   const mainNavItems: NavItem[] = [

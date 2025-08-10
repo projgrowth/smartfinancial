@@ -30,6 +30,7 @@ const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, spe
             decoding="async"
             width={160}
             height={160}
+            sizes="(min-width: 1024px) 160px, (min-width: 768px) 128px, 112px"
             style={{ objectPosition: getHeadshotPosition(imageUrl) }}
           />
         </div>
@@ -78,7 +79,7 @@ const Advisors = () => {
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed px-4">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed">
             Meet the experts dedicated to your financial success and long-term prosperity in Lake Nona and Orlando.
           </p>
         </ScrollReveal>
