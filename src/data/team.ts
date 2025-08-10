@@ -83,7 +83,7 @@ export const advisors: AdvisorProfile[] = [
       'Asset Protection',
       'Employee Retention & Benefits'
     ],
-    imageUrl: '/lovable-uploads/c87641e0-5dd7-4189-8b8d-25531f26619d.png',
+    imageUrl: '/lovable-uploads/3dda3ab1-0f6f-4e70-bff1-ce75f2161c6f.png',
     education: ['Financial Services Training'],
     certifications: ['Licensed Financial Professional'],
     experience: [
