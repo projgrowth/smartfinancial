@@ -1,5 +1,5 @@
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
@@ -23,6 +23,10 @@ const Hero = () => {
   const [reduceMotion, setReduceMotion] = useState(false);
   const [prevWord, setPrevWord] = useState<string | null>(null);
   const exitDuration = 350;
+  
+  // Keep the headline centered by locking the rotator width to the longest word
+  const placeholderRef = useRef<HTMLSpanElement | null>(null);
+  const [rotatorWidth, setRotatorWidth] = useState<number>(0);
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mqMobile = window.matchMedia('(max-width: 640px)');
@@ -43,6 +47,19 @@ const Hero = () => {
     };
   }, []);
 
+  // Measure and lock the rotator width to the longest word to prevent reflow
+  useEffect(() => {
+    const measure = () => {
+      const el = placeholderRef.current;
+      if (el) {
+        setRotatorWidth(el.offsetWidth);
+      }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
   useEffect(() => {
     if (reduceMotion) return;
     const intervalId = window.setInterval(() => {
@@ -59,8 +76,10 @@ const Hero = () => {
 
   return (
     <section className="relative flex flex-col justify-start sm:justify-center min-h-[calc(100svh-var(--nav-h))] pt-12 pb-10 sm:pb-20 overflow-hidden">
+      {/* Top vignette to separate from navbar */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-charcoal/50 to-transparent" />
       {/* Enhanced background accents */}
-      <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated className="opacity-70 sm:opacity-100" />
+      <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated className="opacity-90 sm:opacity-100" />
       <div className="hidden sm:block">
         <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       </div>
@@ -84,8 +103,8 @@ const Hero = () => {
             <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6">
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
-                <span className="shrink-0 text-blue-400 word-rotator text-left leading-none mt-[-1px] sm:mt-0" aria-live="polite">
-                  <span className="opacity-0 whitespace-nowrap">{longestWord}</span>
+                <span className="shrink-0 text-blue-400 word-rotator text-left leading-none mt-[-1px] sm:mt-0" aria-live="polite" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
+                  <span ref={placeholderRef} className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
                     <span className="word-layer word-exit">{prevWord}</span>
                   )}
