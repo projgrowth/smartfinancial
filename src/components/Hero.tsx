@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
@@ -12,6 +12,44 @@ const Hero = () => {
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
   
+  // Word carousel for headline
+  const words = useMemo(() => ['Elevated.', 'Optimized.', 'Protected.', 'Compounded.'], []);
+  const longestWord = useMemo(
+    () => words.reduce((a, b) => (a.length >= b.length ? a : b), ''),
+    [words]
+  );
+  const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mqMobile = window.matchMedia('(max-width: 640px)');
+    const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const handleMobile = () => setIsMobile(mqMobile.matches);
+    const handleReduce = () => setReduceMotion(mqReduce.matches);
+
+    handleMobile();
+    handleReduce();
+
+    mqMobile.addEventListener?.('change', handleMobile);
+    mqReduce.addEventListener?.('change', handleReduce);
+
+    return () => {
+      mqMobile.removeEventListener?.('change', handleMobile);
+      mqReduce.removeEventListener?.('change', handleReduce);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % words.length);
+    }, isMobile ? 1600 : 2200);
+    return () => window.clearInterval(id);
+  }, [isMobile, reduceMotion, words.length]);
+
   return (
     <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">
       {/* Enhanced background accents */}
@@ -37,8 +75,16 @@ const Hero = () => {
             <h1 className="heading-display mb-6">
               <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
-                <span className="text-blue-400 typing-wrapper">
-                  <span className="typing-text">Elevated.</span>
+                <span className="text-blue-400 relative inline-grid">
+                  <span className="opacity-0 whitespace-nowrap">{longestWord}</span>
+                  <span
+                    key={index}
+                    aria-live="polite"
+                    role="status"
+                    className="absolute inset-0 whitespace-nowrap animate-fade-in"
+                  >
+                    {words[index]}
+                  </span>
                 </span>
               </div>
             </h1>
