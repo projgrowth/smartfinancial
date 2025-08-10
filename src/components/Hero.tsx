@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
-import PrimaryButton from './PrimaryButton';
+
 import GradientAccent from './GradientAccent';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
@@ -58,10 +58,12 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">
+    <section className="relative min-h-[85svh] flex flex-col justify-center pt-20 sm:pt-24 pb-20 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
-      <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
+      <div className="hidden sm:block">
+        <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
+      </div>
       
       {/* Bull shape gradient only on education page */}
       {isEducationPage && (
@@ -99,7 +101,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-body-xl mx-auto mb-10">
+            <p className="text-body-xl mx-auto mb-10 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
@@ -124,7 +126,7 @@ const Hero = () => {
         <button
           onClick={() => smoothScrollTo('schedule')}
           aria-label="Scroll to schedule section"
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors focus-enhanced"
+          className="absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))]"
         >
           <ChevronRight className="w-6 h-6 rotate-90 animate-bounce" aria-hidden="true" />
         </button>
