@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar } from '@/components/ui/calendar';
@@ -33,6 +33,17 @@ const MeetingScheduler = () => {
   });
   const [step, setStep] = useState(1);
   const { toast } = useToast();
+  const [webhookUrl, setWebhookUrl] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('zapier_webhook_schedule') || '';
+    }
+    return '';
+  });
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('zapier_webhook_schedule', webhookUrl);
+    }
+  }, [webhookUrl]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -53,22 +64,25 @@ const MeetingScheduler = () => {
     }
 
     try {
-      // Send to scheduling webhook
-      const webhookUrl = 'https://hooks.zapier.com/hooks/catch/your-webhook-id/';
-      
-      await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
-        body: JSON.stringify({ 
-          date: date?.toISOString(),
-          time,
-          meetingType: MEETING_TYPES.find(t => t.id === meetingType)?.name,
-          ...contactInfo,
-          timestamp: new Date().toISOString(),
-          source: 'website'
-        })
-      });
+      const webhook = webhookUrl.trim();
+
+      if (webhook) {
+        await fetch(webhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          body: JSON.stringify({ 
+            date: date?.toISOString(),
+            time,
+            meetingType: MEETING_TYPES.find(t => t.id === meetingType)?.name,
+            ...contactInfo,
+            timestamp: new Date().toISOString(),
+            source: 'website'
+          })
+        });
+      } else {
+        console.warn('No Zapier webhook configured for scheduling. Add one in the Webhook URL field.');
+      }
       
       toast({
         title: "Meeting Request Submitted!",
@@ -105,7 +119,7 @@ const MeetingScheduler = () => {
       setStep(1);
       toast({
         title: "Error",
-        description: "There was an issue scheduling your meeting. Please try again or contact us directly.",
+        description: "There was an issue reaching the webhook. Please check the URL or contact us directly.",
         variant: "destructive",
       });
     }
@@ -344,6 +358,21 @@ const MeetingScheduler = () => {
                             onChange={handleInputChange}
                             className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
+                        </div>
+
+                        <div className="mt-6">
+                          <label htmlFor="zapierWebhook" className="block text-xs font-medium text-charcoal mb-1">
+                            Zapier Webhook URL (optional, site owner)
+                          </label>
+                          <input
+                            type="url"
+                            id="zapierWebhook"
+                            placeholder="https://hooks.zapier.com/..."
+                            value={webhookUrl}
+                            onChange={(e) => setWebhookUrl(e.target.value)}
+                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          />
+                          <p className="text-[11px] text-charcoal/60 mt-1">If provided, a request is sent to this URL on submit.</p>
                         </div>
                       </div>
                     )}

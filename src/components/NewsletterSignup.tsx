@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail } from 'lucide-react';
 import SimpleSuccessMessage from './newsletter/SimpleSuccessMessage';
@@ -21,6 +21,17 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [webhookUrl, setWebhookUrl] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('zapier_webhook_newsletter') || '';
+    }
+    return '';
+  });
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('zapier_webhook_newsletter', webhookUrl);
+    }
+  }, [webhookUrl]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,19 +47,23 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
         return;
       }
 
-      // Connect to email marketing service
-      const webhookUrl = 'https://hooks.zapier.com/hooks/catch/your-newsletter-webhook/';
+      // Connect to email marketing service via Zapier webhook if provided
+      const webhook = webhookUrl.trim();
       
-      await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
-        body: JSON.stringify({ 
-          email,
-          timestamp: new Date().toISOString(),
-          source: 'website_newsletter'
-        })
-      });
+      if (webhook) {
+        await fetch(webhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          body: JSON.stringify({ 
+            email,
+            timestamp: new Date().toISOString(),
+            source: 'website_newsletter'
+          })
+        });
+      } else {
+        console.warn('No Zapier webhook configured for newsletter. Add one in the Webhook URL field.');
+      }
       
       setIsSubscribed(true);
       setEmail('');
@@ -89,6 +104,19 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 {description}
               </p>
             </div>
+          </div>
+          <div className="mt-2">
+            <label htmlFor="newsletterWebhook" className={`${compact ? 'text-[11px]' : 'text-xs'} font-medium text-charcoal block mb-1`}>
+              Zapier Webhook URL (optional, site owner)
+            </label>
+            <input
+              id="newsletterWebhook"
+              type="url"
+              placeholder="https://hooks.zapier.com/..."
+              value={webhookUrl}
+              onChange={(e) => setWebhookUrl(e.target.value)}
+              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
           </div>
           
           <SimpleNewsletterForm

@@ -3,6 +3,27 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
 
 const StickyCTA: React.FC = () => {
+  const [hide, setHide] = React.useState(false);
+
+  React.useEffect(() => {
+    const target = document.getElementById('schedule');
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setHide(entry.isIntersecting);
+        });
+      },
+      { root: null, threshold: 0.1 }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
+  if (hide) return null;
+
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 md:hidden" role="region" aria-label="Mobile schedule call-to-action">
       <div className="mx-auto max-w-screen-md px-4 pb-4">
