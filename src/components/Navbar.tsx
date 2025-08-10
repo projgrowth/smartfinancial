@@ -22,13 +22,20 @@ const Navbar = () => {
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
-    const updateNavHeight = () => {
+    const setInitialHeights = () => {
       const h = navRef.current?.offsetHeight ?? 64;
-      document.documentElement.style.setProperty('--nav-h', `${h}px`);
+      const root = document.documentElement;
+      root.style.setProperty('--nav-h', `${h}px`);
+      root.style.setProperty('--nav-h-initial', `${h}px`);
     };
-    updateNavHeight();
-    window.addEventListener('resize', updateNavHeight);
-    return () => window.removeEventListener('resize', updateNavHeight);
+    setInitialHeights();
+    window.addEventListener('resize', setInitialHeights);
+    return () => window.removeEventListener('resize', setInitialHeights);
+  }, []);
+
+  useEffect(() => {
+    const h = navRef.current?.offsetHeight ?? 64;
+    document.documentElement.style.setProperty('--nav-h', `${h}px`);
   }, [isOpen, isScrolled, location.pathname]);
   useEffect(() => {
     const handleScroll = () => {
