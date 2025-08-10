@@ -173,7 +173,7 @@ const Education = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-[calc(100svh-var(--nav-h))] flex flex-col justify-center overflow-hidden">
-        <div className="container-custom mx-auto z-10">
+        <div className="container-unified mx-auto z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h1 className="heading-xl text-charcoal mb-6">
@@ -237,8 +237,8 @@ const Education = () => {
       </section>
       
       {/* Educational Resources Section */}
-      <section className="py-16 bg-slate-50/50">
-        <div className="container-custom">
+      <section className="section-md bg-slate-50/50">
+        <div className="container-unified">
           <ScrollReveal>
             <h2 className="heading-lg text-charcoal mb-8 text-center">
               Educational Resources
@@ -341,8 +341,8 @@ const Education = () => {
       </section>
       
       {/* Newsletter Section */}
-      <section className="py-16 bg-blue-500/10">
-        <div className="container-custom max-w-3xl">
+      <section className="section-md bg-blue-500/10">
+        <div className="container-unified max-w-3xl">
           <ScrollReveal>
             <Card className="border-0 bg-white shadow-md overflow-hidden">
               <CardContent className="p-0">
@@ -420,8 +420,8 @@ const Education = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-16">
-        <div className="container-custom text-center">
+      <section className="section-md">
+        <div className="container-unified text-center">
           <ScrollReveal>
             <h2 className="heading-md text-charcoal mb-4">
               Ready to Take the Next Step?

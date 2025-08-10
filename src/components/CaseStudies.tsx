@@ -327,12 +327,12 @@ const CaseStudies = () => {
   };
 
   return (
-    <section id="case-studies" className="section-premium bg-gradient-to-br from-accent/5 to-background relative overflow-hidden">
+    <section id="case-studies" className="section-lg bg-gradient-to-br from-accent/5 to-background relative overflow-hidden">
       <GradientAccent variant="blue" position="bottom-right" intensity="low" />
       
-      <div className="container-premium relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <h2 className="heading-lg text-foreground mb-6">
               Real Client Success Stories
             </h2>

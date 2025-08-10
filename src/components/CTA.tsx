@@ -14,7 +14,7 @@ const CTA = () => {
       {/* Added subtle dot pattern for texture */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiLz48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSIxIi8+PC9nPjwvc3ZnPg==')] opacity-[0.05]"></div>
       
-      <div className="container-custom relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto text-center backdrop-blur-sm py-12 px-6 sm:px-10 rounded-2xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
             <h2 className="heading-lg mb-6 text-white">

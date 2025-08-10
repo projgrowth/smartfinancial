@@ -21,14 +21,6 @@ const Process = () => {
 
   return (
     <>
-      {/* Add the section transition at the top */}
-      <AnimatedSectionTransition 
-        style="wave" 
-        colorScheme="white-to-blue" 
-        position="top" 
-        height={50}
-      />
-      
       <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark text-white relative overflow-hidden" aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay"></div>
@@ -37,7 +29,7 @@ const Process = () => {
         <GradientAccent variant="blue" position="top-right" intensity="low" size="xl" animated />
         <GradientAccent variant="dark" position="bottom-left" intensity="medium" size="lg" animated />
         
-        <div className="container-custom relative z-10">
+        <div className="container-unified relative z-10">
           <ScrollReveal>
             <h2 id="process-heading" className="heading-lg text-center mb-6 text-white">
               <span className="inline-block relative">
@@ -103,7 +95,7 @@ const Process = () => {
         </div>
         
         {/* Add the section transition at the bottom with enhanced interaction */}
-        <div className="relative z-10 mt-10">
+        <div className="relative z-10 mt-8 md:mt-10">
           <AnimatedSectionTransition 
             style="curved" 
             colorScheme="dark-to-light" 
