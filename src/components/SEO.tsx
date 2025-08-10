@@ -21,6 +21,12 @@ const SEO: React.FC<SEOProps> = ({
   const computedCanonical =
     canonicalUrl || (typeof window !== 'undefined' ? window.location.href : undefined);
 
+  const computedOrigin = typeof window !== 'undefined' ? window.location.origin : '';
+  const defaultImagePath = '/lovable-uploads/9ca079fd-6409-420e-bbf9-4ce98ac71762.png';
+  const computedImage = imageUrl || (computedOrigin ? `${computedOrigin}${defaultImagePath}` : defaultImagePath);
+  const siteName = 'Smart Financial Planning';
+  const imageAlt = 'Smart Financial Planning brand mark and logo';
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -31,14 +37,17 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:title" content={title} />
       {description && <meta property="og:description" content={description} />}
       {computedCanonical && <meta property="og:url" content={computedCanonical} />} 
-      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {computedImage && <meta property="og:image" content={computedImage} />}
+      {computedImage && <meta property="og:image:alt" content={imageAlt} />}
+      <meta property="og:site_name" content={siteName} />
       <meta property="og:type" content="website" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       {description && <meta name="twitter:description" content={description} />}
-      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+      {computedImage && <meta name="twitter:image" content={computedImage} />} 
+      {computedImage && <meta name="twitter:image:alt" content={imageAlt} />}
 
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
