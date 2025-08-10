@@ -87,17 +87,17 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="section py-20 relative overflow-hidden bg-blue-50/30">
+    <section id="faq" className="section relative overflow-hidden bg-blue-50/30">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
-      <div className="container-custom relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-charcoal text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center mb-4">
             Frequently Asked Questions
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
             Get answers to the most common questions about our financial planning services and approach.
           </p>
         </ScrollReveal>

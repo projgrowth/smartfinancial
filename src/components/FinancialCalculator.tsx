@@ -8,17 +8,17 @@ import RetirementCalculator from './calculators/RetirementCalculator';
 
 const FinancialCalculator = () => {
   return (
-    <section id="calculators" className="section py-20 relative overflow-hidden">
+    <section id="calculators" className="section relative overflow-hidden">
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
-      <div className="container-custom relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-charcoal text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center mb-4">
             Financial Calculators
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
             Explore our interactive financial calculators to help plan your financial future and visualize the power of strategic investing.
           </p>
         </ScrollReveal>

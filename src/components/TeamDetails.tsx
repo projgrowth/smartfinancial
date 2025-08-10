@@ -87,18 +87,18 @@ const TeamDetails = () => {
   ];
 
   return (
-    <section id="team-details" className="section bg-white relative overflow-hidden py-16 md:py-24">
+    <section id="team-details" className="section bg-background relative overflow-hidden">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-medium text-charcoal text-center mb-3 md:mb-4">
+          <h2 className="heading-lg text-center mb-3 md:mb-4 text-foreground">
             Meet Our Expert Team
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed px-4">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed px-4">
             Our Orlando and Lake Nona advisors bring decades of combined experience and specialized expertise to help you achieve your financial goals.
           </p>
         </ScrollReveal>
@@ -116,7 +116,7 @@ const TeamDetails = () => {
                   }`}
                   onClick={() => setActiveAdvisor(index)}
                 >
-                  <Avatar className="h-12 w-12 md:h-14 md:w-14 border-2 border-blue-100 flex-shrink-0">
+                  <Avatar className="h-12 w-12 md:h-14 md:w-14 border-2 border-border flex-shrink-0">
                     <AvatarImage 
                       src={advisor.imageUrl} 
                       alt={`${advisor.name}, ${advisor.title}`}
@@ -129,8 +129,8 @@ const TeamDetails = () => {
                     <AvatarFallback>{advisor.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-medium text-charcoal text-sm md:text-base truncate">{advisor.name}</h3>
-                    <p className="text-xs md:text-sm text-blue-500 leading-tight">{advisor.title}</p>
+                    <h3 className="font-medium text-foreground text-sm md:text-base truncate">{advisor.name}</h3>
+                    <p className="text-xs md:text-sm text-primary leading-tight">{advisor.title}</p>
                   </div>
                 </div>
               ))}
@@ -138,7 +138,7 @@ const TeamDetails = () => {
           </div>
           
           <div className="col-span-2">
-            <div className="bg-white rounded-xl shadow-sm border border-blue-100 p-4 md:p-6 lg:p-8">
+            <div className="bg-card rounded-xl shadow-sm border border-border p-4 md:p-6 lg:p-8">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 md:mb-8">
                 <div className="lg:col-span-1 flex flex-col items-center">
                   <div className="relative w-32 h-32 md:w-40 lg:w-48 md:h-40 lg:h-48 mb-4 overflow-hidden rounded-full border-4 border-blue-100 shadow-sm">

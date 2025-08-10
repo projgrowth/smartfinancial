@@ -157,17 +157,17 @@ const MeetingScheduler = () => {
   };
 
   return (
-    <section id="schedule" className="section py-20 relative overflow-hidden bg-blue-50/20">
+    <section id="schedule" className="section relative overflow-hidden bg-blue-50/20">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
-      <div className="container-custom relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-charcoal text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center mb-4">
             Schedule a Meeting
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
             Book a time to speak with our financial advisors about your goals and how we can help you achieve them.
           </p>
         </ScrollReveal>

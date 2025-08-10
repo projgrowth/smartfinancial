@@ -35,13 +35,13 @@
   .m-premium-2xl { @apply m-16; }
 
   /* Section Spacing */
-  .section-premium { @apply py-32; }
-  .section-premium-sm { @apply py-24; }
-  .section-premium-lg { @apply py-40; }
+  .section-premium { @apply section-xl; }
+  .section-premium-sm { @apply section-lg; }
+  .section-premium-lg { @apply section-xl; }
 
   /* Container Spacing */
   .container-premium {
-    @apply container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 max-w-7xl;
+    @apply container-unified;
   }
 
   /* Premium Shadow System */

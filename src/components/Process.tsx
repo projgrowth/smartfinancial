@@ -29,7 +29,7 @@ const Process = () => {
         height={50}
       />
       
-      <section id="process" className="section bg-gradient-to-br from-charcoal to-charcoal-dark text-white relative overflow-hidden py-24" aria-labelledby="process-heading">
+      <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark text-white relative overflow-hidden" aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay"></div>
         

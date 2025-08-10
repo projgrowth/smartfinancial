@@ -15,9 +15,9 @@ interface AdvisorProps {
 
 const Advisor: React.FC<AdvisorProps> = ({ name, title, bio, imageUrl, specialties }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-slate-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 p-4 md:p-6 h-full flex flex-col">
+    <div className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300 p-4 md:p-6 h-full flex flex-col">
       <div className="mb-4 md:mb-6 flex justify-center">
-        <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-blue-100 shadow-sm">
+        <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-border shadow-sm">
           <img 
             src={imageUrl} 
             alt={`${name}, ${title} at Smart Financial Planning`}
@@ -32,16 +32,16 @@ const Advisor: React.FC<AdvisorProps> = ({ name, title, bio, imageUrl, specialti
           />
         </div>
       </div>
-      <h3 className="text-lg md:text-xl font-medium text-charcoal mb-1 text-center">{name}</h3>
-      <p className="text-blue-500 font-medium mb-3 md:mb-4 text-center text-sm md:text-base">{title}</p>
-      <div className="text-charcoal/80 flex-grow space-y-2 md:space-y-3 text-sm md:text-base">
+      <h3 className="heading-xs mb-1 text-center">{name}</h3>
+      <p className="text-primary font-medium mb-3 md:mb-4 text-center text-sm md:text-base">{title}</p>
+      <div className="text-muted-foreground flex-grow space-y-2 md:space-y-3 text-sm md:text-base">
         {bio.split('\n\n').map((paragraph, index) => (
           <p key={index} className="leading-relaxed">{paragraph}</p>
         ))}
       </div>
       <div className="mt-4 flex flex-wrap gap-1 md:gap-2 justify-center">
         {specialties.map((specialty, index) => (
-          <span key={index} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">
+          <span key={index} className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full">
             {specialty}
           </span>
         ))}
@@ -76,23 +76,23 @@ const Advisors = () => {
   ];
 
   return (
-    <section id="team" className="section bg-white relative overflow-hidden py-16 md:py-24">
+    <section id="team" className="section bg-background relative overflow-hidden">
       <GradientAccent variant="subtle" position="top-right" intensity="low" />
       
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-medium text-charcoal text-center mb-3 md:mb-4">
+          <h2 className="heading-lg text-center mb-3 md:mb-4 text-foreground">
             Our Team
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-charcoal/70 max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed px-4">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed px-4">
             Meet the experts dedicated to your financial success and long-term prosperity in Lake Nona and Orlando.
           </p>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid-auto gap-unified-lg max-w-6xl mx-auto">
           {advisors.map((advisor, index) => (
             <ScrollReveal key={index} delay={index * 150}>
               <Advisor
@@ -109,7 +109,7 @@ const Advisors = () => {
         <div className="text-center mt-8 md:mt-12">
           <Button 
             variant="outline" 
-            className="border-blue-200 hover:bg-blue-50 hover:text-blue-700 group text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
+            className="group text-sm md:text-base"
             onClick={() => {
               const teamDetails = document.getElementById('team-details');
               if (teamDetails) {

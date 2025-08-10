@@ -2,11 +2,11 @@
 
 @layer components {
   .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl;
+    @apply container-unified;
   }
   
   .section {
-    @apply py-16 md:py-24;
+    @apply section-lg;
   }
   
   /* Typography system */

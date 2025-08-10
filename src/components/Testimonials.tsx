@@ -62,14 +62,14 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, [currentSlide, isPaused, testimonials.length]);
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50/50 to-white">
-      <div className="container-custom mx-auto">
+    <section id="testimonials" className="section-lg bg-gradient-to-br from-blue-50/50 to-white">
+      <div className="container-unified mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="heading-lg text-charcoal mb-4">
+            <h2 className="heading-lg text-foreground mb-4">
               What Our Clients Say
             </h2>
-            <p className="paragraph text-charcoal/70 max-w-2xl mx-auto">
+            <p className="paragraph text-muted-foreground max-w-2xl mx-auto">
               Hear from professionals who've transformed their financial future with our strategic guidance.
             </p>
           </div>
