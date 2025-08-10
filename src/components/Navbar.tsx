@@ -22,15 +22,19 @@ const Navbar = () => {
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
-    const setInitialHeights = () => {
+    const root = document.documentElement;
+    const setInitial = () => {
       const h = navRef.current?.offsetHeight ?? 64;
-      const root = document.documentElement;
-      root.style.setProperty('--nav-h', `${h}px`);
       root.style.setProperty('--nav-h-initial', `${h}px`);
+      root.style.setProperty('--nav-h', `${h}px`);
     };
-    setInitialHeights();
-    window.addEventListener('resize', setInitialHeights);
-    return () => window.removeEventListener('resize', setInitialHeights);
+    const handleResize = () => {
+      const h = navRef.current?.offsetHeight ?? 64;
+      root.style.setProperty('--nav-h', `${h}px`);
+    };
+    setInitial();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {

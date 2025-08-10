@@ -7,7 +7,9 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <Navbar />
-      <Outlet />
+      <div className="pt-[var(--nav-h)]">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

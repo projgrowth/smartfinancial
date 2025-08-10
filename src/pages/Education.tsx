@@ -1,7 +1,5 @@
 
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -165,7 +163,7 @@ const Education = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <PremiumBackground />
-      <Navbar />
+      
       <SEO 
         title="Financial Education & Resources | Smart Financial Planning"
         description="Guides, tools, and glossary to help you understand key financial planning concepts and make informed decisions."
@@ -174,7 +172,7 @@ const Education = () => {
       <div id="main-content" />
       
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">
+      <section className="relative min-h-[calc(100svh-var(--nav-h))] flex flex-col justify-center overflow-hidden">
         <div className="container-custom mx-auto z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
@@ -449,7 +447,7 @@ const Education = () => {
         </div>
       </section>
       
-      <Footer />
+      
     </div>
   );
 };

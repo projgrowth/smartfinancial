@@ -1,20 +1,18 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import SEO from '@/components/SEO';
 
 const Terms = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/30 to-white">
-      <Navbar />
+      
       <SEO 
         title="Terms of Service | Smart Financial Planning"
         description="Read the Terms of Service for Smart Financial Planning in Orlando, FL."
         canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/terms` : undefined}
       />
       
-      <main id="main-content" className="pt-20 pb-16">
+      <main id="main-content" className="pb-16">
         <div className="container-unified max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-charcoal mb-4">Terms of Service</h1>
@@ -84,7 +82,7 @@ const Terms = () => {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   );
 };
