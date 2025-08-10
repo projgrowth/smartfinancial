@@ -6,7 +6,7 @@ import { MicroAnimations } from './ui/micro-animations';
 
 const CTA = () => {
   return (
-    <section id="contact" className="section text-white relative overflow-hidden bg-gradient-to-br from-charcoal/95 to-charcoal/90 backdrop-blur-sm py-24">
+    <section id="contact" className="section text-white relative overflow-hidden bg-gradient-to-br from-charcoal/95 to-charcoal/90 backdrop-blur-sm">
       {/* Enhanced modern glass morphic decoration with subtle animation */}
       <div className="absolute left-0 top-0 w-[40%] h-[80%] bg-gradient-to-br from-blue-400/15 to-blue-500/10 blur-3xl rounded-full transform -translate-x-1/4 animate-float"></div>
       <div className="absolute right-0 bottom-0 w-[40%] h-[80%] bg-gradient-to-tl from-blue-400/15 to-blue-300/10 blur-3xl rounded-full transform translate-x-1/4 animate-float"></div>

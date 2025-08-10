@@ -45,7 +45,7 @@ const Process = () => {
                 <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></span>
               </span>
             </h2>
-            <p className="text-center text-white/95 max-w-2xl mx-auto mb-16 leading-relaxed">
+            <p className="text-center text-white/95 max-w-2xl mx-auto mb-10 leading-relaxed">
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
@@ -103,7 +103,7 @@ const Process = () => {
         </div>
         
         {/* Add the section transition at the bottom with enhanced interaction */}
-        <div className="relative z-10 mt-16">
+        <div className="relative z-10 mt-10">
           <AnimatedSectionTransition 
             style="curved" 
             colorScheme="dark-to-light" 

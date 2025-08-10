@@ -88,7 +88,7 @@ const ServiceCards = () => {
             </div>
           </ScrollReveal>
           
-          <div className="grid-four-col gap-unified-lg mt-16">
+          <div className="grid-four-col gap-unified-lg">
             {services.map((service, index) => (
               <ServiceCard 
                 key={index} 
@@ -101,7 +101,7 @@ const ServiceCards = () => {
           </div>
         </div>
         
-        <div className="relative z-10 mt-20">
+        <div className="relative z-10 mt-10 md:mt-14">
           <AnimatedSectionTransition 
             style="diagonal" 
             colorScheme="light-to-dark" 

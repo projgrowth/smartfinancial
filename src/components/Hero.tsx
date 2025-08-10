@@ -58,7 +58,7 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative flex flex-col justify-start sm:justify-center min-h-[calc(100dvh-var(--nav-h))] pt-12 pb-10 sm:pb-20 overflow-hidden">
+    <section className="relative flex flex-col justify-start sm:justify-center min-h-[calc(100svh-var(--nav-h))] pt-12 pb-10 sm:pb-20 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated className="opacity-70 sm:opacity-100" />
       <div className="hidden sm:block">

@@ -170,7 +170,7 @@ const Index = () => {
           <CTA />
         </Suspense>
       </main>
-      <StickyCTA />
+      
       
     </div>
   );
