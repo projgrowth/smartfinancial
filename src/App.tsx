@@ -10,6 +10,7 @@ import { Suspense, lazy, useEffect } from "react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import './index.css';
 import CookieConsent from "@/components/ui/CookieConsent";
+import Layout from "@/components/Layout";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -50,10 +51,12 @@ const App = () => (
         <ScrollToTop />
         <Suspense fallback={<LoadingIndicator />}>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
+            <Route element={<Layout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+            </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
