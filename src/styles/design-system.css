@@ -1,6 +1,14 @@
 
 /* Design System - Unified Typography, Spacing, and Components */
 
+:root {
+  /* Container widths and unified gutter */
+  --container-narrow: 64rem; /* ~1024px */
+  --container-default: 90rem; /* ~1440px (wider site width) */
+  --container-wide: 96rem; /* ~1536px for hero/footer if needed */
+  --gutter: clamp(1rem, 3vw, 2rem);
+}
+
 /* Typography Scale - Consistent heading hierarchy */
 .heading-display {
   @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-medium tracking-tight text-foreground;
@@ -58,7 +66,38 @@
 
 /* Unified Container System */
 .container-unified {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  width: 100%;
+  max-width: var(--container-default);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.container-fluid {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
 /* Consistent Section Spacing */

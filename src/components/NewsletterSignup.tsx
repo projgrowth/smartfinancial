@@ -10,13 +10,17 @@ interface NewsletterSignupProps {
   description?: string;
   compact?: boolean;
   className?: string;
+  onDark?: boolean;
+  showWebhook?: boolean;
 }
 
 const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ 
   title = "Subscribe to Our Financial Insights",
   description = "Get exclusive financial tips, market insights, and educational resources delivered to your inbox.",
   compact = false,
-  className
+  className,
+  onDark = false,
+  showWebhook = true,
 }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -78,8 +82,8 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 
   if (isSubscribed) {
     return (
-      <Card className={`overflow-hidden border-blue-50 shadow-sm ${className}`}>
-        <CardContent className="p-6 bg-green-50">
+      <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
+        <CardContent className="p-6 bg-accent/10">
           <SimpleSuccessMessage />
         </CardContent>
       </Card>
@@ -87,38 +91,41 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   }
 
   return (
-    <Card className={`overflow-hidden border-blue-50 shadow-sm ${className}`}>
-      <CardContent className={`p-${compact ? '4' : '6'} bg-blue-50/50`}>
+    <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
+      <CardContent className={`${compact ? 'p-4' : 'p-6'} ${onDark ? 'bg-background/10' : 'bg-muted/40'}`}>
+
         <div className={compact ? "space-y-3" : "space-y-4"}>
           <div className={`${compact ? '' : 'flex items-center space-x-3'}`}>
             {!compact && (
-              <div className="rounded-full bg-blue-100 p-2 flex-shrink-0">
-                <Mail className="h-5 w-5 text-blue-600" />
+              <div className={`rounded-full ${onDark ? 'bg-primary-foreground/10' : 'bg-accent/20'} p-2 flex-shrink-0`}>
+                <Mail className="h-5 w-5 text-accent" />
               </div>
             )}
             <div>
-              <h3 className={`font-heading ${compact ? 'text-base' : 'text-lg'} font-medium text-charcoal`}>
+              <h3 className={`font-heading ${compact ? 'text-base' : 'text-lg'} font-medium text-foreground`}>
                 {title}
               </h3>
-              <p className={`${compact ? 'text-xs' : 'text-sm'} text-charcoal/70`}>
+              <p className={`${compact ? 'text-xs' : 'text-sm'} text-muted-foreground`}>
                 {description}
               </p>
             </div>
           </div>
-          <div className="mt-2">
-            <label htmlFor="newsletterWebhook" className={`${compact ? 'text-[11px]' : 'text-xs'} font-medium text-charcoal block mb-1`}>
-              Zapier Webhook URL (optional, site owner)
-            </label>
-            <input
-              id="newsletterWebhook"
-              type="url"
-              placeholder="https://hooks.zapier.com/..."
-              value={webhookUrl}
-              onChange={(e) => setWebhookUrl(e.target.value)}
-              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-          
+          { (showWebhook ?? !compact) && (
+            <div className="mt-2">
+              <label htmlFor="newsletterWebhook" className={`${compact ? 'text-[11px]' : 'text-xs'} font-medium text-muted-foreground block mb-1`}>
+                Zapier Webhook URL (optional, site owner)
+              </label>
+              <input
+                id="newsletterWebhook"
+                type="url"
+                placeholder="https://hooks.zapier.com/..."
+                value={webhookUrl}
+                onChange={(e) => setWebhookUrl(e.target.value)}
+                className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+              />
+            </div>
+          )}
+
           <SimpleNewsletterForm
             email={email}
             setEmail={setEmail}
