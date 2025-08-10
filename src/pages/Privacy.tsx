@@ -9,7 +9,7 @@ const Privacy = () => {
       <Navbar />
       
       <main className="pt-20 pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container-unified max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-charcoal mb-4">Privacy Policy</h1>
             <p className="text-charcoal/70">Last updated: {new Date().toLocaleDateString()}</p>

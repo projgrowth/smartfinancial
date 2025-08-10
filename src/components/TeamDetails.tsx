@@ -90,7 +90,7 @@ const TeamDetails = () => {
     <section id="team-details" className="section bg-white relative overflow-hidden py-16 md:py-24">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-medium text-charcoal text-center mb-3 md:mb-4">
             Meet Our Expert Team

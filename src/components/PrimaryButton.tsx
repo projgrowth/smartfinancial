@@ -21,9 +21,9 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
   }, ref) => {
     
     const variantStyles = {
-      default: 'bg-charcoal text-white hover:shadow-md active:shadow-inner',
-      outline: 'bg-transparent border border-charcoal/20 text-charcoal hover:bg-charcoal/5',
-      subtle: 'bg-transparent text-charcoal hover:bg-charcoal/5'
+      default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+      outline: 'border border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground',
+      subtle: 'bg-transparent text-foreground hover:bg-accent'
     };
     
     const sizeStyles = {
@@ -38,7 +38,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
         className={cn(
           'relative font-medium inline-flex items-center justify-center',
           'transition-all duration-300 ease-out active:scale-[0.98]',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
           variantStyles[variant],
           sizeStyles[size],
           className
@@ -55,7 +55,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
           <span className="ml-2 transition-transform duration-300 group-hover:translate-x-[2px]">{icon}</span>
         )}
         
-        <span className="absolute inset-0 rounded-md bg-gradient-to-r from-blue-500/10 to-blue-500/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        <span className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/10 to-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
       </button>
     );
   }
