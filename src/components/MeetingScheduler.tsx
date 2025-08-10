@@ -190,16 +190,27 @@ const MeetingScheduler = () => {
                         <div>
                           <div className="mb-6">
                             <h3 className="text-lg font-medium text-charcoal mb-4">Select Meeting Type</h3>
-                            <div className="space-y-2">
+                            <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
-                                <div
+                                <button
                                   key={type.id}
-                                  className={`p-3 border rounded-md cursor-pointer transition-all duration-200 ${
+                                  type="button"
+                                  role="radio"
+                                  aria-checked={meetingType === type.id}
+                                  aria-label={`${type.name} ${type.duration}`}
+                                  tabIndex={0}
+                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 ${
                                     meetingType === type.id
                                       ? 'border-blue-500 bg-blue-50'
                                       : 'border-gray-200 hover:border-blue-200'
                                   }`}
                                   onClick={() => setMeetingType(type.id)}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                      e.preventDefault();
+                                      setMeetingType(type.id);
+                                    }
+                                  }}
                                 >
                                   <div className="flex justify-between items-center">
                                     <div>
@@ -218,7 +229,7 @@ const MeetingScheduler = () => {
                                       )}
                                     </div>
                                   </div>
-                                </div>
+                                </button>
                               ))}
                             </div>
                           </div>
@@ -228,19 +239,28 @@ const MeetingScheduler = () => {
                               <h3 className="text-lg font-medium text-charcoal mb-4">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
-                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
                                 {MEETING_TIMES.map((t) => (
-                                  <div
+                                  <button
                                     key={t}
+                                    type="button"
+                                    role="radio"
+                                    aria-checked={time === t}
                                     className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 ${
                                       time === t
                                         ? 'border-blue-500 bg-blue-50 text-blue-700'
                                         : 'border-gray-200 hover:border-blue-200'
                                     }`}
                                     onClick={() => setTime(t)}
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        setTime(t);
+                                      }
+                                    }}
                                   >
                                     {t}
-                                  </div>
+                                  </button>
                                 ))}
                               </div>
                             </div>

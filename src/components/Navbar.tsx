@@ -161,7 +161,7 @@ const Navbar = () => {
             )
           )}
           <PrimaryButton 
-            onClick={() => handleNavClick('contact')}
+             onClick={() => handleNavClick('schedule')}
             className="group"
             size="sm"
             icon={<ChevronRight size={16} />}
@@ -243,7 +243,7 @@ const Navbar = () => {
             )
           )}
           <PrimaryButton 
-            onClick={() => handleNavClick('contact')}
+            onClick={() => handleNavClick('schedule')}
             className="w-full justify-center"
             icon={<ChevronRight size={16} />}
             iconPosition="right"

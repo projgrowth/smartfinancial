@@ -24,6 +24,8 @@ const Advisor: React.FC<AdvisorProps> = ({ name, title, bio, imageUrl, specialti
             className="object-cover object-center w-full h-full"
             loading="lazy"
             decoding="async"
+            width={160}
+            height={160}
             style={{ objectPosition: imageUrl.includes('83c79661') ? 'center 20%' : 
                                     imageUrl.includes('c90c6dda') ? 'center 30%' : 
                                     'center 25%' }}

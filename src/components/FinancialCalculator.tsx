@@ -27,7 +27,7 @@ const FinancialCalculator = () => {
           <Tabs defaultValue="compound-interest" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="compound-interest">Compound Interest</TabsTrigger>
-              <TabsTrigger value="retirement">Retirement Planning</TabsTrigger>
+              <TabsTrigger value="retirement">Retirement Calculator</TabsTrigger>
             </TabsList>
             <TabsContent value="compound-interest">
               <CompoundInterestCalculator />

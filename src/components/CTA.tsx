@@ -25,7 +25,7 @@ const CTA = () => {
             </p>
             <MicroAnimations.ScaleOnHover>
               <a 
-                href="#" 
+                href="#schedule" 
                 className="group inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-md transition-all duration-300 hover:bg-blue-600 shadow-lg hover:shadow-xl relative overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">

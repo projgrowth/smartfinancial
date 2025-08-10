@@ -54,7 +54,7 @@ const Hero = () => {
           <ScrollReveal delay={300}>
             <MicroAnimations.ScaleOnHover scale="sm">
               <button
-                onClick={() => smoothScrollTo('contact')}
+                onClick={() => smoothScrollTo('schedule')}
                 className="btn-primary group"
               >
                 <span className="mr-2">Schedule Your Private Strategy Call</span>

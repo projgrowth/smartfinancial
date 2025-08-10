@@ -20,12 +20,19 @@ const CookieConsent = () => {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-charcoal text-white p-4 z-50 shadow-lg">
+    <div 
+      className="fixed bottom-0 left-0 right-0 bg-background text-foreground border-t border-border p-4 z-50 shadow-lg"
+      role="dialog"
+      aria-labelledby="cookie-consent-title"
+      aria-describedby="cookie-consent-description"
+      aria-live="polite"
+    >
       <div className="container mx-auto flex items-center justify-between flex-wrap gap-4">
         <div className="flex-1 min-w-0">
-          <p className="text-sm">
+          <h2 id="cookie-consent-title" className="sr-only">Cookie consent</h2>
+          <p id="cookie-consent-description" className="text-sm">
             We use cookies to improve your experience. By continuing to use our site, you agree to our{' '}
-            <a href="/privacy" className="text-blue-200 hover:text-blue-100 underline">
+            <a href="/privacy" className="text-primary underline hover:text-primary/80">
               Privacy Policy
             </a>
             .
@@ -35,7 +42,6 @@ const CookieConsent = () => {
           <Button 
             onClick={acceptCookies}
             size="sm"
-            className="bg-white text-charcoal hover:bg-gray-100"
           >
             Accept
           </Button>
@@ -43,7 +49,7 @@ const CookieConsent = () => {
             onClick={acceptCookies}
             size="sm"
             variant="ghost"
-            className="text-white hover:bg-white/10"
+            aria-label="Close cookie banner"
           >
             <X className="h-4 w-4" />
           </Button>

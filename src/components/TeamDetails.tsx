@@ -120,6 +120,8 @@ const TeamDetails = () => {
                     <AvatarImage 
                       src={advisor.imageUrl} 
                       alt={`${advisor.name}, ${advisor.title}`}
+                      width={56}
+                      height={56}
                       style={{ objectPosition: advisor.imageUrl.includes('83c79661') ? 'center 20%' : 
                                               advisor.imageUrl.includes('c90c6dda') ? 'center 30%' : 
                                               'center 25%' }}
@@ -146,6 +148,8 @@ const TeamDetails = () => {
                       className="object-cover object-center w-full h-full"
                       loading="lazy"
                       decoding="async"
+                      width={192}
+                      height={192}
                       style={{ objectPosition: advisors[activeAdvisor].imageUrl.includes('83c79661') ? 'center 20%' : 
                                               advisors[activeAdvisor].imageUrl.includes('c90c6dda') ? 'center 30%' : 
                                               'center 25%' }}
