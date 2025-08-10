@@ -16,6 +16,12 @@
   letter-spacing: -0.02em;
 }
 
+.heading-display-fluid {
+  font-size: clamp(2rem, 4.5vw + 0.5rem, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
 .heading-xl {
   @apply text-3xl md:text-4xl lg:text-5xl font-heading font-medium tracking-tight text-foreground;
   line-height: 1.15;

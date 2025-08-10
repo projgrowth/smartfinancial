@@ -151,7 +151,7 @@ export const ShimmerButton = ({
       disabled={disabled}
       type={type}
       className={cn(
-        "relative px-4 py-2 rounded-md font-medium text-white overflow-hidden bg-blue-600 hover:bg-blue-700 transition-colors",
+        "relative inline-flex items-center whitespace-nowrap leading-none gap-2 min-h-[44px] px-4 py-2 rounded-md font-medium text-white overflow-hidden bg-blue-600 hover:bg-blue-700 transition-colors",
         "after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-shimmer",
         disabled && "opacity-50 cursor-not-allowed",
         className

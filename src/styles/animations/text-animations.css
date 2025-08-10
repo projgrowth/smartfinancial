@@ -54,7 +54,7 @@
 
   /* Word rotator layers */
   .word-rotator {
-    @apply relative inline-grid;
+    @apply relative inline-block align-baseline;
   }
 
   .word-layer {
