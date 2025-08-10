@@ -58,7 +58,7 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative min-h-[85svh] flex flex-col justify-center pt-20 sm:pt-24 pb-20 overflow-hidden">
+    <section className="relative flex flex-col justify-center min-h-[calc(100svh-var(--nav-h,4rem))] pt-[calc(var(--nav-h,4rem)+1rem)] pb-16 sm:pb-20 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
       <div className="hidden sm:block">
@@ -81,8 +81,8 @@ const Hero = () => {
       <div className="container-unified z-10">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="heading-display mb-6">
-              <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
+            <h1 className="heading-display mb-5 sm:mb-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
                 <span className="text-blue-400 word-rotator" aria-live="polite">
                   <span className="opacity-0 whitespace-nowrap">{longestWord}</span>
@@ -101,7 +101,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-body-xl mx-auto mb-10 max-w-2xl text-balance">
+            <p className="text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
