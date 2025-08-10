@@ -68,4 +68,31 @@ export const advisors: AdvisorProfile[] = [
     approach:
       "Kelvin's practical, proactive approach to asset protection helps clients shield their legacy while maximizing peace of mind. He believes that proper financial structure creates freedom, both personally and professionally, allowing clients to focus on what matters most.",
   },
+  {
+    slug: 'joseph-schreiner-iii',
+    name: 'Joseph John Schreiner III',
+    title: 'Senior Wealth Advisor — Healthcare & Entrepreneurs',
+    bio: "Joseph and his team have built a national practice across several industries helping physicians, dentists, pharmacists, and business owners implement healthy habits and rituals with money.\n\nHe specializes in guiding healthcare professionals and entrepreneurs through the unique financial decisions they face—from managing educational debt to optimizing taxes and structuring practices for growth and eventual transition.",
+    specialties: [
+      'Physicians, Dentists, Pharmacists, Entrepreneurs',
+      'Medical School Debt Management',
+      'High-Income Tax Strategies',
+      'Retirement Acceleration after Residency/Fellowship',
+      'Private Practice Operations & Efficiency',
+      'Private Practice Exit Strategy',
+      'Asset Protection',
+      'Employee Retention & Benefits'
+    ],
+    imageUrl: '/lovable-uploads/c87641e0-5dd7-4189-8b8d-25531f26619d.png',
+    education: ['Financial Services Training'],
+    certifications: ['Licensed Financial Professional'],
+    experience: [
+      'Built a national advisory practice serving healthcare professionals and business owners',
+      'Advises on efficient practice operations and growth',
+      'Develops strategies for high-income tax efficiency and asset protection',
+      'Guides clients through debt reduction and accelerated retirement savings',
+    ],
+    approach:
+      "Joseph’s approach is practical, process-driven, and tailored to the realities of healthcare and entrepreneurship. He helps clients install healthy financial habits while aligning strategies with personal, professional, and practice goals.",
+  }
 ];
