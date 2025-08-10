@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StickyCTA from '@/components/StickyCTA';
 import { Outlet } from 'react-router-dom';
 
 const Layout: React.FC = () => {
@@ -10,6 +11,7 @@ const Layout: React.FC = () => {
       <div className="pt-[var(--nav-h)]">
         <Outlet />
       </div>
+      <StickyCTA />
       <Footer />
     </div>
   );

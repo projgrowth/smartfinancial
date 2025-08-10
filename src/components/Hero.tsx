@@ -51,16 +51,16 @@ const Hero = () => {
         window.setTimeout(() => setPrevWord(null), exitDuration);
         return (i + 1) % words.length;
       });
-    }, isMobile ? 1700 : 2400);
+    }, isMobile ? 3000 : 2400);
     return () => {
       window.clearInterval(intervalId);
     };
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative flex flex-col justify-center min-h-[calc(100svh-var(--nav-h))] pb-16 sm:pb-20 overflow-hidden">
+    <section className="relative flex flex-col justify-center min-h-[calc(100dvh-var(--nav-h))] pb-16 sm:pb-20 overflow-hidden">
       {/* Enhanced background accents */}
-      <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated />
+      <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated className="opacity-70 sm:opacity-100" />
       <div className="hidden sm:block">
         <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       </div>
@@ -101,7 +101,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
+            <p className="text-body-lg sm:text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
@@ -112,7 +112,7 @@ const Hero = () => {
               <MicroAnimations.ShimmerButton
                 onClick={() => smoothScrollTo('schedule')}
                 aria-label="Schedule your private strategy call"
-                className="group whitespace-nowrap text-sm sm:text-base px-3 sm:px-6"
+                className="group w-full sm:w-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6"
               >
                 <span className="mr-2">
                   <span className="xs:hidden">Schedule</span>
@@ -126,7 +126,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {!reduceMotion && (
+      {!reduceMotion && !isMobile && (
         <button
           onClick={() => smoothScrollTo('schedule')}
           aria-label="Scroll to schedule section"
