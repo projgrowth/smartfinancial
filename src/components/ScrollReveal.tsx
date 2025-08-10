@@ -29,15 +29,18 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     triggerOnce: once,
   });
 
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show = isIntersecting || prefersReducedMotion;
+
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
       className={`transition-all ${className}`}
       style={{
-        opacity: isIntersecting ? 1 : 0,
-        transform: isIntersecting ? 'translateY(0)' : `translateY(${distance})`,
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
+        opacity: show ? 1 : 0,
+        transform: show ? 'translateY(0)' : `translateY(${distance})`,
+        transitionDuration: prefersReducedMotion ? '0ms' : `${duration}ms`,
+        transitionDelay: prefersReducedMotion ? '0ms' : `${delay}ms`,
         transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1.0)',
       }}
     >

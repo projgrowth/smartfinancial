@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 import { preloadCriticalImages } from '../utils/imageOptimization';
 import StickyCTA from '../components/StickyCTA';
+import { advisors } from '@/data/team';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,6 +65,26 @@ const Index = () => {
     );
   }
 
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: 'Home', item: origin },
+      { "@type": "ListItem", position: 2, name: 'Financial Planning Services', item: `${origin}#services` },
+      { "@type": "ListItem", position: 3, name: 'Our Team', item: `${origin}#team` }
+    ]
+  } as const;
+  const teamJsonLd = advisors.map(a => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: a.name,
+    jobTitle: a.title,
+    image: origin ? `${origin}${a.imageUrl}` : a.imageUrl,
+    worksFor: { "@type": "Organization", name: 'Smart Financial Planning', url: origin || undefined },
+    url: `${origin}#team`
+  }));
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <PremiumBackground />
@@ -71,15 +92,7 @@ const Index = () => {
         title="Financial Planning Lake Nona Orlando | Smart Financial Planning"
         description="Fee-only financial planning in Lake Nona & Orlando. Personalized strategies, retirement planning, and smart investing. Schedule a free consultation."
         canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/` : undefined}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": typeof window !== 'undefined' ? window.location.origin : '' },
-            { "@type": "ListItem", "position": 2, "name": "Financial Planning Services", "item": typeof window !== 'undefined' ? `${window.location.origin}#services` : '' },
-            { "@type": "ListItem", "position": 3, "name": "Our Team", "item": typeof window !== 'undefined' ? `${window.location.origin}#team` : '' }
-          ]
-        }}
+        jsonLd={[breadcrumbJsonLd, ...teamJsonLd]}
       />
       
       <main id="main-content" role="main">
