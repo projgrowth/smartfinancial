@@ -64,7 +64,7 @@
 
   /* Word rotator layers */
 .word-rotator {
-  @apply relative inline-block align-baseline text-left;
+  @apply relative inline-block align-baseline text-left overflow-hidden;
 }
 
   .word-layer {

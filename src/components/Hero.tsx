@@ -49,15 +49,31 @@ const Hero = () => {
 
   // Measure and lock the rotator width to the longest word to prevent reflow
   useEffect(() => {
-    const measure = () => {
+    let ro: ResizeObserver | null = null;
+    let cleanup = () => {};
+
+    const setup = () => {
       const el = placeholderRef.current;
-      if (el) {
-        setRotatorWidth(el.offsetWidth);
-      }
+      if (!el) return;
+      const measure = () => setRotatorWidth(el.offsetWidth);
+      measure();
+      ro = new ResizeObserver(() => measure());
+      ro.observe(el);
+      window.addEventListener('resize', measure);
+      cleanup = () => {
+        ro?.disconnect();
+        window.removeEventListener('resize', measure);
+      };
     };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
+
+    const fontsReady = (document as any).fonts?.ready as Promise<void> | undefined;
+    if (fontsReady && typeof fontsReady.then === 'function') {
+      fontsReady.then(setup).catch(setup);
+    } else {
+      setup();
+    }
+
+    return () => cleanup();
   }, []);
 
   useEffect(() => {
@@ -76,10 +92,8 @@ const Hero = () => {
 
   return (
     <section className="relative flex flex-col justify-start sm:justify-center min-h-[calc(100svh-var(--nav-h))] pt-12 pb-10 sm:pb-20 overflow-hidden">
-      {/* Top vignette to separate from navbar */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-charcoal/50 to-transparent" />
       {/* Enhanced background accents */}
-      <GradientAccent variant="blue" position="top-right" size="xl" intensity="low" animated className="opacity-90 sm:opacity-100" />
+      <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
       <div className="hidden sm:block">
         <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
       </div>

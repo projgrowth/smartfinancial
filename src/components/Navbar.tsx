@@ -98,8 +98,8 @@ const Navbar = () => {
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/98 shadow-lg backdrop-blur-md border-b border-gray-200/20 py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-3' 
+          : 'bg-transparent border-b border-border py-5'
       }`}
       aria-label="Main navigation"
     >
@@ -130,12 +130,6 @@ const Navbar = () => {
                     ? "text-blue-500" 
                     : "text-charcoal/80 hover:text-charcoal"
                 )}
-                style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  opacity: isScrolled ? 1 : 0.9,
-                  transform: `translateY(${isScrolled ? '0' : '4px'})`,
-                  transition: 'opacity 0.3s ease, transform 0.3s ease, color 0.3s ease'
-                }}
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 <span className="inline-flex items-center gap-1">
@@ -161,12 +155,6 @@ const Navbar = () => {
                 className={`relative px-1 py-1 overflow-hidden text-sm font-medium transition-colors duration-300 group ${
                   activeSection === item.id && isHomePage ? 'text-blue-500' : 'text-charcoal/80 hover:text-charcoal'
                 }`}
-                style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  opacity: isScrolled ? 1 : 0.9,
-                  transform: `translateY(${isScrolled ? '0' : '4px'})`,
-                  transition: 'opacity 0.3s ease, transform 0.3s ease, color 0.3s ease'
-                }}
                 aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
               >
                 {item.name}
@@ -185,12 +173,6 @@ const Navbar = () => {
             size="sm"
             icon={<ChevronRight size={16} />}
             iconPosition="right"
-            style={{ 
-              transitionDelay: '250ms',
-              opacity: isScrolled ? 1 : 0.9,
-              transform: `translateY(${isScrolled ? '0' : '4px'})`,
-              transition: 'opacity 0.3s ease, transform 0.3s ease'
-            }}
           >
             Schedule a Call
           </PrimaryButton>
