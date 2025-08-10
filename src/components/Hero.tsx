@@ -21,7 +21,8 @@ const Hero = () => {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
-
+  const [prevWord, setPrevWord] = useState<string | null>(null);
+  const exitDuration = 350;
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mqMobile = window.matchMedia('(max-width: 640px)');
@@ -44,10 +45,16 @@ const Hero = () => {
 
   useEffect(() => {
     if (reduceMotion) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % words.length);
-    }, isMobile ? 1600 : 2200);
-    return () => window.clearInterval(id);
+    const intervalId = window.setInterval(() => {
+      setIndex((i) => {
+        setPrevWord(words[i]);
+        window.setTimeout(() => setPrevWord(null), exitDuration);
+        return (i + 1) % words.length;
+      });
+    }, isMobile ? 1700 : 2400);
+    return () => {
+      window.clearInterval(intervalId);
+    };
   }, [isMobile, reduceMotion, words.length]);
 
   return (
@@ -75,13 +82,14 @@ const Hero = () => {
             <h1 className="heading-display mb-6">
               <div className="flex flex-col sm:flex-row items-center justify-center whitespace-nowrap gap-x-3 gap-y-1">
                 <span>Your wealth.</span>
-                <span className="text-blue-400 relative inline-grid">
+                <span className="text-blue-400 word-rotator" aria-live="polite">
                   <span className="opacity-0 whitespace-nowrap">{longestWord}</span>
+                  {prevWord && (
+                    <span className="word-layer word-exit">{prevWord}</span>
+                  )}
                   <span
                     key={index}
-                    aria-live="polite"
-                    role="status"
-                    className="absolute inset-0 whitespace-nowrap animate-fade-in"
+                    className="word-layer word-enter text-gradient-animate"
                   >
                     {words[index]}
                   </span>
@@ -99,17 +107,28 @@ const Hero = () => {
           
           <ScrollReveal delay={300}>
             <MicroAnimations.ScaleOnHover scale="sm">
-              <button
+              <MicroAnimations.ShimmerButton
                 onClick={() => smoothScrollTo('schedule')}
-                className="btn-primary group"
+                aria-label="Schedule your private strategy call"
+                className="group"
               >
                 <span className="mr-2">Schedule Your Private Strategy Call</span>
-                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </MicroAnimations.ShimmerButton>
             </MicroAnimations.ScaleOnHover>
           </ScrollReveal>
         </div>
       </div>
+
+      {!reduceMotion && (
+        <button
+          onClick={() => smoothScrollTo('schedule')}
+          aria-label="Scroll to schedule section"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors focus-enhanced"
+        >
+          <ChevronRight className="w-6 h-6 rotate-90 animate-bounce" aria-hidden="true" />
+        </button>
+      )}
     </section>
   );
 };
