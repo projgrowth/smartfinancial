@@ -112,7 +112,7 @@ const Hero = () => {
               <MicroAnimations.ShimmerButton
                 onClick={() => smoothScrollTo('schedule')}
                 aria-label="Schedule your private strategy call"
-                className="group"
+                className="group whitespace-nowrap text-sm sm:text-base px-3 sm:px-4"
               >
                 <span className="mr-2">Schedule Your Private Strategy Call</span>
                 <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
