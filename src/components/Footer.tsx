@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
-      <div className="container-wide section-lg pb-6">
+      <div className="container-unified section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
         <div className="grid-four-col gap-unified-xl">
           <div className="xl:col-span-2">
             <ScrollReveal>
@@ -173,7 +173,7 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="mt-16 pt-6 border-t border-primary-foreground/20 text-primary-foreground/70 text-body-sm flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="mt-10 pt-6 border-t border-primary-foreground/20 text-primary-foreground/70 text-body-sm flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
