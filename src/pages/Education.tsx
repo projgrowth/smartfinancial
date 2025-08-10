@@ -11,6 +11,7 @@ import PrimaryButton from '@/components/PrimaryButton';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ScrollReveal from '../components/ScrollReveal';
 import PremiumBackground from '../components/PremiumBackground';
+import SEO from '@/components/SEO';
 
 const Education = () => {
   // State for newsletter sign-up
@@ -165,6 +166,12 @@ const Education = () => {
     <div className="min-h-screen w-full overflow-x-hidden">
       <PremiumBackground />
       <Navbar />
+      <SEO 
+        title="Financial Education & Resources | Smart Financial Planning"
+        description="Guides, tools, and glossary to help you understand key financial planning concepts and make informed decisions."
+        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/education` : undefined}
+      />
+      <div id="main-content" />
       
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 overflow-hidden">

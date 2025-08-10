@@ -2,13 +2,19 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
+import SEO from '@/components/SEO';
 
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/30 to-white">
       <Navbar />
+      <SEO 
+        title="Privacy Policy | Smart Financial Planning"
+        description="Learn how Smart Financial Planning collects, uses, and protects your information."
+        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/privacy` : undefined}
+      />
       
-      <main className="pt-20 pb-16">
+      <main id="main-content" className="pt-20 pb-16">
         <div className="container-unified max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-charcoal mb-4">Privacy Policy</h1>

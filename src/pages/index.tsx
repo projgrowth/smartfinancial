@@ -20,6 +20,7 @@ import { FinancialTerm } from '@/components/FinancialTermGlossary';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 import { preloadCriticalImages } from '../utils/imageOptimization';
 import StickyCTA from '../components/StickyCTA';
@@ -45,45 +46,8 @@ const Index = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // Enhanced SEO and performance setup
-    document.title = "Financial Planning Lake Nona Orlando | Smart Financial Planning";
-    
-    // Add structured data for breadcrumbs
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://smartfinancialplanning.com"
-        },
-        {
-          "@type": "ListItem", 
-          "position": 2,
-          "name": "Financial Planning Services",
-          "item": "https://smartfinancialplanning.com#services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3, 
-          "name": "Our Team",
-          "item": "https://smartfinancialplanning.com#team"
-        }
-      ]
-    };
+  // SEO handled via component below
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(breadcrumbSchema);
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
 
   if (isLoading) {
     return (
@@ -105,6 +69,20 @@ const Index = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <PremiumBackground />
+      <SEO 
+        title="Financial Planning Lake Nona Orlando | Smart Financial Planning"
+        description="Fee-only financial planning in Lake Nona & Orlando. Personalized strategies, retirement planning, and smart investing. Schedule a free consultation."
+        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/` : undefined}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": typeof window !== 'undefined' ? window.location.origin : '' },
+            { "@type": "ListItem", "position": 2, "name": "Financial Planning Services", "item": typeof window !== 'undefined' ? `${window.location.origin}#services` : '' },
+            { "@type": "ListItem", "position": 3, "name": "Our Team", "item": typeof window !== 'undefined' ? `${window.location.origin}#team` : '' }
+          ]
+        }}
+      />
       <Navbar />
       <main id="main-content" role="main">
         <Hero />
