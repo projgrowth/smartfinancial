@@ -9,7 +9,7 @@ const FinancialCalculator = React.lazy(() => import('../components/FinancialCalc
 const TeamDetails = React.lazy(() => import('../components/TeamDetails'));
 const MeetingScheduler = React.lazy(() => import('../components/MeetingScheduler'));
 const FAQSection = React.lazy(() => import('../components/FAQSection'));
-const EnhancedNewsletter = React.lazy(() => import('../components/EnhancedNewsletter'));
+const Newsletter = React.lazy(() => import('../components/Newsletter'));
 const CTA = React.lazy(() => import('../components/CTA'));
 import PremiumBackground from '../components/PremiumBackground';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -166,7 +166,7 @@ const Index = () => {
           <FAQSection />
         </Suspense>
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-32 w-full" /></div>}>
-          <EnhancedNewsletter />
+          <Newsletter variant="enhanced" />
         </Suspense>
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-24 w-full" /></div>}>
           <CTA />

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
-import NewsletterSignup from './NewsletterSignup';
+import Newsletter from './Newsletter';
 import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -161,7 +161,8 @@ const Footer = () => {
                 </ul>
               </address>
 
-              <NewsletterSignup
+              <Newsletter
+                variant="simple"
                 compact={true}
                 title="Financial Insights Newsletter"
                 description="Stay updated with Lake Nona and Orlando financial planning insights."
