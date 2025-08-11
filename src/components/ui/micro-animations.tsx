@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 interface PulseDotProps {
   size?: 'sm' | 'md' | 'lg';
@@ -146,19 +147,20 @@ export const ShimmerButton = ({
   type = 'button'
 }: ShimmerButtonProps) => {
   return (
-    <button
+    <Button
       onClick={onClick}
       disabled={disabled}
+      asChild={false}
+      variant="hero"
       type={type}
       className={cn(
-        "relative inline-flex items-center whitespace-nowrap leading-none gap-2 min-h-[44px] px-4 py-2 rounded-md font-medium text-accent-foreground overflow-hidden bg-accent hover:bg-accent/90 transition-colors",
+        "relative whitespace-nowrap leading-none gap-2 min-h-[44px] px-4 py-2 overflow-hidden",
         "after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-shimmer",
-        disabled && "opacity-50 cursor-not-allowed",
         className
       )}
     >
       {children}
-    </button>
+    </Button>
   );
 };
 

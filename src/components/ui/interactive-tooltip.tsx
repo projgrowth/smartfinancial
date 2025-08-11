@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { X, Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface InteractiveTooltipProps {
   trigger: React.ReactNode;
@@ -105,24 +106,28 @@ export function InteractiveTooltip({
           {interactive && title && (
             <div className="flex items-center justify-between border-b pb-2 mb-3">
               <h4 className="font-medium">{title}</h4>
-              <button 
+              <Button
+                variant="bare"
+                size="none"
                 className="p-1 rounded-full hover:bg-gray-200/70 text-gray-600 transition-colors"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close"
               >
                 <X className="h-3.5 w-3.5" />
-              </button>
+              </Button>
             </div>
           )}
           
           {interactive && !title && (
-            <button 
+            <Button 
+              variant="bare"
+              size="none"
               className="absolute top-1 right-1 p-1 rounded-full hover:bg-gray-200/70 text-gray-600 transition-colors"
               onClick={() => setIsOpen(false)}
               aria-label="Close"
             >
               <X className="h-3.5 w-3.5" />
-            </button>
+            </Button>
           )}
           
           <div className={cn(interactive && !title ? "pr-5" : "")}>

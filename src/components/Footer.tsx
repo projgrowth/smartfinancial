@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
 import Newsletter from './Newsletter';
 import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -193,14 +194,16 @@ const Footer = () => {
                   </li>
                 </ul>
               </nav>
-              <button
+              <Button
                 type="button"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors underline focus-enhanced"
                 aria-label="Back to top"
+                variant="link"
+                size="none"
               >
                 Back to top
-              </button>
+              </Button>
             </div>
           </div>
         </ScrollReveal>

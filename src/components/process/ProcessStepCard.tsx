@@ -5,6 +5,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
 import { ScaleOnHover } from '@/components/ui/micro-animations';
 import { ProcessStep } from './types';
+import { Button } from '@/components/ui/button';
 
 interface ProcessStepCardProps {
   step: ProcessStep;
@@ -35,11 +36,13 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         {step.keyTerms.length > 0 && (
           <InteractiveTooltip
             trigger={
-              <button className="ml-2 text-blue-300 cursor-pointer text-xs border border-blue-400/40 px-2 py-0.5 rounded-full hover:bg-blue-400/20 flex items-center" aria-label={`Learn more about ${step.title}`}>
-                <span className="sr-only">Learn about key terms</span>
-                <Info className="w-3 h-3 mr-1" />
-                <span>Learn</span>
-              </button>
+              <Button asChild variant="subtle" size="xs" className="ml-2 text-blue-300 cursor-pointer text-xs border border-blue-400/40 px-2 py-0.5 rounded-full hover:bg-blue-400/20 flex items-center" aria-label={`Learn more about ${step.title}`}>
+                <button>
+                  <span className="sr-only">Learn about key terms</span>
+                  <Info className="w-3 h-3 mr-1" />
+                  <span>Learn</span>
+                </button>
+              </Button>
             }
             content={
               <div className="space-y-3">

@@ -208,14 +208,16 @@ const Navbar = () => {
           </Button>
         </div>
 
-        <button 
+        <Button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-charcoal focus:outline-none hover:text-blue-500 transition-colors duration-300 p-2 focus:ring-2 focus:ring-blue-500 rounded-md"
+          className="md:hidden text-charcoal hover:text-blue-500 transition-colors duration-300"
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
+          variant="ghost"
+          size="icon"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </Button>
       </div>
 
       <div 

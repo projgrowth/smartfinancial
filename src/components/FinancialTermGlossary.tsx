@@ -2,6 +2,7 @@
 import React from 'react';
 import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
 import { HelpCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface GlossaryTerm {
   term: string;
@@ -118,10 +119,10 @@ export const GlossaryButton: React.FC<GlossaryButtonProps> = ({
   return (
     <InteractiveTooltip
       trigger={
-        <button className="inline-flex items-center text-blue-500 hover:text-blue-700 text-sm">
+        <Button variant="bare" size="none" className="inline-flex items-center text-primary hover:text-primary/80 text-sm">
           <HelpCircle className="h-3.5 w-3.5 mr-1" />
           {glossaryTerm.term}
-        </button>
+        </Button>
       }
       title={glossaryTerm.term}
       content={
