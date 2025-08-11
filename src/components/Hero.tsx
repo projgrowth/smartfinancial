@@ -95,7 +95,7 @@ const Hero = () => {
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
       <div className="hidden sm:block">
-        <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="low" animated />
+        <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="ultra-low" animated />
       </div>
       
       {/* Bull shape gradient only on education page */}
@@ -114,10 +114,10 @@ const Hero = () => {
       <div className="container-unified z-10">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px">
-            <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6">
+            <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6 text-balance">
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
-                <span className="shrink-0 word-rotator text-left leading-none mt-[-1px] sm:mt-0" aria-live="polite" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
+                <span className="shrink-0 word-rotator text-left leading-none mt-0 sm:mt-0" aria-hidden="true" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
                   <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
                     <span className="word-layer word-exit" aria-hidden="true">{prevWord}</span>
@@ -129,6 +129,7 @@ const Hero = () => {
                     {words[index]}
                   </span>
                 </span>
+                <span className="sr-only" aria-live="polite">Your wealth. {words[index]}</span>
               </div>
             </h1>
           </ScrollReveal>
