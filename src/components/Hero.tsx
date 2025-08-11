@@ -91,7 +91,7 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative grid place-items-center min-h-[calc(100svh-var(--nav-h))] py-8 md:py-0 overflow-hidden">
+    <section className="relative grid items-start justify-center min-h-[calc(100svh-var(--nav-h))] pt-3 pb-8 md:pt-0 md:pb-0 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
       <div className="hidden sm:block">
