@@ -98,8 +98,8 @@ const Navbar = () => {
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-3' 
-          : 'bg-transparent border-b border-border py-5'
+          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-4' 
+          : 'bg-transparent border-b border-border py-4'
       }`}
       aria-label="Main navigation"
     >

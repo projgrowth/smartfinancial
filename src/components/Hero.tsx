@@ -91,7 +91,7 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative flex flex-col justify-start sm:justify-center min-h-[calc(100svh-var(--nav-h))] pt-12 pb-10 sm:pb-20 overflow-hidden">
+    <section className="relative flex items-center justify-center min-h-[calc(100svh-var(--nav-h))] py-12 sm:py-16 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
       <div className="hidden sm:block">
@@ -117,14 +117,14 @@ const Hero = () => {
             <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6">
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
-                <span className="shrink-0 text-blue-400 word-rotator text-left leading-none mt-[-1px] sm:mt-0" aria-live="polite" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
+                <span className="shrink-0 word-rotator text-left leading-none mt-[-1px] sm:mt-0" aria-live="polite" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
                   <span ref={placeholderRef} className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
                     <span className="word-layer word-exit">{prevWord}</span>
                   )}
                   <span
                     key={index}
-                    className="word-layer word-enter text-gradient-animate"
+                    className="word-layer word-enter text-primary"
                   >
                     {words[index]}
                   </span>
