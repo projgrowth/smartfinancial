@@ -118,9 +118,9 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span className="shrink-0 word-rotator text-left leading-none mt-[-1px] sm:mt-0" aria-live="polite" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
-                  <span ref={placeholderRef} className="opacity-0 whitespace-nowrap">{longestWord}</span>
+                  <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
-                    <span className="word-layer word-exit">{prevWord}</span>
+                    <span className="word-layer word-exit" aria-hidden="true">{prevWord}</span>
                   )}
                   <span
                     key={index}
@@ -133,7 +133,7 @@ const Hero = () => {
             </h1>
           </ScrollReveal>
           
-          <ScrollReveal delay={200}>
+          <ScrollReveal delay={200} distance="0px">
             <p className="text-body-lg sm:text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
@@ -145,7 +145,7 @@ const Hero = () => {
               <MicroAnimations.ShimmerButton
                 onClick={() => smoothScrollTo('schedule')}
                 aria-label="Schedule your private strategy call"
-                className="group w-full sm:w-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground"
+                className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground"
               >
                 <span className="mr-2">
                   <span className="xs:hidden">Schedule</span>
