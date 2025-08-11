@@ -59,35 +59,48 @@ const Navbar = () => {
     document.documentElement.style.setProperty('--nav-h', `${h}px`);
   }, [isOpen, isScrolled, location.pathname]);
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-      
-      if (isHomePage) {
-        const sections = ['services', 'process', 'case-studies', 'team'];
-        let currentSection = '';
-        
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-              currentSection = section;
-              break;
-            }
+    let ticking = false;
+
+    const measureAndSet = () => {
+      // Update scrolled state
+      setIsScrolled(window.scrollY > 10);
+
+      // Only compute active section on home page
+      if (!isHomePage) return;
+
+      const sections = ['services', 'process', 'case-studies', 'team'];
+      let currentSection = '';
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
           }
         }
-        
-        setActiveSection(currentSection);
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          measureAndSet();
+          ticking = false;
+        });
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Initial measurement
+    measureAndSet();
+
+    window.addEventListener('scroll', onScroll as any, { passive: true } as any);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', onScroll as any);
     };
   }, [isHomePage]);
 
