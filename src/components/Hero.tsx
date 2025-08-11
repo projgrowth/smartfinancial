@@ -159,8 +159,6 @@ const Hero = () => {
           </ScrollReveal>
         </div>
       </div>
-      {/* DEV: Midline overlay for centering verification (remove after confirm) */}
-      <div aria-hidden="true" className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-primary/15 pointer-events-none"></div>
 
       {!reduceMotion && !isMobile && (
         <button

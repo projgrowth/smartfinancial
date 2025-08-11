@@ -79,9 +79,9 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href="#case-studies" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#case-studies" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                       Case Studies
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="#" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
