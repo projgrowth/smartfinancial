@@ -22,10 +22,10 @@ const SEO: React.FC<SEOProps> = ({
     canonicalUrl || (typeof window !== 'undefined' ? window.location.href : undefined);
 
   const computedOrigin = typeof window !== 'undefined' ? window.location.origin : '';
-  const defaultImagePath = '/lovable-uploads/9ca079fd-6409-420e-bbf9-4ce98ac71762.png';
+  const defaultImagePath = '/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png';
   const computedImage = imageUrl || (computedOrigin ? `${computedOrigin}${defaultImagePath}` : defaultImagePath);
   const siteName = 'Smart Financial Planning';
-  const imageAlt = 'Smart Financial Planning brand mark and logo';
+  const imageAlt = 'Smart Financial Planning logo with bull silhouette';
 
   return (
     <Helmet>

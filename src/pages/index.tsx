@@ -88,9 +88,10 @@ const Index = () => {
     <div className="min-h-screen w-full overflow-x-hidden">
       <PremiumBackground />
       <SEO 
-        title="Financial Planning Lake Nona Orlando | Smart Financial Planning"
-        description="Fee-only financial planning in Lake Nona & Orlando. Personalized strategies, retirement planning, and smart investing. Schedule a free consultation."
+        title="Smart Financial Planning — Your wealth. Elevated."
+        description="Tailored financial strategies for ambitious professionals. Build, protect, and grow your wealth."
         canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/` : undefined}
+        imageUrl={typeof window !== 'undefined' ? `${window.location.origin}/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png` : '/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png'}
         jsonLd={[breadcrumbJsonLd, ...teamJsonLd]}
       />
       
