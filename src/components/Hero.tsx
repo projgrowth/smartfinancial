@@ -91,7 +91,7 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative flex items-center justify-center min-h-[calc(100vh-var(--nav-h))] sm:min-h-[calc(100svh-var(--nav-h))] py-12 sm:py-16 overflow-hidden">
+    <section className="relative grid place-items-center min-h-[calc(100svh-var(--nav-h))] py-8 md:py-0 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
       <div className="hidden sm:block">
@@ -115,7 +115,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px">
             <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6 text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span className="shrink-0 word-rotator text-left leading-none mt-0 sm:mt-0" aria-hidden="true" style={rotatorWidth ? { width: rotatorWidth } : undefined}>
                   <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
@@ -159,6 +159,8 @@ const Hero = () => {
           </ScrollReveal>
         </div>
       </div>
+      {/* DEV: Midline overlay for centering verification (remove after confirm) */}
+      <div aria-hidden="true" className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-primary/15 pointer-events-none"></div>
 
       {!reduceMotion && !isMobile && (
         <button
