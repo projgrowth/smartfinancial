@@ -5,30 +5,77 @@ import { useLocation } from 'react-router-dom';
 const PremiumBackground = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false);
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
 
-  // Track mouse position for subtle parallax effect
+  // Detect user preferences and input modality
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mqCoarse = window.matchMedia('(pointer: coarse)');
+    const handleReduce = () => setReduceMotion(mqReduce.matches);
+    const handleCoarse = () => setIsCoarsePointer(
+      mqCoarse.matches || ('ontouchstart' in window) || ((navigator as any).maxTouchPoints ?? 0) > 0
+    );
+
+    handleReduce();
+    handleCoarse();
+
+    mqReduce.addEventListener?.('change', handleReduce);
+    mqCoarse.addEventListener?.('change', handleCoarse);
+
+    return () => {
+      mqReduce.removeEventListener?.('change', handleReduce);
+      mqCoarse.removeEventListener?.('change', handleCoarse);
+    };
+  }, []);
+
+  // Track mouse position and scroll with rAF throttling
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (reduceMotion) return; // respect reduced motion
+
+    let mouseRaf: number | null = null;
+    let scrollRaf: number | null = null;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+
+    const supportsMouse = !isCoarsePointer;
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX / window.innerWidth,
-        y: e.clientY / window.innerHeight,
-      });
+      if (!supportsMouse) return;
+      lastMouseX = e.clientX / window.innerWidth;
+      lastMouseY = e.clientY / window.innerHeight;
+      if (mouseRaf == null) {
+        mouseRaf = window.requestAnimationFrame(() => {
+          setMousePosition({ x: lastMouseX, y: lastMouseY });
+          mouseRaf = null;
+        });
+      }
     };
 
     const handleScroll = () => {
-      setScrollPosition(window.scrollY * 0.05);
+      const y = window.scrollY * 0.05;
+      if (scrollRaf == null) {
+        scrollRaf = window.requestAnimationFrame(() => {
+          setScrollPosition(y);
+          scrollRaf = null;
+        });
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    if (supportsMouse) window.addEventListener('mousemove', handleMouseMove as any, { passive: true } as any);
+    window.addEventListener('scroll', handleScroll, { passive: true } as any);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (supportsMouse) window.removeEventListener('mousemove', handleMouseMove as any);
       window.removeEventListener('scroll', handleScroll);
+      if (mouseRaf) cancelAnimationFrame(mouseRaf);
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
     };
-  }, []);
+  }, [reduceMotion, isCoarsePointer]);
 
   // Calculate subtle movement based on mouse position
   const translateX1 = mousePosition.x * -15;
@@ -89,7 +136,7 @@ const PremiumBackground = () => {
       
       {/* Interactive blue gradient shape (left) */}
       <div 
-        className="absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/20 to-blue-300/15 blur-3xl rounded-full transform -rotate-12 animate-float duration-25000"
+        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/20 to-blue-300/15 blur-3xl rounded-full transform -rotate-12 ${reduceMotion ? '' : 'animate-float duration-25000'}`}
         style={{ 
           transform: `rotate(-12deg) translate(${translateX1}px, ${translateY1 + scrollPosition}px)`,
           transition: 'transform 0.5s ease-out'
@@ -98,7 +145,7 @@ const PremiumBackground = () => {
       
       {/* Interactive amber gradient shape (right) */}
       <div 
-        className="absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/20 to-gold/15 blur-3xl rounded-full transform rotate-12 animate-float duration-20000"
+        className={`absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/20 to-gold/15 blur-3xl rounded-full transform rotate-12 ${reduceMotion ? '' : 'animate-float duration-20000'}`}
         style={{ 
           transform: `rotate(12deg) translate(${translateX2}px, ${translateY2 + scrollPosition * 0.7}px)`,
           transition: 'transform 0.5s ease-out'
@@ -107,7 +154,7 @@ const PremiumBackground = () => {
       
       {/* Additional subtle shapes with staggered animations and interactivity */}
       <div 
-        className="absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-blue-200/15 to-sky-300/10 blur-3xl rounded-full animate-float duration-15000"
+        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-blue-200/15 to-sky-300/10 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-float duration-15000'}`}
         style={{ 
           transform: `translate(${translateX1 * 0.5}px, ${translateY1 * 0.5 - scrollPosition * 0.3}px)`,
           transition: 'transform 0.7s ease-out'
@@ -115,7 +162,7 @@ const PremiumBackground = () => {
       ></div>
       
       <div 
-        className="absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full animate-float duration-12000"
+        className={`absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-float duration-12000'}`}
         style={{ 
           transform: `translate(${translateX2 * 0.7}px, ${translateY2 * 0.7 - scrollPosition * 0.2}px)`,
           transition: 'transform 0.7s ease-out'
