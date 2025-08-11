@@ -93,9 +93,9 @@ const Hero = () => {
   return (
     <section className="relative grid items-start justify-center min-h-[calc(85svh-var(--nav-h))] md:min-h-[calc(100svh-var(--nav-h))] pt-0 pb-6 md:pt-0 md:pb-0 overflow-hidden">
       {/* Enhanced background accents */}
-      <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
+      <GradientAccent variant="blue" position="top-right" size="lg" intensity="ultra-low" animated />
       <div className="hidden sm:block">
-        <GradientAccent variant="gold" position="bottom-left" size="lg" intensity="ultra-low" animated />
+        <GradientAccent variant="gold" position="bottom-left" size="md" intensity="ultra-low" animated />
       </div>
       
       {/* Bull shape gradient only on education page */}

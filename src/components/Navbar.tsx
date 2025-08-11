@@ -199,6 +199,7 @@ const Navbar = () => {
              onClick={() => handleNavClick('schedule')}
             className="group"
             size="sm"
+            variant="hero"
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
@@ -275,6 +276,7 @@ const Navbar = () => {
           <Button 
             onClick={() => handleNavClick('schedule')}
             className="w-full justify-center group"
+            variant="hero"
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
