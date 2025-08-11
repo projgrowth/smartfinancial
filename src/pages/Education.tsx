@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FinancialTerm, GlossaryButton, AllFinancialTerms } from '@/components/FinancialTermGlossary';
 import { Download, BookOpen, Calculator, ArrowRight, ChevronDown, Play, BarChart4 } from 'lucide-react';
-import PrimaryButton from '@/components/PrimaryButton';
+
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ScrollReveal from '../components/ScrollReveal';
 import PremiumBackground from '../components/PremiumBackground';
@@ -437,14 +437,15 @@ const Education = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <PrimaryButton 
-              className="mx-auto px-6 py-3"
+            <Button 
+              className="mx-auto px-6 py-3 group"
               onClick={() => navigateToSection('contact')}
-              icon={<ArrowRight className="w-5 h-5" />}
-              iconPosition="right"
             >
-              Schedule Your Free Consultation
-            </PrimaryButton>
+              <span className="inline-flex items-center">
+                <span>Schedule Your Free Consultation</span>
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
+            </Button>
           </ScrollReveal>
         </div>
       </section>

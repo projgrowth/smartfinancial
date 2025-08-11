@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronRight, BookOpen } from 'lucide-react';
 
-import PrimaryButton from './PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { useLocation, Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import useNavigateSection from '@/hooks/useNavigateSection';
@@ -195,15 +195,16 @@ const Navbar = () => {
               </a>
             )
           )}
-          <PrimaryButton 
+          <Button 
              onClick={() => handleNavClick('schedule')}
             className="group"
             size="sm"
-            icon={<ChevronRight size={16} />}
-            iconPosition="right"
           >
-            Schedule a Call
-          </PrimaryButton>
+            <span className="inline-flex items-center">
+              <span>Schedule a Call</span>
+              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+            </span>
+          </Button>
         </div>
 
         <button 
@@ -271,14 +272,15 @@ const Navbar = () => {
               </a>
             )
           )}
-          <PrimaryButton 
+          <Button 
             onClick={() => handleNavClick('schedule')}
-            className="w-full justify-center"
-            icon={<ChevronRight size={16} />}
-            iconPosition="right"
+            className="w-full justify-center group"
           >
-            Schedule a Call
-          </PrimaryButton>
+            <span className="inline-flex items-center">
+              <span>Schedule a Call</span>
+              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+            </span>
+          </Button>
         </div>
       </div>
     </nav>
