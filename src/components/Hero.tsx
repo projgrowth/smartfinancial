@@ -91,7 +91,7 @@ const Hero = () => {
   }, [isMobile, reduceMotion, words.length]);
 
   return (
-    <section className="relative flex items-center justify-center min-h-[calc(100svh-var(--nav-h))] py-12 sm:py-16 overflow-hidden">
+    <section className="relative flex items-center justify-center min-h-[calc(100vh-var(--nav-h))] sm:min-h-[calc(100svh-var(--nav-h))] py-12 sm:py-16 overflow-hidden">
       {/* Enhanced background accents */}
       <GradientAccent variant="blue" position="top-right" size="xl" intensity="ultra-low" animated />
       <div className="hidden sm:block">
@@ -113,7 +113,7 @@ const Hero = () => {
       
       <div className="container-unified z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal>
+          <ScrollReveal distance="0px">
             <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6">
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-baseline justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
@@ -124,7 +124,7 @@ const Hero = () => {
                   )}
                   <span
                     key={index}
-                    className="word-layer word-enter text-primary"
+                    className="word-layer word-enter text-accent"
                   >
                     {words[index]}
                   </span>
@@ -140,7 +140,7 @@ const Hero = () => {
             </p>
           </ScrollReveal>
           
-          <ScrollReveal delay={300}>
+          <ScrollReveal delay={300} distance="0px">
             <MicroAnimations.ScaleOnHover scale="sm">
               <MicroAnimations.ShimmerButton
                 onClick={() => smoothScrollTo('schedule')}

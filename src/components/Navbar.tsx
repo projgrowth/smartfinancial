@@ -25,18 +25,33 @@ const Navbar = () => {
 
   useEffect(() => {
     const root = document.documentElement;
-    const setInitial = () => {
-      const h = navRef.current?.offsetHeight ?? 64;
-      root.style.setProperty('--nav-h-initial', `${h}px`);
-      root.style.setProperty('--nav-h', `${h}px`);
-    };
-    const handleResize = () => {
+    const updateNavHeight = () => {
       const h = navRef.current?.offsetHeight ?? 64;
       root.style.setProperty('--nav-h', `${h}px`);
+      // Only set initial once if not set
+      if (!root.style.getPropertyValue('--nav-h-initial')) {
+        root.style.setProperty('--nav-h-initial', `${h}px`);
+      }
     };
-    setInitial();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    // Initial set
+    updateNavHeight();
+
+    // ResizeObserver to track any nav size changes (menu open, font load, breakpoint)
+    const ro = new ResizeObserver(() => updateNavHeight());
+    if (navRef.current) ro.observe(navRef.current);
+
+    // Update on window resize as a fallback
+    window.addEventListener('resize', updateNavHeight);
+
+    // Update after fonts load to avoid jumps
+    const fontsReady = (document as any).fonts?.ready as Promise<void> | undefined;
+    fontsReady?.then(() => updateNavHeight()).catch(() => updateNavHeight());
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', updateNavHeight);
+    };
   }, []);
 
   useEffect(() => {
