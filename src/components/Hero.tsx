@@ -119,7 +119,7 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
-                  className="shrink-0 word-rotator text-left leading-none mt-0 sm:mt-0" 
+                  className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
                   aria-hidden="true" 
                   style={rotatorWidth ? { width: rotatorWidth } : undefined}
                 >

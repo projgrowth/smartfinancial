@@ -64,11 +64,12 @@
 
   /* Word rotator layers */
 .word-rotator {
-  @apply relative inline-block align-baseline text-left overflow-hidden;
+  @apply relative inline-block align-baseline text-center overflow-hidden;
 }
 
   .word-layer {
-    @apply absolute inset-0 whitespace-nowrap;
+    @apply absolute inset-0 whitespace-nowrap flex items-center justify-center;
+    letter-spacing: inherit;
   }
 
   .word-enter {
