@@ -250,6 +250,13 @@
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
 }
 
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .focus-enhanced {
+    @apply focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-primary;
+  }
+}
+
 /* Scrollbar Styling */
 .scrollbar-thin {
   scrollbar-width: thin;
