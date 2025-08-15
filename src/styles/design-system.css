@@ -17,10 +17,11 @@
 }
 
 .heading-display-fluid {
-  font-size: clamp(2.25rem, 5vw + 0.5rem, 4.75rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-size: clamp(2.25rem, 4.5vw + 0.75rem, 4.5rem);
+  line-height: clamp(1.05, 1 + 0.05vw, 1.08);
+  letter-spacing: clamp(-0.03em, -0.025em + -0.005vw, -0.02em);
   @apply font-heading font-medium tracking-tight text-foreground;
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .heading-xl {

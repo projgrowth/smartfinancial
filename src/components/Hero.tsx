@@ -115,8 +115,8 @@ const Hero = () => {
       <div className="container-unified z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px" duration={400}>
-            <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-4 sm:mb-5 text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
+            <h1 className="heading-display-fluid text-balance">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap gap-unified-sm">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
                   className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
