@@ -3,7 +3,7 @@
 @layer components {
   /* Hero Typography */
   .enhanced-hero-heading {
-    @apply font-display font-bold tracking-tight;
+    @apply font-heading font-bold tracking-tight;
   }
   
   .enhanced-hero-text {
