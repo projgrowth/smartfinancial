@@ -120,18 +120,40 @@
 
   <body>
     <script>
-      // Apply Safari classes immediately before any CSS loads
+      // Synchronously detect and apply Safari classes before any CSS or JS loads
       (function() {
-        if (typeof window === 'undefined') return;
         const ua = navigator.userAgent;
         const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
-        const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        const isMobile = /iPhone|iPod/.test(ua) || (isIOS && window.screen.width <= 768);
+        const isIOS = /iPad|iPhone|iPod/.test(ua) || 
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        const isMobile = /iPhone|iPod/.test(ua) || 
+          (isIOS && window.screen.width <= 768);
+        
         const root = document.documentElement;
         if (isSafari) root.classList.add('is-safari');
         if (isIOS) root.classList.add('is-ios');
         if (isMobile) root.classList.add('is-mobile');
-        if ((isSafari && isMobile) || isIOS) root.classList.add('is-safari-mobile');
+        if ((isSafari && isMobile) || isIOS) {
+          root.classList.add('is-safari-mobile');
+          
+          // Critical Safari mobile viewport fixes applied immediately
+          const style = document.createElement('style');
+          style.textContent = `
+            .is-safari-mobile body {
+              height: auto !important;
+              min-height: 100vh !important;
+              overflow-y: auto !important;
+              -webkit-overflow-scrolling: touch !important;
+            }
+            .is-safari-mobile * {
+              touch-action: manipulation !important;
+            }
+            .is-safari-mobile html, .is-safari-mobile body {
+              touch-action: pan-y !important;
+            }
+          `;
+          document.head.appendChild(style);
+        }
       })();
     </script>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-background focus:text-foreground focus:ring-2 focus:ring-primary focus:shadow">
