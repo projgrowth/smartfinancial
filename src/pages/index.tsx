@@ -86,7 +86,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      <PremiumBackground />
       <SEO 
         title="Smart Financial Planning — Your wealth. Elevated."
         description="Tailored financial strategies for ambitious professionals. Build, protect, and grow your wealth."

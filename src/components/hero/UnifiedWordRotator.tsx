@@ -90,10 +90,10 @@ export const UnifiedWordRotator: React.FC<UnifiedWordRotatorProps> = ({
     <span 
       ref={containerRef}
       className={`word-rotator-unified ${className}`}
-      style={{ 
-        minWidth: maxWidth,
-        height: '1.2em' // Prevent vertical layout shift
-      }}
+        style={{ 
+          minWidth: maxWidth,
+          height: '1em'
+        }}
       aria-live="polite"
       aria-atomic="true"
     >

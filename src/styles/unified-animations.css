@@ -200,11 +200,10 @@
 /* ===== WORD ROTATOR SYSTEM ===== */
 .word-rotator-unified {
   position: relative;
-  display: inline-block;
-  vertical-align: baseline;
+  display: inline-flex;
+  align-items: baseline;
   text-align: center;
   overflow: hidden;
-  min-width: 180px; /* Prevent layout shift */
 }
 
 .word-layer-unified {

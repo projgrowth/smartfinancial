@@ -35,6 +35,8 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
           transform: `translate3d(${mouseInfluence.x}px, ${mouseInfluence.y + parallaxOffset}px, 0)`
         }}
       />
+      {/* Keep only one orb for cleaner look */}
+      {/* 
       <div 
         className="hero-gradient-orb hero-gradient-orb-2"
         style={{
@@ -47,6 +49,7 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
           transform: `translate3d(${mouseInfluence.x * 0.3}px, ${mouseInfluence.y * 0.3 + parallaxOffset * 1.2}px, 0)`
         }}
       />
+      */}
       
       {/* Enhanced gradient accents */}
       <GradientAccent 
@@ -69,9 +72,9 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
         />
       </div>
       
-      {/* Geometric patterns */}
-      <div className="hero-pattern-grid" />
-      <div className="hero-pattern-dots" />
+      {/* Geometric patterns - hidden for cleaner look */}
+      {/* <div className="hero-pattern-grid" />
+      <div className="hero-pattern-dots" /> */}
       
       {/* Education page bull shape */}
       {isEducationPage && (
