@@ -253,20 +253,21 @@
 
 /* Safari-specific media queries */
 @supports (-webkit-touch-callout: none) {
-  /* iOS Safari styles - Fixed to not lock scroll */
-  body:not(.is-safari-mobile) {
+  /* iOS Safari styles - scoped to Safari mobile only */
+  .is-safari-mobile body {
     position: relative;
-    height: 100vh;
-    height: -webkit-fill-available;
+    min-height: 100vh;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Fix for Safari's viewport height issue */
-  .full-screen-container {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+  /* Fix for Safari mobile viewport height issue */
+  .is-safari-mobile .full-screen-container {
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
   }
 }
+
 
 /* iPad Safari specific fixes */
 @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {

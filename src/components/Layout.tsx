@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden desktop-scroll-enhanced safari-scroll-container">
+    <div className="min-h-screen w-full overflow-x-hidden">
       <ScrollProgress />
       <Navbar />
       <div className="pt-[var(--nav-h)]">
