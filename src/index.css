@@ -7,6 +7,7 @@
 @import './styles/animations/enhanced-interactions.css';
 @import './styles/animations/scroll-effects.css';
 @import './styles/scroll-optimizations.css';
+@import './styles/safari-fixes.css';
 @import './styles/utilities.css';
 
 /* Mobile optimization */

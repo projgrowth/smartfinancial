@@ -15,6 +15,8 @@ import HashScroll from "@/components/HashScroll";
 import { AppProvider } from "@/context/AppContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { analytics, trackPageView } from "@/utils/analytics";
+import { addSafariClasses } from "@/utils/safariDetection";
+import { useSafariViewport } from "@/hooks/useSafariViewport";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -23,14 +25,17 @@ const Education = lazy(() => import("./pages/Education"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 
-// Handle scroll restoration and analytics
+// Handle scroll restoration and analytics with Safari optimizations
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  useSafariViewport();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     // Track page view for analytics
     trackPageView(pathname, document.title);
+    // Initialize Safari detection classes
+    addSafariClasses();
   }, [pathname]);
 
   return null;
