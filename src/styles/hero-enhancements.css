@@ -1,6 +1,23 @@
 @tailwind components;
 
 @layer components {
+  /* Hero Typography */
+  .enhanced-hero-heading {
+    @apply font-display font-bold tracking-tight;
+  }
+  
+  .enhanced-hero-text {
+    @apply text-foreground;
+  }
+  
+  .enhanced-hero-description {
+    @apply text-muted-foreground leading-relaxed;
+  }
+  
+  .enhanced-hero-cta {
+    @apply inline-flex items-center justify-center;
+  }
+
   /* Enhanced Word Rotator */
   .enhanced-word-rotator {
     @apply relative inline-block align-baseline text-center overflow-hidden;
