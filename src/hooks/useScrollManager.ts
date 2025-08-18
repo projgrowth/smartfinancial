@@ -20,6 +20,29 @@ export function useScrollManager({
   const scrollVelocity = useRef(0);
 
   const smoothScrollTo = useCallback((target: string | number, offset: number = 80) => {
+    // For Safari mobile, disable custom scroll management to allow native behavior
+    if (isSafariMobile()) {
+      if (typeof target === 'string') {
+        const element = document.getElementById(target);
+        if (!element) return;
+        
+        // Use native scroll behavior for Safari mobile
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      } else {
+        // Simple scroll to position for Safari mobile
+        window.scrollTo({
+          top: target,
+          behavior: 'smooth'
+        });
+      }
+      return;
+    }
+
+    // Enhanced scroll for other browsers
     const element = typeof target === 'string' 
       ? document.getElementById(target) 
       : null;
@@ -27,46 +50,6 @@ export function useScrollManager({
     const targetPosition = element 
       ? element.getBoundingClientRect().top + window.pageYOffset - offset
       : typeof target === 'number' ? target : 0;
-
-    // Safari-specific optimization
-    if (safariOptimized && isSafariMobile()) {
-      // Use Safari's native smooth scrolling when available
-      if (supportsSmoothScrolling() && element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start',
-          inline: 'nearest'
-        });
-        return;
-      }
-      
-      // Safari-optimized custom scroll with momentum preservation
-      const start = window.pageYOffset;
-      const distance = targetPosition - start;
-      const duration = Math.min(Math.abs(distance) / 3, 800); // Shorter duration for Safari
-      let startTime: number;
-
-      const safariEasing = (t: number): number => {
-        // Optimized easing for Safari momentum
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-      };
-
-      const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easedProgress = safariEasing(progress);
-        
-        window.scrollTo(0, start + distance * easedProgress);
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-
-      requestAnimationFrame(animate);
-      return;
-    }
 
     // Enhanced easing with momentum for other browsers
     const start = window.pageYOffset;
@@ -116,33 +99,29 @@ export function useScrollManager({
   }, [progressCallback]);
 
   useEffect(() => {
-    // Safari-specific event listener options
-    const listenerOptions = isSafariMobile() 
-      ? { passive: true, capture: false }
-      : { passive: true };
-    
-    window.addEventListener('scroll', handleScroll, listenerOptions);
-    
-    // Safari-specific: Add momentum scroll end detection
+    // For Safari mobile, use minimal scroll management to avoid conflicts
     if (isSafariMobile()) {
-      let momentumTimeout: NodeJS.Timeout;
-      const handleMomentumEnd = () => {
-        clearTimeout(momentumTimeout);
-        momentumTimeout = setTimeout(() => {
+      // Simple scroll detection without interference
+      let scrollTimer: NodeJS.Timeout;
+      
+      const handleSafariScroll = () => {
+        isScrolling.current = true;
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
           isScrolling.current = false;
-          scrollVelocity.current = 0;
-        }, 300); // Longer timeout for Safari momentum
+        }, 100);
       };
       
-      window.addEventListener('touchend', handleMomentumEnd, { passive: true });
+      window.addEventListener('scroll', handleSafariScroll, { passive: true });
       
       return () => {
-        window.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('touchend', handleMomentumEnd);
-        clearTimeout(scrollTimeout.current);
-        clearTimeout(momentumTimeout);
+        window.removeEventListener('scroll', handleSafariScroll);
+        clearTimeout(scrollTimer);
       };
     }
+
+    // Enhanced scroll management for other browsers
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);

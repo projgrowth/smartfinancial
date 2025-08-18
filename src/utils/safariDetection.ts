@@ -64,3 +64,10 @@ export function addSafariClasses(): void {
   if (isMobile) root.classList.add('is-mobile');
   if (isSafariMobile()) root.classList.add('is-safari-mobile');
 }
+
+// Apply Safari classes synchronously before DOM is ready
+export function applySafariClassesSync(): void {
+  if (typeof window !== 'undefined') {
+    addSafariClasses();
+  }
+}

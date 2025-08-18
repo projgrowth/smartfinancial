@@ -15,7 +15,7 @@ import HashScroll from "@/components/HashScroll";
 import { AppProvider } from "@/context/AppContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { analytics, trackPageView } from "@/utils/analytics";
-import { addSafariClasses } from "@/utils/safariDetection";
+import { addSafariClasses, applySafariClassesSync } from "@/utils/safariDetection";
 import { useSafariViewport } from "@/hooks/useSafariViewport";
 
 // Lazy load pages for better performance
@@ -34,8 +34,6 @@ const ScrollToTop = () => {
     window.scrollTo(0, 0);
     // Track page view for analytics
     trackPageView(pathname, document.title);
-    // Initialize Safari detection classes
-    addSafariClasses();
   }, [pathname]);
 
   return null;
@@ -51,6 +49,9 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+// Apply Safari classes synchronously before React renders
+applySafariClassesSync();
 
 const App = () => (
   <ErrorBoundary onError={(error, errorInfo) => analytics.trackError(error, 'app_boundary')}>

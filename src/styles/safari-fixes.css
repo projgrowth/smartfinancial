@@ -8,6 +8,23 @@
     overscroll-behavior: contain;
   }
 
+  /* Critical fix: Remove body height constraints on Safari mobile */
+  .is-safari-mobile body {
+    height: auto !important;
+    min-height: 100vh;
+    min-height: var(--vh, 100vh);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Fix main container to allow natural scrolling */
+  .is-safari-mobile .safari-scroll-container {
+    height: auto !important;
+    min-height: 100vh;
+    min-height: var(--vh, 100vh);
+    overflow: visible !important;
+  }
+
   .is-ios {
     /* iOS specific viewport handling */
     height: 100vh;
@@ -71,12 +88,22 @@
   .safari-touch-pan-y {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    touch-action: pan-y;
+    touch-action: pan-y !important;
   }
 
   .safari-touch-manipulation {
-    touch-action: manipulation;
+    touch-action: manipulation !important;
     -webkit-touch-callout: none;
+  }
+
+  /* Critical: Override conflicting touch-action declarations */
+  .is-safari-mobile * {
+    touch-action: auto !important;
+  }
+
+  .is-safari-mobile body,
+  .is-safari-mobile .safari-scroll-container {
+    touch-action: pan-y !important;
   }
 
   /* Prevent iOS zoom on input focus */
@@ -162,8 +189,8 @@
 
 /* Safari-specific media queries */
 @supports (-webkit-touch-callout: none) {
-  /* iOS Safari styles */
-  body {
+  /* iOS Safari styles - Fixed to not lock scroll */
+  body:not(.is-safari-mobile) {
     position: relative;
     height: 100vh;
     height: -webkit-fill-available;
