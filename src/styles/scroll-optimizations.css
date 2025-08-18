@@ -1,0 +1,123 @@
+@tailwind utilities;
+
+@layer utilities {
+  /* Enhanced scroll behaviors */
+  .scroll-smooth-enhanced {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+
+  .scroll-momentum {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .scroll-snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+
+  .scroll-snap-mandatory {
+    scroll-snap-type: y mandatory;
+  }
+
+  /* Overscroll behavior optimization */
+  .overscroll-contain {
+    overscroll-behavior: contain;
+  }
+
+  .overscroll-none {
+    overscroll-behavior: none;
+  }
+
+  /* Touch action optimizations */
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Content visibility for performance */
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 300px;
+  }
+
+  /* Scroll margin for better navigation */
+  .scroll-mt-nav {
+    scroll-margin-top: var(--nav-h, 80px);
+  }
+
+  /* GPU acceleration for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-smooth-enhanced {
+      scroll-behavior: auto;
+    }
+    
+    .gpu-accelerated {
+      will-change: auto;
+      transform: none;
+    }
+  }
+
+  /* High contrast support */
+  @media (prefers-contrast: high) {
+    .scroll-progress {
+      background: currentColor;
+    }
+  }
+
+  /* Mobile-specific optimizations */
+  @supports (overscroll-behavior: contain) {
+    .mobile-scroll-optimized {
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /* iOS Safari fixes */
+  @supports (-webkit-appearance: none) {
+    .ios-scroll-fix {
+      -webkit-overflow-scrolling: touch;
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Focus management for keyboard navigation */
+  .focus-within-enhanced:focus-within {
+    scroll-margin: 2rem;
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Scroll indicators */
+  .scroll-indicator {
+    position: sticky;
+    top: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary-glow)) 50%,
+      hsl(var(--accent)) 100%
+    );
+    z-index: 50;
+  }
+
+  /* Safe area handling for modern devices */
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

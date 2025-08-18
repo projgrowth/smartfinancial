@@ -4,6 +4,8 @@
 @import './styles/components.css';
 @import './styles/premium-spacing.css';
 @import './styles/animations/index.css';
+@import './styles/animations/scroll-effects.css';
+@import './styles/scroll-optimizations.css';
 @import './styles/utilities.css';
 
 /* Mobile optimization */
