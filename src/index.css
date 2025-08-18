@@ -1,11 +1,21 @@
 
+/* Critical CSS first for optimal loading */
+@import './styles/critical.css';
+
+/* Core system styles */
 @import './styles/base.css';
 @import './styles/design-system.css';
+
+/* Component styles - deferred for performance */
 @import './styles/components.css';
+
+/* Enhanced styles for better aesthetics */
+@import './styles/enhanced-typography.css';
+@import './styles/enhanced-colors.css';
+
+/* Non-critical styles - load after critical path */
 @import './styles/premium-spacing.css';
 @import './styles/animations/index.css';
-@import './styles/animations/enhanced-interactions.css';
-@import './styles/animations/scroll-effects.css';
 @import './styles/scroll-optimizations.css';
 @import './styles/safari-fixes.css';
 @import './styles/utilities.css';
