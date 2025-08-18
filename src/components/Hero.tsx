@@ -7,7 +7,7 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 
-import { EnhancedWordRotator } from './hero/EnhancedWordRotator';
+import { UnifiedWordRotator } from './hero/UnifiedWordRotator';
 import { HeroBackground } from './hero/HeroBackground';
 import { EnhancedCTA } from './hero/EnhancedCTA';
 
@@ -72,10 +72,10 @@ const Hero = () => {
       <div className="container-unified z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px" duration={500}>
-            <h1 className="heading-display-fluid text-balance enhanced-hero-heading">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap gap-unified-sm">
-                <span className="enhanced-hero-text shrink-0 leading-none">Your wealth.</span>
-                <EnhancedWordRotator 
+            <h1 className="heading-display text-balance">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap space-component-sm">
+                <span className="shrink-0 leading-none">Your wealth.</span>
+                <UnifiedWordRotator 
                   words={words}
                   className="shrink-0 text-center leading-none"
                   reduceMotion={reduceMotion}
@@ -86,7 +86,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200} distance="0px" duration={500}>
-            <p className="enhanced-hero-description text-body-lg sm:text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
+            <p className="text-body-lg sm:text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
@@ -95,7 +95,7 @@ const Hero = () => {
           <ScrollReveal delay={350} distance="0px" duration={500}>
             <EnhancedCTA 
               onClick={() => smoothScrollTo('schedule')}
-              className="enhanced-hero-cta"
+              className="cta-enhanced btn-unified btn-primary"
             />
           </ScrollReveal>
         </div>
