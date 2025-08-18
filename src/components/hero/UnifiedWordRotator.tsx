@@ -89,17 +89,17 @@ export const UnifiedWordRotator: React.FC<UnifiedWordRotatorProps> = ({
   return (
     <span 
       ref={containerRef}
-      className={`word-rotator-unified ${className}`}
-        style={{ 
-          minWidth: maxWidth,
-          height: '1em'
-        }}
+      className={`word-rotator ${className}`}
+      style={{ 
+        minWidth: maxWidth,
+        height: '1em'
+      }}
       aria-live="polite"
       aria-atomic="true"
     >
       <span 
         key={`${currentIndex}-${words[currentIndex]}`}
-        className={`word-layer-unified ${isAnimating ? 'word-exit-unified' : 'word-enter-unified'}`}
+        className={`word-layer ${isAnimating ? 'word-exit' : 'word-enter'} text-accent`}
       >
         {words[currentIndex]}
       </span>

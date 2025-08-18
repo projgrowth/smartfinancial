@@ -65,7 +65,7 @@ const Testimonials = () => {
   }, [currentSlide, isPaused, testimonials.length]);
   return (
     <section id="testimonials" className="section-lg bg-gradient-to-br from-blue-50/50 to-white">
-      <div className="container-unified mx-auto">
+      <div className="container-site mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="heading-lg text-foreground mb-4">
@@ -84,14 +84,14 @@ const Testimonials = () => {
           <div className="flex justify-center gap-4 mb-8">
             <button
               onClick={prevSlide}
-              className="btn-unified btn-secondary hover-lift-unified touch-target"
+              className="btn-secondary"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
-              className="btn-unified btn-secondary hover-lift-unified touch-target"
+              className="btn-secondary"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />

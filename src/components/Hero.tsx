@@ -69,7 +69,7 @@ const Hero = () => {
         scrollY={scrollY}
       />
       
-      <div className="container-unified z-10 w-full">
+      <div className="container-site z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px" duration={500}>
             <h1 className="heading-display text-balance">
@@ -93,10 +93,13 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={350} distance="0px" duration={500}>
-            <EnhancedCTA 
+            <button 
               onClick={() => smoothScrollTo('schedule')}
-              className="cta-enhanced btn-unified btn-primary"
-            />
+              className="btn-primary"
+            >
+              Start Your Financial Journey
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </button>
           </ScrollReveal>
         </div>
       </div>

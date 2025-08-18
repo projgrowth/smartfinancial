@@ -89,7 +89,7 @@ const FAQSection = () => {
   return (
     <section id="faq" className="section relative overflow-hidden bg-blue-50/30">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
-      <div className="container-unified relative z-10">
+      <div className="container-site relative z-10">
         <ScrollReveal>
           <h2 className="heading-lg text-foreground text-center mb-4">
             Frequently Asked Questions

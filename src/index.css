@@ -1,18 +1,8 @@
 
-/* Critical CSS first for optimal loading */
-@import './styles/critical.css';
+/* Master Design System - Single Source of Truth */
+@import './styles/master-design-system.css';
 
-/* Unified Design System - Single Source of Truth */
-@import './styles/unified-design-system.css';
-@import './styles/unified-animations.css';
-
-/* Core system styles */
-@import './styles/base.css';
-@import './styles/components.css';
-
-/* Non-critical styles - load after critical path */
-@import './styles/premium-spacing.css';
-@import './styles/scroll-optimizations.css';
+/* Essential utility styles only */
 @import './styles/safari-fixes.css';
 @import './styles/utilities.css';
 

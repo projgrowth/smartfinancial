@@ -29,7 +29,7 @@ const IntroSection = () => {
         />
       )}
       
-      <div className="container-unified relative z-10">
+      <div className="container-site relative z-10">
         <div className="max-w-4xl mx-auto text-center space-component-lg">
           <ScrollReveal distance="3rem">
             <h2 className="heading-lg mb-4">

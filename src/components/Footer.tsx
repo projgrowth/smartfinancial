@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
-      <div className="container-unified section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+      <div className="container-site section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
         <div className="grid-four-col gap-unified-xl">
           <div className="xl:col-span-2">
             <ScrollReveal>
