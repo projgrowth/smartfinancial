@@ -1,0 +1,168 @@
+@tailwind components;
+
+@layer components {
+  /* Enhanced micro-interactions with performance optimization */
+  .enhanced-hover {
+    @apply transition-all duration-300 ease-out;
+    will-change: transform, box-shadow;
+  }
+  
+  .enhanced-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Smart hover delay - only triggers on intent */
+  .intent-hover {
+    @apply transition-all duration-200;
+    transition-delay: 150ms;
+  }
+  
+  .intent-hover:hover {
+    @apply scale-105;
+    transition-delay: 0ms;
+  }
+  
+  /* Focus management for keyboard navigation */
+  .enhanced-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200;
+  }
+  
+  .enhanced-focus:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2;
+  }
+  
+  /* Button interactions with haptic feedback simulation */
+  .button-press {
+    @apply transition-transform duration-75 active:scale-95;
+  }
+  
+  /* Loading state animations */
+  .loading-pulse {
+    animation: loading-pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes loading-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Enhanced tooltip animations */
+  .tooltip-enter {
+    animation: tooltip-enter 0.2s ease-out;
+  }
+  
+  .tooltip-exit {
+    animation: tooltip-exit 0.15s ease-in;
+  }
+  
+  @keyframes tooltip-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  @keyframes tooltip-exit {
+    from {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95) translateY(5px);
+    }
+  }
+  
+  /* Form field enhancements */
+  .form-field-enhanced {
+    @apply transition-all duration-200;
+    border-color: hsl(var(--border));
+  }
+  
+  .form-field-enhanced:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+  }
+  
+  .form-field-enhanced:invalid {
+    border-color: hsl(var(--destructive));
+    box-shadow: 0 0 0 2px hsl(var(--destructive) / 0.1);
+  }
+  
+  /* Progressive disclosure animations */
+  .progressive-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .progressive-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Image loading states */
+  .image-loading {
+    @apply bg-gray-200 animate-pulse;
+  }
+  
+  .image-loaded {
+    animation: image-fade-in 0.3s ease-out;
+  }
+  
+  @keyframes image-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    .enhanced-hover:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .intent-hover:hover {
+      transform: none;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .enhanced-hover,
+    .intent-hover,
+    .enhanced-focus,
+    .button-press,
+    .progressive-reveal {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+    
+    .loading-pulse {
+      animation: none;
+      opacity: 0.7;
+    }
+  }
+  
+  /* High contrast support */
+  @media (prefers-contrast: high) {
+    .enhanced-focus:focus-visible {
+      outline: 3px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+}
