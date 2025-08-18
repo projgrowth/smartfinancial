@@ -91,7 +91,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative flex items-center justify-center min-h-[70vh] md:min-h-[80vh] safari-mobile:min-h-[65vh] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden"
+      className="relative flex items-center justify-center min-h-[80vh] md:min-h-[90vh] safari-mobile:min-h-[65vh] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden"
     >
       {/* Enhanced background accents with better positioning */}
       <GradientAccent variant="blue" position="top-right" size="md" intensity="ultra-low" animated className="opacity-[0.7]" />

@@ -12,7 +12,7 @@ const IntroSection = () => {
   const isEducationPage = location.pathname === '/education';
   
   return (
-    <section className="section-md bg-background relative overflow-hidden safari-mobile:pt-8">
+    <section className="section-md bg-background relative overflow-hidden safari-mobile:pt-6">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" animated />
       <GradientAccent variant="gold" position="top-right" size="sm" intensity="low" className="translate-x-1/2" animated />
       

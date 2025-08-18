@@ -96,7 +96,7 @@
     -webkit-touch-callout: none;
   }
 
-  /* Critical: Simplify touch actions completely on Safari mobile */
+  /* Critical: Simplify touch actions ONLY on Safari mobile */
   .is-safari-mobile * {
     touch-action: manipulation !important;
   }
@@ -104,6 +104,13 @@
   .is-safari-mobile html,
   .is-safari-mobile body {
     touch-action: pan-y !important;
+  }
+
+  /* Ensure desktop scrolling is not affected */
+  @media (pointer: fine) {
+    .is-safari * {
+      touch-action: auto !important;
+    }
   }
 
   /* Safari mobile specific height fixes */
@@ -123,6 +130,25 @@
     padding-top: 2rem !important;
   }
 
+  .safari-mobile\:pt-6 {
+    padding-top: 1.5rem !important;
+  }
+
+  /* Desktop scroll enhancement (separate from safari mobile fixes) */
+  .desktop-scroll-enhanced {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Ensure desktop scrolling is optimal */
+  @media (pointer: fine) {
+    .desktop-scroll-enhanced {
+      scroll-behavior: smooth;
+      overscroll-behavior-y: contain;
+    }
+  }
+
   /* Critical: Disable problematic scroll behaviors on Safari mobile */
   .is-safari-mobile .scroll-snap-section {
     scroll-snap-align: none !important;
@@ -131,6 +157,11 @@
 
   .is-safari-mobile .scroll-smooth-enhanced {
     scroll-behavior: auto !important;
+  }
+
+  .is-safari-mobile .desktop-scroll-enhanced {
+    scroll-behavior: auto !important;
+    overflow-y: auto !important;
   }
 
   /* Ensure content below hero is immediately visible */

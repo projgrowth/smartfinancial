@@ -174,7 +174,7 @@ const Education = () => {
       <div id="main-content" />
       
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] md:min-h-[calc(100vh-var(--nav-h))] safari-mobile:min-h-[75vh] flex flex-col justify-center overflow-hidden">
+      <section className="relative min-h-[85vh] md:min-h-[90vh] safari-mobile:min-h-[75vh] flex flex-col justify-center overflow-hidden">
         <div className="container-unified mx-auto z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
