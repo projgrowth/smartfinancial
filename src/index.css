@@ -16,6 +16,7 @@
 /* Non-critical styles - load after critical path */
 @import './styles/premium-spacing.css';
 @import './styles/animations/index.css';
+@import './styles/hero-enhancements.css';
 @import './styles/scroll-optimizations.css';
 @import './styles/safari-fixes.css';
 @import './styles/utilities.css';
