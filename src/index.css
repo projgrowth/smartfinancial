@@ -27,7 +27,7 @@ body {
 @media (pointer: fine) {
   html {
     scroll-behavior: smooth;
-    overscroll-behavior-y: contain;
+    overscroll-behavior: auto;
   }
   
   body {
