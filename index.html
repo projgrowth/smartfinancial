@@ -119,6 +119,21 @@
   </head>
 
   <body>
+    <script>
+      // Apply Safari classes immediately before any CSS loads
+      (function() {
+        if (typeof window === 'undefined') return;
+        const ua = navigator.userAgent;
+        const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+        const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        const isMobile = /iPhone|iPod/.test(ua) || (isIOS && window.screen.width <= 768);
+        const root = document.documentElement;
+        if (isSafari) root.classList.add('is-safari');
+        if (isIOS) root.classList.add('is-ios');
+        if (isMobile) root.classList.add('is-mobile');
+        if ((isSafari && isMobile) || isIOS) root.classList.add('is-safari-mobile');
+      })();
+    </script>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-background focus:text-foreground focus:ring-2 focus:ring-primary focus:shadow">
       Skip to main content
     </a>

@@ -17,6 +17,7 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { analytics, trackPageView } from "@/utils/analytics";
 import { addSafariClasses, applySafariClassesSync } from "@/utils/safariDetection";
 import { useSafariViewport } from "@/hooks/useSafariViewport";
+import ScrollDebug from "@/components/ScrollDebug";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -63,6 +64,7 @@ const App = () => (
           <SkipLink />
           <BrowserRouter>
             <ScrollToTop />
+            <ScrollDebug />
             <HashScroll />
             <Suspense fallback={<LoadingIndicator />}>
               <Routes>
