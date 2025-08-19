@@ -35,7 +35,7 @@ const TeamDetails = () => {
     <section id="team-details" className="section bg-background relative overflow-hidden">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       
-      <div className="container-site relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
           <h2 className="heading-lg text-center mb-3 md:mb-4 text-foreground">
             Meet Our Expert Team

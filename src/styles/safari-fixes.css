@@ -12,17 +12,17 @@
   .is-safari-mobile body {
     height: auto !important;
     min-height: 100vh;
+    min-height: var(--vh, 100vh);
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   /* Fix main container to allow natural scrolling */
   .is-safari-mobile .safari-scroll-container {
     height: auto !important;
-    min-height: auto !important;
-    overflow-y: visible !important;
-    -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
+    min-height: var(--vh, 100vh);
+    overflow: visible !important;
   }
 
   .is-ios {
@@ -96,78 +96,22 @@
     -webkit-touch-callout: none;
   }
 
-  /* Critical: Simplify touch actions ONLY on Safari mobile */
+  /* Critical: Override conflicting touch-action declarations */
   .is-safari-mobile * {
-    touch-action: manipulation !important;
+    touch-action: auto !important;
   }
 
-  .is-safari-mobile html,
-  .is-safari-mobile body {
+  .is-safari-mobile body,
+  .is-safari-mobile .safari-scroll-container,
+  .is-safari-mobile main {
     touch-action: pan-y !important;
-  }
-
-  /* Ensure desktop scrolling is not affected */
-  @media (pointer: fine) {
-    .is-safari * {
-      touch-action: auto !important;
-    }
-  }
-
-  /* Safari mobile specific height fixes */
-  .safari-mobile\:min-h-\[65vh\] {
-    min-height: 65vh !important;
-  }
-
-  .safari-mobile\:min-h-\[70vh\] {
-    min-height: 70vh !important;
-  }
-
-  .safari-mobile\:min-h-\[75vh\] {
-    min-height: 75vh !important;
-  }
-
-  .safari-mobile\:pt-8 {
-    padding-top: 2rem !important;
-  }
-
-  .safari-mobile\:pt-6 {
-    padding-top: 1.5rem !important;
-  }
-
-  /* Desktop scroll enhancement (separate from safari mobile fixes) */
-  .desktop-scroll-enhanced {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
-  /* Ensure desktop scrolling is optimal */
-  @media (pointer: fine) {
-    .desktop-scroll-enhanced {
-      scroll-behavior: smooth;
-      overscroll-behavior-y: contain;
-    }
-  }
-
-  /* Critical: Disable problematic scroll behaviors on Safari mobile */
-  .is-safari-mobile .scroll-snap-section {
-    scroll-snap-align: none !important;
-    scroll-snap-stop: normal !important;
-  }
-
-  .is-safari-mobile .scroll-smooth-enhanced {
-    scroll-behavior: auto !important;
-  }
-
-  .is-safari-mobile .desktop-scroll-enhanced {
-    scroll-behavior: auto !important;
     overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  /* Ensure content below hero is immediately visible */
-  .is-safari-mobile .section-md {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
+  /* Ensure scroll isn't blocked by fixed heights */
+  .is-safari-mobile .min-h-screen {
+    min-height: 70vh !important;
   }
 
   /* Prevent iOS zoom on input focus */
@@ -253,21 +197,20 @@
 
 /* Safari-specific media queries */
 @supports (-webkit-touch-callout: none) {
-  /* iOS Safari styles - scoped to Safari mobile only */
-  .is-safari-mobile body {
+  /* iOS Safari styles - Fixed to not lock scroll */
+  body:not(.is-safari-mobile) {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    height: -webkit-fill-available;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
   }
 
-  /* Fix for Safari mobile viewport height issue */
-  .is-safari-mobile .full-screen-container {
-    min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
+  /* Fix for Safari's viewport height issue */
+  .full-screen-container {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
-
 
 /* iPad Safari specific fixes */
 @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {

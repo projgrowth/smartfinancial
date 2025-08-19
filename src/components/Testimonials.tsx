@@ -14,18 +14,16 @@ const Testimonial: React.FC<TestimonialProps> = ({
   position,
   isActive
 }) => {
-  return (
-    <div className={`card-unified hover-lift-unified transition-unified ${isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
-      <div className="mb-6 text-accent opacity-80">
+  return <div className={`testimonial p-8 rounded-lg border border-blue-100 bg-white shadow-sm transition-all duration-500 transform ${isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
+      <div className="mb-6 text-blue-500 opacity-80">
         <Quote size={32} />
       </div>
-      <p className="text-body-lg mb-6">{quote}</p>
+      <p className="text-charcoal/80 mb-6 text-lg leading-relaxed">{quote}</p>
       <div>
-        <p className="heading-sm">{author}</p>
-        <p className="text-body-sm">{position}</p>
+        <p className="font-semibold text-charcoal">{author}</p>
+        <p className="text-sm text-charcoal/60">{position}</p>
       </div>
-    </div>
-  );
+    </div>;
 };
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -65,13 +63,13 @@ const Testimonials = () => {
   }, [currentSlide, isPaused, testimonials.length]);
   return (
     <section id="testimonials" className="section-lg bg-gradient-to-br from-blue-50/50 to-white">
-      <div className="container-site mx-auto">
+      <div className="container-unified mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="heading-lg text-foreground mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-body-lg max-w-2xl mx-auto">
+            <p className="paragraph text-muted-foreground max-w-2xl mx-auto">
               Hear from professionals who've transformed their financial future with our strategic guidance.
             </p>
           </div>
@@ -84,14 +82,14 @@ const Testimonials = () => {
           <div className="flex justify-center gap-4 mb-8">
             <button
               onClick={prevSlide}
-              className="btn-secondary"
+              className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 text-charcoal hover:text-blue-500"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
-              className="btn-secondary"
+              className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 text-charcoal hover:text-blue-500"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />

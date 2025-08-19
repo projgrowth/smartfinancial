@@ -12,7 +12,7 @@ const IntroSection = () => {
   const isEducationPage = location.pathname === '/education';
   
   return (
-    <section className="section-md bg-background relative overflow-hidden safari-mobile:pt-6">
+    <section className="section-md bg-background relative overflow-hidden">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" animated />
       <GradientAccent variant="gold" position="top-right" size="sm" intensity="low" className="translate-x-1/2" animated />
       
@@ -29,7 +29,7 @@ const IntroSection = () => {
         />
       )}
       
-      <div className="container-site relative z-10">
+      <div className="container-unified relative z-10">
         <div className="max-w-4xl mx-auto text-center space-component-lg">
           <ScrollReveal distance="3rem">
             <h2 className="heading-lg mb-4">

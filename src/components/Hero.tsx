@@ -4,12 +4,11 @@ import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+
+import GradientAccent from './GradientAccent';
+import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
-
-import { UnifiedWordRotator } from './hero/UnifiedWordRotator';
-import { HeroBackground } from './hero/HeroBackground';
-import { EnhancedCTA } from './hero/EnhancedCTA';
 
 const Hero = () => {
   const location = useLocation();
@@ -18,88 +17,150 @@ const Hero = () => {
   
   // Word carousel for headline
   const words = useMemo(() => ['Elevated.', 'Optimized.', 'Protected.', 'Compounded.'], []);
+  const longestWord = useMemo(
+    () => words.reduce((a, b) => (a.length >= b.length ? a : b), ''),
+    [words]
+  );
+  const [index, setIndex] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
+  const [prevWord, setPrevWord] = useState<string | null>(null);
+  const exitDuration = 350;
   
   // Intersection observer for performance optimization
   const { ref: heroRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.1,
-    triggerOnce: false,
+    triggerOnce: false, // Keep observing for pause/resume
   });
   
-  // Motion and interaction handlers
+  // Keep the headline centered by locking the rotator width to the longest word
+  const placeholderRef = useRef<HTMLSpanElement | null>(null);
+  const [rotatorWidth, setRotatorWidth] = useState<number>(0);
+  
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
     const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     const handleReduce = () => setReduceMotion(mqReduce.matches);
     handleReduce();
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!reduceMotion && !isMobile) {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      }
-    };
-    
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
     mqReduce.addEventListener?.('change', handleReduce);
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => {
-      mqReduce.removeEventListener?.('change', handleReduce);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
+    return () => mqReduce.removeEventListener?.('change', handleReduce);
+  }, []);
+
+  // Measure and lock the rotator width to the longest word to prevent reflow
+  useEffect(() => {
+    let ro: ResizeObserver | null = null;
+    let cleanup = () => {};
+
+    const setup = () => {
+      const el = placeholderRef.current;
+      if (!el) return;
+      const measure = () => setRotatorWidth(el.offsetWidth);
+      measure();
+      ro = new ResizeObserver(() => measure());
+      ro.observe(el);
+      window.addEventListener('resize', measure);
+      cleanup = () => {
+        ro?.disconnect();
+        window.removeEventListener('resize', measure);
+      };
     };
-  }, [reduceMotion, isMobile]);
+
+    const fontsReady = (document as any).fonts?.ready as Promise<void> | undefined;
+    if (fontsReady && typeof fontsReady.then === 'function') {
+      fontsReady.then(setup).catch(setup);
+    } else {
+      setup();
+    }
+
+    return () => cleanup();
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || !isIntersecting) return;
+    
+    const intervalId = window.setInterval(() => {
+      setIndex((i) => {
+        setPrevWord(words[i]);
+        window.setTimeout(() => setPrevWord(null), exitDuration);
+        return (i + 1) % words.length;
+      });
+    }, 2500); // Unified timing across devices
+    
+    return () => window.clearInterval(intervalId);
+  }, [reduceMotion, isIntersecting, words.length, exitDuration]);
 
   return (
     <section 
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative flex items-center justify-center min-h-[80vh] md:min-h-[90vh] safari-mobile:min-h-[65vh] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden hero-section"
+      className="relative flex items-center justify-center min-h-[70vh] md:min-h-[calc(90svh-var(--nav-h))] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden"
     >
-      {/* Enhanced dynamic background */}
-      <HeroBackground 
-        isEducationPage={isEducationPage}
-        mousePosition={mousePosition}
-        scrollY={scrollY}
-      />
+      {/* Enhanced background accents with better positioning */}
+      <GradientAccent variant="blue" position="top-right" size="md" intensity="ultra-low" animated className="opacity-[0.7]" />
+      <div className="hidden sm:block">
+        <GradientAccent variant="gold" position="bottom-left" size="sm" intensity="ultra-low" animated className="opacity-[0.6]" />
+      </div>
       
-      <div className="container-site z-10 w-full">
+      {/* Bull shape gradient only on education page */}
+      {isEducationPage && (
+        <GradientAccent 
+          variant="bull" 
+          position="center" 
+          size="2xl" 
+          intensity="ultra-low" 
+          shape="bull" 
+          animated 
+          className="opacity-[0.05] mix-blend-screen" 
+        />
+      )}
+      
+      <div className="container-unified z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal distance="0px" duration={500}>
-            <h1 className="heading-display text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap space-component-sm">
+          <ScrollReveal distance="0px" duration={400}>
+            <h1 className="heading-display-fluid text-balance">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap gap-unified-sm">
                 <span className="shrink-0 leading-none">Your wealth.</span>
-                <UnifiedWordRotator 
-                  words={words}
-                  className="shrink-0 text-center leading-none"
-                  reduceMotion={reduceMotion}
-                  isVisible={isIntersecting}
-                />
+                <span 
+                  className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
+                  aria-hidden="true" 
+                  style={rotatorWidth ? { width: rotatorWidth } : undefined}
+                >
+                  <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
+                  {prevWord && (
+                    <span className="word-layer word-exit" aria-hidden="true">{prevWord}</span>
+                  )}
+                  <span
+                    key={index}
+                    className="word-layer word-enter text-accent"
+                  >
+                    {words[index]}
+                  </span>
+                </span>
+                <span className="sr-only" aria-live="polite" aria-atomic="true">Your wealth. {words[index]}</span>
               </div>
             </h1>
           </ScrollReveal>
           
-          <ScrollReveal delay={200} distance="0px" duration={500}>
-            <p className="text-body-lg sm:text-body-xl mx-auto mb-8 sm:mb-10 max-w-2xl text-balance">
+          <ScrollReveal delay={150} distance="0px" duration={400}>
+            <p className="text-body-lg sm:text-body-xl mx-auto mb-7 sm:mb-8 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
           </ScrollReveal>
           
-          <ScrollReveal delay={350} distance="0px" duration={500}>
-            <button 
-              onClick={() => smoothScrollTo('schedule')}
-              className="btn-primary"
-            >
-              Start Your Financial Journey
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </button>
+          <ScrollReveal delay={250} distance="0px" duration={400}>
+            <MicroAnimations.ScaleOnHover scale="sm">
+              <MicroAnimations.ShimmerButton
+                onClick={() => smoothScrollTo('schedule')}
+                aria-label="Schedule your private strategy call"
+                className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced"
+              >
+                <span className="mr-2">
+                  <span className="xs:hidden">Schedule</span>
+                  <span className="hidden xs:inline sm:hidden">Schedule Call</span>
+                  <span className="hidden sm:inline">Schedule Your Private Strategy Call</span>
+                </span>
+                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </MicroAnimations.ShimmerButton>
+            </MicroAnimations.ScaleOnHover>
           </ScrollReveal>
         </div>
       </div>
@@ -108,8 +169,8 @@ const Hero = () => {
         <button
           onClick={() => smoothScrollTo('schedule')}
           aria-label="Scroll to schedule section"
-          className={`enhanced-scroll-indicator absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-accent transition-all duration-500 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] touch-target ${
-            isMobile ? 'scale-75 opacity-70' : ''
+          className={`absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all duration-300 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] touch-target ${
+            isMobile ? 'scale-75 opacity-60' : ''
           }`}
         >
           <ChevronRight className="w-6 h-6 rotate-90 animate-bounce" aria-hidden="true" />

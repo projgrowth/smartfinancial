@@ -1,33 +1,26 @@
 
-/* Master Design System - Single Source of Truth */
-@import './styles/master-design-system.css';
-
-/* Essential utility styles only */
+@import './styles/base.css';
+@import './styles/design-system.css';
+@import './styles/components.css';
+@import './styles/premium-spacing.css';
+@import './styles/animations/index.css';
+@import './styles/animations/enhanced-interactions.css';
+@import './styles/animations/scroll-effects.css';
+@import './styles/scroll-optimizations.css';
 @import './styles/safari-fixes.css';
 @import './styles/utilities.css';
 
-/* Optimized scrolling */
+/* Mobile optimization */
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   touch-action: manipulation;
-}
-
-/* Ensure desktop scrolling works without conflicts */
-@media (pointer: fine) {
-  html {
-    scroll-behavior: smooth;
-    overscroll-behavior: auto;
-  }
-  
-  body {
-    touch-action: auto;
-  }
 }
 
 /* Prevent zoom on input focus for iOS */

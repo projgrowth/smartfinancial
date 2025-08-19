@@ -167,7 +167,7 @@ const Navbar = () => {
       aria-label="Main navigation"
       onKeyDown={handleKeyDown}
     >
-      <div className="container-site flex justify-between items-center">
+      <div className="container-unified flex justify-between items-center">
         <Link 
           to="/"
           className="font-heading text-foreground text-fluid-xl font-medium tracking-tight hover:text-primary transition-colors duration-300 focus-enhanced"
@@ -277,7 +277,7 @@ const Navbar = () => {
         aria-label="Mobile navigation"
         aria-hidden={!isOpen}
       >
-        <div className="container-site section-sm bg-background/95 backdrop-blur-sm flex flex-col space-component-sm">
+        <div className="container-unified section-sm bg-background/95 backdrop-blur-sm flex flex-col space-component-sm">
           {navItems.map((item, index) => 
             item.isLink ? (
               <Link
