@@ -71,7 +71,7 @@ const EnhancedNewsletter = () => {
     <section id="newsletter" className="section relative overflow-hidden bg-blue-50/40">
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
       
-      <div className="container-unified relative z-10">
+      <div className="container-site relative z-10">
         <ScrollReveal>
           <h2 className="heading-lg text-foreground text-center mb-4">
             Financial Insights Newsletter

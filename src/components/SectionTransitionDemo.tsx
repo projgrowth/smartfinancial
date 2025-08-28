@@ -35,7 +35,7 @@ const SectionTransitionDemo = () => {
     <section className="py-20 bg-white relative overflow-hidden">
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
       
-      <div className="container-unified relative z-10">
+      <div className="container-site relative z-10">
         <ScrollReveal>
           <h2 className="heading-lg text-charcoal text-center mb-4">
             Section Transitions

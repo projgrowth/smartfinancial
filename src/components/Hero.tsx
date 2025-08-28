@@ -9,11 +9,16 @@ import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 import { heroContent } from '../data/content';
+import { useOptimizedAnimation, usePerformance } from '../hooks/usePerformance';
+import { ANIMATION_TIMINGS } from '../config/site';
 
 const Hero = () => {
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
   const isMobile = useIsMobile();
+  
+  // Performance monitoring
+  const { startMeasurement, endMeasurement } = usePerformance('Hero');
   
   // Word carousel from content data
   const { words, headline, description, cta } = heroContent;
@@ -22,9 +27,10 @@ const Hero = () => {
     [words]
   );
   const [index, setIndex] = useState(0);
-  const [reduceMotion, setReduceMotion] = useState(false);
   const [prevWord, setPrevWord] = useState<string | null>(null);
-  const exitDuration = 350;
+  
+  // Optimized animation settings
+  const { shouldAnimate, duration: exitDuration } = useOptimizedAnimation('NORMAL');
   
   // Intersection observer for performance optimization
   const { ref: heroRef, isIntersecting } = useIntersectionObserver({
@@ -35,15 +41,12 @@ const Hero = () => {
   // Keep the headline centered by locking the rotator width to the longest word
   const placeholderRef = useRef<HTMLSpanElement | null>(null);
   const [rotatorWidth, setRotatorWidth] = useState<number>(0);
-  
+
+  // Performance measurement on render
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const handleReduce = () => setReduceMotion(mqReduce.matches);
-    handleReduce();
-    mqReduce.addEventListener?.('change', handleReduce);
-    return () => mqReduce.removeEventListener?.('change', handleReduce);
-  }, []);
+    startMeasurement();
+    return () => endMeasurement();
+  }, [startMeasurement, endMeasurement]);
 
   // Measure and lock the rotator width to the longest word to prevent reflow
   useEffect(() => {
@@ -75,7 +78,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    if (reduceMotion || !isIntersecting) return;
+    if (!shouldAnimate || !isIntersecting) return;
     
     const intervalId = window.setInterval(() => {
       setIndex((i) => {
@@ -83,10 +86,10 @@ const Hero = () => {
         window.setTimeout(() => setPrevWord(null), exitDuration);
         return (i + 1) % words.length;
       });
-    }, 2500); // Unified timing across devices
+    }, ANIMATION_TIMINGS.WORD_ROTATOR);
     
     return () => window.clearInterval(intervalId);
-  }, [reduceMotion, isIntersecting, words.length, exitDuration]);
+  }, [shouldAnimate, isIntersecting, words.length, exitDuration]);
 
   return (
     <section 
@@ -164,7 +167,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {!reduceMotion && (
+      {shouldAnimate && (
         <button
           onClick={() => smoothScrollTo(cta.targetSection)}
           aria-label="Scroll to schedule section"
