@@ -6,10 +6,12 @@ import { ArrowRight } from 'lucide-react';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { sections } from '../data/content';
 
 const IntroSection = () => {
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
+  const { title, subtitle, description, cta } = sections.intro;
   
   return (
     <section className="section-md bg-background relative overflow-hidden">
@@ -29,20 +31,20 @@ const IntroSection = () => {
         />
       )}
       
-      <div className="container-unified relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-component-lg">
+      <div className="container-site relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-site-lg">
           <ScrollReveal distance="3rem">
             <h2 className="heading-lg mb-4">
-              Generic plans weren't made for{' '}
-              <span className="text-blue-400">you</span>.
+              {title}
             </h2>
+            <p className="heading-sm text-accent font-normal mb-6">
+              {subtitle}
+            </p>
           </ScrollReveal>
           
           <ScrollReveal delay={150} distance="2rem">
             <p className="text-body-lg mx-auto mb-6">
-              We deliver highly personalized financial guidance for business owners, 
-              top-tier executives, doctors, and legal professionals—crafted around your distinct ambitions, 
-              career trajectory, and lifestyle.
+              {description}
             </p>
           </ScrollReveal>
           
@@ -54,7 +56,7 @@ const IntroSection = () => {
                   className="group"
                   onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  <span className="mr-2">Discover Your Financial Profile</span>
+                  <span className="mr-2">{cta?.text}</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </MicroAnimations.ScaleOnHover>

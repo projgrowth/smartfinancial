@@ -4,19 +4,19 @@ import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
 import GradientAccent from './GradientAccent';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
+import { heroContent } from '../data/content';
 
 const Hero = () => {
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
   const isMobile = useIsMobile();
   
-  // Word carousel for headline
-  const words = useMemo(() => ['Elevated.', 'Optimized.', 'Protected.', 'Compounded.'], []);
+  // Word carousel from content data
+  const { words, headline, description, cta } = heroContent;
   const longestWord = useMemo(
     () => words.reduce((a, b) => (a.length >= b.length ? a : b), ''),
     [words]
@@ -112,12 +112,12 @@ const Hero = () => {
         />
       )}
       
-      <div className="container-unified z-10 w-full">
+      <div className="container-site z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px" duration={400}>
             <h1 className="heading-display-fluid text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap gap-unified-sm">
-                <span className="shrink-0 leading-none">Your wealth.</span>
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center whitespace-normal sm:whitespace-nowrap gap-site-md">
+                <span className="shrink-0 leading-none">{headline.prefix}</span>
                 <span 
                   className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
                   aria-hidden="true" 
@@ -134,29 +134,28 @@ const Hero = () => {
                     {words[index]}
                   </span>
                 </span>
-                <span className="sr-only" aria-live="polite" aria-atomic="true">Your wealth. {words[index]}</span>
+                <span className="sr-only" aria-live="polite" aria-atomic="true">{headline.prefix} {words[index]}</span>
               </div>
             </h1>
           </ScrollReveal>
           
           <ScrollReveal delay={150} distance="0px" duration={400}>
             <p className="text-body-lg sm:text-body-xl mx-auto mb-7 sm:mb-8 max-w-2xl text-balance">
-              Tailored financial strategies for ambitious professionals who demand more than 
-              cookie-cutter solutions. We help you build, protect, and grow your wealth.
+              {description}
             </p>
           </ScrollReveal>
           
           <ScrollReveal delay={250} distance="0px" duration={400}>
             <MicroAnimations.ScaleOnHover scale="sm">
               <MicroAnimations.ShimmerButton
-                onClick={() => smoothScrollTo('schedule')}
-                aria-label="Schedule your private strategy call"
-                className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced"
+                onClick={() => smoothScrollTo(cta.targetSection)}
+                aria-label={cta.ariaLabel}
+                className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground"
               >
                 <span className="mr-2">
-                  <span className="xs:hidden">Schedule</span>
-                  <span className="hidden xs:inline sm:hidden">Schedule Call</span>
-                  <span className="hidden sm:inline">Schedule Your Private Strategy Call</span>
+                  <span className="xs:hidden">{cta.text.mobile}</span>
+                  <span className="hidden xs:inline sm:hidden">{cta.text.tablet}</span>
+                  <span className="hidden sm:inline">{cta.text.desktop}</span>
                 </span>
                 <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </MicroAnimations.ShimmerButton>
@@ -167,9 +166,9 @@ const Hero = () => {
 
       {!reduceMotion && (
         <button
-          onClick={() => smoothScrollTo('schedule')}
+          onClick={() => smoothScrollTo(cta.targetSection)}
           aria-label="Scroll to schedule section"
-          className={`absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all duration-300 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] touch-target ${
+          className={`absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all duration-300 min-h-[44px] min-w-[44px] bottom-[calc(1.5rem+env(safe-area-inset-bottom))] ${
             isMobile ? 'scale-75 opacity-60' : ''
           }`}
         >
