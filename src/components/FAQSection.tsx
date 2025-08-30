@@ -18,17 +18,17 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="border border-blue-100 rounded-lg overflow-hidden bg-white mb-4 shadow-sm hover:shadow-md transition-all duration-300"
+      className="border border-border rounded-lg overflow-hidden bg-card mb-4 shadow-sm hover:shadow-md transition-all duration-300"
     >
       <CollapsibleTrigger className="flex w-full items-center justify-between p-5 text-left">
-        <h3 className="font-medium text-charcoal">{question}</h3>
+        <h3 className="font-medium text-foreground">{question}</h3>
         {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-blue-500 flex-shrink-0" />
+          <ChevronUp className="h-5 w-5 text-accent flex-shrink-0" />
         ) : (
-          <ChevronDown className="h-5 w-5 text-blue-500 flex-shrink-0" />
+          <ChevronDown className="h-5 w-5 text-accent flex-shrink-0" />
         )}
       </CollapsibleTrigger>
-      <CollapsibleContent className="p-5 pt-0 text-charcoal/80 border-t border-blue-50">
+      <CollapsibleContent className="p-5 pt-0 text-muted-foreground border-t border-border/50">
         {answer}
       </CollapsibleContent>
     </Collapsible>
@@ -39,7 +39,7 @@ const FAQSection = () => {
   const { title, subtitle, description } = sections.faq;
 
   return (
-    <section id="faq" className="section-lg relative overflow-hidden bg-blue-50/30">
+    <section id="faq" className="section-lg relative overflow-hidden bg-secondary/30">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       <div className="container-site relative z-10">
         <ScrollReveal>

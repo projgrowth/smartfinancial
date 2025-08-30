@@ -18,6 +18,7 @@ import { analytics, trackPageView } from "@/utils/analytics";
 import { addSafariClasses, applySafariClassesSync } from "@/utils/safariDetection";
 import { useSafariViewport } from "@/hooks/useSafariViewport";
 import ScrollDebug from "@/components/ScrollDebug";
+import { initializePerformanceOptimizations } from "@/utils/performanceOptimizer";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -53,6 +54,9 @@ const queryClient = new QueryClient({
 
 // Apply Safari classes synchronously before React renders
 applySafariClassesSync();
+
+// Initialize performance optimizations
+const performanceManager = initializePerformanceOptimizations();
 
 const App = () => (
   <ErrorBoundary onError={(error, errorInfo) => analytics.trackError(error, 'app_boundary')}>

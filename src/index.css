@@ -1,12 +1,7 @@
 
 /* =============================================================================
-   MASTER CSS - Consolidated Design System
-   Emergency Site Cleanup - Phase 1 Complete
+   UNIFIED DESIGN SYSTEM - Phase 1: Foundation Consolidation Complete
+   Single source of truth for all styling
 ============================================================================= */
 
 @import './styles/master-design-system.css';
-@import './styles/animations/core.css';
-@import './styles/utilities.css';
-
-@tailwind components;
-@tailwind utilities;

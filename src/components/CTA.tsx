@@ -9,7 +9,7 @@ const CTA = () => {
   const { title, subtitle, description, cta } = sections.cta;
   
   return (
-    <section id="contact" className="section-lg text-white relative overflow-hidden bg-gradient-to-br from-charcoal/95 to-charcoal/90 backdrop-blur-sm">
+    <section id="contact" className="section-lg text-primary-foreground relative overflow-hidden bg-primary backdrop-blur-sm">
       {/* Enhanced modern glass morphic decoration with subtle animation */}
       <div className="absolute left-0 top-0 w-[40%] h-[80%] bg-gradient-to-br from-blue-400/15 to-blue-500/10 blur-3xl rounded-full transform -translate-x-1/4 animate-float"></div>
       <div className="absolute right-0 bottom-0 w-[40%] h-[80%] bg-gradient-to-tl from-blue-400/15 to-blue-300/10 blur-3xl rounded-full transform translate-x-1/4 animate-float"></div>
@@ -19,17 +19,17 @@ const CTA = () => {
       
       <div className="container-site relative z-10">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto text-center backdrop-blur-sm py-12 px-6 sm:px-10 rounded-2xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
-            <h2 className="heading-lg mb-6 text-white">
+          <div className="max-w-4xl mx-auto text-center backdrop-blur-sm py-12 px-6 sm:px-10 rounded-2xl border border-border/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+            <h2 className="heading-lg mb-6 text-primary-foreground">
               {title}
             </h2>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl mx-auto">
+            <p className="text-body-lg text-primary-foreground/70 mb-10 max-w-2xl mx-auto">
               {description}
             </p>
             <MicroAnimations.ScaleOnHover>
               <a 
                 href={cta?.href} 
-                className="btn-primary bg-accent hover:bg-accent/90 text-white group relative overflow-hidden"
+                className="btn-primary bg-accent hover:bg-accent/90 text-accent-foreground group relative overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
                   {cta?.text}
