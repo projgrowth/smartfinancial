@@ -150,6 +150,28 @@
   max-width: 70ch;
 }
 
+.text-body-sm {
+  @apply text-xs md:text-sm leading-relaxed text-muted-foreground;
+  max-width: 72ch;
+}
+
+.heading-xs {
+  @apply text-base md:text-lg lg:text-xl font-heading font-medium tracking-tight text-foreground;
+  line-height: 1.35;
+}
+
+.text-fluid-xl {
+  font-size: clamp(1.25rem, 2.5vw + 0.5rem, 2rem);
+  line-height: clamp(1.4, 1.35 + 0.05vw, 1.45);
+  @apply font-heading font-medium text-foreground;
+}
+
+.text-fluid-sm {
+  font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1rem);
+  line-height: clamp(1.5, 1.45 + 0.05vw, 1.55);
+  @apply text-muted-foreground;
+}
+
 /* ========== CONTAINER SYSTEM ========== */
 .container-site,
 .container-unified {
@@ -190,6 +212,10 @@
 
 .section-md {
   @apply py-12 md:py-20;
+}
+
+.section-sm {
+  @apply py-8 md:py-16;
 }
 
 .gap-site-xl,
@@ -271,6 +297,38 @@
 
 .card-content-grow {
   @apply flex-grow;
+}
+
+/* ========== INTERACTION & ACCESSIBILITY SYSTEM ========== */
+.scroll-smooth-enhanced {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-momentum {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.safari-scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+.touch-target {
+  @apply min-h-[44px] min-w-[44px];
+}
+
+.touch-target-lg {
+  @apply min-h-[48px] min-w-[48px];
+}
+
+.focus-enhanced {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-200;
 }
 
 /* ========== ANIMATION SYSTEM ========== */
