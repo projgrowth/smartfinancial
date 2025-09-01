@@ -5,3 +5,5 @@
 ============================================================================= */
 
 @import './styles/master-design-system.css';
+@tailwind components;
+@tailwind utilities;
