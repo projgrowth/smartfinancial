@@ -49,6 +49,29 @@
     --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.15);
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
     --shadow-premium: 0 25px 50px -12px hsl(var(--primary) / 0.25);
+    
+    /* Animation timing values */
+    --animation-delay-fast: 100ms;
+    --animation-delay-normal: 200ms;
+    --animation-delay-slow: 400ms;
+    --animation-delay-extra-slow: 600ms;
+    
+    /* Word rotation timing */
+    --word-rotation-interval: 3000ms;
+    --word-transition-duration: 500ms;
+    
+    /* Testimonial timing */
+    --testimonial-slide-interval: 6000ms;
+    --testimonial-pause-duration: 10000ms;
+    
+    /* Parallax intensity */
+    --parallax-intensity-subtle: 0.3;
+    --parallax-intensity-medium: 0.5;
+    --parallax-intensity-strong: 0.8;
+    
+    /* Counter animation */
+    --counter-duration: 2000ms;
+    --counter-steps: 60;
   }
 
   /* ========== BASE ELEMENT STYLES ========== */

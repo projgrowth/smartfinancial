@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { EnhancedCard, EnhancedCardContent, EnhancedCardHeader, EnhancedCardTitle, EnhancedCardDescription } from '@/components/ui/enhanced-card';
+import { EnhancedInput } from '@/components/ui/enhanced-input';
+import { AnimatedCounter, AnimatedProgress } from '@/components/ui/animated-counter';
 import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
-import { Info } from 'lucide-react';
+import { Info, TrendingUp, DollarSign, Calendar } from 'lucide-react';
 import {
   CartesianGrid,
   Line,
@@ -60,12 +62,17 @@ const CompoundInterestCalculator = () => {
   };
 
   return (
-    <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
-      <CardHeader>
+    <EnhancedCard 
+      variant="premium" 
+      tiltEffect={false}
+      hoverGlow={true}
+      className="hover:shadow-xl transition-all duration-500"
+    >
+      <EnhancedCardHeader>
         <div className="flex items-center gap-2">
-          <CardTitle>Compound Interest Calculator</CardTitle>
+          <EnhancedCardTitle>Compound Interest Calculator</EnhancedCardTitle>
           <InteractiveTooltip
-            trigger={<Info className="h-4 w-4 text-blue-500 cursor-help" />}
+            trigger={<Info className="h-4 w-4 text-primary cursor-help" />}
             content={
               <div className="text-sm">
                 <p>Compound interest allows your money to grow exponentially over time as you earn returns on both your initial investment and accumulated gains.</p>
@@ -76,97 +83,122 @@ const CompoundInterestCalculator = () => {
             maxWidth="md"
           />
         </div>
-        <CardDescription>
+        <EnhancedCardDescription>
           See how your investments can grow over time with the power of compound interest
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="principal" className="block text-sm font-medium text-charcoal mb-1">
-                Initial Investment
-              </label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-charcoal/70">$</span>
-                <input
-                  id="principal"
-                  type="number"
-                  value={principal}
-                  onChange={(e) => setPrincipal(Number(e.target.value))}
-                  className="block w-full pl-8 pr-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-            </div>
+        </EnhancedCardDescription>
+      </EnhancedCardHeader>
+      <EnhancedCardContent>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Enhanced Input Section */}
+          <div className="space-y-6">
+            <EnhancedInput
+              label="Initial Investment"
+              type="number"
+              value={principal}
+              onChange={(e) => setPrincipal(Number(e.target.value))}
+              icon={<DollarSign className="w-4 h-4" />}
+              floatingLabel={true}
+              className="transition-all duration-300"
+            />
             
-            <div>
-              <label htmlFor="monthlyContribution" className="block text-sm font-medium text-charcoal mb-1">
-                Monthly Contribution
-              </label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-charcoal/70">$</span>
-                <input
-                  id="monthlyContribution"
-                  type="number"
-                  value={monthlyContribution}
-                  onChange={(e) => setMonthlyContribution(Number(e.target.value))}
-                  className="block w-full pl-8 pr-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-            </div>
+            <EnhancedInput
+              label="Monthly Contribution"
+              type="number"
+              value={monthlyContribution}
+              onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+              icon={<DollarSign className="w-4 h-4" />}
+              floatingLabel={true}
+              className="transition-all duration-300"
+            />
             
-            <div>
-              <label htmlFor="rate" className="block text-sm font-medium text-charcoal mb-1">
-                Annual Interest Rate (%)
-              </label>
-              <div className="relative">
-                <input
-                  id="rate"
-                  type="number"
-                  value={rate}
-                  onChange={(e) => setRate(Number(e.target.value))}
-                  className="block w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  step="0.1"
-                  min="0"
-                  max="30"
-                />
-                <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-charcoal/70">%</span>
-              </div>
-            </div>
+            <EnhancedInput
+              label="Annual Interest Rate (%)"
+              type="number"
+              value={rate}
+              onChange={(e) => setRate(Number(e.target.value))}
+              step="0.1"
+              min="0"
+              max="30"
+              icon={<TrendingUp className="w-4 h-4" />}
+              floatingLabel={true}
+              className="transition-all duration-300"
+            />
             
-            <div>
-              <label htmlFor="years" className="block text-sm font-medium text-charcoal mb-1">
-                Time Period (years)
-              </label>
-              <input
-                id="years"
-                type="number"
-                value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
-                className="block w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                min="1"
-                max="50"
-              />
-            </div>
+            <EnhancedInput
+              label="Time Period (years)"
+              type="number"
+              value={years}
+              onChange={(e) => setYears(Number(e.target.value))}
+              min="1"
+              max="50"
+              icon={<Calendar className="w-4 h-4" />}
+              floatingLabel={true}
+              className="transition-all duration-300"
+            />
           </div>
           
-          <div>
-            <div className="bg-blue-50/50 p-4 rounded-lg mb-4">
-              <p className="text-sm text-charcoal/70 mb-1">Future Value</p>
-              <p className="text-2xl font-bold text-blue-700">{formatCurrency(result)}</p>
-              <p className="text-sm text-charcoal/70 mt-2">
-                Total Contributions: {formatCurrency(principal + (monthlyContribution * 12 * years))}
-              </p>
-              <p className="text-sm text-green-600 font-medium">
-                Interest Earned: {formatCurrency(result - (principal + (monthlyContribution * 12 * years)))}
-              </p>
+          {/* Enhanced Results Section */}
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-6 rounded-xl border border-primary/10">
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="text-sm font-medium text-muted-foreground mb-2">Future Value</p>
+                  <AnimatedCounter 
+                    value={result} 
+                    prefix="$" 
+                    className="text-3xl font-bold text-primary"
+                    duration={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--counter-duration')) || 2000}
+                    separator=","
+                    isVisible={result > 0}
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="flex justify-between items-center p-3 bg-background/50 rounded-lg">
+                    <span className="text-sm text-muted-foreground">Total Contributions</span>
+                    <AnimatedCounter 
+                      value={principal + (monthlyContribution * 12 * years)}
+                      prefix="$"
+                      className="font-semibold text-foreground"
+                      duration={1800}
+                      separator=","
+                      isVisible={result > 0}
+                    />
+                  </div>
+                  
+                  <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                    <span className="text-sm text-green-700">Interest Earned</span>
+                    <AnimatedCounter 
+                      value={result - (principal + (monthlyContribution * 12 * years))}
+                      prefix="$"
+                      className="font-semibold text-green-600"
+                      duration={2200}
+                      separator=","
+                      isVisible={result > 0}
+                    />
+                  </div>
+                </div>
+                
+                {/* Growth Progress Bar */}
+                <AnimatedProgress
+                  value={((result - (principal + (monthlyContribution * 12 * years))) / result) * 100}
+                  max={100}
+                  label="Interest Growth Rate"
+                  showValue={true}
+                  color="success"
+                  className="mt-4"
+                  duration={2000}
+                  delay={500}
+                />
+              </div>
             </div>
             
-            <div className="h-52">
+            {/* Enhanced Chart */}
+            <div className="h-64 p-4 bg-muted/20 rounded-xl">
               <ChartContainer
                 config={{
-                  amount: { theme: { light: "#3B82F6", dark: "#60A5FA" } },
-                  principal: { theme: { light: "#9CA3AF", dark: "#6B7280" } },
+                  amount: { theme: { light: "hsl(var(--primary))", dark: "hsl(var(--primary))" } },
+                  principal: { theme: { light: "hsl(var(--muted-foreground))", dark: "hsl(var(--muted-foreground))" } },
                 }}
                 className="h-full"
               >
@@ -174,34 +206,28 @@ const CompoundInterestCalculator = () => {
                   data={chartData}
                   margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" />
+                  <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
                   <XAxis
                     dataKey="year"
                     tickLine={true}
+                    className="text-xs"
                   />
                   <YAxis
-                    tickFormatter={(value) => `$${value.toLocaleString()}`}
-                    width={80}
+                    tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+                    width={60}
+                    className="text-xs"
                   />
                   <ChartTooltip
                     content={({ active, payload }) => {
                       if (active && payload && payload.length) {
                         return (
-                          <div className="rounded-lg border bg-background p-2 shadow-sm">
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="flex flex-col">
-                                <span className="text-[0.70rem] uppercase text-muted-foreground">
-                                  Year
-                                </span>
-                                <span className="font-bold text-muted-foreground">
-                                  {payload[0].payload.year}
-                                </span>
+                          <div className="rounded-lg border bg-background/95 backdrop-blur-sm p-3 shadow-lg">
+                            <div className="grid grid-cols-1 gap-2">
+                              <div className="text-center">
+                                <span className="text-xs text-muted-foreground">Year {payload[0].payload.year}</span>
                               </div>
-                              <div className="flex flex-col">
-                                <span className="text-[0.70rem] uppercase text-muted-foreground">
-                                  Amount
-                                </span>
-                                <span className="font-bold">
+                              <div className="text-center">
+                                <span className="font-bold text-primary">
                                   {formatCurrency(payload[0].payload.amount)}
                                 </span>
                               </div>
@@ -214,18 +240,20 @@ const CompoundInterestCalculator = () => {
                   />
                   <Line
                     type="monotone"
-                    strokeWidth={2}
+                    strokeWidth={3}
                     dataKey="amount"
+                    stroke="hsl(var(--primary))"
                     activeDot={{
                       r: 6,
-                      fill: "#3B82F6",
+                      fill: "hsl(var(--primary))",
                       style: { cursor: "pointer" },
                     }}
+                    className="drop-shadow-sm"
                   />
                   <Line
                     type="monotone"
                     dataKey="principal"
-                    stroke="#9CA3AF"
+                    stroke="hsl(var(--muted-foreground))"
                     strokeDasharray="4 4"
                     strokeWidth={2}
                     dot={false}
@@ -235,8 +263,8 @@ const CompoundInterestCalculator = () => {
             </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </EnhancedCardContent>
+    </EnhancedCard>
   );
 };
 
