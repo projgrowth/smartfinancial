@@ -238,9 +238,9 @@ const Navbar = () => {
           )}
           <Button 
              onClick={() => handleNavClick('schedule')}
-            className="group"
+            className="group hover-glow spring-bounce shadow-lg"
             size="sm"
-            variant="hero"
+            variant="premium"
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
@@ -331,8 +331,8 @@ const Navbar = () => {
           )}
           <Button 
             onClick={() => handleNavClick('schedule')}
-            className="w-full justify-center group"
-            variant="hero"
+            className="w-full justify-center group hover-glow spring-bounce"
+            variant="premium"
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>

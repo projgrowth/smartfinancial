@@ -1,45 +1,50 @@
 
 import React from 'react';
-import ScrollReveal from './ScrollReveal';
 import { ArrowRight } from 'lucide-react';
-import { MicroAnimations } from './ui/micro-animations';
+import { Button } from './ui/button';
+import { RevealOnScroll, AnimatedGradientText, Floating } from './ui/enhanced-animations';
 import { sections } from '../data/content';
 
 const CTA = () => {
   const { title, subtitle, description, cta } = sections.cta;
   
   return (
-    <section id="contact" className="section-lg text-primary-foreground relative overflow-hidden bg-primary backdrop-blur-sm">
-      {/* Enhanced modern glass morphic decoration with subtle animation */}
-      <div className="absolute left-0 top-0 w-[40%] h-[80%] bg-gradient-to-br from-blue-400/15 to-blue-500/10 blur-3xl rounded-full transform -translate-x-1/4 animate-float"></div>
-      <div className="absolute right-0 bottom-0 w-[40%] h-[80%] bg-gradient-to-tl from-blue-400/15 to-blue-300/10 blur-3xl rounded-full transform translate-x-1/4 animate-float"></div>
+    <section id="contact" className="section-lg text-primary-foreground relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 backdrop-blur-sm">
+      {/* Enhanced animated background elements */}
+      <Floating intensity="subtle">
+        <div className="absolute left-0 top-0 w-[40%] h-[80%] bg-gradient-to-br from-primaryGlow/20 to-accent/15 blur-3xl rounded-full transform -translate-x-1/4"></div>
+      </Floating>
+      <Floating intensity="medium">
+        <div className="absolute right-0 bottom-0 w-[40%] h-[80%] bg-gradient-to-tl from-accent/20 to-primaryGlow/15 blur-3xl rounded-full transform translate-x-1/4"></div>
+      </Floating>
       
-      {/* Added subtle dot pattern for texture */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiLz48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSIxIi8+PC9nPjwvc3ZnPg==')] opacity-[0.05]"></div>
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIi8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
       
       <div className="container-site relative z-10">
-        <ScrollReveal>
-          <div className="max-w-4xl mx-auto text-center backdrop-blur-sm py-12 px-6 sm:px-10 rounded-2xl border border-border/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
-            <h2 className="heading-lg mb-6 text-primary-foreground">
+        <RevealOnScroll direction="scale" duration={800}>
+          <div className="max-w-4xl mx-auto text-center backdrop-blur-sm py-12 px-6 sm:px-10 rounded-2xl border border-white/10 shadow-2xl bg-white/5">
+            <AnimatedGradientText variant="shimmer" className="block heading-lg mb-6 text-white">
               {title}
-            </h2>
-            <p className="text-body-lg text-primary-foreground/70 mb-10 max-w-2xl mx-auto">
+            </AnimatedGradientText>
+            <p className="text-body-lg text-white/80 mb-10 max-w-2xl mx-auto">
               {description}
             </p>
-            <MicroAnimations.ScaleOnHover>
-              <a 
-                href={cta?.href} 
-                className="btn-primary bg-accent hover:bg-accent/90 text-accent-foreground group relative overflow-hidden"
-              >
+            <Button 
+              variant="premium" 
+              size="lg"
+              asChild
+              className="group relative overflow-hidden bg-white text-primary hover:bg-white/95 hover:shadow-2xl hover:shadow-white/25"
+            >
+              <a href={cta?.href}>
                 <span className="relative z-10 flex items-center">
                   {cta?.text}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
               </a>
-            </MicroAnimations.ScaleOnHover>
+            </Button>
           </div>
-        </ScrollReveal>
+        </RevealOnScroll>
       </div>
     </section>
   );

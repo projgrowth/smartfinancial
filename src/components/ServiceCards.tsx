@@ -3,7 +3,8 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import AnimatedSectionTransition from './AnimatedSectionTransition';
-import { PremiumCard, PremiumCardHeader, PremiumCardTitle, PremiumCardContent, PremiumCardFooter } from './ui/premium-card';
+import { EnhancedCard, EnhancedCardHeader, EnhancedCardTitle, EnhancedCardContent, EnhancedCardFooter } from './ui/enhanced-card';
+import { SpringScale, RevealOnScroll, useStaggeredChildren } from './ui/enhanced-animations';
 import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -15,35 +16,38 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, icon }) => {
   return (
-    <ScrollReveal delay={delay}>
-      <PremiumCard 
-        variant="elevated" 
-        size="lg"
-        className="card-equal-height group"
-      >
-        <PremiumCardHeader>
-          <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80">
-            {icon}
-          </div>
-          <PremiumCardTitle className="heading-sm mb-4">
-            {title}
-          </PremiumCardTitle>
-        </PremiumCardHeader>
-        
-        <PremiumCardContent className="card-content-grow">
-          <p className="text-body">
-            {description}
-          </p>
-        </PremiumCardContent>
-        
-        <PremiumCardFooter>
-          <div className="flex items-center text-primary font-medium touch-target">
-            <span className="mr-2">Learn more</span>
-            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </div>
-        </PremiumCardFooter>
-      </PremiumCard>
-    </ScrollReveal>
+    <RevealOnScroll direction="up" delay={delay}>
+      <SpringScale>
+        <EnhancedCard 
+          variant="premium" 
+          tiltEffect={true}
+          hoverGlow={true}
+          className="card-equal-height group h-full"
+        >
+          <EnhancedCardHeader>
+            <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-accent">
+              {icon}
+            </div>
+            <EnhancedCardTitle className="heading-sm mb-4">
+              {title}
+            </EnhancedCardTitle>
+          </EnhancedCardHeader>
+          
+          <EnhancedCardContent className="card-content-grow">
+            <p className="text-body">
+              {description}
+            </p>
+          </EnhancedCardContent>
+          
+          <EnhancedCardFooter>
+            <div className="flex items-center text-primary font-medium touch-target group-hover:text-accent transition-colors duration-300">
+              <span className="mr-2">Learn more</span>
+              <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </div>
+          </EnhancedCardFooter>
+        </EnhancedCard>
+      </SpringScale>
+    </RevealOnScroll>
   );
 };
 
@@ -71,13 +75,15 @@ const ServiceCards = () => {
     }
   ];
 
+  const staggeredAnimations = useStaggeredChildren(services.length, 150);
+
   return (
     <>
       <section id="services" className="section-xl bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden">
         <GradientAccent variant="subtle" position="top-left" intensity="low" />
         
         <div className="container-site relative z-10">
-          <ScrollReveal>
+          <RevealOnScroll direction="fade" duration={800}>
             <div className="text-center space-component-lg">
               <h2 className="heading-lg mb-6">
                 Services Tailored to Your Needs
@@ -86,7 +92,7 @@ const ServiceCards = () => {
                 Strategic financial planning designed for high-performing professionals who expect exceptional results.
               </p>
             </div>
-          </ScrollReveal>
+          </RevealOnScroll>
           
           <div className="grid-four-col gap-unified-lg">
             {services.map((service, index) => (
@@ -94,7 +100,7 @@ const ServiceCards = () => {
                 key={index} 
                 title={service.title} 
                 description={service.description} 
-                delay={index * 100} 
+                delay={staggeredAnimations[index]?.transitionDelay ? parseInt(staggeredAnimations[index].transitionDelay) : index * 150} 
                 icon={service.icon}
               />
             ))}
