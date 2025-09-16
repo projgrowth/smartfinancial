@@ -38,10 +38,12 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       className={`transition-all ${className}`}
       style={{
         opacity: show ? 1 : 0,
-        transform: show ? 'translateY(0)' : `translateY(${distance})`,
+        transform: show ? 'translate3d(0, 0, 0)' : `translate3d(0, ${distance}, 0)`,
         transitionDuration: prefersReducedMotion ? '0ms' : `${duration}ms`,
         transitionDelay: prefersReducedMotion ? '0ms' : `${delay}ms`,
         transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1.0)',
+        willChange: show ? 'auto' : 'transform',
+        pointerEvents: show ? 'auto' : 'none'
       }}
     >
       {children}

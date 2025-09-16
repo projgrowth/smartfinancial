@@ -33,7 +33,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex items-center justify-center bg-background"
       aria-labelledby="hero-heading"
     >
       <GradientAccent variant="blue" position="top-right" intensity="low" animated />
@@ -61,7 +61,8 @@ const Hero = () => {
                 className="word-layer absolute inset-0 font-medium text-accent transition-all duration-500"
                 style={{
                   opacity: 1,
-                  transform: 'translateY(0)'
+                  transform: 'translate3d(0, 0, 0)',
+                  willChange: 'transform'
                 }}
               >
                 {words[index]}

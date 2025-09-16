@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden scroll-smooth-enhanced scroll-momentum safari-scroll-container touch-pan-y">
+    <div className="min-h-screen w-full overflow-x-hidden touch-pan-y" style={{ WebkitOverflowScrolling: 'touch' }}>
       <ScrollProgress />
       <Navbar />
       <div className="pt-[var(--nav-h)]">
