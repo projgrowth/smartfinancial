@@ -54,7 +54,16 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
-				}
+				},
+				charcoal: {
+					DEFAULT: '220 26% 14%',
+					dark: '220 39% 11%'
+				},
+				gold: {
+					DEFAULT: '42 69% 68%',
+					light: '42 84% 82%'
+				},
+				primaryGlow: '213 94% 68%'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

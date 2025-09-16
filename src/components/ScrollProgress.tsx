@@ -35,7 +35,7 @@ const ScrollProgress: React.FC<ScrollProgressProps> = ({
     >
       <div className="h-1 bg-background/20 backdrop-blur-sm">
         <div
-          className="h-full bg-gradient-to-r from-primary via-primary-glow to-accent transition-all duration-300 ease-out"
+          className="h-full bg-gradient-to-r from-primary via-primaryGlow to-accent transition-all duration-300 ease-out"
           style={{ width: `${Math.min(progress, 100)}%` }}
         />
       </div>
