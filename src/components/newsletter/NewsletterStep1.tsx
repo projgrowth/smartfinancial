@@ -16,9 +16,9 @@ const NewsletterStep1: React.FC<NewsletterStep1Props> = ({
   setName 
 }) => {
   return (
-    <div className="space-y-6">
+    <div className="space-component-lg">
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1">
+        <label htmlFor="email" className="block text-body-sm font-medium mb-1">
           Email Address
         </label>
         <div className="relative">
@@ -29,14 +29,14 @@ const NewsletterStep1: React.FC<NewsletterStep1Props> = ({
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             required
-            className="w-full px-4 py-2.5 pr-12 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2.5 pr-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
-          <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-blue-400 pointer-events-none" />
+          <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-accent pointer-events-none" />
         </div>
       </div>
       
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1">
+        <label htmlFor="name" className="block text-body-sm font-medium mb-1">
           Your Name (Optional)
         </label>
         <input
@@ -45,7 +45,7 @@ const NewsletterStep1: React.FC<NewsletterStep1Props> = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="First Name"
-          className="w-full px-4 py-2.5 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2.5 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
         />
       </div>
     </div>
