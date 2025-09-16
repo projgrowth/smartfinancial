@@ -64,6 +64,17 @@
     --testimonial-slide-interval: 6000ms;
     --testimonial-pause-duration: 10000ms;
     
+    /* Mobile gesture thresholds */
+    --swipe-threshold: 80px;
+    --swipe-velocity: 0.3;
+    --pull-refresh-threshold: 80px;
+    --pull-refresh-max: 120px;
+    
+    /* Error state timing */
+    --error-retry-delay: 1000ms;
+    --toast-duration: 5000ms;
+    --offline-check-interval: 5000ms;
+    
     /* Parallax intensity */
     --parallax-intensity-subtle: 0.3;
     --parallax-intensity-medium: 0.5;
@@ -399,6 +410,12 @@
     transparent
   );
   background-size: 200% 100%;
+}
+
+/* Testimonial progress animation */
+@keyframes testimonial-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 .word-rotator {
