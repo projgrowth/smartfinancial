@@ -20,7 +20,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
       onOpenChange={setIsOpen}
       className="border border-border rounded-lg overflow-hidden bg-card mb-4 shadow-sm hover:shadow-md transition-all duration-300"
     >
-      <CollapsibleTrigger className="flex w-full items-center justify-between p-5 text-left">
+      <CollapsibleTrigger className="flex w-full items-center justify-between space-component-sm text-left">
         <h3 className="font-medium text-foreground">{question}</h3>
         {isOpen ? (
           <ChevronUp className="h-5 w-5 text-accent flex-shrink-0" />
@@ -28,7 +28,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
           <ChevronDown className="h-5 w-5 text-accent flex-shrink-0" />
         )}
       </CollapsibleTrigger>
-      <CollapsibleContent className="p-5 pt-0 text-muted-foreground border-t border-border/50">
+      <CollapsibleContent className="space-component-sm pt-0 text-muted-foreground border-t border-border/50">
         {answer}
       </CollapsibleContent>
     </Collapsible>
@@ -43,18 +43,18 @@ const FAQSection = () => {
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       <div className="container-site relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center space-component-sm">
             {title}
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-center text-muted-foreground container-narrow mx-auto space-component-lg">
             {description}
           </p>
         </ScrollReveal>
         
-        <div className="max-w-3xl mx-auto">
+        <div className="container-narrow mx-auto">
           {faqItems.map((faq, index) => (
             <ScrollReveal key={faq.id} delay={index * 100}>
               <FAQItem question={faq.question} answer={faq.answer} />

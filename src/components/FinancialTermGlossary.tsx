@@ -79,12 +79,12 @@ export const FinancialTerm: React.FC<FinancialTermGlossaryProps> = ({
       trigger={children}
       title={glossaryTerm.term}
       content={
-        <div className="space-y-2">
+        <div className="space-component-xs">
           <p>{glossaryTerm.definition}</p>
           {glossaryTerm.learnMoreLink && (
             <a 
               href={glossaryTerm.learnMoreLink} 
-              className="block text-blue-600 hover:text-blue-800 text-xs font-medium pt-1"
+              className="block text-primary hover:text-primary/80 text-body-xs font-medium pt-1 underline"
             >
               Learn more about {glossaryTerm.term}
             </a>
@@ -119,19 +119,19 @@ export const GlossaryButton: React.FC<GlossaryButtonProps> = ({
   return (
     <InteractiveTooltip
       trigger={
-        <Button variant="bare" size="none" className="inline-flex items-center text-primary hover:text-primary/80 text-sm">
+        <Button variant="bare" size="none" className="inline-flex items-center text-primary hover:text-primary/80 text-body-sm">
           <HelpCircle className="h-3.5 w-3.5 mr-1" />
           {glossaryTerm.term}
         </Button>
       }
       title={glossaryTerm.term}
       content={
-        <div className="space-y-2">
+        <div className="space-component-xs">
           <p>{glossaryTerm.definition}</p>
           {glossaryTerm.learnMoreLink && (
             <a 
               href={glossaryTerm.learnMoreLink} 
-              className="block text-blue-600 hover:text-blue-800 text-xs font-medium pt-1"
+              className="block text-primary hover:text-primary/80 text-body-xs font-medium pt-1 underline"
             >
               Learn more about {glossaryTerm.term}
             </a>
@@ -147,15 +147,15 @@ export const GlossaryButton: React.FC<GlossaryButtonProps> = ({
 
 export const AllFinancialTerms = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-unified-md">
       {financialTerms.map((term) => (
-        <div key={term.term} className="p-4 border rounded-md bg-white shadow-sm">
-          <h3 className="font-medium text-charcoal mb-2">{term.term}</h3>
-          <p className="text-sm text-charcoal/70">{term.definition}</p>
+        <div key={term.term} className="space-component-sm border rounded-md bg-background shadow-sm">
+          <h3 className="font-medium text-foreground space-component-xs">{term.term}</h3>
+          <p className="text-body-sm text-muted-foreground">{term.definition}</p>
           {term.learnMoreLink && (
             <a 
               href={term.learnMoreLink} 
-              className="text-blue-600 hover:text-blue-800 text-xs font-medium mt-2 inline-block"
+              className="text-primary hover:text-primary/80 text-body-xs font-medium space-component-xs inline-block underline"
             >
               Learn more
             </a>

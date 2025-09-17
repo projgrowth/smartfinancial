@@ -19,8 +19,8 @@ interface AdvisorProps {
 
 const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, specialties }) => {
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300 p-4 md:p-6 h-full flex flex-col">
-      <div className="mb-4 md:mb-6 flex justify-center">
+    <div className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300 space-component-md h-full flex flex-col">
+      <div className="space-component-sm flex justify-center">
         <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-border shadow-sm">
           <img 
             src={imageUrl} 
@@ -35,21 +35,21 @@ const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, spe
           />
         </div>
       </div>
-      <h3 className="heading-xs mb-1 text-center">{name}</h3>
-      <p className="text-primary font-medium mb-3 md:mb-4 text-center text-sm md:text-base">{title}</p>
-      <div className="text-muted-foreground flex-grow space-y-2 md:space-y-3 text-sm md:text-base">
+      <h3 className="heading-xs space-component-xs text-center">{name}</h3>
+      <p className="text-primary font-medium space-component-xs text-center text-body-md">{title}</p>
+      <div className="text-muted-foreground flex-grow space-component-xs text-body-sm">
         {bio.split('\n\n').map((paragraph, index) => (
           <p key={index} className="leading-relaxed">{paragraph}</p>
         ))}
       </div>
-      <div className="mt-4 flex flex-wrap gap-1 md:gap-2 justify-center">
+      <div className="space-component-xs flex flex-wrap gap-unified-xs justify-center">
         {specialties.map((specialty, index) => (
           <span key={index} className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full">
             {specialty}
           </span>
         ))}
       </div>
-      <div className="mt-4 flex justify-center">
+      <div className="space-component-xs flex justify-center">
         <Button variant="ghost" size="sm" className="group" aria-label={`View ${name}'s profile`}
           onClick={() => {
             window.location.hash = `advisor=${slug}`;
@@ -73,18 +73,18 @@ const Advisors = () => {
       
       <div className="container-site relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-center mb-3 md:mb-4 text-foreground">
+          <h2 className="heading-lg text-center space-component-sm text-foreground">
             Our Team
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16 text-base md:text-lg leading-relaxed">
+          <p className="text-center text-muted-foreground container-narrow mx-auto space-component-lg text-body-lg leading-relaxed">
             Meet the experts dedicated to your financial success and long-term prosperity in Lake Nona and Orlando.
           </p>
         </ScrollReveal>
         
-        <div className="grid-auto gap-unified-lg max-w-6xl mx-auto">
+        <div className="grid-auto gap-unified-lg container-wide mx-auto">
           {advisors.map((advisor, index) => (
             <ScrollReveal key={index} delay={index * 150}>
               <Advisor
@@ -99,10 +99,10 @@ const Advisors = () => {
           ))}
         </div>
         
-        <div className="text-center mt-8 md:mt-12">
+        <div className="text-center space-component-lg">
           <Button 
             variant="outline" 
-            className="group text-sm md:text-base"
+            className="group text-body-md"
             onClick={() => smoothScrollTo('team-details')}
           >
             Learn More About Our Team

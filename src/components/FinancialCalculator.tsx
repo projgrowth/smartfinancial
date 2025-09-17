@@ -23,7 +23,7 @@ const FinancialCalculator = () => {
           delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-fast')) || 100}
           duration={600}
         >
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-center text-muted-foreground container-narrow mx-auto space-component-lg">
             Explore our interactive financial calculators to help plan your financial future and visualize the power of strategic investing.
           </p>
         </RevealOnScroll>
@@ -34,39 +34,39 @@ const FinancialCalculator = () => {
           delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-normal')) || 200}
           duration={600}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-unified-lg space-component-lg text-center">
+            <div className="space-component-xs">
               <AnimatedCounter 
                 value={10000000} 
                 prefix="$" 
-                className="text-2xl font-bold text-primary"
+                className="heading-lg text-primary"
                 duration={2500}
                 separator=","
               />
-              <p className="text-sm text-muted-foreground">Average portfolio growth</p>
+              <p className="text-body-sm text-muted-foreground">Average portfolio growth</p>
             </div>
-            <div className="space-y-2">
+            <div className="space-component-xs">
               <AnimatedCounter 
                 value={25} 
                 suffix="%" 
-                className="text-2xl font-bold text-accent"
+                className="heading-lg text-accent"
                 duration={2000}
               />
-              <p className="text-sm text-muted-foreground">Tax savings achieved</p>
+              <p className="text-body-sm text-muted-foreground">Tax savings achieved</p>
             </div>
-            <div className="space-y-2">
+            <div className="space-component-xs">
               <AnimatedCounter 
                 value={500} 
                 suffix="+" 
-                className="text-2xl font-bold text-foreground"
+                className="heading-lg text-foreground"
                 duration={1800}
               />
-              <p className="text-sm text-muted-foreground">Clients served</p>
+              <p className="text-body-sm text-muted-foreground">Clients served</p>
             </div>
           </div>
         </RevealOnScroll>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="container-wide mx-auto">
           <Tabs defaultValue="compound-interest" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="compound-interest">Compound Interest</TabsTrigger>
