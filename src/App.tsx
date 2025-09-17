@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import CookieConsent from "@/components/ui/CookieConsent";
-import Layout from "@/components/Layout";
+import NewLayout from "@/components/NewLayout";
 import HashScroll from "@/components/HashScroll";
 import { AppProvider } from "@/context/AppContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -19,7 +19,7 @@ import { useSafariViewport } from "@/hooks/useSafariViewport";
 import { initializePerformanceOptimizations } from "@/utils/performanceOptimizer";
 
 // Lazy load pages for better performance
-const Index = lazy(() => import("./pages/index"));
+const NewIndex = lazy(() => import("./pages/NewIndex"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Education = lazy(() => import("./pages/Education"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -69,8 +69,8 @@ const App = () => (
             <HashScroll />
             <Suspense fallback={<LoadingIndicator />}>
               <Routes>
-                <Route element={<Layout />}>
-                  <Route path="/" element={<Index />} />
+                <Route element={<NewLayout />}>
+                  <Route path="/" element={<NewIndex />} />
                   <Route path="/education" element={<Education />} />
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/terms" element={<Terms />} />
