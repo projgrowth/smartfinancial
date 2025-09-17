@@ -53,7 +53,7 @@ const Hero = () => {
               className="heading-display-fluid mb-8 text-foreground"
             >
               {headline.prefix} 
-              <span className="word-rotator inline-block relative min-w-[200px]" aria-live="polite">
+              <span className="word-rotator inline-block relative w-52" aria-live="polite">
                 {/* Invisible placeholder for consistent width */}
                 <span 
                   ref={placeholderRef}
@@ -85,7 +85,7 @@ const Hero = () => {
             delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-normal')) || 200}
             duration={600}
           >
-            <p className="text-body-xl text-muted-foreground mb-10 max-w-3xl mx-auto">
+            <p className="text-body-xl text-muted-foreground space-component-md max-w-3xl mx-auto">
               {description}
             </p>
           </RevealOnScroll>
@@ -95,7 +95,7 @@ const Hero = () => {
             delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-slow')) || 400}
             duration={600}
           >
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-site-md justify-center items-center">
               <Button
                 onClick={handleCTAClick}
                 variant="premium"
@@ -115,7 +115,7 @@ const Hero = () => {
               duration={500}
             >
               <div className="mt-16 text-center">
-                <p className="text-sm text-muted-foreground/80 mb-4">
+                <p className="text-body-sm text-muted-foreground/80 space-component-xs">
                   Trusted by ambitious professionals in Central Florida
                 </p>
               </div>
