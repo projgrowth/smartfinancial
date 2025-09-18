@@ -40,10 +40,10 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   };
   
   const positionStyles = {
-    'top-right': '-top-12 -right-12 md:-top-20 md:-right-20',
-    'bottom-left': '-bottom-12 -left-12 md:-bottom-20 md:-left-20',
-    'top-left': '-top-12 -left-12 md:-top-20 md:-left-20',
-    'bottom-right': '-bottom-12 -right-12 md:-bottom-20 md:-right-20',
+    'top-right': '-top-8 -right-8 md:-top-12 md:-right-12 lg:-top-16 lg:-right-16',
+    'bottom-left': '-bottom-8 -left-8 md:-bottom-12 md:-left-12 lg:-bottom-16 lg:-left-16',
+    'top-left': '-top-8 -left-8 md:-top-12 md:-left-12 lg:-top-16 lg:-left-16',
+    'bottom-right': '-bottom-8 -right-8 md:-bottom-12 md:-right-12 lg:-bottom-16 lg:-right-16',
     'center': 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2',
   };
   

@@ -25,7 +25,7 @@ const HeroCTA: React.FC<HeroCTAProps> = ({ ctaText }) => {
       delay={animationDelaySlow}
       duration={600}
     >
-      <div className="flex flex-col sm:flex-row gap-site-md justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-site-md justify-center items-center">
         <Button
           onClick={handleCTAClick}
           variant="premium"
