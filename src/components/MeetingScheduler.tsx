@@ -283,23 +283,23 @@ const MeetingScheduler = () => {
                     
                     {step === 2 && (
                       <div>
-                        <div className="mb-6 p-4 bg-blue-50/50 rounded-md">
-                          <h3 className="heading-md text-charcoal space-component-xs">Your Selected Time</h3>
-                          <div className="flex items-center gap-2 text-charcoal/80 mb-1">
-                            <CalendarIcon className="h-4 w-4" />
+                        <div className="content-group card-padding bg-info-subtle rounded-md">
+                          <h3 className="heading-md text-foreground space-component-xs">Your Selected Time</h3>
+                          <div className="flex items-center card-gap-sm text-content content-item">
+                            <CalendarIcon className="icon-sm" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-charcoal/80 mb-1">
-                            <Clock className="h-4 w-4" />
+                          <div className="flex items-center card-gap-sm text-content content-item">
+                            <Clock className="icon-sm" />
                             <span>{time}</span>
                           </div>
-                          <div className="text-charcoal/80">
+                          <div className="text-content">
                             <span className="font-medium">{MEETING_TYPES.find(t => t.id === meetingType)?.name}</span>
                             <span> ({MEETING_TYPES.find(t => t.id === meetingType)?.duration})</span>
                           </div>
                         </div>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div className="grid-two-col card-gap-md content-item">
                           <div>
                             <label htmlFor="name" className="block text-body-sm font-medium text-foreground space-component-xs">
                               Your Name
@@ -325,13 +325,13 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.email}
                               onChange={handleInputChange}
-                              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                             />
                           </div>
                         </div>
                         
-                        <div className="mb-4">
-                          <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-1">
+                        <div className="content-item">
+                          <label htmlFor="phone" className="block text-body-sm font-medium text-foreground space-component-xs">
                             Phone Number
                           </label>
                           <input
@@ -340,12 +340,12 @@ const MeetingScheduler = () => {
                             name="phone"
                             value={contactInfo.phone}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                           />
                         </div>
                         
-                        <div className="mb-4">
-                          <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-1">
+                        <div className="content-item">
+                          <label htmlFor="message" className="block text-body-sm font-medium text-foreground space-component-xs">
                             What would you like to discuss? (Optional)
                           </label>
                           <textarea
@@ -354,12 +354,12 @@ const MeetingScheduler = () => {
                             rows={3}
                             value={contactInfo.message}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                           />
                         </div>
 
-                        <div className="mt-6">
-                          <label htmlFor="zapierWebhook" className="block text-xs font-medium text-charcoal mb-1">
+                        <div className="content-group">
+                          <label htmlFor="zapierWebhook" className="block text-body-xs font-medium text-foreground space-component-xs">
                             Zapier Webhook URL (optional, site owner)
                           </label>
                           <input
@@ -368,14 +368,14 @@ const MeetingScheduler = () => {
                             placeholder="https://hooks.zapier.com/..."
                             value={webhookUrl}
                             onChange={(e) => setWebhookUrl(e.target.value)}
-                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                           />
-                          <p className="text-[11px] text-charcoal/60 mt-1">If provided, a request is sent to this URL on submit.</p>
+                          <p className="text-body-xs text-muted-foreground content-item">If provided, a request is sent to this URL on submit.</p>
                         </div>
                       </div>
                     )}
                     
-                    <div className="flex justify-between mt-6">
+                    <div className="flex justify-between content-group">
                       {step > 1 && (
                         <Button 
                           type="button" 
@@ -405,28 +405,28 @@ const MeetingScheduler = () => {
                 </TabsContent>
                 
                 <TabsContent value="contact">
-                  <div className="text-center py-6 px-4 max-w-lg mx-auto">
-                    <h3 className="text-lg font-medium text-charcoal mb-6">
+                  <div className="text-center card-padding-lg max-w-lg mx-auto">
+                    <h3 className="heading-md text-foreground content-group">
                       Prefer to reach us directly?
                     </h3>
                     
-                    <div className="space-y-6">
+                    <div className="space-component-lg">
                       <div>
-                        <div className="inline-block p-3 rounded-full bg-blue-100 mb-3">
-                          <Phone className="h-6 w-6 text-blue-600" />
+                        <div className="inline-block card-padding-sm rounded-full bg-info-subtle content-item">
+                          <Phone className="icon-lg text-blue-600" />
                         </div>
                         <h4 className="font-medium">Call Us</h4>
-                        <p className="text-charcoal/80">(706) 627-5729</p>
-                        <p className="text-xs text-charcoal/60 mt-1">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
+                        <p className="text-content">(706) 627-5729</p>
+                        <p className="text-body-xs text-muted-foreground content-item">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
                       </div>
                       
                       <div>
-                        <div className="inline-block p-3 rounded-full bg-blue-100 mb-3">
-                          <Mail className="h-6 w-6 text-blue-600" />
+                        <div className="inline-block card-padding-sm rounded-full bg-info-subtle content-item">
+                          <Mail className="icon-lg text-blue-600" />
                         </div>
                         <h4 className="font-medium">Email Us</h4>
-                        <p className="text-charcoal/80">info@thesmartfinancialplan.com</p>
-                        <p className="text-xs text-charcoal/60 mt-1">We'll respond within 24 business hours</p>
+                        <p className="text-content">info@thesmartfinancialplan.com</p>
+                        <p className="text-body-xs text-muted-foreground content-item">We'll respond within 24 business hours</p>
                       </div>
                     </div>
                   </div>

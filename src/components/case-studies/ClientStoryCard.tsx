@@ -54,9 +54,9 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       icon: <Target className="w-5 h-5" />,
       content: (
         <div className="space-y-4">
-          <p className="text-gray-700 leading-relaxed">{situation}</p>
+          <p className="text-content leading-relaxed">{situation}</p>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
+            <div className="grid-four-col card-gap-md card-padding-sm bg-warning-subtle rounded-lg">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -81,11 +81,11 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       status: 'completed' as const,
       icon: <CheckCircle className="w-5 h-5" />,
       content: (
-        <div className="space-y-3">
+        <div className="space-component-sm">
           {challenges.map((challenge, index) => (
-            <div key={index} className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
-              <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
-              <p className="text-gray-700 text-sm">{challenge}</p>
+            <div key={index} className="flex items-start card-gap-sm card-padding-sm bg-warning-subtle rounded-lg">
+              <div className="status-dot-warning mt-2 flex-shrink-0"></div>
+              <p className="text-content text-body-sm">{challenge}</p>
             </div>
           ))}
         </div>
@@ -106,17 +106,17 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       status: 'completed' as const,
       icon: <TrendingUp className="w-5 h-5" />,
       content: (
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-component-md">
+          <div className="grid-two-col card-gap-md">
             {outcomes.map((outcome, index) => (
-              <div key={index} className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-700 text-sm">{outcome}</p>
+              <div key={index} className="flex items-start card-gap-sm card-padding-sm bg-success-subtle rounded-lg">
+                <div className="status-dot-success mt-2 flex-shrink-0"></div>
+                <p className="text-content text-body-sm">{outcome}</p>
               </div>
             ))}
           </div>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-green-50 rounded-lg">
+            <div className="grid-four-col card-gap-md card-padding-sm bg-success-subtle rounded-lg">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -195,7 +195,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
         <PremiumCardContent className="space-y-6">
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-4">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Client Story Journey</h3>
+              <h3 className="heading-md text-foreground content-item">Client Story Journey</h3>
               {storyChapters.map((chapter, index) => (
                 <StoryChapter
                   key={chapter.id}
@@ -209,7 +209,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
             
             <div className="space-y-6">
               <div className="sticky top-6">
-                <h4 className="font-medium text-gray-900 mb-4">Key Insights</h4>
+                <h4 className="font-medium text-foreground content-item">Key Insights</h4>
                 <FloatingInsights insights={insights} />
                 
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">

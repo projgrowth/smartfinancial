@@ -500,6 +500,40 @@
   @apply flex-grow;
 }
 
+/* ========== STATUS & STATE UTILITIES ========== */
+
+/* Status colors for components */
+.status-success { @apply text-green-600 bg-green-50; }
+.status-warning { @apply text-orange-600 bg-orange-50; }
+.status-info { @apply text-blue-600 bg-blue-50; }
+.status-neutral { @apply text-muted-foreground bg-muted; }
+
+/* Background variations using semantic colors */
+.bg-success-subtle { @apply bg-green-50; }
+.bg-warning-subtle { @apply bg-orange-50; }
+.bg-info-subtle { @apply bg-blue-50; }
+.bg-accent-subtle { @apply bg-accent/5; }
+
+/* Status dots */
+.status-dot-success { @apply w-2 h-2 bg-green-500 rounded-full; }
+.status-dot-warning { @apply w-2 h-2 bg-orange-500 rounded-full; }
+.status-dot-info { @apply w-2 h-2 bg-blue-500 rounded-full; }
+
+/* Chapter and story components */
+.chapter-card { @apply p-4 rounded-lg border border-border transition-all duration-300 bg-card; }
+.chapter-card-active { @apply bg-accent/10 border-accent shadow-design-sm; }
+.chapter-card:hover { @apply border-accent/50 shadow-design-xs; }
+
+/* Metric display */
+.metric-value-sm { @apply text-lg font-bold; }
+.metric-value-md { @apply text-2xl font-bold; }
+.metric-value-lg { @apply text-3xl font-bold; }
+.metric-label { @apply text-sm text-muted-foreground; }
+
+/* Text colors for different contexts */
+.text-content { @apply text-muted-foreground; }
+.text-content-strong { @apply text-foreground; }
+
 /* ========== INTERACTION & ACCESSIBILITY SYSTEM ========== */
 .scroll-smooth-enhanced {
   scroll-behavior: smooth;
