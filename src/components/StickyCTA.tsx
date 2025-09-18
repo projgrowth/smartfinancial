@@ -30,8 +30,8 @@ const StickyCTA: React.FC = () => {
         <div className="rounded-xl border border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-elegant">
           <div className="flex items-center justify-between gap-site-md p-3">
             <div className="min-w-0">
-              <p className="text-sm font-medium text-foreground truncate">Ready to talk?</p>
-              <p className="text-xs text-foreground/70 truncate">Book a free 30 min consultation</p>
+              <p className="text-body-sm font-medium text-foreground truncate">Ready to talk?</p>
+              <p className="text-body-xs text-foreground/70 truncate">Book a free 30 min consultation</p>
             </div>
             <a href="#schedule" className="shrink-0" aria-label="Schedule a free consultation">
               <Button size="sm" className="gap-2">

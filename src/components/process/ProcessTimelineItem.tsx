@@ -40,16 +40,16 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           : 'bg-charcoal/30 border-white/15 hover:bg-charcoal/40'
         } border p-6 rounded-lg transition-all duration-300`
       }>
-        <div className="flex items-center mb-5">
+        <div className="flex items-center space-component-md">
           <span className={`${
-            isActive ? 'text-blue-300 scale-110' : 'text-blue-300'
-          } text-3xl font-heading font-medium mr-3 transition-all duration-300`}>
+            isActive ? 'text-accent scale-110' : 'text-accent'
+          } heading-lg font-heading font-medium transition-all duration-300`}>
             {step.number}
           </span>
-          <h3 className="text-xl font-heading font-medium text-white">{step.title}</h3>
+          <h3 className="heading-sm font-heading font-medium text-primary-foreground">{step.title}</h3>
         </div>
         
-        <p className="text-white/95 mb-6 leading-relaxed">{step.description}</p>
+        <p className="text-primary-foreground/95 space-component-lg leading-relaxed">{step.description}</p>
         
         <Collapsible 
           open={isActive} 

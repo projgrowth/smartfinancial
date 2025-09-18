@@ -157,7 +157,7 @@ const MeetingScheduler = () => {
   };
 
   return (
-    <section id="schedule" className="section relative overflow-hidden bg-blue-50/20">
+    <section id="schedule" className="section relative overflow-hidden bg-accent/20">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       <div className="container-site relative z-10">
         <ScrollReveal>
@@ -173,7 +173,7 @@ const MeetingScheduler = () => {
         </ScrollReveal>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+          <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
             <CardContent className="pt-6">
               <Tabs defaultValue="schedule" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8">
@@ -186,8 +186,8 @@ const MeetingScheduler = () => {
                     {step === 1 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h3 className="heading-md text-charcoal space-component-sm">Select a Date</h3>
-                          <div className="border border-blue-100 rounded-md p-1 bg-white">
+                          <h3 className="heading-md text-foreground space-component-sm">Select a Date</h3>
+                          <div className="border border-border rounded-md p-1 bg-background">
                             <Calendar
                               mode="single"
                               selected={date}
@@ -203,7 +203,7 @@ const MeetingScheduler = () => {
                         
                         <div>
                           <div className="mb-6">
-                            <h3 className="heading-md text-charcoal space-component-sm">Select Meeting Type</h3>
+                            <h3 className="heading-md text-foreground space-component-sm">Select Meeting Type</h3>
                             <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
@@ -216,7 +216,7 @@ const MeetingScheduler = () => {
                                   className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 ${
                                     meetingType === type.id
                                       ? 'border-blue-500 bg-blue-50'
-                                      : 'border-gray-200 hover:border-blue-200'
+                                      : 'border-border hover:border-accent'
                                   }`}
                                   onClick={() => setMeetingType(type.id)}
                                   onKeyDown={(e) => {
@@ -229,16 +229,16 @@ const MeetingScheduler = () => {
                                   <div className="flex justify-between items-center">
                                     <div>
                                       <h4 className="font-medium">{type.name}</h4>
-                                      <p className="text-xs text-charcoal/70">Duration: {type.duration}</p>
+                                      <p className="text-body-xs text-muted-foreground">Duration: {type.duration}</p>
                                     </div>
-                                    <div className={`h-4 w-4 rounded-full border ${
+                                    <div className={`icon-sm rounded-full border ${
                                       meetingType === type.id
-                                        ? 'bg-blue-500 border-blue-500'
-                                        : 'border-gray-300'
+                                        ? 'bg-primary border-primary'
+                                        : 'border-muted'
                                     }`}>
                                       {meetingType === type.id && (
                                         <div className="h-full w-full flex items-center justify-center">
-                                          <div className="h-2 w-2 rounded-full bg-white"></div>
+                                          <div className="h-2 w-2 rounded-full bg-primary-foreground"></div>
                                         </div>
                                       )}
                                     </div>
@@ -250,7 +250,7 @@ const MeetingScheduler = () => {
                           
                           {date && (
                             <div>
-                              <h3 className="text-lg font-medium text-charcoal mb-4">
+                              <h3 className="heading-sm text-foreground space-component-sm">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
                               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
@@ -263,7 +263,7 @@ const MeetingScheduler = () => {
                                     className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 ${
                                       time === t
                                         ? 'border-blue-500 bg-blue-50 text-blue-700'
-                                        : 'border-gray-200 hover:border-blue-200'
+                                        : 'border-border hover:border-accent'
                                     }`}
                                     onClick={() => setTime(t)}
                                     onKeyDown={(e) => {
@@ -303,7 +303,7 @@ const MeetingScheduler = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                           <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1">
+                            <label htmlFor="name" className="block text-body-sm font-medium text-foreground space-component-xs">
                               Your Name
                             </label>
                             <input
@@ -313,11 +313,11 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.name}
                               onChange={handleInputChange}
-                              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground"
                             />
                           </div>
                           <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1">
+                            <label htmlFor="email" className="block text-body-sm font-medium text-foreground space-component-xs">
                               Email Address
                             </label>
                             <input

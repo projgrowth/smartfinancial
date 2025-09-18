@@ -34,7 +34,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
           <AnimatedGradientText variant="shimmer" className="font-semibold text-foreground">
             {author}
           </AnimatedGradientText>
-          <p className="text-sm text-muted-foreground/80 mt-1">{position}</p>
+          <p className="text-body-sm text-muted-foreground/80 space-component-xs">{position}</p>
         </div>
       </EnhancedCardContent>
     </EnhancedCard>

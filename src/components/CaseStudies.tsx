@@ -390,20 +390,20 @@ const CaseStudies = () => {
           ))}
         </div>
         
-        <div className="text-center mt-16">
-          <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow-sm border border-blue-100">
-            <h3 className="text-xl font-medium text-charcoal mb-4">
+        <div className="text-center space-component-xl">
+          <div className="max-w-2xl mx-auto space-component-lg bg-background rounded-xl shadow-sm border border-border">
+            <h3 className="heading-sm text-foreground space-component-sm">
               Your Story Starts Here
             </h3>
-            <p className="text-charcoal/70 mb-6">
+            <p className="text-muted-foreground space-component-lg">
               Every success story begins with a conversation. Let's discuss your financial goals and see how our proven strategies can be tailored to your unique situation.
             </p>
             <button
               onClick={() => navigateToSection('contact')}
-              className="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
+              className="inline-flex items-center bg-primary text-primary-foreground touch-target rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
               Schedule Your Strategy Session
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <ArrowRight className="icon-sm" />
             </button>
           </div>
         </div>

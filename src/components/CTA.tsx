@@ -23,23 +23,23 @@ const CTA = () => {
       
       <div className="container-site relative z-10">
         <RevealOnScroll direction="scale" duration={800}>
-          <div className="container-narrow mx-auto text-center backdrop-blur-sm space-component-xl rounded-2xl border border-white/10 shadow-premium bg-white/5">
-            <AnimatedGradientText variant="shimmer" className="block heading-lg space-component-md text-white">
+          <div className="container-narrow mx-auto text-center backdrop-blur-sm space-component-xl rounded-2xl border border-primary-foreground/10 shadow-premium bg-primary-foreground/5">
+            <AnimatedGradientText variant="shimmer" className="block heading-lg space-component-md text-primary-foreground">
               {title}
             </AnimatedGradientText>
-            <p className="text-body-lg text-white/80 space-component-lg container-narrow mx-auto">
+            <p className="text-body-lg text-primary-foreground/80 space-component-lg container-narrow mx-auto">
               {description}
             </p>
             <Button 
               variant="premium" 
               size="lg"
               asChild
-              className="group relative overflow-hidden bg-white text-primary hover:bg-white/95 shadow-elegant hover:shadow-premium transition-all duration-300"
+              className="group relative overflow-hidden bg-background text-foreground hover:bg-background/95 shadow-elegant hover:shadow-premium transition-all duration-300"
             >
               <a href={cta?.href}>
                 <span className="relative z-10 flex items-center">
                   {cta?.text}
-                  <ArrowRight className="ml-2 icon-md group-hover:translate-x-1 transition-transform duration-normal" />
+                  <ArrowRight className="icon-md group-hover:translate-x-1 transition-transform duration-normal" />
                 </span>
               </a>
             </Button>
