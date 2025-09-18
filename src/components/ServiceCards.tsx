@@ -4,7 +4,8 @@ import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import AnimatedSectionTransition from './AnimatedSectionTransition';
 import { EnhancedCard, EnhancedCardHeader, EnhancedCardTitle, EnhancedCardContent, EnhancedCardFooter } from './ui/enhanced-card';
-import { SpringScale, RevealOnScroll, useStaggeredChildren } from './ui/enhanced-animations';
+import { SpringScale, RevealOnScroll } from './ui/enhanced-animations';
+import { useStaggerDelays } from '../hooks/useStaggerDelays';
 import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -25,7 +26,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
           className="card-equal-height group h-full"
         >
           <EnhancedCardHeader>
-            <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-accent">
+            <div className="mb-6 text-primary transition-all duration-normal group-hover:scale-110 group-hover:text-accent">
               {icon}
             </div>
             <EnhancedCardTitle className="heading-sm mb-4">
@@ -40,9 +41,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
           </EnhancedCardContent>
           
           <EnhancedCardFooter>
-            <div className="flex items-center text-primary font-medium touch-target group-hover:text-accent transition-colors duration-300">
+            <div className="flex items-center text-primary font-medium touch-target group-hover:text-accent transition-colors duration-normal">
               <span className="mr-2">Learn more</span>
-              <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ChevronRight className="icon-sm transition-transform duration-normal group-hover:translate-x-1" />
             </div>
           </EnhancedCardFooter>
         </EnhancedCard>
@@ -56,26 +57,26 @@ const ServiceCards = () => {
     {
       title: "Retirement Design",
       description: "Architect your ideal retirement, optimized for tax efficiency and lifetime wealth preservation.",
-      icon: <FileSearch size={28} strokeWidth={1.5} />
+      icon: <FileSearch className="icon-xl" strokeWidth={1.5} />
     },
     {
       title: "Tax Strategy",
       description: "Maximize your earnings with proactive, tailored tax strategies reserved for elite earners.",
-      icon: <CreditCard size={28} strokeWidth={1.5} />
+      icon: <CreditCard className="icon-xl" strokeWidth={1.5} />
     },
     {
       title: "Investment Management",
       description: "Custom investment solutions calibrated to your ambitions, risk tolerance, and growth targets.",
-      icon: <BarChart4 size={28} strokeWidth={1.5} />
+      icon: <BarChart4 className="icon-xl" strokeWidth={1.5} />
     },
     {
       title: "Wealth Protection",
       description: "Specialized coverage ensuring comprehensive protection for all your assets.",
-      icon: <Shield size={28} strokeWidth={1.5} />
+      icon: <Shield className="icon-xl" strokeWidth={1.5} />
     }
   ];
 
-  const staggeredAnimations = useStaggeredChildren(services.length, 150);
+  const staggerDelays = useStaggerDelays(services.length, 'slow');
 
   return (
     <>
@@ -100,7 +101,7 @@ const ServiceCards = () => {
                 key={index} 
                 title={service.title} 
                 description={service.description} 
-                delay={staggeredAnimations[index]?.transitionDelay ? parseInt(staggeredAnimations[index].transitionDelay) : index * 150} 
+                delay={staggerDelays[index]?.delay || 0} 
                 icon={service.icon}
               />
             ))}

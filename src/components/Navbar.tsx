@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import useNavigateSection from '@/hooks/useNavigateSection';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useStaggerDelays } from '@/hooks/useStaggerDelays';
 
 interface NavItem {
   name: string;
@@ -151,6 +152,8 @@ const Navbar = () => {
     ...mainNavItems,
     { name: 'Education', id: 'education', isLink: true, path: '/education' }
   ];
+  
+  const staggerDelays = useStaggerDelays(navItems.length, 'fast');
 
   return (
     <nav 
@@ -244,7 +247,7 @@ const Navbar = () => {
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
-              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight className="ml-2 icon-sm transition-transform duration-normal group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>
@@ -260,7 +263,7 @@ const Navbar = () => {
           variant="ghost"
           size="icon"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X className="icon-lg" /> : <Menu className="icon-lg" />}
         </Button>
       </div>
 
@@ -290,17 +293,17 @@ const Navbar = () => {
                     : "hover:bg-muted/50"
                 )}
                 style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  animationDelay: `${index * 50}ms`
+                  transitionDelay: staggerDelays[index]?.transitionDelay || '0ms',
+                  animationDelay: staggerDelays[index]?.animationDelay || '0ms'
                 }}
                 onClick={() => setIsOpen(false)}
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 <span className="inline-flex items-center gap-2">
-                  {item.name === 'Education' && <BookOpen className="w-4 h-4" />}
+                  {item.name === 'Education' && <BookOpen className="icon-sm" />}
                   {item.name}
                 </span>
-                <ChevronRight className="ml-auto w-4 h-4" />
+                <ChevronRight className="ml-auto icon-sm" />
               </Link>
             ) : (
               <a 
@@ -317,14 +320,14 @@ const Navbar = () => {
                     : 'hover:bg-muted/50'
                 )}
                 style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  animationDelay: `${index * 50}ms`
+                  transitionDelay: staggerDelays[index]?.transitionDelay || '0ms',
+                  animationDelay: staggerDelays[index]?.animationDelay || '0ms'
                 }}
                 aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
               >
                 <span className="inline-flex items-center">
                   {item.name}
-                  <ChevronRight className="ml-auto w-4 h-4" />
+                  <ChevronRight className="ml-auto icon-sm" />
                 </span>
               </a>
             )
@@ -336,7 +339,7 @@ const Navbar = () => {
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
-              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight className="ml-2 icon-sm transition-transform duration-normal group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>

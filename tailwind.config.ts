@@ -68,7 +68,33 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				xs: 'var(--radius-xs)',
+				xl: 'var(--radius-xl)',
+				full: 'var(--radius-full)'
+			},
+			spacing: {
+				'icon-xs': 'var(--icon-xs)',
+				'icon-sm': 'var(--icon-sm)',
+				'icon-md': 'var(--icon-md)',
+				'icon-lg': 'var(--icon-lg)',
+				'icon-xl': 'var(--icon-xl)',
+				'icon-xxl': 'var(--icon-xxl)'
+			},
+			transitionDuration: {
+				'fast': 'var(--transition-fast)',
+				'normal': 'var(--transition-normal)',
+				'slow': 'var(--transition-slow)'
+			},
+			boxShadow: {
+				xs: 'var(--shadow-xs)',
+				sm: 'var(--shadow-sm)',
+				md: 'var(--shadow-md)',
+				lg: 'var(--shadow-lg)',
+				xl: 'var(--shadow-xl)',
+				elegant: 'var(--shadow-elegant)',
+				glow: 'var(--shadow-glow)',
+				premium: 'var(--shadow-premium)'
 			},
 			fontFamily: {
 				inter: ['Inter', 'sans-serif'],
