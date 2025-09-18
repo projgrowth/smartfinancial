@@ -32,18 +32,18 @@ const IntroSection = () => {
       )}
       
       <div className="container-site relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-site-lg">
+        <div className="container-narrow mx-auto text-center space-site-lg">
           <ScrollReveal distance="3rem">
-            <h2 className="heading-lg mb-4">
+            <h2 className="heading-lg space-component-sm">
               {title}
             </h2>
-            <p className="heading-sm text-accent font-normal mb-6">
+            <p className="heading-sm text-accent font-normal space-component-md">
               {subtitle}
             </p>
           </ScrollReveal>
           
           <ScrollReveal delay={150} distance="2rem">
-            <p className="text-body-lg mx-auto mb-6">
+            <p className="text-body-lg mx-auto space-component-md">
               {description}
             </p>
           </ScrollReveal>
@@ -57,7 +57,7 @@ const IntroSection = () => {
                   onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <span className="mr-2">{cta?.text}</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="icon-sm transition-transform duration-normal group-hover:translate-x-1" />
                 </Button>
               </MicroAnimations.ScaleOnHover>
             </MicroAnimations.FloatingElement>

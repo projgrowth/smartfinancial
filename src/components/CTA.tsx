@@ -23,11 +23,11 @@ const CTA = () => {
       
       <div className="container-site relative z-10">
         <RevealOnScroll direction="scale" duration={800}>
-          <div className="max-w-4xl mx-auto text-center backdrop-blur-sm py-12 px-6 sm:px-10 rounded-2xl border border-white/10 shadow-2xl bg-white/5">
-            <AnimatedGradientText variant="shimmer" className="block heading-lg mb-6 text-white">
+          <div className="container-narrow mx-auto text-center backdrop-blur-sm space-component-xl rounded-2xl border border-white/10 shadow-2xl bg-white/5">
+            <AnimatedGradientText variant="shimmer" className="block heading-lg space-component-md text-white">
               {title}
             </AnimatedGradientText>
-            <p className="text-body-lg text-white/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-body-lg text-white/80 space-component-lg container-narrow mx-auto">
               {description}
             </p>
             <Button 
@@ -39,7 +39,7 @@ const CTA = () => {
               <a href={cta?.href}>
                 <span className="relative z-10 flex items-center">
                   {cta?.text}
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 icon-md group-hover:translate-x-1 transition-transform duration-normal" />
                 </span>
               </a>
             </Button>

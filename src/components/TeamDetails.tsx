@@ -37,22 +37,22 @@ const TeamDetails = () => {
       
       <div className="container-site relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-center mb-3 md:mb-4 text-foreground">
+          <h2 className="heading-lg text-center space-component-sm text-foreground">
             Meet Our Expert Team
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 text-base md:text-lg leading-relaxed">
+          <p className="text-center text-muted-foreground container-narrow mx-auto space-component-lg text-body-lg leading-relaxed">
             Our Orlando and Lake Nona advisors bring decades of combined experience and specialized expertise to help you achieve your financial goals.
           </p>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 max-w-6xl mx-auto">
-          <div className="col-span-1 mb-8 lg:mb-0">
-            <div className="space-y-3 md:space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 container-wide mx-auto">
+          <div className="col-span-1 space-component-lg lg:mb-0">
+            <div className="space-component-sm">
               {advisors.map((advisor, index) => (
-                <Button asChild key={index} variant="subtle" size="none" className={`p-3 md:p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-3 md:gap-4 ${
+                <Button asChild key={index} variant="subtle" size="none" className={`space-component-sm w-full text-left rounded-lg cursor-pointer transition-all duration-normal flex items-center gap-site-md ${
                     activeAdvisor === index 
                       ? 'bg-accent/10 border border-accent/20 shadow-sm' 
                       : 'hover:bg-muted'
@@ -65,7 +65,7 @@ const TeamDetails = () => {
                       window.location.hash = `advisor=${advisors[index].slug}`;
                     }}
                   >
-                    <Avatar className="h-12 w-12 md:h-14 md:w-14 border-2 border-border flex-shrink-0">
+                    <Avatar className="icon-xxl border-2 border-border flex-shrink-0">
                       <AvatarImage 
                         src={advisor.imageUrl} 
                         alt={generateTeamAltText(advisor.name, advisor.title)}
@@ -79,8 +79,8 @@ const TeamDetails = () => {
                       <AvatarFallback>{advisor.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="min-w-0 flex-1">
-                      <h3 className="font-medium text-foreground text-sm md:text-base truncate">{advisor.name}</h3>
-                      <p className="text-xs md:text-sm text-primary leading-tight">{advisor.title}</p>
+                      <h3 className="font-medium text-foreground text-body truncate">{advisor.name}</h3>
+                      <p className="text-body-sm text-primary leading-tight">{advisor.title}</p>
                     </div>
                   </button>
                 </Button>
@@ -89,10 +89,10 @@ const TeamDetails = () => {
           </div>
           
           <div className="col-span-2">
-            <div className="bg-card rounded-xl shadow-sm border border-border p-4 md:p-6 lg:p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 md:mb-8">
+            <div className="bg-card rounded-xl shadow-sm border border-border space-component-lg">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-site-md space-component-md">
                 <div className="lg:col-span-1 flex flex-col items-center">
-                  <div className="relative w-32 h-32 md:w-40 lg:w-48 md:h-40 lg:h-48 mb-4 overflow-hidden rounded-full border-4 border-accent/20 shadow-sm">
+                  <div className="relative w-32 h-32 lg:w-48 lg:h-48 space-component-sm overflow-hidden rounded-full border-4 border-accent/20 shadow-sm">
                     <img 
                       src={advisors[activeAdvisor].imageUrl} 
                       alt={generateTeamAltText(advisors[activeAdvisor].name, advisors[activeAdvisor].title)}
@@ -105,7 +105,7 @@ const TeamDetails = () => {
                       style={{ objectPosition: getHeadshotPosition(advisors[activeAdvisor].imageUrl) }}
                     />
                   </div>
-                  <h3 className="text-lg md:text-xl font-medium text-foreground text-center">
+                  <h3 className="heading-md font-medium text-foreground text-center">
                     {advisors[activeAdvisor].name}
                   </h3>
                   <p className="text-primary font-medium text-center text-sm md:text-base">

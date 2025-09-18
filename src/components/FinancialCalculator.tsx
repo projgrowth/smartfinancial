@@ -13,7 +13,7 @@ const FinancialCalculator = () => {
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
       <div className="container-site relative z-10">
         <RevealOnScroll direction="fade" duration={800}>
-          <h2 className="heading-lg text-foreground text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center space-component-sm">
             Financial Calculators
           </h2>
         </RevealOnScroll>
@@ -68,7 +68,7 @@ const FinancialCalculator = () => {
         
         <div className="container-wide mx-auto">
           <Tabs defaultValue="compound-interest" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
+            <TabsList className="grid w-full grid-cols-2 space-component-lg">
               <TabsTrigger value="compound-interest">Compound Interest</TabsTrigger>
               <TabsTrigger value="retirement">Retirement Calculator</TabsTrigger>
             </TabsList>

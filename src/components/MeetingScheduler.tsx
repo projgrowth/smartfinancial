@@ -186,7 +186,7 @@ const MeetingScheduler = () => {
                     {step === 1 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h3 className="text-lg font-medium text-charcoal mb-4">Select a Date</h3>
+                          <h3 className="heading-md text-charcoal space-component-sm">Select a Date</h3>
                           <div className="border border-blue-100 rounded-md p-1 bg-white">
                             <Calendar
                               mode="single"
@@ -203,7 +203,7 @@ const MeetingScheduler = () => {
                         
                         <div>
                           <div className="mb-6">
-                            <h3 className="text-lg font-medium text-charcoal mb-4">Select Meeting Type</h3>
+                            <h3 className="heading-md text-charcoal space-component-sm">Select Meeting Type</h3>
                             <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
@@ -286,7 +286,7 @@ const MeetingScheduler = () => {
                     {step === 2 && (
                       <div>
                         <div className="mb-6 p-4 bg-blue-50/50 rounded-md">
-                          <h3 className="text-lg font-medium text-charcoal mb-2">Your Selected Time</h3>
+                          <h3 className="heading-md text-charcoal space-component-xs">Your Selected Time</h3>
                           <div className="flex items-center gap-2 text-charcoal/80 mb-1">
                             <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>

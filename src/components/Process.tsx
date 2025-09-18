@@ -31,13 +31,13 @@ const Process = () => {
         
         <div className="container-site relative z-10">
           <ScrollReveal>
-            <h2 id="process-heading" className="heading-lg text-center mb-6 text-white">
+            <h2 id="process-heading" className="heading-lg text-center space-component-md text-white">
               <span className="inline-block relative">
                 Our Process
                 <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></span>
               </span>
             </h2>
-            <p className="text-center text-white/95 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-center text-white/95 container-narrow mx-auto space-component-lg leading-relaxed">
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
@@ -49,19 +49,19 @@ const Process = () => {
             className="w-full mb-10"
           >
             <TabsList 
-              className="w-full max-w-md mx-auto mb-10 bg-charcoal/60 border border-white/15 shadow-md rounded-full overflow-hidden" 
+              className="w-full container-narrow mx-auto space-component-lg bg-charcoal/60 border border-white/15 shadow-md rounded-full overflow-hidden" 
               aria-label="Process view options"
             >
               <TabsTrigger 
                 value="cards" 
-                className="flex-1 data-[state=active]:bg-blue-600/50 data-[state=active]:text-white text-white/80 font-medium py-2.5 rounded-full transition-all duration-300" 
+                className="flex-1 data-[state=active]:bg-blue-600/50 data-[state=active]:text-white text-white/80 font-medium py-2.5 rounded-full transition-all duration-normal" 
                 onClick={() => setActiveView("cards")}
               >
                 Visual Overview
               </TabsTrigger>
               <TabsTrigger 
                 value="timeline" 
-                className="flex-1 data-[state=active]:bg-blue-600/50 data-[state=active]:text-white text-white/80 font-medium py-2.5 rounded-full transition-all duration-300" 
+                className="flex-1 data-[state=active]:bg-blue-600/50 data-[state=active]:text-white text-white/80 font-medium py-2.5 rounded-full transition-all duration-normal" 
                 onClick={() => setActiveView("timeline")}
               >
                 Timeline View
@@ -71,7 +71,7 @@ const Process = () => {
             <div className="relative">
               <TabsContent 
                 value="cards" 
-                className="mt-0 transition-all duration-500 animate-fade-in"
+                className="mt-0 transition-all duration-slow animate-fade-in"
               >
                 <ProcessCards 
                   steps={steps} 
@@ -82,7 +82,7 @@ const Process = () => {
               
               <TabsContent 
                 value="timeline" 
-                className="mt-0 transition-all duration-500 animate-fade-in"
+                className="mt-0 transition-all duration-slow animate-fade-in"
               >
                 <ProcessTimeline 
                   steps={steps} 
@@ -95,7 +95,7 @@ const Process = () => {
         </div>
         
         {/* Add the section transition at the bottom with enhanced interaction */}
-        <div className="relative z-10 mt-8 md:mt-10">
+        <div className="relative z-10 space-component-md">
           <AnimatedSectionTransition 
             style="curved" 
             colorScheme="dark-to-light" 

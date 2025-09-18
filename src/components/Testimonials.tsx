@@ -29,7 +29,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
         <div className="mb-6 text-primary/80">
           <Quote size={32} />
         </div>
-        <p className="text-muted-foreground mb-6 text-lg leading-relaxed">{quote}</p>
+        <p className="text-muted-foreground space-component-md text-body-lg leading-relaxed">{quote}</p>
         <div>
           <AnimatedGradientText variant="shimmer" className="font-semibold text-foreground">
             {author}

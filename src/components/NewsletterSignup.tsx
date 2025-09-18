@@ -102,7 +102,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               </div>
             )}
             <div>
-              <h3 className={`font-heading ${compact ? 'text-base' : 'text-lg'} font-medium text-foreground`}>
+              <h3 className={`font-heading ${compact ? 'text-body' : 'text-body-lg'} font-medium text-foreground`}>
                 {title}
               </h3>
               <p className={`${compact ? 'text-xs' : 'text-sm'} text-muted-foreground`}>
