@@ -3,12 +3,14 @@ import { cn } from "@/lib/utils"
 
 // Staggered entrance animation hook
 const useStaggeredChildren = (itemCount: number, baseDelay = 100) => {
+  const animationDelayFast = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-fast')) || 100;
+  
   return React.useMemo(() => 
     Array.from({ length: itemCount }).map((_, i) => ({
-      animationDelay: `${i * baseDelay}ms`,
-      transitionDelay: `${i * baseDelay}ms`
+      animationDelay: `${i * animationDelayFast}ms`,
+      transitionDelay: `${i * animationDelayFast}ms`
     }))
-  , [itemCount, baseDelay])
+  , [itemCount, animationDelayFast])
 }
 
 // Enhanced hover scale with spring physics
@@ -22,7 +24,7 @@ const SpringScale = React.forwardRef<HTMLDivElement, SpringScaleProps>(
     <div
       ref={ref}
       className={cn(
-        "transition-transform duration-200 ease-out active:scale-95 hover:scale-105 transform-gpu",
+        "transition-transform transition-fast ease-out active:scale-95 hover:scale-105 transform-gpu",
         className
       )}
       style={{
@@ -70,7 +72,7 @@ const Magnetic = React.forwardRef<HTMLDivElement, MagneticProps>(
     return (
       <div
         ref={magneticRef}
-        className={cn("transition-transform duration-300 ease-out transform-gpu", className)}
+        className={cn("transition-transform transition-normal ease-out transform-gpu", className)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         {...props}

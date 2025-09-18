@@ -12,7 +12,11 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   
   // Centralized design system values
-  const { wordRotationInterval, wordTransitionDuration } = useDesignSystemValues();
+  const { 
+    wordRotationInterval, 
+    wordTransitionDuration, 
+    animationDelayFast 
+  } = useDesignSystemValues();
 
   // Memoize the longest word calculation for performance
   const longestWord = useMemo(() => 
@@ -27,7 +31,7 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
       setIsAnimating(false);
-    }, 150);
+    }, animationDelayFast);
   }, [words.length]);
 
   // Optimized word rotation with cleanup
@@ -40,7 +44,7 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
   }, [handleWordChange, wordRotationInterval, words.length]);
 
   return (
-    <RevealOnScroll direction="fade" duration={800}>
+    <RevealOnScroll direction="fade" duration={600}>
       <h1 
         id="hero-heading"
         className="heading-display-fluid text-foreground"
