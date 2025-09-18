@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { performanceManager } from '../utils/performanceOptimization';
 
 interface ViewportAnimationOptions {
   threshold?: number;
@@ -8,17 +9,58 @@ interface ViewportAnimationOptions {
   respectsMotionPreference?: boolean;
 }
 
-interface AnimationManager {
-  observers: Map<Element, IntersectionObserver>;
-  rafId: number | null;
-  animationQueue: (() => void)[];
+// Optimized animation manager with performance improvements
+class OptimizedAnimationManager {
+  private static instance: OptimizedAnimationManager;
+  private observers = new Map<Element, IntersectionObserver>();
+  private animationQueue: (() => void)[] = [];
+  private rafId: number | null = null;
+
+  static getInstance() {
+    if (!OptimizedAnimationManager.instance) {
+      OptimizedAnimationManager.instance = new OptimizedAnimationManager();
+    }
+    return OptimizedAnimationManager.instance;
+  }
+
+  queueAnimation(callback: () => void) {
+    performanceManager.queueAnimation(callback);
+  }
+
+  observeElement(element: Element, observer: IntersectionObserver) {
+    // Clean up existing observer
+    const existingObserver = this.observers.get(element);
+    if (existingObserver) {
+      existingObserver.unobserve(element);
+    }
+    
+    this.observers.set(element, observer);
+    observer.observe(element);
+  }
+
+  unobserveElement(element: Element) {
+    const observer = this.observers.get(element);
+    if (observer) {
+      observer.unobserve(element);
+      this.observers.delete(element);
+    }
+  }
+
+  cleanup() {
+    this.observers.forEach((observer, element) => {
+      observer.unobserve(element);
+    });
+    this.observers.clear();
+    
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+    this.animationQueue.length = 0;
+  }
 }
 
-const animationManager: AnimationManager = {
-  observers: new Map(),
-  rafId: null,
-  animationQueue: []
-};
+const animationManager = OptimizedAnimationManager.getInstance();
 
 export function useViewportAnimations({
   threshold = 0.1,
@@ -32,8 +74,7 @@ export function useViewportAnimations({
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
   const prefersReducedMotion = respectsMotionPreference && 
-    typeof window !== 'undefined' && 
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    performanceManager.prefersReducedMotion();
 
   const scheduleAnimation = useCallback((callback: () => void) => {
     if (prefersReducedMotion) {
@@ -41,38 +82,12 @@ export function useViewportAnimations({
       return;
     }
 
-    animationManager.animationQueue.push(callback);
-    
-    if (!animationManager.rafId) {
-      animationManager.rafId = requestAnimationFrame(() => {
-        const batch = animationManager.animationQueue.splice(0, 3); // Process 3 at a time
-        batch.forEach(cb => cb());
-        animationManager.rafId = null;
-        
-        if (animationManager.animationQueue.length > 0) {
-          setTimeout(() => {
-            if (animationManager.animationQueue.length > 0) {
-              animationManager.rafId = requestAnimationFrame(() => {
-                const nextBatch = animationManager.animationQueue.splice(0, 3);
-                nextBatch.forEach(cb => cb());
-                animationManager.rafId = null;
-              });
-            }
-          }, 16); // ~60fps
-        }
-      });
-    }
+    animationManager.queueAnimation(callback);
   }, [prefersReducedMotion]);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
-
-    // Reuse existing observer if possible
-    const existingObserver = animationManager.observers.get(element);
-    if (existingObserver) {
-      return;
-    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,8 +99,7 @@ export function useViewportAnimations({
               setHasBeenVisible(true);
               
               if (triggerOnce) {
-                observer.unobserve(element);
-                animationManager.observers.delete(element);
+                animationManager.unobserveElement(element);
               }
             }
           });
@@ -94,12 +108,10 @@ export function useViewportAnimations({
       { threshold, rootMargin }
     );
 
-    observer.observe(element);
-    animationManager.observers.set(element, observer);
+    animationManager.observeElement(element, observer);
 
     return () => {
-      observer.unobserve(element);
-      animationManager.observers.delete(element);
+      animationManager.unobserveElement(element);
     };
   }, [threshold, rootMargin, triggerOnce, hasBeenVisible, scheduleAnimation]);
 

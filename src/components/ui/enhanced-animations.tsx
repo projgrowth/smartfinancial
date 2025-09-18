@@ -1,5 +1,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { useOptimizedViewportAnimation } from '../../hooks/useOptimizedAnimations'
+import { performanceManager } from '../../utils/performanceOptimization'
 
 // Staggered entrance animation hook
 const useStaggeredChildren = (itemCount: number, baseDelay = 100) => {
@@ -121,31 +123,27 @@ interface RevealOnScrollProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const RevealOnScroll = React.forwardRef<HTMLDivElement, RevealOnScrollProps>(
   ({ className, direction = 'up', delay = 0, duration = 600, children, ...props }, ref) => {
-    const [isVisible, setIsVisible] = React.useState(false)
+    const { ref: animationRef, shouldAnimate, isVisible } = useOptimizedViewportAnimation({
+      threshold: 0.1,
+      rootMargin: '0px 0px -10%',
+      triggerOnce: true
+    })
+    
     const elementRef = React.useRef<HTMLDivElement>(null)
+    const prefersReducedMotion = performanceManager.prefersReducedMotion()
+    const optimizedDuration = performanceManager.getOptimalDuration(duration)
+    const optimizedDelay = performanceManager.getOptimalDuration(delay)
     
     React.useImperativeHandle(ref, () => elementRef.current!)
     
     React.useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true)
-            observer.unobserve(entry.target)
-          }
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -10%' }
-      )
-      
       if (elementRef.current) {
-        observer.observe(elementRef.current)
+        animationRef(elementRef.current)
       }
-      
-      return () => observer.disconnect()
-    }, [])
+    }, [animationRef])
     
     const getTransform = () => {
-      if (isVisible) return 'translate3d(0, 0, 0) scale(1)'
+      if (shouldAnimate || prefersReducedMotion) return 'translate3d(0, 0, 0) scale(1)'
       
       switch (direction) {
         case 'up': return 'translate3d(0, 30px, 0) scale(1)'
@@ -162,13 +160,13 @@ const RevealOnScroll = React.forwardRef<HTMLDivElement, RevealOnScrollProps>(
         ref={elementRef}
         className={cn("transform-gpu", className)}
         style={{
-          opacity: isVisible ? 1 : 0,
+          opacity: shouldAnimate || prefersReducedMotion ? 1 : 0,
           transform: getTransform(),
           transitionProperty: 'opacity, transform',
-          transitionDuration: `${duration}ms`,
-          transitionDelay: `${delay}ms`,
+          transitionDuration: prefersReducedMotion ? '0ms' : `${optimizedDuration}ms`,
+          transitionDelay: prefersReducedMotion ? '0ms' : `${optimizedDelay}ms`,
           transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1.0)',
-          willChange: isVisible ? 'auto' : 'opacity, transform'
+          willChange: shouldAnimate ? 'auto' : 'opacity, transform'
         }}
         {...props}
       >
