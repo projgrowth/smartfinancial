@@ -23,10 +23,10 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
     <RevealOnScroll direction="fade" duration={800}>
       <h1 
         id="hero-heading"
-        className="heading-display-fluid mb-8 text-foreground"
+        className="heading-display-fluid text-foreground"
       >
         {prefix} 
-        <span className="word-rotator inline-block relative min-w-[200px]" aria-live="polite">
+        <span className="word-rotator inline-block relative" style={{ minWidth: '12rem' }} aria-live="polite">
           {/* Invisible placeholder for consistent width */}
           <span 
             ref={placeholderRef}

@@ -27,11 +27,13 @@ const Hero = () => {
         <GradientAccent variant="blue" position="top-right" intensity="low" animated />
         <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
         
-        <div className="container-site relative z-10 text-center">
+        <div className="container-site relative z-10 text-center space-component-lg">
           <HeroHeadline prefix={headline.prefix} words={words} />
           <HeroDescription description={description} />
           <HeroCTA ctaText={cta.text.desktop} />
-          <HeroTrustSignal show={!isEducationPage} />
+          <div className="section-sm">
+            <HeroTrustSignal show={!isEducationPage} />
+          </div>
         </div>
       </section>
     </ParallaxBackground>

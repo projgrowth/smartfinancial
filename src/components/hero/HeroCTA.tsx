@@ -20,7 +20,7 @@ const HeroCTA: React.FC<HeroCTAProps> = ({ ctaText }) => {
       delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-slow')) || 400}
       duration={600}
     >
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div className="flex flex-col sm:flex-row gap-site-md justify-center items-center">
         <Button
           onClick={handleCTAClick}
           variant="premium"
@@ -28,7 +28,7 @@ const HeroCTA: React.FC<HeroCTAProps> = ({ ctaText }) => {
           className="group hover-glow spring-bounce"
         >
           {ctaText}
-          <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" style={{ transitionDuration: 'var(--transition-normal)' }} />
         </Button>
       </div>
     </RevealOnScroll>

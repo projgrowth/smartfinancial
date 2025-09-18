@@ -12,7 +12,7 @@ const HeroDescription: React.FC<HeroDescriptionProps> = ({ description }) => {
       delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-normal')) || 200}
       duration={600}
     >
-      <p className="text-body-xl text-muted-foreground mb-10 max-w-3xl mx-auto">
+      <p className="text-body-xl text-muted-foreground container-narrow mx-auto">
         {description}
       </p>
     </RevealOnScroll>

@@ -14,8 +14,8 @@ const HeroTrustSignal: React.FC<HeroTrustSignalProps> = ({ show }) => {
       delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-extra-slow')) || 600}
       duration={500}
     >
-      <div className="mt-16 text-center">
-        <p className="text-sm text-muted-foreground/80 mb-4">
+      <div className="text-center">
+        <p className="text-sm text-muted-foreground/80">
           Trusted by ambitious professionals in Central Florida
         </p>
       </div>
