@@ -189,6 +189,78 @@
   letter-spacing: -0.015em;
 }
 
+  /* Touch targets - minimum 44px for accessibility */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    @apply inline-flex items-center justify-center;
+  }
+  
+  .touch-target-sm {
+    min-height: 40px;
+    min-width: 40px;
+    @apply inline-flex items-center justify-center;
+  }
+
+  /* Focus management utilities */
+  .focus-visible-only {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+  
+  .focus-trap {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Skip to content improvements */
+  .skip-link {
+    @apply sr-only focus:not-sr-only fixed top-4 left-4 z-[100] rounded-md bg-primary text-primary-foreground px-4 py-3 font-medium shadow-lg ring-4 ring-ring transition-all duration-200 focus:outline-none hover:bg-primary/90;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* ARIA live region for announcements */
+  .sr-announcements {
+    @apply sr-only;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  /* Improved contrast utilities */
+  .contrast-enhanced {
+    @apply relative;
+  }
+  
+  .contrast-enhanced::before {
+    content: '';
+    @apply absolute inset-0 bg-black/10 rounded pointer-events-none;
+  }
+  
+  .dark .contrast-enhanced::before {
+    @apply bg-white/10;
+  }
+
+  /* Keyboard navigation indicators */
+  .keyboard-nav-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+  }
+
+  /* Motion-safe animations only */
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe-animate {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
 .heading-lg {
   @apply text-2xl md:text-3xl lg:text-4xl font-heading font-medium tracking-tight text-foreground;
   line-height: 1.2;

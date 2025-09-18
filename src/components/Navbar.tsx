@@ -100,11 +100,12 @@ const Navbar = () => {
         <Button 
           onClick={() => setIsOpen(!isOpen)} 
           className={cn(
-            "text-muted-foreground hover:text-foreground transition-colors duration-300 touch-target-lg",
+            "text-muted-foreground hover:text-foreground transition-colors duration-300 touch-target focus-visible-only",
             isMobile ? "flex" : "hidden"
           )}
           aria-expanded={isOpen}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-controls="mobile-menu"
+          aria-label={isOpen ? "Close main menu" : "Open main menu"}
           variant="ghost"
           size="icon"
         >
@@ -121,6 +122,7 @@ const Navbar = () => {
         onNavClick={handleNavClick}
         onClose={() => setIsOpen(false)}
         mobileMenuRef={mobileMenuRef}
+        id="mobile-menu"
       />
     </nav>
   );

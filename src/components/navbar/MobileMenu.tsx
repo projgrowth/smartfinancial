@@ -4,6 +4,7 @@ import { ChevronRight, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useStaggerDelays } from '@/hooks/useStaggerDelays';
+import { useFocusManagement } from '@/hooks/useFocusManagement';
 import { NavItemType } from './NavItem';
 
 interface MobileMenuProps {
@@ -15,6 +16,7 @@ interface MobileMenuProps {
   onNavClick: (sectionId: string) => void;
   onClose: () => void;
   mobileMenuRef: React.RefObject<HTMLDivElement>;
+  id?: string;
 }
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -25,7 +27,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   isHomePage,
   onNavClick,
   onClose,
-  mobileMenuRef
+  mobileMenuRef,
+  id
 }) => {
   const location = useLocation();
   const staggerDelays = useStaggerDelays(navItems.length, 'fast');
@@ -46,8 +49,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           : 'max-h-0 opacity-0'
       )}
       role="navigation"
-      aria-label="Mobile navigation"
+      aria-label="Mobile navigation menu"
       aria-hidden={!isOpen}
+      id={id}
     >
       <div className="container-site section-sm bg-background/95 backdrop-blur-sm flex flex-col space-site-md">
         {navItems.map((item, index) => 
@@ -56,7 +60,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
               key={item.id}
               to={item.path || '/'}
               className={cn(
-                "py-2 px-3 rounded-md transition-all duration-300 flex items-center touch-target focus-enhanced",
+                "py-2 px-3 rounded-md transition-all duration-300 flex items-center touch-target focus-visible-only",
                 location.pathname === item.path 
                   ? "bg-primary/10 text-primary" 
                   : "hover:bg-muted/50"

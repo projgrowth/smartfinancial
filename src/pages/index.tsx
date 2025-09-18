@@ -95,7 +95,7 @@ const Index = () => {
         jsonLd={[breadcrumbJsonLd, ...teamJsonLd]}
       />
       
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" tabIndex={-1}>
         <Hero />
         <IntroSection />
         
