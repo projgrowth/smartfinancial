@@ -159,7 +159,7 @@ const Navbar = () => {
         intersectionRef.current = el;
       }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm section-sm' 
           : 'bg-transparent border-b border-border section-sm'
@@ -170,7 +170,7 @@ const Navbar = () => {
       <div className="container-site flex justify-between items-center">
         <Link 
           to="/"
-          className="font-heading text-foreground text-fluid-xl tracking-tight hover:text-primary transition-colors focus-enhanced"
+          className="font-heading text-foreground text-fluid-xl font-medium tracking-tight hover:text-primary transition-colors duration-300 focus-enhanced"
           aria-label="Back to home"
         >
           <span className="inline-flex items-center">
@@ -192,7 +192,7 @@ const Navbar = () => {
                 key={item.id}
                 to={item.path || '/'}
                 className={cn(
-                  "relative p-2 overflow-hidden text-body-sm transition-colors group focus-enhanced",
+                  "relative px-1 py-1 overflow-hidden text-fluid-sm font-medium transition-colors duration-300 group focus-enhanced",
                   location.pathname === item.path 
                     ? "text-primary" 
                     : "text-muted-foreground hover:text-foreground"
@@ -205,7 +205,7 @@ const Navbar = () => {
                 </span>
                 <span 
                   className={cn(
-                    "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform",
+                    "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-300",
                     location.pathname === item.path ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   )} 
                   aria-hidden="true"
@@ -220,7 +220,7 @@ const Navbar = () => {
                   handleNavClick(item.id);
                 }}
                 className={cn(
-                  "relative p-2 overflow-hidden text-body-sm transition-colors group focus-enhanced",
+                  "relative px-1 py-1 overflow-hidden text-fluid-sm font-medium transition-colors duration-300 group focus-enhanced",
                   activeSection === item.id && isHomePage ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                 )}
                 aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
@@ -228,7 +228,7 @@ const Navbar = () => {
                 {item.name}
                 <span 
                   className={cn(
-                    "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform",
+                    "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-300",
                     activeSection === item.id && isHomePage ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   )} 
                   aria-hidden="true"
@@ -244,7 +244,7 @@ const Navbar = () => {
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
-              <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>
@@ -252,7 +252,7 @@ const Navbar = () => {
         <Button 
           onClick={() => setIsOpen(!isOpen)} 
           className={cn(
-            "text-muted-foreground hover:text-foreground transition-colors touch-target-lg",
+            "text-muted-foreground hover:text-foreground transition-colors duration-300 touch-target-lg",
             isMobile ? "flex" : "hidden"
           )}
           aria-expanded={isOpen}
@@ -267,7 +267,7 @@ const Navbar = () => {
       <div 
         ref={mobileMenuRef}
         className={cn(
-          "transition-all ease-in-out overflow-hidden",
+          "transition-all duration-300 ease-in-out overflow-hidden",
           isMobile ? "block" : "hidden",
           isOpen 
             ? 'max-h-[400px] opacity-100' 
@@ -284,7 +284,7 @@ const Navbar = () => {
                 key={item.id}
                 to={item.path || '/'}
                 className={cn(
-                  "p-3 rounded-md transition-all flex items-center touch-target focus-enhanced",
+                  "py-2 px-3 rounded-md transition-all duration-300 flex items-center touch-target focus-enhanced",
                   location.pathname === item.path 
                     ? "bg-primary/10 text-primary" 
                     : "hover:bg-muted/50"
@@ -311,7 +311,7 @@ const Navbar = () => {
                   handleNavClick(item.id);
                 }}
                 className={cn(
-                  "p-3 rounded-md transition-all touch-target focus-enhanced",
+                  "py-2 px-3 rounded-md transition-all duration-300 touch-target focus-enhanced",
                   activeSection === item.id && isHomePage 
                     ? 'bg-primary/10 text-primary' 
                     : 'hover:bg-muted/50'
@@ -336,7 +336,7 @@ const Navbar = () => {
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
-              <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>
