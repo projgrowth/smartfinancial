@@ -66,7 +66,7 @@ const CompoundInterestCalculator = () => {
       variant="premium" 
       tiltEffect={false}
       hoverGlow={true}
-      className="hover:shadow-xl transition-all duration-500"
+      className="hover:shadow-elegant transition-all duration-500"
     >
       <EnhancedCardHeader>
         <div className="flex items-center gap-2">
@@ -216,12 +216,16 @@ const CompoundInterestCalculator = () => {
                     tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
                     width={60}
                     className="text-xs"
+                    axisLine={true}
+                    tickLine={true}
+                    type="number"
+                    domain={['auto', 'auto']}
                   />
                   <ChartTooltip
                     content={({ active, payload }) => {
                       if (active && payload && payload.length) {
                         return (
-                          <div className="rounded-lg border bg-background/95 backdrop-blur-sm p-3 shadow-lg">
+                          <div className="rounded-lg border bg-background/95 backdrop-blur-sm p-3 shadow-elegant">
                             <div className="grid grid-cols-1 gap-2">
                               <div className="text-center">
                                 <span className="text-xs text-muted-foreground">Year {payload[0].payload.year}</span>

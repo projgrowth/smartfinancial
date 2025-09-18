@@ -407,6 +407,92 @@
   opacity: 0.035;
 }
 
+/* ========== ENHANCED GRADIENT SYSTEM ========== */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)) 70%, hsl(var(--accent)/0.8));
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--muted)));
+}
+
+.gradient-accent-soft {
+  background: linear-gradient(135deg, hsl(var(--accent)/0.05), hsl(var(--background)), hsl(var(--accent)/0.1));
+}
+
+.gradient-accent-medium {
+  background: linear-gradient(135deg, hsl(var(--accent)/0.1), hsl(var(--background)), hsl(var(--accent)/0.15));
+}
+
+.gradient-charcoal {
+  background: linear-gradient(135deg, hsl(215 28% 17%), hsl(215 28% 14%));
+}
+
+.gradient-charcoal-dark {
+  background: linear-gradient(135deg, hsl(215 28% 14%), hsl(215 28% 10%));
+}
+
+.gradient-overlay-light {
+  background: linear-gradient(135deg, hsl(var(--background)/0.9), hsl(var(--background)/0.95));
+}
+
+.gradient-overlay-dark {
+  background: linear-gradient(135deg, hsl(var(--foreground)/0.1), hsl(var(--foreground)/0.05));
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== ENHANCED SHADOW SYSTEM ========== */
+.shadow-design-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+.shadow-design-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-design-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-design-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-design-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+.shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.shadow-premium {
+  box-shadow: var(--shadow-premium);
+}
+
+/* Hover shadow states */
+.hover\:shadow-elegant:hover {
+  box-shadow: var(--shadow-elegant);
+}
+
+.hover\:shadow-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.hover\:shadow-premium:hover {
+  box-shadow: var(--shadow-premium);
+}
+
 /* ========== ENHANCED ANIMATION SYSTEM ========== */
 /* Icon size utilities */
 .icon-xs {

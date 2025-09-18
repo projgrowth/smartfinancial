@@ -80,7 +80,7 @@ const ServiceCards = () => {
 
   return (
     <>
-      <section id="services" className="section-xl bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden">
+      <section id="services" className="section-xl gradient-accent-soft relative overflow-hidden">
         <GradientAccent variant="subtle" position="top-left" intensity="low" />
         
         <div className="container-site relative z-10">

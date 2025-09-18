@@ -71,7 +71,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
       // Default error UI
       return (
-        <div className="min-h-screen flex items-center justify-center space-component-md bg-gradient-to-br from-destructive/5 via-background/80 to-accent/5">
+        <div className="min-h-screen flex items-center justify-center space-component-md gradient-accent-soft">
           <Card className="w-full container-narrow">
             <CardHeader className="text-center">
               <div className="mx-auto space-component-xs w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">

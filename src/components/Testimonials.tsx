@@ -73,7 +73,7 @@ const Testimonials = () => {
   }, [currentSlide, isPaused]);
 
   return (
-    <section id="testimonials" className="section-lg bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden">
+    <section id="testimonials" className="section-lg gradient-accent-medium relative overflow-hidden">
       <GradientAccent variant="blue" position="top-left" size="md" intensity="ultra-low" />
       
       <div className="container-site mx-auto relative z-10">
