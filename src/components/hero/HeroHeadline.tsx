@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { AnimatedGradientText, RevealOnScroll } from '../ui/enhanced-animations';
+import React, { useEffect, useState } from 'react';
+import { RevealOnScroll } from '../ui/enhanced-animations';
 
 interface HeroHeadlineProps {
   prefix: string;
@@ -7,17 +7,29 @@ interface HeroHeadlineProps {
 }
 
 const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
-  const [index, setIndex] = useState(0);
-  const placeholderRef = useRef<HTMLSpanElement | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  // Word rotation using design system timing
+  // Simplified word rotation with smooth transitions
   useEffect(() => {
+    const rotationInterval = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--word-rotation-interval')
+    ) || 3000;
+
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, parseInt(getComputedStyle(document.documentElement).getPropertyValue('--word-rotation-interval')) || 3000);
+      setIsAnimating(true);
+      
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+        setIsAnimating(false);
+      }, 150); // Half transition duration for smooth swap
+    }, rotationInterval);
     
     return () => clearInterval(interval);
   }, [words.length]);
+
+  // Get the longest word for consistent spacing
+  const longestWord = words.reduce((a, b) => (a.length >= b.length ? a : b), '');
 
   return (
     <RevealOnScroll direction="fade" duration={800}>
@@ -26,29 +38,30 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
         className="heading-display-fluid text-foreground"
       >
         {prefix} 
-        <span className="word-rotator inline-block relative" style={{ minWidth: '12rem' }} aria-live="polite">
+        <span 
+          className="word-rotator inline-block relative font-medium" 
+          style={{ minWidth: '12rem' }} 
+          aria-live="polite"
+        >
           {/* Invisible placeholder for consistent width */}
           <span 
-            ref={placeholderRef}
-            className="invisible font-medium"
+            className="invisible"
             aria-hidden="true"
           >
-            {words.reduce((a, b) => (a.length >= b.length ? a : b), '')}
+            {longestWord}
           </span>
           
-          {/* Rotating words with enhanced animation */}
-          <AnimatedGradientText 
-            variant="wave"
-            className="word-layer absolute inset-0 font-medium transition-all"
+          {/* Current rotating word */}
+          <span 
+            className={`absolute inset-0 text-gradient transition-all ${
+              isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+            }`}
             style={{
-              opacity: 1,
-              transform: 'translate3d(0, 0, 0)',
-              willChange: 'transform',
-              transitionDuration: 'var(--word-transition-duration)'
+              transitionDuration: 'var(--word-transition-duration, 300ms)'
             }}
           >
-            {words[index]}
-          </AnimatedGradientText>
+            {words[currentIndex]}
+          </span>
         </span>
       </h1>
     </RevealOnScroll>
