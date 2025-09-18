@@ -120,7 +120,7 @@ export const GlossaryButton: React.FC<GlossaryButtonProps> = ({
     <InteractiveTooltip
       trigger={
         <Button variant="bare" size="none" className="inline-flex items-center text-primary hover:text-primary/80 text-body-sm">
-          <HelpCircle className="h-3.5 w-3.5 mr-1" />
+          <HelpCircle className="icon-sm card-gap-sm" />
           {glossaryTerm.term}
         </Button>
       }
@@ -149,7 +149,7 @@ export const AllFinancialTerms = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-unified-md">
       {financialTerms.map((term) => (
-        <div key={term.term} className="space-component-sm border rounded-md bg-background shadow-sm">
+        <div key={term.term} className="space-component-sm border rounded-lg bg-background shadow-design-sm card-padding">
           <h3 className="font-medium text-foreground space-component-xs">{term.term}</h3>
           <p className="text-body-sm text-muted-foreground">{term.definition}</p>
           {term.learnMoreLink && (

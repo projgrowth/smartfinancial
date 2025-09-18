@@ -19,9 +19,9 @@ interface AdvisorProps {
 
 const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, specialties }) => {
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300 space-component-md h-full flex flex-col">
+    <div className="bg-card rounded-lg shadow-design-sm border border-border hover:shadow-design-md hover:border-primary/20 transition-all duration-300 space-component-md h-full flex flex-col">
       <div className="space-component-sm flex justify-center">
-        <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-border shadow-sm">
+        <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-border shadow-design-sm">
           <img 
             src={imageUrl} 
             alt={generateTeamAltText(name, title)}
@@ -44,7 +44,7 @@ const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, spe
       </div>
       <div className="space-component-xs flex flex-wrap gap-unified-xs justify-center">
         {specialties.map((specialty, index) => (
-          <span key={index} className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full">
+          <span key={index} className="text-body-xs bg-accent text-accent-foreground card-padding-sm rounded-full">
             {specialty}
           </span>
         ))}
@@ -57,7 +57,7 @@ const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, spe
           }}
         >
           View Profile
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="card-gap-sm icon-sm transition-transform group-hover:translate-x-1" />
         </Button>
       </div>
     </div>
@@ -106,7 +106,7 @@ const Advisors = () => {
             onClick={() => smoothScrollTo('team-details')}
           >
             Learn More About Our Team
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="card-gap-sm icon-sm transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
       </div>

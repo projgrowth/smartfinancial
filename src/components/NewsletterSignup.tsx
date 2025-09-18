@@ -82,8 +82,8 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 
   if (isSubscribed) {
     return (
-      <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
-        <CardContent className="p-6 bg-accent/10">
+      <Card className={`overflow-hidden border border-border/50 shadow-design-sm ${className}`}>
+        <CardContent className="card-padding bg-accent/10">
           <SimpleSuccessMessage />
         </CardContent>
       </Card>
@@ -91,28 +91,28 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   }
 
   return (
-    <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
-      <CardContent className={`${compact ? 'p-4' : 'p-6'} ${onDark ? 'bg-background/10' : 'bg-muted/40'}`}>
+    <Card className={`overflow-hidden border border-border/50 shadow-design-sm ${className}`}>
+      <CardContent className={`${compact ? 'card-padding-sm' : 'card-padding'} ${onDark ? 'bg-background/10' : 'bg-muted/40'}`}>
 
-        <div className={compact ? "space-y-3" : "space-y-4"}>
-          <div className={`${compact ? '' : 'flex items-center space-x-3'}`}>
+        <div className={compact ? "space-component-sm" : "space-component-md"}>
+          <div className={`${compact ? '' : 'flex items-center card-gap-sm'}`}>
             {!compact && (
-              <div className={`rounded-full ${onDark ? 'bg-primary-foreground/10' : 'bg-accent/20'} p-2 flex-shrink-0`}>
-                <Mail className="h-5 w-5 text-accent" />
+              <div className={`rounded-full ${onDark ? 'bg-primary-foreground/10' : 'bg-accent/20'} card-padding-sm flex-shrink-0`}>
+                <Mail className="icon-md text-accent" />
               </div>
             )}
             <div>
               <h3 className={`font-heading ${compact ? 'text-body' : 'text-body-lg'} font-medium text-foreground`}>
                 {title}
               </h3>
-              <p className={`${compact ? 'text-xs' : 'text-sm'} text-muted-foreground`}>
+              <p className={`${compact ? 'text-body-xs' : 'text-body-sm'} text-muted-foreground`}>
                 {description}
               </p>
             </div>
           </div>
           { (showWebhook ?? !compact) && (
-            <div className="mt-2">
-              <label htmlFor="newsletterWebhook" className={`${compact ? 'text-[11px]' : 'text-xs'} font-medium text-muted-foreground block mb-1`}>
+            <div className="content-item">
+              <label htmlFor="newsletterWebhook" className={`${compact ? 'text-body-xs' : 'text-body-xs'} font-medium text-muted-foreground block content-item`}>
                 Zapier Webhook URL (optional, site owner)
               </label>
               <input
@@ -121,7 +121,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 placeholder="https://hooks.zapier.com/..."
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
-                className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                className="w-full touch-target border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
               />
             </div>
           )}

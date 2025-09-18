@@ -83,9 +83,9 @@ export class ErrorBoundary extends Component<Props, State> {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-component-md">
-              <div className="flex gap-unified-sm">
+              <div className="flex card-gap-sm">
                 <Button onClick={this.handleRetry} variant="outline" className="flex-1">
-                  <RefreshCw className="w-4 h-4 mr-2" />
+                  <RefreshCw className="icon-sm card-gap-sm" />
                   Try Again
                 </Button>
                 <Button onClick={this.handleReload} className="flex-1">
@@ -94,15 +94,15 @@ export class ErrorBoundary extends Component<Props, State> {
               </div>
               
               {process.env.NODE_ENV === 'development' && this.state.error && (
-                <details className="space-component-xs bg-muted/50 rounded-lg">
+                <details className="space-component-xs bg-muted/50 rounded-lg card-padding-sm">
                   <summary className="cursor-pointer text-body-sm font-medium text-muted-foreground">
                     Error Details (Development Only)
                   </summary>
                   <div className="space-component-xs text-body-xs text-muted-foreground font-mono">
                     <p className="font-bold">{this.state.error.name}: {this.state.error.message}</p>
-                    <pre className="mt-2 whitespace-pre-wrap">{this.state.error.stack}</pre>
+                    <pre className="content-item whitespace-pre-wrap">{this.state.error.stack}</pre>
                     {this.state.errorInfo && (
-                      <pre className="mt-2 whitespace-pre-wrap">{this.state.errorInfo.componentStack}</pre>
+                      <pre className="content-item whitespace-pre-wrap">{this.state.errorInfo.componentStack}</pre>
                     )}
                   </div>
                 </details>

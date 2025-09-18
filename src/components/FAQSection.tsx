@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="border border-border rounded-lg overflow-hidden bg-card mb-4 shadow-sm hover:shadow-md transition-all duration-300"
+      className="border border-border rounded-lg overflow-hidden bg-card content-item shadow-design-sm hover:shadow-design-md transition-all duration-300"
     >
       <CollapsibleTrigger className="flex w-full items-center justify-between space-component-sm text-left">
         <h3 className="font-medium text-foreground">{question}</h3>
