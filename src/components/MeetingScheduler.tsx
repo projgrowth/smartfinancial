@@ -161,22 +161,22 @@ const MeetingScheduler = () => {
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       <div className="container-site relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center content-group">
             Schedule a Meeting
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto content-section">
             Book a time to speak with our financial advisors about your goals and how we can help you achieve them.
           </p>
         </ScrollReveal>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
-            <CardContent className="pt-6">
+          <Card className="border-border shadow-design-sm hover:shadow-design-md transition-all duration-300">
+            <CardContent className="card-padding">
               <Tabs defaultValue="schedule" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8">
+                <TabsList className="grid-two-col content-block">
                   <TabsTrigger value="schedule">Schedule Online</TabsTrigger>
                   <TabsTrigger value="contact">Contact Us Directly</TabsTrigger>
                 </TabsList>
@@ -184,10 +184,10 @@ const MeetingScheduler = () => {
                 <TabsContent value="schedule">
                   <form onSubmit={handleSubmit}>
                     {step === 1 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="grid-two-col card-gap-lg">
                         <div>
-                          <h3 className="heading-md text-foreground space-component-sm">Select a Date</h3>
-                          <div className="border border-border rounded-md p-1 bg-background">
+                          <h3 className="heading-md text-foreground content-item">Select a Date</h3>
+                          <div className="border border-border rounded-md card-padding-sm bg-background">
                             <Calendar
                               mode="single"
                               selected={date}
@@ -202,9 +202,8 @@ const MeetingScheduler = () => {
                         </div>
                         
                         <div>
-                          <div className="mb-6">
-                            <h3 className="heading-md text-foreground space-component-sm">Select Meeting Type</h3>
-                            <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
+                          <h3 className="heading-md text-foreground content-item">Select Meeting Type</h3>
+                          <div className="content-group" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
                                   key={type.id}
@@ -213,9 +212,9 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 ${
+                                  className={`w-full text-left card-padding border rounded-md cursor-pointer transition-all duration-200 ${
                                     meetingType === type.id
-                                      ? 'border-blue-500 bg-blue-50'
+                                      ? 'border-primary bg-accent/10'
                                       : 'border-border hover:border-accent'
                                   }`}
                                   onClick={() => setMeetingType(type.id)}
@@ -250,19 +249,19 @@ const MeetingScheduler = () => {
                           
                           {date && (
                             <div>
-                              <h3 className="heading-sm text-foreground space-component-sm">
+                              <h3 className="heading-sm text-foreground content-item">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
-                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
+                              <div className="grid grid-cols-2 sm:grid-cols-3 card-gap-sm" role="radiogroup" aria-label="Select a time slot">
                                 {MEETING_TIMES.map((t) => (
                                   <button
                                     key={t}
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 ${
+                                    className={`touch-target border rounded-md text-center cursor-pointer text-body-sm transition-all duration-200 ${
                                       time === t
-                                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                        ? 'border-primary bg-accent/10 text-primary'
                                         : 'border-border hover:border-accent'
                                     }`}
                                     onClick={() => setTime(t)}

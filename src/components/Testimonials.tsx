@@ -25,16 +25,16 @@ const Testimonial: React.FC<TestimonialProps> = ({
         isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
       }`}
     >
-      <EnhancedCardContent className="p-8">
-        <div className="mb-6 text-primary/80">
+      <EnhancedCardContent className="card-padding-lg">
+        <div className="content-group text-primary/80">
           <Quote size={32} />
         </div>
-        <p className="text-muted-foreground space-component-md text-body-lg leading-relaxed">{quote}</p>
+        <p className="text-muted-foreground content-group text-body-lg leading-relaxed">{quote}</p>
         <div>
           <AnimatedGradientText variant="shimmer" className="font-semibold text-foreground">
             {author}
           </AnimatedGradientText>
-          <p className="text-body-sm text-muted-foreground/80 space-component-xs">{position}</p>
+          <p className="text-body-sm text-muted-foreground/80 content-item">{position}</p>
         </div>
       </EnhancedCardContent>
     </EnhancedCard>
@@ -78,8 +78,8 @@ const Testimonials = () => {
       
       <div className="container-site mx-auto relative z-10">
         <RevealOnScroll direction="fade" duration={800}>
-          <div className="text-center mb-16">
-            <AnimatedGradientText variant="shimmer" className="heading-lg mb-4 block">
+          <div className="text-center content-section">
+            <AnimatedGradientText variant="shimmer" className="heading-lg content-group block">
               What Our Clients Say
             </AnimatedGradientText>
             <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
@@ -94,17 +94,17 @@ const Testimonials = () => {
             direction="up" 
             delay={parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-normal')) || 200}
           >
-            <div className="flex justify-center gap-4 mb-8">
+            <div className="flex justify-center card-gap content-block">
               <button
                 onClick={prevSlide}
-                className="btn-outline hover-glow spring-bounce touch-target-lg"
+                className="btn-outline hover-glow spring-bounce touch-target"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={nextSlide}
-                className="btn-outline hover-glow spring-bounce touch-target-lg"
+                className="btn-outline hover-glow spring-bounce touch-target"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />
@@ -132,14 +132,14 @@ const Testimonials = () => {
           </div>
 
           {/* Enhanced dots indicator */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center card-gap-sm content-block">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 touch-target spring-bounce ${
                   index === currentSlide 
-                    ? 'bg-primary scale-125 shadow-lg shadow-primary/30' 
+                    ? 'bg-primary scale-125 shadow-design-md shadow-primary/30' 
                     : 'bg-primary/30 hover:bg-primary/60 hover:scale-110'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}

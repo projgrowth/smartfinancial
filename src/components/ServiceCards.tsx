@@ -26,10 +26,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
           className="card-equal-height group h-full"
         >
           <EnhancedCardHeader>
-            <div className="mb-6 text-primary transition-all duration-normal group-hover:scale-110 group-hover:text-accent">
+            <div className="content-group text-primary transition-all duration-normal group-hover:scale-110 group-hover:text-accent">
               {icon}
             </div>
-            <EnhancedCardTitle className="heading-sm mb-4">
+            <EnhancedCardTitle className="heading-sm content-group">
               {title}
             </EnhancedCardTitle>
           </EnhancedCardHeader>
@@ -42,7 +42,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
           
           <EnhancedCardFooter>
             <div className="flex items-center text-primary font-medium touch-target group-hover:text-accent transition-colors duration-normal">
-              <span className="mr-2">Learn more</span>
+              <span>Learn more</span>
               <ChevronRight className="icon-sm transition-transform duration-normal group-hover:translate-x-1" />
             </div>
           </EnhancedCardFooter>
@@ -85,8 +85,8 @@ const ServiceCards = () => {
         
         <div className="container-site relative z-10">
           <RevealOnScroll direction="fade" duration={800}>
-            <div className="text-center space-component-lg">
-              <h2 className="heading-lg mb-6">
+            <div className="text-center content-block">
+              <h2 className="heading-lg content-group">
                 Services Tailored to Your Needs
               </h2>
               <p className="text-body-lg mx-auto">
@@ -95,7 +95,7 @@ const ServiceCards = () => {
             </div>
           </RevealOnScroll>
           
-          <div className="grid-four-col gap-unified-lg">
+          <div className="grid-four-col">
             {services.map((service, index) => (
               <ServiceCard 
                 key={index} 

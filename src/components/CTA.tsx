@@ -22,19 +22,19 @@ const CTA = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIi8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
       
       <div className="container-site relative z-10">
-        <RevealOnScroll direction="scale" duration={800}>
-          <div className="container-narrow mx-auto text-center backdrop-blur-sm space-component-xl rounded-2xl border border-primary-foreground/10 shadow-premium bg-primary-foreground/5">
-            <AnimatedGradientText variant="shimmer" className="block heading-lg space-component-md text-primary-foreground">
+        <div className='content-section'>
+          <div className="container-narrow mx-auto text-center backdrop-blur-sm content-block rounded-2xl border border-primary-foreground/10 shadow-design-lg bg-primary-foreground/5">
+            <AnimatedGradientText variant="shimmer" className="block heading-lg content-group text-primary-foreground">
               {title}
             </AnimatedGradientText>
-            <p className="text-body-lg text-primary-foreground/80 space-component-lg container-narrow mx-auto">
+            <p className="text-body-lg text-primary-foreground/80 content-block container-narrow mx-auto">
               {description}
             </p>
             <Button 
               variant="premium" 
               size="lg"
               asChild
-              className="group relative overflow-hidden bg-background text-foreground hover:bg-background/95 shadow-elegant hover:shadow-premium transition-all duration-300"
+              className="group relative overflow-hidden bg-background text-foreground hover:bg-background/95 shadow-design-md hover:shadow-design-lg transition-all duration-300"
             >
               <a href={cta?.href}>
                 <span className="relative z-10 flex items-center">
@@ -44,7 +44,7 @@ const CTA = () => {
               </a>
             </Button>
           </div>
-        </RevealOnScroll>
+        </div>
       </div>
     </section>
   );

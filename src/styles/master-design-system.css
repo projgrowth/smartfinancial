@@ -189,6 +189,65 @@
   letter-spacing: -0.015em;
 }
 
+  /* ========== CARD SYSTEM ========== */
+  .card-padding-sm {
+    @apply space-component-sm;
+  }
+  
+  .card-padding {
+    @apply space-component-md;
+  }
+  
+  .card-padding-lg {
+    @apply space-component-lg;
+  }
+  
+  .card-gap-sm {
+    @apply gap-unified-md;
+  }
+  
+  .card-gap {
+    @apply gap-unified-md;
+  }
+  
+  .card-gap-lg {
+    @apply gap-unified-lg;
+  }
+
+  /* ========== GRID SYSTEM ========== */
+  .grid-auto {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-unified-lg;
+  }
+  
+  .grid-two-col {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-unified-lg;
+  }
+  
+  .grid-three-col {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-unified-lg;
+  }
+  
+  .grid-four-col {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-unified-lg;
+  }
+
+  /* ========== CONTENT HIERARCHY ========== */
+  .content-section {
+    @apply section-lg;
+  }
+  
+  .content-block {
+    @apply space-component-lg;
+  }
+  
+  .content-group {
+    @apply space-component-md;
+  }
+  
+  .content-item {
+    @apply space-component-sm;
+  }
+
   /* Touch targets - minimum 44px for accessibility */
   .touch-target {
     min-height: 44px;
