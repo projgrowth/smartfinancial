@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { RevealOnScroll } from '../ui/enhanced-animations';
+import { useDesignSystemValues } from '../../hooks/useDesignSystemValues';
 
 interface HeroHeadlineProps {
   prefix: string;
@@ -9,19 +10,14 @@ interface HeroHeadlineProps {
 const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  
+  // Centralized design system values
+  const { wordRotationInterval, wordTransitionDuration } = useDesignSystemValues();
 
   // Memoize the longest word calculation for performance
   const longestWord = useMemo(() => 
     words.reduce((a, b) => (a.length >= b.length ? a : b), ''), 
     [words]
-  );
-
-  // Memoize rotation interval calculation
-  const rotationInterval = useMemo(() => 
-    parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--word-rotation-interval')
-    ) || 3000,
-    []
   );
 
   // Memoized word change handler for performance
@@ -38,25 +34,22 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
   useEffect(() => {
     if (words.length <= 1) return; // Skip rotation for single word
     
-    const interval = setInterval(handleWordChange, rotationInterval);
+    const interval = setInterval(handleWordChange, wordRotationInterval);
     
     return () => clearInterval(interval);
-  }, [handleWordChange, rotationInterval, words.length]);
+  }, [handleWordChange, wordRotationInterval, words.length]);
 
   return (
     <RevealOnScroll direction="fade" duration={800}>
       <h1 
         id="hero-heading"
         className="heading-display-fluid text-foreground"
-        role="banner"
       >
         {prefix} 
         <span 
           className="word-rotator inline-block relative font-medium" 
           style={{ minWidth: '12rem' }} 
           aria-live="polite"
-          aria-label={`Rotating between: ${words.join(', ')}`}
-          role="status"
         >
           {/* Invisible placeholder for consistent width */}
           <span 
@@ -66,15 +59,14 @@ const HeroHeadline: React.FC<HeroHeadlineProps> = ({ prefix, words }) => {
             {longestWord}
           </span>
           
-          {/* Current rotating word with improved accessibility */}
+          {/* Current rotating word */}
           <span 
             className={`absolute inset-0 text-gradient transition-all ${
               isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
             }`}
             style={{
-              transitionDuration: 'var(--word-transition-duration, 300ms)'
+              transitionDuration: wordTransitionDuration
             }}
-            aria-label={`Currently showing: ${words[currentIndex]}`}
           >
             {words[currentIndex]}
           </span>

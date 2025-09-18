@@ -1,30 +1,28 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { RevealOnScroll } from '../ui/enhanced-animations';
 import { Button } from '../ui/button';
 import { smoothScrollTo } from '../../utils/smoothScroll';
+import { useDesignSystemValues } from '../../hooks/useDesignSystemValues';
 
 interface HeroCTAProps {
   ctaText: string;
 }
 
 const HeroCTA: React.FC<HeroCTAProps> = ({ ctaText }) => {
+  // Centralized design system values
+  const { animationDelaySlow, transitionNormal } = useDesignSystemValues();
+
   // Memoized click handler for performance
   const handleCTAClick = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     smoothScrollTo('contact');
   }, []);
 
-  // Memoized animation delay calculation
-  const animationDelay = useMemo(() => 
-    parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-slow')) || 400,
-    []
-  );
-
   return (
     <RevealOnScroll 
       direction="up" 
-      delay={animationDelay}
+      delay={animationDelaySlow}
       duration={600}
     >
       <div className="flex flex-col sm:flex-row gap-site-md justify-center items-center">
@@ -34,12 +32,11 @@ const HeroCTA: React.FC<HeroCTAProps> = ({ ctaText }) => {
           size="lg"
           className="group hover-glow spring-bounce"
           aria-label={`${ctaText} - Navigate to contact section`}
-          role="button"
         >
           {ctaText}
           <ChevronRight 
             className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" 
-            style={{ transitionDuration: 'var(--transition-normal)' }}
+            style={{ transitionDuration: transitionNormal }}
             aria-hidden="true"
           />
         </Button>

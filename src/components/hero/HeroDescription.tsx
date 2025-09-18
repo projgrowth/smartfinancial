@@ -1,28 +1,22 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { RevealOnScroll } from '../ui/enhanced-animations';
+import { useDesignSystemValues } from '../../hooks/useDesignSystemValues';
 
 interface HeroDescriptionProps {
   description: string;
 }
 
 const HeroDescription: React.FC<HeroDescriptionProps> = ({ description }) => {
-  // Memoized animation delay calculation
-  const animationDelay = useMemo(() => 
-    parseInt(getComputedStyle(document.documentElement).getPropertyValue('--animation-delay-normal')) || 200,
-    []
-  );
+  // Centralized design system values
+  const { animationDelayNormal } = useDesignSystemValues();
 
   return (
     <RevealOnScroll 
       direction="up" 
-      delay={animationDelay}
+      delay={animationDelayNormal}
       duration={600}
     >
-      <p 
-        className="text-body-xl text-muted-foreground container-narrow mx-auto"
-        role="text"
-        aria-label="Hero section description"
-      >
+      <p className="text-body-xl text-muted-foreground container-narrow mx-auto">
         {description}
       </p>
     </RevealOnScroll>
