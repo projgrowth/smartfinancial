@@ -245,7 +245,6 @@ const MeetingScheduler = () => {
                                 </button>
                               ))}
                             </div>
-                          </div>
                           
                           {date && (
                             <div>
