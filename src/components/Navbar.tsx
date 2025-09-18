@@ -203,7 +203,7 @@ const Navbar = () => {
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 <span className="inline-flex items-center gap-1">
-                  {item.name === 'Education' && <BookOpen className="w-3.5 h-3.5" />}
+                  {item.name === 'Education' && <BookOpen className="icon-sm" />}
                   {item.name}
                 </span>
                 <span 

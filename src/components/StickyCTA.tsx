@@ -35,7 +35,7 @@ const StickyCTA: React.FC = () => {
             </div>
             <a href="#schedule" className="shrink-0" aria-label="Schedule a free consultation">
               <Button size="sm" className="gap-2">
-                <Calendar className="h-4 w-4" aria-hidden="true" />
+                <Calendar className="icon-sm" aria-hidden="true" />
                 Schedule
               </Button>
             </a>

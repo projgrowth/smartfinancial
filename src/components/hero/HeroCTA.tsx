@@ -35,7 +35,7 @@ const HeroCTA: React.FC<HeroCTAProps> = ({ ctaText }) => {
         >
           {ctaText}
           <ChevronRight 
-            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" 
+            className="ml-2 icon-sm transition-transform group-hover:translate-x-1" 
             style={{ transitionDuration: transitionNormal }}
             aria-hidden="true"
           />
