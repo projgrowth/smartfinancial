@@ -40,7 +40,7 @@ const ScrollProgress: React.FC<ScrollProgressProps> = ({
         />
       </div>
       {showPercentage && isVisible && (
-        <div className="absolute top-2 right-4 text-xs font-medium text-muted-foreground bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
+        <div className="absolute content-item card-padding-sm text-body-xs font-medium text-muted-foreground bg-background/80 backdrop-blur-sm card-padding-sm rounded-lg">
           {Math.round(progress)}%
         </div>
       )}

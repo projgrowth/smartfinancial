@@ -102,7 +102,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
+        <ChartContainer config={{}} className="h-64 content-item">
           <BarChart data={youngProfessionalData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -168,7 +168,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
+        <ChartContainer config={{}} className="h-64 content-item">
           <LineChart data={familyData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -233,7 +233,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
+        <ChartContainer config={{}} className="h-64 content-item">
           <BarChart data={businessData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -298,7 +298,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
+        <ChartContainer config={{}} className="h-64 content-item">
           <BarChart data={preRetirementData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -334,8 +334,8 @@ const CaseStudies = () => {
       
       <div className="container-site relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="heading-lg text-foreground mb-6">
+          <div className="text-center content-block">
+            <h2 className="heading-lg text-foreground content-group">
               Real Client Success Stories
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -345,7 +345,7 @@ const CaseStudies = () => {
           </div>
         </ScrollReveal>
 
-        <div className="mb-8">
+        <div className="content-group">
           <StoryNavigation
             currentStory={currentStoryIndex}
             totalStories={caseStudies.length}
@@ -371,16 +371,16 @@ const CaseStudies = () => {
                 onToggle={() => toggleCase(study.id)}
                 metrics={study.metrics}
               >
-                <div className="space-y-6">
+                <div className="space-component-lg">
                   <div>
-                    <h4 className="font-medium text-charcoal mb-4">Implementation Timeline</h4>
+                    <h4 className="font-medium text-charcoal content-item">Implementation Timeline</h4>
                     <InteractiveTimeline phases={study.timeline} />
                   </div>
                   
-                  <div className="bg-accent/5 p-6 rounded-xl">
-                    <h4 className="font-medium text-charcoal mb-4">Financial Progress</h4>
+                  <div className="bg-accent/5 card-padding rounded-xl">
+                    <h4 className="font-medium text-charcoal content-item">Financial Progress</h4>
                     {study.chartComponent}
-                    <p className="mt-4 text-xs text-muted-foreground text-center">
+                    <p className="content-item text-body-xs text-muted-foreground text-center">
                       Real results from implemented strategies
                     </p>
                   </div>

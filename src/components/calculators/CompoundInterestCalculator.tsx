@@ -69,12 +69,12 @@ const CompoundInterestCalculator = () => {
       className="hover:shadow-elegant transition-all duration-500"
     >
       <EnhancedCardHeader>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center card-gap-sm">
           <EnhancedCardTitle>Compound Interest Calculator</EnhancedCardTitle>
           <InteractiveTooltip
-            trigger={<Info className="h-4 w-4 text-primary cursor-help" />}
+            trigger={<Info className="icon-sm text-primary cursor-help" />}
             content={
-              <div className="text-sm">
+              <div className="text-body-sm">
                 <p>Compound interest allows your money to grow exponentially over time as you earn returns on both your initial investment and accumulated gains.</p>
               </div>
             }
@@ -88,15 +88,15 @@ const CompoundInterestCalculator = () => {
         </EnhancedCardDescription>
       </EnhancedCardHeader>
       <EnhancedCardContent>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 card-gap-lg">
           {/* Enhanced Input Section */}
-          <div className="space-y-6">
+          <div className="space-component-lg">
             <EnhancedInput
               label="Initial Investment"
               type="number"
               value={principal}
               onChange={(e) => setPrincipal(Number(e.target.value))}
-              icon={<DollarSign className="w-4 h-4" />}
+              icon={<DollarSign className="icon-sm" />}
               floatingLabel={true}
               className="transition-all duration-300"
             />
@@ -106,7 +106,7 @@ const CompoundInterestCalculator = () => {
               type="number"
               value={monthlyContribution}
               onChange={(e) => setMonthlyContribution(Number(e.target.value))}
-              icon={<DollarSign className="w-4 h-4" />}
+              icon={<DollarSign className="icon-sm" />}
               floatingLabel={true}
               className="transition-all duration-300"
             />
@@ -119,7 +119,7 @@ const CompoundInterestCalculator = () => {
               step="0.1"
               min="0"
               max="30"
-              icon={<TrendingUp className="w-4 h-4" />}
+              icon={<TrendingUp className="icon-sm" />}
               floatingLabel={true}
               className="transition-all duration-300"
             />
@@ -131,18 +131,18 @@ const CompoundInterestCalculator = () => {
               onChange={(e) => setYears(Number(e.target.value))}
               min="1"
               max="50"
-              icon={<Calendar className="w-4 h-4" />}
+              icon={<Calendar className="icon-sm" />}
               floatingLabel={true}
               className="transition-all duration-300"
             />
           </div>
           
           {/* Enhanced Results Section */}
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-6 rounded-xl border border-primary/10">
-              <div className="space-y-4">
+          <div className="space-component-lg">
+            <div className="bg-gradient-to-br from-primary/5 to-accent/5 card-padding rounded-xl border border-primary/10">
+              <div className="space-component-md">
                 <div className="text-center">
-                  <p className="text-sm font-medium text-muted-foreground mb-2">Future Value</p>
+                  <p className="text-body-sm font-medium text-muted-foreground content-item">Future Value</p>
                   <AnimatedCounter 
                     value={result} 
                     prefix="$" 
@@ -153,9 +153,9 @@ const CompoundInterestCalculator = () => {
                   />
                 </div>
                 
-                <div className="grid grid-cols-1 gap-3">
-                  <div className="flex justify-between items-center p-3 bg-background/50 rounded-lg">
-                    <span className="text-sm text-muted-foreground">Total Contributions</span>
+                <div className="grid grid-cols-1 card-gap-sm">
+                  <div className="flex justify-between items-center card-padding-sm bg-background/50 rounded-lg">
+                    <span className="text-body-sm text-muted-foreground">Total Contributions</span>
                     <AnimatedCounter 
                       value={principal + (monthlyContribution * 12 * years)}
                       prefix="$"
@@ -166,8 +166,8 @@ const CompoundInterestCalculator = () => {
                     />
                   </div>
                   
-                  <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                    <span className="text-sm text-green-700">Interest Earned</span>
+                  <div className="flex justify-between items-center card-padding-sm bg-success-subtle rounded-lg">
+                    <span className="text-body-sm text-green-700">Interest Earned</span>
                     <AnimatedCounter 
                       value={result - (principal + (monthlyContribution * 12 * years))}
                       prefix="$"
@@ -186,7 +186,7 @@ const CompoundInterestCalculator = () => {
                   label="Interest Growth Rate"
                   showValue={true}
                   color="success"
-                  className="mt-4"
+                  className="content-item"
                   duration={2000}
                   delay={500}
                 />
@@ -194,7 +194,7 @@ const CompoundInterestCalculator = () => {
             </div>
             
             {/* Enhanced Chart */}
-            <div className="h-64 p-4 bg-muted/20 rounded-xl">
+            <div className="h-64 card-padding bg-muted/20 rounded-xl">
               <ChartContainer
                 config={{
                   amount: { theme: { light: "hsl(var(--primary))", dark: "hsl(var(--primary))" } },
@@ -225,10 +225,10 @@ const CompoundInterestCalculator = () => {
                     content={({ active, payload }) => {
                       if (active && payload && payload.length) {
                         return (
-                          <div className="rounded-lg border bg-background/95 backdrop-blur-sm p-3 shadow-elegant">
-                            <div className="grid grid-cols-1 gap-2">
+                          <div className="rounded-lg border bg-background/95 backdrop-blur-sm card-padding-sm shadow-elegant">
+                            <div className="grid grid-cols-1 card-gap-sm">
                               <div className="text-center">
-                                <span className="text-xs text-muted-foreground">Year {payload[0].payload.year}</span>
+                                <span className="text-body-xs text-muted-foreground">Year {payload[0].payload.year}</span>
                               </div>
                               <div className="text-center">
                                 <span className="font-bold text-primary">

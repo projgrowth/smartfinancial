@@ -108,7 +108,7 @@ const ServiceCards = () => {
           </div>
         </div>
         
-        <div className="relative z-10 mt-10 md:mt-14">
+        <div className="relative z-10 content-group">
           <AnimatedSectionTransition 
             style="diagonal" 
             colorScheme="light-to-dark" 

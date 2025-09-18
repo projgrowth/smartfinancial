@@ -92,7 +92,7 @@ const Navbar = () => {
           >
             <span className="inline-flex items-center">
               <span>Schedule a Call</span>
-              <ChevronRight className="ml-2 icon-sm transition-transform duration-normal group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight className="card-gap-sm icon-sm transition-transform duration-normal group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>

@@ -135,7 +135,7 @@ const Footer = () => {
               <address className="not-italic">
                 <ul className="space-component-sm content-group">
                   <li className="flex items-start">
-                    <MapPin className="icon-md text-accent card-gap-sm mt-0.5 flex-shrink-0" />
+                    <MapPin className="icon-md text-accent card-gap-sm content-item flex-shrink-0" />
                     <span className="text-body-sm text-primary-foreground/80">
                       111 N Orange Ave, STE 800<br />
                       Orlando, Florida 32801

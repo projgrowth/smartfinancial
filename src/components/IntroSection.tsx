@@ -56,7 +56,7 @@ const IntroSection = () => {
                   className="group"
                   onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  <span className="mr-2">{cta?.text}</span>
+                  <span className="card-gap-sm">{cta?.text}</span>
                   <ArrowRight className="icon-sm transition-transform duration-normal group-hover:translate-x-1" />
                 </Button>
               </MicroAnimations.ScaleOnHover>
