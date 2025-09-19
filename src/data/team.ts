@@ -20,7 +20,7 @@ export const advisors: AdvisorProfile[] = [
     title: 'Founder & Lead Advisor',
     bio: "Razell founded Smart Financial Planning with one mission: to provide high-level, personalized planning for individuals and families who want more than a cookie-cutter approach.\n\nWith years of experience guiding business owners, professionals, and high-income earners, Razell's strategies balance growth, protection, and long-term impact.\n\nOutside of work, he's a devoted husband and father, a lifelong student of leadership, and a strong believer that financial planning should feel empowering—not overwhelming. His personalized approach ensures each client receives strategies tailored to their unique goals.",
     specialties: ['Comprehensive Financial Planning', 'Business Owner Solutions', 'High-Income Strategies'],
-    imageUrl: '/lovable-uploads/83c79661-f83a-4390-a3ed-d2cbea760fab.png',
+    imageUrl: '/lovable-uploads/razell-smart-new.jpg',
     education: ['[Insert verified degrees]'],
     certifications: ['[Insert verified designations]'],
     experience: [
