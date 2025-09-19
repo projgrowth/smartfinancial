@@ -2,7 +2,7 @@
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { PremiumCard } from './ui/premium-card';
+import { PremiumCard } from '@/components/ui/premium-card';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 

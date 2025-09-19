@@ -3,7 +3,7 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import AnimatedSectionTransition from './AnimatedSectionTransition';
-import { PremiumCard, PremiumCardHeader, PremiumCardTitle, PremiumCardContent, PremiumCardFooter } from './ui/premium-card';
+import { PremiumCard, PremiumCardHeader, PremiumCardTitle, PremiumCardContent, PremiumCardFooter } from '@/components/ui/premium-card';
 import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
 
 interface ServiceCardProps {
