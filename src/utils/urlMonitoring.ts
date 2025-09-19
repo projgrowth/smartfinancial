@@ -6,9 +6,19 @@ export const initUrlMonitoring = () => {
   const originalUrl = window.location.href;
   const expectedDomain = 'smartfinancialplanning.com';
   const referrer = document.referrer;
+  const host = window.location.hostname.toLowerCase();
 
-  // Enhanced domain check with immediate redirect if wrong domain
-  if (!window.location.hostname.includes(expectedDomain)) {
+  // Allow local/dev and preview environments (same logic as enforceCanonicalDomain)
+  const allowHosts = [
+    'localhost',
+    '127.0.0.1',
+  ];
+  const isAllowed =
+    allowHosts.includes(host) ||
+    host.endsWith('.lovableproject.com');
+
+  // Enhanced domain check with immediate redirect if wrong domain (but respect dev environments)
+  if (!isAllowed && !window.location.hostname.includes(expectedDomain)) {
     console.warn('CRITICAL: Wrong domain detected on page load:', {
       current: window.location.hostname,
       expected: expectedDomain,
