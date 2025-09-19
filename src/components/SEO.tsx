@@ -19,11 +19,11 @@ const SEO: React.FC<SEOProps> = ({
   jsonLd,
 }) => {
   const computedCanonical =
-    canonicalUrl || (typeof window !== 'undefined' ? window.location.href : undefined);
+    canonicalUrl || (typeof window !== 'undefined' ? `https://smartfinancialplanning.com${window.location.pathname}` : undefined);
 
-  const computedOrigin = typeof window !== 'undefined' ? window.location.origin : '';
+  const computedOrigin = 'https://smartfinancialplanning.com';
   const defaultImagePath = '/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png';
-  const computedImage = imageUrl || (computedOrigin ? `${computedOrigin}${defaultImagePath}` : defaultImagePath);
+  const computedImage = imageUrl || `${computedOrigin}${defaultImagePath}`;
   const siteName = 'Smart Financial Planning';
   const imageAlt = 'Smart Financial Planning logo with bull silhouette';
 
