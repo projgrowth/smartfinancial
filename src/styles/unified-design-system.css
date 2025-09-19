@@ -1,0 +1,520 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* ========================================
+     1. CSS CUSTOM PROPERTIES & DESIGN TOKENS
+     ======================================== */
+  
+  :root {
+    /* Container widths and unified gutter */
+    --container-narrow: 64rem; /* ~1024px */
+    --container-default: 90rem; /* ~1440px (wider site width) */
+    --container-wide: 96rem; /* ~1536px for hero/footer if needed */
+    --gutter: clamp(1rem, 3vw, 2rem);
+  }
+
+  /* ========================================
+     2. TYPOGRAPHY SYSTEM
+     ======================================== */
+  
+  .heading-display {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-medium tracking-tight text-foreground;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-display-fluid {
+    font-size: clamp(2.25rem, 5vw + 0.5rem, 4.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    @apply font-heading font-medium tracking-tight text-foreground;
+  }
+
+  .heading-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-medium tracking-tight text-foreground;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  .heading-lg {
+    @apply text-2xl md:text-3xl lg:text-4xl font-heading font-medium tracking-tight text-foreground;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-md {
+    @apply text-xl md:text-2xl lg:text-3xl font-heading font-medium tracking-tight text-foreground;
+    line-height: 1.25;
+  }
+
+  .heading-sm {
+    @apply text-lg md:text-xl lg:text-2xl font-heading font-medium tracking-tight text-foreground;
+    line-height: 1.3;
+  }
+
+  .heading-xs {
+    @apply text-base md:text-lg lg:text-xl font-heading font-medium tracking-tight text-foreground;
+    line-height: 1.35;
+  }
+
+  /* Body Text Scale */
+  .text-body-xl {
+    @apply text-lg md:text-xl leading-relaxed text-muted-foreground;
+    max-width: 65ch;
+  }
+
+  .text-body-lg {
+    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
+    max-width: 68ch;
+  }
+
+  .text-body {
+    @apply text-sm md:text-base leading-relaxed text-muted-foreground;
+    max-width: 70ch;
+  }
+
+  .text-body-sm {
+    @apply text-xs md:text-sm leading-relaxed text-muted-foreground;
+    max-width: 72ch;
+  }
+
+  /* Typography utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-charcoal to-charcoal-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light bg-clip-text text-transparent;
+  }
+
+  /* ========================================
+     3. LAYOUT & CONTAINER SYSTEM
+     ======================================== */
+  
+  .container-unified {
+    width: 100%;
+    max-width: var(--container-default);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .container-narrow {
+    width: 100%;
+    max-width: var(--container-narrow);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .container-wide {
+    width: 100%;
+    max-width: var(--container-wide);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .container-fluid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  /* ========================================
+     4. SPACING & GRID SYSTEM
+     ======================================== */
+  
+  /* Section Spacing */
+  .section-xl {
+    @apply py-20 md:py-32;
+  }
+
+  .section-lg {
+    @apply py-16 md:py-24;
+  }
+
+  .section-md {
+    @apply py-12 md:py-20;
+  }
+
+  .section-sm {
+    @apply py-8 md:py-12;
+  }
+
+  /* Component Spacing Scale */
+  .space-component-xl {
+    @apply space-y-12 md:space-y-16;
+  }
+
+  .space-component-lg {
+    @apply space-y-8 md:space-y-12;
+  }
+
+  .space-component-md {
+    @apply space-y-6 md:space-y-8;
+  }
+
+  .space-component-sm {
+    @apply space-y-4 md:space-y-6;
+  }
+
+  .space-component-xs {
+    @apply space-y-2 md:space-y-4;
+  }
+
+  /* Gap System */
+  .gap-unified-xl {
+    @apply gap-8 md:gap-12;
+  }
+
+  .gap-unified-lg {
+    @apply gap-6 md:gap-8;
+  }
+
+  .gap-unified-md {
+    @apply gap-4 md:gap-6;
+  }
+
+  .gap-unified-sm {
+    @apply gap-3 md:gap-4;
+  }
+
+  /* Grid System - Standardized Responsive Patterns */
+  .grid-auto {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-two-col {
+    @apply grid grid-cols-1 md:grid-cols-2;
+  }
+
+  .grid-three-col {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-four-col {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* ========================================
+     5. COMPONENT BASE STYLES
+     ======================================== */
+  
+  /* Touch-Friendly Interactive Elements */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .touch-target-lg {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Image System - Consistent Cropping */
+  .img-headshot {
+    @apply aspect-square object-cover object-center;
+  }
+
+  .img-headshot-top {
+    @apply aspect-square object-cover object-[center_20%];
+  }
+
+  /* ========================================
+     6. UNIFIED BUTTON SYSTEM
+     ======================================== */
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-300 
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           touch-target rounded-md px-6 py-3 bg-primary text-primary-foreground 
+           hover:bg-primary/90 active:scale-[0.98] relative overflow-hidden;
+  }
+
+  .btn-primary::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+
+  .btn-primary:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-300
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           touch-target rounded-md px-6 py-3 bg-secondary text-secondary-foreground
+           hover:bg-secondary/80 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-300
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           touch-target rounded-md px-6 py-3 border border-input bg-background
+           hover:bg-accent hover:text-accent-foreground active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-300
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-dark focus-visible:ring-offset-2
+           touch-target rounded-md px-6 py-3 bg-gold text-charcoal-dark
+           hover:bg-gold-dark hover:shadow-lg active:scale-[0.98];
+  }
+
+  .btn-micro {
+    @apply relative inline-flex items-center justify-center px-6 py-3 rounded-md font-medium
+           transition-all duration-300 ease-out active:scale-[0.98] overflow-hidden
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-micro::after {
+    @apply content-[''] absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-blue-500/60 to-blue-600/60
+           transform scale-x-0 origin-left transition-transform duration-300;
+  }
+
+  .btn-micro:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* ========================================
+     7. UNIFIED CARD SYSTEM
+     ======================================== */
+  
+  /* Base Card */
+  .card {
+    @apply bg-white border border-slate-100 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-200;
+  }
+
+  /* Card Variants */
+  .card-interactive {
+    @apply bg-white rounded-lg border border-slate-100 shadow-sm p-6 transition-all duration-300
+           hover:shadow-md hover:border-blue-100/50 hover:-translate-y-1;
+  }
+
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-md shadow-md border border-white/20 rounded-lg 
+           transition-all duration-300 hover:shadow-lg hover:bg-white/90;
+  }
+
+  .card-feature {
+    @apply relative overflow-hidden bg-white rounded-lg border border-slate-100/80 shadow-sm
+           transition-all duration-300 hover:shadow-md hover:border-blue-100 p-6;
+  }
+
+  /* Card Modifiers */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl rounded-md hover:-translate-y-1;
+  }
+
+  .card-elevated {
+    @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-xl hover:shadow-2xl 
+           transition-all duration-300 rounded-xl overflow-hidden hover:-translate-y-1;
+  }
+
+  /* Card Layout Utilities */
+  .card-equal-height {
+    @apply h-full flex flex-col;
+  }
+
+  .card-content-grow {
+    @apply flex-grow;
+  }
+
+  /* ========================================
+     8. FORM ELEMENTS
+     ======================================== */
+  
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-charcoal mb-1;
+  }
+
+  .form-input {
+    @apply w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm
+           focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-200;
+  }
+
+  .input-primary {
+    @apply w-full px-4 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300;
+  }
+
+  .select-primary {
+    @apply w-full px-4 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300 bg-white;
+  }
+
+  .checkbox-primary {
+    @apply h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold/50 transition-all duration-300;
+  }
+
+  /* ========================================
+     9. INTERACTIVE STATES & UTILITIES
+     ======================================== */
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-[0_0_15px_rgba(230,198,131,0.25)];
+  }
+
+  /* Navigation Effects */
+  .nav-link {
+    @apply relative overflow-hidden inline-block px-1 py-1 text-charcoal/80 hover:text-charcoal transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  .nav-link-active {
+    @apply text-gold;
+  }
+
+  .nav-link-active::after {
+    @apply scale-x-100;
+  }
+
+  /* Interactive Badges */
+  .badge {
+    @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors duration-300;
+  }
+
+  .badge-primary {
+    @apply bg-charcoal/10 text-charcoal hover:bg-charcoal/20;
+  }
+
+  .badge-accent {
+    @apply bg-gold/20 text-charcoal hover:bg-gold/30;
+  }
+
+  .badge-outline {
+    @apply bg-transparent border border-charcoal/20 text-charcoal hover:bg-charcoal/5;
+  }
+
+  /* Shadow System */
+  .shadow-sm {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+  }
+  
+  .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+  }
+
+  /* ========================================
+     10. ACCESSIBILITY & FOCUS STATES
+     ======================================== */
+  
+  .focus-enhanced {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 transition-all duration-300;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .focus-enhanced {
+      @apply focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-primary;
+    }
+  }
+
+  /* ========================================
+     11. UTILITY CLASSES
+     ======================================== */
+  
+  /* Scrollbar Styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) hsl(var(--background));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* Background Patterns */
+  .bg-pattern {
+    @apply relative;
+  }
+
+  .bg-pattern::before {
+    @apply content-[''] absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOEgwdjE4aDM2eiIgZmlsbD0iI0YxRjVGOSIvPjwvZz48L3N2Zz4=')] opacity-5 pointer-events-none z-0;
+  }
+
+  /* Dividers */
+  .divider {
+    @apply w-full h-px bg-slate-200;
+  }
+
+  .divider-vertical {
+    @apply h-full w-px bg-slate-200;
+  }
+
+  .divider-accent {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent;
+  }
+
+  /* Legacy compatibility classes (to be removed in Phase 2) */
+  .paragraph {
+    @apply text-base md:text-lg text-charcoal/90 leading-relaxed;
+  }
+  
+  .paragraph-sm {
+    @apply text-sm md:text-base text-charcoal/80 leading-relaxed;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply container-unified;
+  }
+}
