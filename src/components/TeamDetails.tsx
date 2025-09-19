@@ -53,19 +53,21 @@ const TeamDetails = () => {
           <div className="col-span-1 mb-8 lg:mb-0">
             <div className="space-y-3 md:space-y-4">
               {advisors.map((advisor, index) => (
-                <Button asChild key={index} variant="subtle" size="none" className={`p-3 md:p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-3 md:gap-4 ${
+                <Button 
+                  key={index} 
+                  variant="subtle" 
+                  size="none" 
+                  className={`p-3 md:p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-3 md:gap-4 ${
                     activeAdvisor === index 
                       ? 'bg-accent/10 border border-accent/20 shadow-sm' 
                       : 'hover:bg-muted'
-                  }`}>
-                  <button 
-                    type="button"
-                    aria-pressed={activeAdvisor === index}
-                    onClick={() => {
-                      setActiveAdvisor(index);
-                      window.location.hash = `advisor=${advisors[index].slug}`;
-                    }}
-                  >
+                  }`}
+                  aria-pressed={activeAdvisor === index}
+                  onClick={() => {
+                    setActiveAdvisor(index);
+                    window.location.hash = `advisor=${advisors[index].slug}`;
+                  }}
+                >
                     <Avatar className="h-12 w-12 md:h-14 md:w-14 border-2 border-border flex-shrink-0">
                       <AvatarImage 
                         src={advisor.imageUrl} 
@@ -83,7 +85,6 @@ const TeamDetails = () => {
                       <h3 className="font-medium text-foreground text-sm md:text-base truncate">{advisor.name}</h3>
                       <p className="text-xs md:text-sm text-primary leading-tight">{advisor.title}</p>
                     </div>
-                  </button>
                 </Button>
               ))}
             </div>
