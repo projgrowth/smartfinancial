@@ -74,7 +74,7 @@ export const advisors: AdvisorProfile[] = [
     title: 'Associate Wealth Advisor',
     bio: "Growing up in Florida, Joseph Schreiner developed a deep appreciation for hard work and family values. He attended the University of Florida, where he graduated Summa Cum Laude from the College of Pharmacy with his Doctor of Pharmacy. It was there that he met his wife, who was pursuing a career in nursing. Today, they are proud parents of three children, ages 8, 6, and 3.\n\nAfter experiencing the loss of his father, Joseph felt a powerful calling to change careers. That pivotal moment inspired him to become a financial advisor, with a mission to provide the kind of guidance and support he wished his family had during such a difficult time.\n\nJoseph is passionate about serving medical professionals, retirees, and business owners—especially those in blue-collar industries like his late father's carpentry trade. He is particularly devoted to helping business owners approaching retirement develop thoughtful exit and succession strategies that protect their life's work and provide for their families.",
     specialties: ['Retirement & Succession Planning', 'Medical Professionals', 'Business Owner Strategies'],
-    imageUrl: '/lovable-uploads/3dda3ab1-0f6f-4e70-bff1-ce75f2161c6f.png',
+    imageUrl: '/lovable-uploads/joseph-schreiner-new.jpg',
     education: ['Doctor of Pharmacy, University of Florida'],
     certifications: ['Pending: CFP, CEPA'],
     experience: [
