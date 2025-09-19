@@ -1,0 +1,112 @@
+
+@tailwind utilities;
+
+@layer utilities {
+  /* Premium Design Tokens - Spacing Scale */
+  .space-premium-xs { @apply space-y-3; }
+  .space-premium-sm { @apply space-y-4; }
+  .space-premium-md { @apply space-y-6; }
+  .space-premium-lg { @apply space-y-8; }
+  .space-premium-xl { @apply space-y-12; }
+  .space-premium-2xl { @apply space-y-16; }
+  .space-premium-3xl { @apply space-y-24; }
+
+  .gap-premium-xs { @apply gap-3; }
+  .gap-premium-sm { @apply gap-4; }
+  .gap-premium-md { @apply gap-6; }
+  .gap-premium-lg { @apply gap-8; }
+  .gap-premium-xl { @apply gap-12; }
+  .gap-premium-2xl { @apply gap-16; }
+
+  /* Premium Padding Scale */
+  .p-premium-xs { @apply p-3; }
+  .p-premium-sm { @apply p-4; }
+  .p-premium-md { @apply p-6; }
+  .p-premium-lg { @apply p-8; }
+  .p-premium-xl { @apply p-10; }
+  .p-premium-2xl { @apply p-12; }
+
+  /* Premium Margin Scale */
+  .m-premium-xs { @apply m-3; }
+  .m-premium-sm { @apply m-4; }
+  .m-premium-md { @apply m-6; }
+  .m-premium-lg { @apply m-8; }
+  .m-premium-xl { @apply m-12; }
+  .m-premium-2xl { @apply m-16; }
+
+  /* Section Spacing */
+  .section-premium { @apply section-xl; }
+  .section-premium-sm { @apply section-lg; }
+  .section-premium-lg { @apply section-xl; }
+
+  /* Container Spacing */
+  .container-premium {
+    @apply container-unified;
+  }
+
+  /* Premium Shadow System */
+  .shadow-premium-xs {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+  
+  .shadow-premium-sm {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  }
+  
+  .shadow-premium-md {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+  }
+  
+  .shadow-premium-lg {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+  }
+  
+  .shadow-premium-xl {
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+  }
+
+  /* Premium Interactive States */
+  .hover-premium {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-premium-lg;
+  }
+
+  .hover-premium-subtle {
+    @apply transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-premium-md;
+  }
+
+  .focus-premium {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Premium Typography Spacing */
+  .prose-premium h1 { @apply mb-8; }
+  .prose-premium h2 { @apply mb-6 mt-12; }
+  .prose-premium h3 { @apply mb-4 mt-8; }
+  .prose-premium p { @apply mb-6 leading-relaxed; }
+  .prose-premium ul, .prose-premium ol { @apply mb-6 space-y-2; }
+  .prose-premium li { @apply leading-relaxed; }
+
+  /* Premium Border Treatments */
+  .border-premium {
+    @apply border border-border/50;
+  }
+
+  .border-premium-gradient {
+    background: linear-gradient(135deg, hsl(var(--border)) 0%, transparent 50%, hsl(var(--border)) 100%);
+    padding: 1px;
+    border-radius: 12px;
+  }
+
+  .border-premium-gradient > * {
+    @apply bg-background rounded-[11px];
+  }
+
+  /* Premium Glass Effects */
+  .glass-premium {
+    @apply backdrop-blur-md bg-background/80 border border-border/30;
+  }
+
+  .glass-premium-strong {
+    @apply backdrop-blur-lg bg-background/90 border border-border/20;
+  }
+}
