@@ -5,14 +5,33 @@ export const initUrlMonitoring = () => {
 
   const originalUrl = window.location.href;
   const expectedDomain = 'smartfinancialplanning.com';
+  const referrer = document.referrer;
 
-  // Check if we're on the expected domain
+  // Enhanced domain check with immediate redirect if wrong domain
   if (!window.location.hostname.includes(expectedDomain)) {
-    console.warn('Domain mismatch detected:', {
+    console.warn('CRITICAL: Wrong domain detected on page load:', {
       current: window.location.hostname,
       expected: expectedDomain,
-      fullUrl: window.location.href
+      fullUrl: window.location.href,
+      referrer: referrer,
+      userAgent: navigator.userAgent,
+      timestamp: new Date().toISOString()
     });
+
+    // If this came from a Google search, log it specifically
+    if (referrer.includes('google.com')) {
+      console.error('GOOGLE SEARCH REDIRECT ISSUE: Search result led to wrong domain!', {
+        searchReferrer: referrer,
+        wrongDomain: window.location.hostname,
+        expectedDomain: expectedDomain
+      });
+    }
+
+    // Immediate redirect to correct domain
+    const correctUrl = `https://${expectedDomain}${window.location.pathname}${window.location.search}${window.location.hash}`;
+    console.log('Redirecting to correct domain:', correctUrl);
+    window.location.replace(correctUrl);
+    return; // Don't set up monitoring if we're redirecting
   }
 
   // Monitor for unexpected redirects
