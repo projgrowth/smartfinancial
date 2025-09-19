@@ -169,7 +169,6 @@ const Education = () => {
       <SEO 
         title="Financial Education & Resources | Smart Financial Planning"
         description="Guides, tools, and glossary to help you understand key financial planning concepts and make informed decisions."
-        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/education` : undefined}
       />
       <div id="main-content" />
       

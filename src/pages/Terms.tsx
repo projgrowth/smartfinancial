@@ -9,7 +9,6 @@ const Terms = () => {
       <SEO 
         title="Terms of Service | Smart Financial Planning"
         description="Read the Terms of Service for Smart Financial Planning in Orlando, FL."
-        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/terms` : undefined}
       />
       
       <main id="main-content" className="pb-16">

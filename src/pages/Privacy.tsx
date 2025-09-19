@@ -9,7 +9,6 @@ const Privacy = () => {
       <SEO 
         title="Privacy Policy | Smart Financial Planning"
         description="Learn how Smart Financial Planning collects, uses, and protects your information."
-        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/privacy` : undefined}
       />
       
       <main id="main-content" className="pb-16">

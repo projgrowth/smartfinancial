@@ -68,3 +68,38 @@ export const monitorClipboardUrls = () => {
     }
   });
 };
+
+// Enforce canonical domain at runtime (helps if iOS uses og:url/canonical when sharing)
+export const enforceCanonicalDomain = (canonicalHost: string = 'smartfinancialplanning.com') => {
+  if (typeof window === 'undefined') return;
+
+  const host = window.location.hostname.toLowerCase();
+
+  // Allow local/dev and preview environments
+  const allowHosts = [
+    'localhost',
+    '127.0.0.1',
+  ];
+  const isAllowed =
+    allowHosts.includes(host) ||
+    host.endsWith('.lovableproject.com');
+
+  if (isAllowed) return;
+
+  const isCanonical =
+    host === canonicalHost ||
+    host.endsWith(`.${canonicalHost}`);
+
+  const knownAliases = new Set([
+    'smartfinancialplan.com',
+    'www.smartfinancialplan.com',
+    'thesmartfinancialplan.com',
+    'www.thesmartfinancialplan.com',
+  ]);
+
+  if (!isCanonical && (knownAliases.has(host) || !host.includes(canonicalHost))) {
+    const target = `https://${canonicalHost}${window.location.pathname}${window.location.search}${window.location.hash}`;
+    // Use replace to avoid back button returning to wrong host
+    window.location.replace(target);
+  }
+};

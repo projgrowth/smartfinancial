@@ -91,8 +91,6 @@ const Index = () => {
       <SEO 
         title="Smart Financial Planning — Your wealth. Elevated."
         description="Tailored financial strategies for ambitious professionals. Build, protect, and grow your wealth."
-        canonicalUrl={typeof window !== 'undefined' ? `${window.location.origin}/` : undefined}
-        imageUrl={typeof window !== 'undefined' ? `${window.location.origin}/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png` : '/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png'}
         jsonLd={[breadcrumbJsonLd, ...teamJsonLd]}
       />
       
