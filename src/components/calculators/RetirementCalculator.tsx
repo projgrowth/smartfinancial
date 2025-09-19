@@ -4,16 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 
 const RetirementCalculator = () => {
   return (
-    <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
+    <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
       <CardHeader>
         <CardTitle>Retirement Calculator</CardTitle>
         <CardDescription>
           Plan for your retirement by estimating your future needs and savings
         </CardDescription>
       </CardHeader>
-      <CardContent className="text-center space-component-xl">
-        <p className="text-primary space-component-sm">Coming Soon</p>
-        <p className="text-muted-foreground max-w-lg mx-auto">
+      <CardContent className="text-center py-12">
+        <p className="text-blue-500 mb-4">Coming Soon</p>
+        <p className="text-charcoal/70 max-w-lg mx-auto">
           Our comprehensive retirement calculator will help you determine how much you need to save for a comfortable retirement based on your expected lifestyle and goals.
         </p>
       </CardContent>

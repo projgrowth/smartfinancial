@@ -57,9 +57,9 @@ const MetricReveal: React.FC<MetricRevealProps> = ({
   };
 
   const sizeClasses = {
-    sm: 'metric-value-sm',
-    md: 'metric-value-md',
-    lg: 'metric-value-lg'
+    sm: 'text-lg',
+    md: 'text-2xl',
+    lg: 'text-3xl'
   };
 
   return (
@@ -74,7 +74,7 @@ const MetricReveal: React.FC<MetricRevealProps> = ({
       )}>
         {prefix}{Math.round(displayValue).toLocaleString()}{suffix}
       </div>
-      <div className="metric-label content-item">
+      <div className="text-sm text-gray-600 mt-1">
         {label}
       </div>
     </div>

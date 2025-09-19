@@ -102,7 +102,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 content-item">
+        <ChartContainer config={{}} className="h-64 mt-4">
           <BarChart data={youngProfessionalData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -168,7 +168,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 content-item">
+        <ChartContainer config={{}} className="h-64 mt-4">
           <LineChart data={familyData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -233,7 +233,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 content-item">
+        <ChartContainer config={{}} className="h-64 mt-4">
           <BarChart data={businessData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -298,7 +298,7 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 content-item">
+        <ChartContainer config={{}} className="h-64 mt-4">
           <BarChart data={preRetirementData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -329,13 +329,13 @@ const CaseStudies = () => {
   };
 
   return (
-    <section id="case-studies" className="section-lg gradient-accent-soft relative overflow-hidden">
+    <section id="case-studies" className="section-lg bg-gradient-to-br from-accent/5 to-background relative overflow-hidden">
       <GradientAccent variant="blue" position="bottom-right" intensity="low" />
       
-      <div className="container-site relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
-          <div className="text-center content-block">
-            <h2 className="heading-lg text-foreground content-group">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg text-foreground mb-6">
               Real Client Success Stories
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -345,7 +345,7 @@ const CaseStudies = () => {
           </div>
         </ScrollReveal>
 
-        <div className="content-group">
+        <div className="mb-8">
           <StoryNavigation
             currentStory={currentStoryIndex}
             totalStories={caseStudies.length}
@@ -371,16 +371,16 @@ const CaseStudies = () => {
                 onToggle={() => toggleCase(study.id)}
                 metrics={study.metrics}
               >
-                <div className="space-component-lg">
+                <div className="space-y-6">
                   <div>
-                    <h4 className="font-medium text-charcoal content-item">Implementation Timeline</h4>
+                    <h4 className="font-medium text-charcoal mb-4">Implementation Timeline</h4>
                     <InteractiveTimeline phases={study.timeline} />
                   </div>
                   
-                  <div className="bg-accent/5 card-padding rounded-xl">
-                    <h4 className="font-medium text-charcoal content-item">Financial Progress</h4>
+                  <div className="bg-accent/5 p-6 rounded-xl">
+                    <h4 className="font-medium text-charcoal mb-4">Financial Progress</h4>
                     {study.chartComponent}
-                    <p className="content-item text-body-xs text-muted-foreground text-center">
+                    <p className="mt-4 text-xs text-muted-foreground text-center">
                       Real results from implemented strategies
                     </p>
                   </div>
@@ -390,20 +390,20 @@ const CaseStudies = () => {
           ))}
         </div>
         
-        <div className="text-center space-component-xl">
-          <div className="max-w-2xl mx-auto space-component-lg bg-background rounded-xl shadow-sm border border-border">
-            <h3 className="heading-sm text-foreground space-component-sm">
+        <div className="text-center mt-16">
+          <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow-sm border border-blue-100">
+            <h3 className="text-xl font-medium text-charcoal mb-4">
               Your Story Starts Here
             </h3>
-            <p className="text-muted-foreground space-component-lg">
+            <p className="text-charcoal/70 mb-6">
               Every success story begins with a conversation. Let's discuss your financial goals and see how our proven strategies can be tailored to your unique situation.
             </p>
             <button
               onClick={() => navigateToSection('contact')}
-              className="inline-flex items-center bg-primary text-primary-foreground touch-target rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
             >
               Schedule Your Strategy Session
-              <ArrowRight className="icon-sm" />
+              <ArrowRight className="ml-2 w-4 h-4" />
             </button>
           </div>
         </div>

@@ -55,46 +55,85 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				navy: {
+					DEFAULT: '#112240',
+					light: '#233554',
+					dark: '#0a192f',
+					50: '#E7ECF2',
+					100: '#C3D0E1',
+					200: '#9CB1CB',
+					300: '#7491B5',
+					400: '#557AA5',
+					500: '#3A659A'
+				},
+				slate: {
+					DEFAULT: '#8892B0',
+					light: '#a8b2d1',
+					lightest: '#ccd6f6',
+					50: '#F8F9FC',
+					100: '#EEF1F8',
+					200: '#DCE0EE',
+					300: '#C6CCE3',
+					400: '#B1B9D8'
+				},
+				blue: {
+					DEFAULT: '#3B82F6',
+					light: '#60A5FA',
+					dark: '#2563EB',
+					50: '#EFF6FF',
+					100: '#DBEAFE',
+					200: '#BFDBFE',
+					300: '#93C5FD',
+					400: '#60A5FA',
+					500: '#3B82F6',
+					600: '#2563EB',
+					700: '#1D4ED8',
+					800: '#1E40AF',
+					900: '#1E3A8A'
+				},
 				charcoal: {
-					DEFAULT: '220 26% 14%',
-					dark: '220 39% 11%'
+					DEFAULT: '#1F2937',
+					light: '#374151',
+					dark: '#111827',
+					50: '#E5E7EB',
+					100: '#D1D5DB',
+					200: '#9CA3AF',
+					300: '#6B7280',
+					400: '#4B5563'
+				},
+				offwhite: {
+					DEFAULT: '#f8f8f8',
+					50: '#FFFFFF',
+					100: '#FAFAFA',
+					200: '#F3F3F3',
+					300: '#EBEBEB',
+					400: '#E1E1E1'
+				},
+				amber: {
+					light: '#FEF3C7',
+					DEFAULT: '#F59E0B',
+					dark: '#D97706',
+					50: '#FFFBEB',
+					100: '#FEF3C7',
+					200: '#FDE68A',
+					300: '#FCD34D',
+					400: '#FBBF24'
 				},
 				gold: {
-					DEFAULT: '42 69% 68%',
-					light: '42 84% 82%'
-				},
-				primaryGlow: '213 94% 68%'
+					DEFAULT: 'hsl(45 90% 57%)',
+					light: 'hsl(45 92% 72%)',
+					dark: 'hsl(45 90% 48%)',
+					50: 'hsl(45 100% 96%)',
+					100: 'hsl(45 95% 90%)',
+					200: 'hsl(45 95% 80%)',
+					300: 'hsl(45 92% 70%)',
+					400: 'hsl(45 92% 62%)'
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)',
-				xs: 'var(--radius-xs)',
-				xl: 'var(--radius-xl)',
-				full: 'var(--radius-full)'
-			},
-			spacing: {
-				'icon-xs': 'var(--icon-xs)',
-				'icon-sm': 'var(--icon-sm)',
-				'icon-md': 'var(--icon-md)',
-				'icon-lg': 'var(--icon-lg)',
-				'icon-xl': 'var(--icon-xl)',
-				'icon-xxl': 'var(--icon-xxl)'
-			},
-			transitionDuration: {
-				'fast': 'var(--transition-fast)',
-				'normal': 'var(--transition-normal)',
-				'slow': 'var(--transition-slow)'
-			},
-			boxShadow: {
-				xs: 'var(--shadow-xs)',
-				sm: 'var(--shadow-sm)',
-				md: 'var(--shadow-md)',
-				lg: 'var(--shadow-lg)',
-				xl: 'var(--shadow-xl)',
-				elegant: 'var(--shadow-elegant)',
-				glow: 'var(--shadow-glow)',
-				premium: 'var(--shadow-premium)'
+				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
 				inter: ['Inter', 'sans-serif'],

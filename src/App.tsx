@@ -8,15 +8,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import LoadingIndicator from "./components/LoadingIndicator";
+import './index.css';
 import CookieConsent from "@/components/ui/CookieConsent";
 import Layout from "@/components/Layout";
 import HashScroll from "@/components/HashScroll";
-import { AppProvider } from "@/context/AppContext";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { analytics, trackPageView } from "@/utils/analytics";
-import { addSafariClasses, applySafariClassesSync } from "@/utils/safariDetection";
-import { useSafariViewport } from "@/hooks/useSafariViewport";
-import { initializePerformanceOptimizations } from "@/utils/performanceOptimizer";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
@@ -25,15 +20,12 @@ const Education = lazy(() => import("./pages/Education"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 
-// Handle scroll restoration and analytics with Safari optimizations
+// Handle scroll restoration
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useSafariViewport();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Track page view for analytics
-    trackPageView(pathname, document.title);
   }, [pathname]);
 
   return null;
@@ -50,41 +42,31 @@ const queryClient = new QueryClient({
   },
 });
 
-// Apply Safari classes synchronously before React renders
-applySafariClassesSync();
-
-// Initialize performance optimizations
-const performanceManager = initializePerformanceOptimizations();
-
 const App = () => (
-  <ErrorBoundary onError={(error, errorInfo) => analytics.trackError(error, 'app_boundary')}>
-    <QueryClientProvider client={queryClient}>
-      <AppProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <SkipLink />
-          <BrowserRouter>
-            <ScrollToTop />
-            <HashScroll />
-            <Suspense fallback={<LoadingIndicator />}>
-              <Routes>
-                <Route element={<Layout />}>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/education" element={<Education />} />
-                  <Route path="/privacy" element={<Privacy />} />
-                  <Route path="/terms" element={<Terms />} />
-                </Route>
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-            <CookieConsent />
-          </BrowserRouter>
-        </TooltipProvider>
-      </AppProvider>
-    </QueryClientProvider>
-  </ErrorBoundary>
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <SkipLink />
+      <BrowserRouter>
+        <ScrollToTop />
+        <HashScroll />
+        <Suspense fallback={<LoadingIndicator />}>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+            </Route>
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+        <CookieConsent />
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
 export default App;

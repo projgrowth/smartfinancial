@@ -3,9 +3,7 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import AnimatedSectionTransition from './AnimatedSectionTransition';
-import { EnhancedCard, EnhancedCardHeader, EnhancedCardTitle, EnhancedCardContent, EnhancedCardFooter } from './ui/enhanced-card';
-import { SpringScale, RevealOnScroll } from './ui/enhanced-animations';
-import { useStaggerDelays } from '../hooks/useStaggerDelays';
+import { PremiumCard, PremiumCardHeader, PremiumCardTitle, PremiumCardContent, PremiumCardFooter } from './ui/premium-card';
 import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -17,38 +15,35 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, icon }) => {
   return (
-    <RevealOnScroll direction="up" delay={delay}>
-      <SpringScale>
-        <EnhancedCard 
-          variant="premium" 
-          tiltEffect={true}
-          hoverGlow={true}
-          className="card-equal-height group h-full"
-        >
-          <EnhancedCardHeader>
-            <div className="content-group text-primary transition-all duration-normal group-hover:scale-110 group-hover:text-accent">
-              {icon}
-            </div>
-            <EnhancedCardTitle className="heading-sm content-group">
-              {title}
-            </EnhancedCardTitle>
-          </EnhancedCardHeader>
-          
-          <EnhancedCardContent className="card-content-grow">
-            <p className="text-body">
-              {description}
-            </p>
-          </EnhancedCardContent>
-          
-          <EnhancedCardFooter>
-            <div className="flex items-center text-primary font-medium touch-target group-hover:text-accent transition-colors duration-normal">
-              <span>Learn more</span>
-              <ChevronRight className="icon-sm transition-transform duration-normal group-hover:translate-x-1" />
-            </div>
-          </EnhancedCardFooter>
-        </EnhancedCard>
-      </SpringScale>
-    </RevealOnScroll>
+    <ScrollReveal delay={delay}>
+      <PremiumCard 
+        variant="elevated" 
+        size="lg"
+        className="card-equal-height group"
+      >
+        <PremiumCardHeader>
+          <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80">
+            {icon}
+          </div>
+          <PremiumCardTitle className="heading-sm mb-4">
+            {title}
+          </PremiumCardTitle>
+        </PremiumCardHeader>
+        
+        <PremiumCardContent className="card-content-grow">
+          <p className="text-body">
+            {description}
+          </p>
+        </PremiumCardContent>
+        
+        <PremiumCardFooter>
+          <div className="flex items-center text-primary font-medium touch-target">
+            <span className="mr-2">Learn more</span>
+            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
+        </PremiumCardFooter>
+      </PremiumCard>
+    </ScrollReveal>
   );
 };
 
@@ -57,58 +52,56 @@ const ServiceCards = () => {
     {
       title: "Retirement Design",
       description: "Architect your ideal retirement, optimized for tax efficiency and lifetime wealth preservation.",
-      icon: <FileSearch className="icon-xl" strokeWidth={1.5} />
+      icon: <FileSearch size={28} strokeWidth={1.5} />
     },
     {
       title: "Tax Strategy",
       description: "Maximize your earnings with proactive, tailored tax strategies reserved for elite earners.",
-      icon: <CreditCard className="icon-xl" strokeWidth={1.5} />
+      icon: <CreditCard size={28} strokeWidth={1.5} />
     },
     {
       title: "Investment Management",
       description: "Custom investment solutions calibrated to your ambitions, risk tolerance, and growth targets.",
-      icon: <BarChart4 className="icon-xl" strokeWidth={1.5} />
+      icon: <BarChart4 size={28} strokeWidth={1.5} />
     },
     {
       title: "Wealth Protection",
       description: "Specialized coverage ensuring comprehensive protection for all your assets.",
-      icon: <Shield className="icon-xl" strokeWidth={1.5} />
+      icon: <Shield size={28} strokeWidth={1.5} />
     }
   ];
 
-  const staggerDelays = useStaggerDelays(services.length, 'slow');
-
   return (
     <>
-      <section id="services" className="section-xl gradient-accent-soft relative overflow-hidden">
+      <section id="services" className="section-xl bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden">
         <GradientAccent variant="subtle" position="top-left" intensity="low" />
         
-        <div className="container-site relative z-10">
-          <RevealOnScroll direction="fade" duration={800}>
-            <div className="text-center content-block">
-              <h2 className="heading-lg content-group">
+        <div className="container-unified relative z-10">
+          <ScrollReveal>
+            <div className="text-center space-component-lg">
+              <h2 className="heading-lg mb-6">
                 Services Tailored to Your Needs
               </h2>
               <p className="text-body-lg mx-auto">
                 Strategic financial planning designed for high-performing professionals who expect exceptional results.
               </p>
             </div>
-          </RevealOnScroll>
+          </ScrollReveal>
           
-          <div className="grid-four-col">
+          <div className="grid-four-col gap-unified-lg">
             {services.map((service, index) => (
               <ServiceCard 
                 key={index} 
                 title={service.title} 
                 description={service.description} 
-                delay={staggerDelays[index]?.delay || 0} 
+                delay={index * 100} 
                 icon={service.icon}
               />
             ))}
           </div>
         </div>
         
-        <div className="relative z-10 content-group">
+        <div className="relative z-10 mt-10 md:mt-14">
           <AnimatedSectionTransition 
             style="diagonal" 
             colorScheme="light-to-dark" 

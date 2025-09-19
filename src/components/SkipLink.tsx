@@ -1,23 +1,12 @@
 import React from 'react';
 
 const SkipLink: React.FC = () => {
-  const handleSkipClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const mainContent = document.getElementById('main-content');
-    if (mainContent) {
-      mainContent.focus();
-      mainContent.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <a
       href="#main-content"
-      onClick={handleSkipClick}
-      className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] rounded-lg bg-primary text-primary-foreground touch-target font-medium shadow-design-lg ring-4 ring-ring transition-all duration-200 focus:outline-none hover:bg-primary/90"
-      style={{ minHeight: '44px', minWidth: '44px' }}
+      className="sr-only focus:not-sr-only fixed top-2 left-2 z-50 rounded-md bg-primary text-primary-foreground px-3 py-2 shadow ring-2 ring-ring"
     >
-      Skip to main content
+      Skip to content
     </a>
   );
 };

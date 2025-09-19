@@ -31,26 +31,26 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </div>
       </div>
       
-      <h3 className="heading-sm text-primary-foreground flex items-center space-component-sm">
+      <h3 className="text-xl font-heading font-medium mb-4 text-white flex items-center">
         {step.title}
         {step.keyTerms.length > 0 && (
           <InteractiveTooltip
             trigger={
-              <Button asChild variant="subtle" size="xs" className="text-accent cursor-pointer text-body-sm border border-accent/40 touch-target-sm rounded-full hover:bg-accent/20 flex items-center" aria-label={`Learn more about ${step.title}`}>
+              <Button asChild variant="subtle" size="xs" className="ml-2 text-blue-300 cursor-pointer text-xs border border-blue-400/40 px-2 py-0.5 rounded-full hover:bg-blue-400/20 flex items-center" aria-label={`Learn more about ${step.title}`}>
                 <button>
                   <span className="sr-only">Learn about key terms</span>
-                  <Info className="icon-xs" />
+                  <Info className="w-3 h-3 mr-1" />
                   <span>Learn</span>
                 </button>
               </Button>
             }
             content={
-              <div className="space-component-sm">
-                <h4 className="font-medium text-body-sm border-b pb-1">Key Financial Concepts:</h4>
+              <div className="space-y-3">
+                <h4 className="font-medium text-sm mb-2 border-b pb-1">Key Financial Concepts:</h4>
                 {step.keyTerms.map((term, idx) => (
-                  <div key={idx} className="space-component-xs last:mb-0">
-                    <h5 className="text-body-sm font-medium">{term.term}</h5>
-                    <p className="text-body-xs text-muted-foreground leading-relaxed">{term.definition}</p>
+                  <div key={idx} className="mb-3 last:mb-0">
+                    <h5 className="text-sm font-medium">{term.term}</h5>
+                    <p className="text-xs text-charcoal/80 mt-0.5 leading-relaxed">{term.definition}</p>
                   </div>
                 ))}
               </div>
@@ -63,7 +63,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </h3>
       
-      <p className="text-primary-foreground/95 group-hover:text-primary-foreground transition-colors duration-300 space-component-md leading-relaxed">
+      <p className="text-white/95 group-hover:text-white transition-colors duration-300 mb-5 leading-relaxed">
         {step.description}
       </p>
       

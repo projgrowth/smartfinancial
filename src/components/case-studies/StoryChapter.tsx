@@ -20,13 +20,13 @@ const StoryChapter: React.FC<StoryChapterProps> = ({ chapter, isActive, onClick,
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'status-success';
+        return 'text-green-500 bg-green-50';
       case 'current':
-        return 'status-info';
+        return 'text-blue-500 bg-blue-50';
       case 'upcoming':
-        return 'status-neutral';
+        return 'text-gray-400 bg-gray-50';
       default:
-        return 'status-neutral';
+        return 'text-gray-400 bg-gray-50';
     }
   };
 
@@ -52,32 +52,32 @@ const StoryChapter: React.FC<StoryChapterProps> = ({ chapter, isActive, onClick,
       onClick={onClick}
     >
       <div className={cn(
-        "chapter-card flex items-start card-gap-md",
-        isActive ? "chapter-card-active" : ""
+        "flex items-start gap-4 p-4 rounded-lg border transition-all duration-300",
+        isActive ? "bg-blue-50 border-blue-200 shadow-md" : "bg-white border-gray-200 hover:border-blue-200 hover:shadow-sm"
       )}>
         <div className={cn(
-          "flex-shrink-0 icon-lg rounded-full flex items-center justify-center transition-all duration-300",
+          "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
           getStatusColor(chapter.status)
         )}>
           {chapter.icon}
         </div>
         
         <div className="flex-grow min-w-0">
-          <div className="flex items-center card-gap-sm content-item">
-            <span className="text-body-xs font-medium text-muted-foreground">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-medium text-gray-500">
               Chapter {index + 1}
             </span>
             {getStatusIcon(chapter.status)}
           </div>
-          <h4 className="font-medium text-foreground content-item">{chapter.title}</h4>
-          <p className="text-body-sm text-content leading-relaxed">
+          <h4 className="font-medium text-gray-900 mb-1">{chapter.title}</h4>
+          <p className="text-sm text-gray-600 leading-relaxed">
             {chapter.description}
           </p>
         </div>
       </div>
       
       {isActive && chapter.content && (
-        <div className="content-item card-padding bg-card rounded-lg border border-accent/20 shadow-design-sm animate-fade-in">
+        <div className="mt-4 p-4 bg-white rounded-lg border border-blue-100 shadow-sm animate-fade-in">
           {chapter.content}
         </div>
       )}

@@ -11,12 +11,12 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
-      <div className="container-site section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+      <div className="container-unified section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
         <div className="grid-four-col gap-unified-xl">
           <div className="xl:col-span-2">
             <ScrollReveal>
               <div className="space-component-md">
-                <Link to="/" className="heading-sm text-primary-foreground block content-item">
+                <Link to="/" className="heading-sm text-primary-foreground block mb-3">
                   Smart Financial Planning
                 </Link>
                 <p className="text-body-sm text-primary-foreground/80">
@@ -24,7 +24,7 @@ const Footer = () => {
                   cookie-cutter solutions.
                 </p>
               </div>
-              <div className="flex card-gap-sm">
+              <div className="flex gap-3">
                 <a
                   href="#"
                   className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
@@ -61,7 +61,7 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <ScrollReveal delay={100}>
-              <h3 id="footer-company" className="heading-xs text-primary-foreground content-item">Company</h3>
+              <h3 id="footer-company" className="heading-xs text-primary-foreground mb-4">Company</h3>
               <nav aria-labelledby="footer-company">
                 <ul className="space-component-xs">
                   <li>
@@ -96,7 +96,7 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <ScrollReveal delay={200}>
-              <h3 id="footer-services" className="heading-xs text-primary-foreground content-item">Services</h3>
+              <h3 id="footer-services" className="heading-xs text-primary-foreground mb-4">Services</h3>
               <nav aria-labelledby="footer-services">
                 <ul className="space-component-xs">
                   <li>
@@ -131,18 +131,18 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <ScrollReveal delay={300}>
-              <h3 className="heading-xs text-primary-foreground content-item">Contact Information</h3>
+              <h3 className="heading-xs text-primary-foreground mb-4">Contact Information</h3>
               <address className="not-italic">
-                <ul className="space-component-sm content-group">
+                <ul className="space-component-sm mb-6">
                   <li className="flex items-start">
-                    <MapPin className="icon-md text-accent card-gap-sm content-item flex-shrink-0" />
+                    <MapPin className="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-body-sm text-primary-foreground/80">
                       111 N Orange Ave, STE 800<br />
                       Orlando, Florida 32801
                     </span>
                   </li>
                   <li className="flex items-center touch-target">
-                    <Phone className="icon-md text-accent card-gap-sm flex-shrink-0" />
+                    <Phone className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
                     <a
                       href="tel:+17066275729"
                       className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced"
@@ -151,7 +151,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li className="flex items-center touch-target">
-                    <Mail className="icon-md text-accent card-gap-sm flex-shrink-0" />
+                    <Mail className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
                     <a
                       href="mailto:info@thesmartfinancialplan.com"
                       className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced break-all"
@@ -175,13 +175,13 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="content-section card-padding-sm border-t border-primary-foreground/20 text-primary-foreground/70 text-body-sm flex flex-col md:flex-row justify-between items-center card-gap-md">
+          <div className="mt-10 pt-6 border-t border-primary-foreground/20 text-primary-foreground/70 text-body-sm flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
-            <div className="flex items-center card-gap-lg">
+            <div className="flex items-center gap-6">
               <nav aria-label="Legal">
-                <ul className="flex card-gap-lg">
+                <ul className="flex gap-6">
                   <li>
                       <Link to="/privacy" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                         Privacy Policy

@@ -1,9 +1,27 @@
 
-/* =============================================================================
-   UNIFIED DESIGN SYSTEM - Phase 1: Foundation Consolidation Complete
-   Single source of truth for all styling
-============================================================================= */
+@import './styles/base.css';
+@import './styles/design-system.css';
+@import './styles/components.css';
+@import './styles/premium-spacing.css';
+@import './styles/animations/index.css';
+@import './styles/utilities.css';
 
-@import './styles/master-design-system.css';
-@tailwind components;
-@tailwind utilities;
+/* Mobile optimization */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+}
+
+/* Prevent zoom on input focus for iOS */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}

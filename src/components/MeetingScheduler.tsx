@@ -157,26 +157,26 @@ const MeetingScheduler = () => {
   };
 
   return (
-    <section id="schedule" className="section relative overflow-hidden bg-accent/20">
+    <section id="schedule" className="section relative overflow-hidden bg-blue-50/20">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
-      <div className="container-site relative z-10">
+      <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center content-group">
+          <h2 className="heading-lg text-foreground text-center mb-4">
             Schedule a Meeting
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto content-section">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
             Book a time to speak with our financial advisors about your goals and how we can help you achieve them.
           </p>
         </ScrollReveal>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="border-border shadow-design-sm hover:shadow-design-md transition-all duration-300">
-            <CardContent className="card-padding">
+          <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+            <CardContent className="pt-6">
               <Tabs defaultValue="schedule" className="w-full">
-                <TabsList className="grid-two-col content-block">
+                <TabsList className="grid w-full grid-cols-2 mb-8">
                   <TabsTrigger value="schedule">Schedule Online</TabsTrigger>
                   <TabsTrigger value="contact">Contact Us Directly</TabsTrigger>
                 </TabsList>
@@ -184,10 +184,10 @@ const MeetingScheduler = () => {
                 <TabsContent value="schedule">
                   <form onSubmit={handleSubmit}>
                     {step === 1 && (
-                      <div className="grid-two-col card-gap-lg">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h3 className="heading-md text-foreground content-item">Select a Date</h3>
-                          <div className="border border-border rounded-md card-padding-sm bg-background">
+                          <h3 className="text-lg font-medium text-charcoal mb-4">Select a Date</h3>
+                          <div className="border border-blue-100 rounded-md p-1 bg-white">
                             <Calendar
                               mode="single"
                               selected={date}
@@ -202,8 +202,9 @@ const MeetingScheduler = () => {
                         </div>
                         
                         <div>
-                          <h3 className="heading-md text-foreground content-item">Select Meeting Type</h3>
-                          <div className="content-group" role="radiogroup" aria-label="Select meeting type">
+                          <div className="mb-6">
+                            <h3 className="text-lg font-medium text-charcoal mb-4">Select Meeting Type</h3>
+                            <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
                                   key={type.id}
@@ -212,10 +213,10 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left card-padding border rounded-md cursor-pointer transition-all duration-200 ${
+                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 ${
                                     meetingType === type.id
-                                      ? 'border-primary bg-accent/10'
-                                      : 'border-border hover:border-accent'
+                                      ? 'border-blue-500 bg-blue-50'
+                                      : 'border-gray-200 hover:border-blue-200'
                                   }`}
                                   onClick={() => setMeetingType(type.id)}
                                   onKeyDown={(e) => {
@@ -228,16 +229,16 @@ const MeetingScheduler = () => {
                                   <div className="flex justify-between items-center">
                                     <div>
                                       <h4 className="font-medium">{type.name}</h4>
-                                      <p className="text-body-xs text-muted-foreground">Duration: {type.duration}</p>
+                                      <p className="text-xs text-charcoal/70">Duration: {type.duration}</p>
                                     </div>
-                                    <div className={`icon-sm rounded-full border ${
+                                    <div className={`h-4 w-4 rounded-full border ${
                                       meetingType === type.id
-                                        ? 'bg-primary border-primary'
-                                        : 'border-muted'
+                                        ? 'bg-blue-500 border-blue-500'
+                                        : 'border-gray-300'
                                     }`}>
                                       {meetingType === type.id && (
                                         <div className="h-full w-full flex items-center justify-center">
-                                          <div className="h-2 w-2 rounded-full bg-primary-foreground"></div>
+                                          <div className="h-2 w-2 rounded-full bg-white"></div>
                                         </div>
                                       )}
                                     </div>
@@ -245,23 +246,24 @@ const MeetingScheduler = () => {
                                 </button>
                               ))}
                             </div>
+                          </div>
                           
                           {date && (
                             <div>
-                              <h3 className="heading-sm text-foreground content-item">
+                              <h3 className="text-lg font-medium text-charcoal mb-4">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
-                              <div className="grid grid-cols-2 sm:grid-cols-3 card-gap-sm" role="radiogroup" aria-label="Select a time slot">
+                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
                                 {MEETING_TIMES.map((t) => (
                                   <button
                                     key={t}
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`touch-target border rounded-md text-center cursor-pointer text-body-sm transition-all duration-200 ${
+                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 ${
                                       time === t
-                                        ? 'border-primary bg-accent/10 text-primary'
-                                        : 'border-border hover:border-accent'
+                                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                        : 'border-gray-200 hover:border-blue-200'
                                     }`}
                                     onClick={() => setTime(t)}
                                     onKeyDown={(e) => {
@@ -283,25 +285,25 @@ const MeetingScheduler = () => {
                     
                     {step === 2 && (
                       <div>
-                        <div className="content-group card-padding bg-info-subtle rounded-md">
-                          <h3 className="heading-md text-foreground space-component-xs">Your Selected Time</h3>
-                          <div className="flex items-center card-gap-sm text-content content-item">
-                            <CalendarIcon className="icon-sm" />
+                        <div className="mb-6 p-4 bg-blue-50/50 rounded-md">
+                          <h3 className="text-lg font-medium text-charcoal mb-2">Your Selected Time</h3>
+                          <div className="flex items-center gap-2 text-charcoal/80 mb-1">
+                            <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
                           </div>
-                          <div className="flex items-center card-gap-sm text-content content-item">
-                            <Clock className="icon-sm" />
+                          <div className="flex items-center gap-2 text-charcoal/80 mb-1">
+                            <Clock className="h-4 w-4" />
                             <span>{time}</span>
                           </div>
-                          <div className="text-content">
+                          <div className="text-charcoal/80">
                             <span className="font-medium">{MEETING_TYPES.find(t => t.id === meetingType)?.name}</span>
                             <span> ({MEETING_TYPES.find(t => t.id === meetingType)?.duration})</span>
                           </div>
                         </div>
                         
-                        <div className="grid-two-col card-gap-md content-item">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                           <div>
-                            <label htmlFor="name" className="block text-body-sm font-medium text-foreground space-component-xs">
+                            <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1">
                               Your Name
                             </label>
                             <input
@@ -311,11 +313,11 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.name}
                               onChange={handleInputChange}
-                              className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground"
+                              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                           </div>
                           <div>
-                            <label htmlFor="email" className="block text-body-sm font-medium text-foreground space-component-xs">
+                            <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1">
                               Email Address
                             </label>
                             <input
@@ -325,13 +327,13 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.email}
                               onChange={handleInputChange}
-                              className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                           </div>
                         </div>
                         
-                        <div className="content-item">
-                          <label htmlFor="phone" className="block text-body-sm font-medium text-foreground space-component-xs">
+                        <div className="mb-4">
+                          <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-1">
                             Phone Number
                           </label>
                           <input
@@ -340,12 +342,12 @@ const MeetingScheduler = () => {
                             name="phone"
                             value={contactInfo.phone}
                             onChange={handleInputChange}
-                            className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                         </div>
                         
-                        <div className="content-item">
-                          <label htmlFor="message" className="block text-body-sm font-medium text-foreground space-component-xs">
+                        <div className="mb-4">
+                          <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-1">
                             What would you like to discuss? (Optional)
                           </label>
                           <textarea
@@ -354,12 +356,12 @@ const MeetingScheduler = () => {
                             rows={3}
                             value={contactInfo.message}
                             onChange={handleInputChange}
-                            className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                         </div>
 
-                        <div className="content-group">
-                          <label htmlFor="zapierWebhook" className="block text-body-xs font-medium text-foreground space-component-xs">
+                        <div className="mt-6">
+                          <label htmlFor="zapierWebhook" className="block text-xs font-medium text-charcoal mb-1">
                             Zapier Webhook URL (optional, site owner)
                           </label>
                           <input
@@ -368,14 +370,14 @@ const MeetingScheduler = () => {
                             placeholder="https://hooks.zapier.com/..."
                             value={webhookUrl}
                             onChange={(e) => setWebhookUrl(e.target.value)}
-                            className="w-full touch-target border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
-                          <p className="text-body-xs text-muted-foreground content-item">If provided, a request is sent to this URL on submit.</p>
+                          <p className="text-[11px] text-charcoal/60 mt-1">If provided, a request is sent to this URL on submit.</p>
                         </div>
                       </div>
                     )}
                     
-                    <div className="flex justify-between content-group">
+                    <div className="flex justify-between mt-6">
                       {step > 1 && (
                         <Button 
                           type="button" 
@@ -405,28 +407,28 @@ const MeetingScheduler = () => {
                 </TabsContent>
                 
                 <TabsContent value="contact">
-                  <div className="text-center card-padding-lg max-w-lg mx-auto">
-                    <h3 className="heading-md text-foreground content-group">
+                  <div className="text-center py-6 px-4 max-w-lg mx-auto">
+                    <h3 className="text-lg font-medium text-charcoal mb-6">
                       Prefer to reach us directly?
                     </h3>
                     
-                    <div className="space-component-lg">
+                    <div className="space-y-6">
                       <div>
-                        <div className="inline-block card-padding-sm rounded-full bg-info-subtle content-item">
-                          <Phone className="icon-lg text-blue-600" />
+                        <div className="inline-block p-3 rounded-full bg-blue-100 mb-3">
+                          <Phone className="h-6 w-6 text-blue-600" />
                         </div>
                         <h4 className="font-medium">Call Us</h4>
-                        <p className="text-content">(706) 627-5729</p>
-                        <p className="text-body-xs text-muted-foreground content-item">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
+                        <p className="text-charcoal/80">(706) 627-5729</p>
+                        <p className="text-xs text-charcoal/60 mt-1">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
                       </div>
                       
                       <div>
-                        <div className="inline-block card-padding-sm rounded-full bg-info-subtle content-item">
-                          <Mail className="icon-lg text-blue-600" />
+                        <div className="inline-block p-3 rounded-full bg-blue-100 mb-3">
+                          <Mail className="h-6 w-6 text-blue-600" />
                         </div>
                         <h4 className="font-medium">Email Us</h4>
-                        <p className="text-content">info@thesmartfinancialplan.com</p>
-                        <p className="text-body-xs text-muted-foreground content-item">We'll respond within 24 business hours</p>
+                        <p className="text-charcoal/80">info@thesmartfinancialplan.com</p>
+                        <p className="text-xs text-charcoal/60 mt-1">We'll respond within 24 business hours</p>
                       </div>
                     </div>
                   </div>

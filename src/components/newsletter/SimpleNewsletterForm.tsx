@@ -20,7 +20,7 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
   compact = false
 }) => {
   return (
-    <form onSubmit={handleSubmit} className="space-component-xs">
+    <form onSubmit={handleSubmit} className="space-y-3">
       <div className="relative">
         <input
           type="email"
@@ -28,9 +28,9 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Your email address"
           required
-          className="w-full px-4 py-2.5 pr-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-card/80 placeholder:text-muted-foreground"
+          className="w-full px-4 py-2.5 pr-12 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 placeholder:text-charcoal/40"
         />
-        <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-accent pointer-events-none" />
+        <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-blue-400 pointer-events-none" />
       </div>
       
       <MicroAnimations.ShimmerButton
@@ -41,7 +41,7 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
         <ArrowRight className="h-4 w-4" />
       </MicroAnimations.ShimmerButton>
       
-      <p className={`${compact ? 'text-[10px]' : 'text-body-sm'} text-center text-muted-foreground`}>
+      <p className={`${compact ? 'text-[10px]' : 'text-xs'} text-center text-charcoal/50`}>
         We respect your privacy. Unsubscribe anytime.
       </p>
     </form>

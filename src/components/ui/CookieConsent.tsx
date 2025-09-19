@@ -28,7 +28,7 @@ const CookieConsent = () => {
       aria-describedby="cookie-consent-description"
       aria-live="polite"
     >
-      <div className="container-site flex items-center justify-between flex-wrap gap-site-md">
+      <div className="container-unified flex items-center justify-between flex-wrap gap-4">
         <div className="flex-1 min-w-0">
           <h2 id="cookie-consent-title" className="sr-only">Cookie consent</h2>
           <p id="cookie-consent-description" className="text-sm">
