@@ -125,7 +125,7 @@ const Index = () => {
                     We believe in empowering our Lake Nona and Orlando clients through education. Understanding concepts like <FinancialTerm term="Asset Allocation">asset allocation</FinancialTerm> and <FinancialTerm term="Tax-Loss Harvesting">tax-loss harvesting</FinancialTerm> can help Central Florida professionals make more informed decisions about their financial future.
                   </p>
                   <Link to="/education">
-                    <Button variant="outline" className="btn-outline group">
+                    <Button variant="outline" className="group">
                       <span className="mr-2">Visit Our Knowledge Center</span>
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </Button>

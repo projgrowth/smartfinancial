@@ -1,8 +1,8 @@
 
 import React from 'react';
+import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
 import { ArrowRight } from 'lucide-react';
-import { MicroAnimations } from './ui/micro-animations';
 
 const CTA = () => {
   return (
@@ -23,18 +23,20 @@ const CTA = () => {
             <p className="paragraph text-white/70 mb-10 max-w-2xl mx-auto">
               Take the first step toward financial clarity and strategic growth with a personalized approach.
             </p>
-            <MicroAnimations.ScaleOnHover>
-              <a 
-                href="#schedule" 
-                className="group inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-md transition-all duration-300 hover:bg-blue-600 shadow-lg hover:shadow-xl relative overflow-hidden"
-              >
+            <Button 
+              variant="cta"
+              size="lg"
+              asChild
+              className="group"
+            >
+              <a href="#schedule">
                 <span className="relative z-10 flex items-center">
                   Schedule Your Strategy Session
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_ease-in-out]"></div>
               </a>
-            </MicroAnimations.ScaleOnHover>
+            </Button>
           </div>
         </ScrollReveal>
       </div>

@@ -96,10 +96,11 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
             </Button>
           )}
           
-          <MicroAnimations.ShimmerButton
-            className={`${step > 1 ? '' : 'w-full'} flex items-center justify-center gap-1.5`}
-            disabled={isSubmitting}
+          <Button
+            variant="shimmer"
             type="submit"
+            disabled={isSubmitting}
+            className={`${step > 1 ? '' : 'w-full'} flex items-center justify-center gap-1.5`}
           >
             {isSubmitting 
               ? "Processing..." 
@@ -108,7 +109,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
                 : "Subscribe Now"
             }
             {!isSubmitting && <ArrowRight className="h-4 w-4" />}
-          </MicroAnimations.ShimmerButton>
+          </Button>
         </CardFooter>
       </form>
       

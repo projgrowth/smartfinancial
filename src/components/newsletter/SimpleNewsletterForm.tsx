@@ -33,13 +33,15 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
         <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-blue-400 pointer-events-none" />
       </div>
       
-      <MicroAnimations.ShimmerButton
-        className="w-full flex items-center justify-center gap-1.5"
+      <Button
+        type="submit"
+        variant="shimmer"
         disabled={isSubmitting}
+        className="w-full flex items-center justify-center gap-1.5"
       >
         {isSubmitting ? "Subscribing..." : "Subscribe Now"} 
         <ArrowRight className="h-4 w-4" />
-      </MicroAnimations.ShimmerButton>
+      </Button>
       
       <p className={`${compact ? 'text-[10px]' : 'text-xs'} text-center text-charcoal/50`}>
         We respect your privacy. Unsubscribe anytime.

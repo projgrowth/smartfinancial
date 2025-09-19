@@ -164,12 +164,14 @@ export const ShimmerButton = ({
   );
 };
 
+// DEPRECATED: ShimmerButton has been moved to Button component with variant="shimmer"
+// This is kept for backward compatibility but will be removed in future versions
+
 export const MicroAnimations = {
   PulseDot,
   ScaleOnHover,
   FadeInOnView,
-  FloatingElement,
-  ShimmerButton
+  FloatingElement
 };
 
 export default MicroAnimations;

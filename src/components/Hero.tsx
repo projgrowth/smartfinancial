@@ -6,7 +6,7 @@ import ScrollReveal from './ScrollReveal';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 import GradientAccent from './GradientAccent';
-import { MicroAnimations } from './ui/micro-animations';
+import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 
@@ -147,20 +147,20 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={250} distance="0px" duration={400}>
-            <MicroAnimations.ScaleOnHover scale="sm">
-              <MicroAnimations.ShimmerButton
-                onClick={() => smoothScrollTo('schedule')}
-                aria-label="Schedule your private strategy call"
-                className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced"
-              >
-                <span className="mr-2">
-                  <span className="xs:hidden">Schedule</span>
-                  <span className="hidden xs:inline sm:hidden">Schedule Call</span>
-                  <span className="hidden sm:inline">Schedule Your Private Strategy Call</span>
-                </span>
-                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </MicroAnimations.ShimmerButton>
-            </MicroAnimations.ScaleOnHover>
+            <Button
+              variant="shimmer"
+              size="lg"
+              onClick={() => smoothScrollTo('schedule')}
+              aria-label="Schedule your private strategy call"
+              className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced hover:scale-[1.02] transition-transform duration-300"
+            >
+              <span className="mr-2">
+                <span className="xs:hidden">Schedule</span>
+                <span className="hidden xs:inline sm:hidden">Schedule Call</span>
+                <span className="hidden sm:inline">Schedule Your Private Strategy Call</span>
+              </span>
+              <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+            </Button>
           </ScrollReveal>
         </div>
       </div>

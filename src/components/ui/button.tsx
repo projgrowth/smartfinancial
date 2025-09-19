@@ -21,6 +21,12 @@ const buttonVariants = cva(
         hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg",
         subtle: "border border-input bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground",
         bare: "bg-transparent text-current hover:bg-transparent focus-visible:ring-0 focus-visible:outline-none",
+        shimmer: "relative bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg overflow-hidden whitespace-nowrap leading-none min-h-[44px] after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-[shimmer_1s_ease-in-out]",
+        cta: "bg-blue-500 text-white hover:bg-blue-600 shadow-lg hover:shadow-xl relative overflow-hidden group",
+        navigation: "hover:bg-accent hover:text-accent-foreground transition-all duration-300",
+        "card-action": "bg-transparent text-current hover:bg-accent/50 hover:text-accent-foreground rounded-lg",
+        floating: "fixed bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl rounded-full",
+        "icon-only": "bg-transparent hover:bg-accent hover:text-accent-foreground rounded-full aspect-square",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -42,17 +48,37 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  loading?: boolean
+  animate?: 'shimmer' | 'pulse' | 'none'
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, loading = false, animate = 'none', children, disabled, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    
+    const animationClasses = {
+      shimmer: "after:animate-[shimmer_1s_ease-in-out]",
+      pulse: "animate-pulse",
+      none: ""
+    }
+    
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size }),
+          animate !== 'none' && animationClasses[animate],
+          loading && "cursor-not-allowed opacity-75",
+          className
+        )}
+        disabled={disabled || loading}
         ref={ref}
         {...props}
-      />
+      >
+        {loading && (
+          <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+        )}
+        {children}
+      </Comp>
     )
   }
 )
