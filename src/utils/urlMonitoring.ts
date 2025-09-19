@@ -4,7 +4,7 @@ export const initUrlMonitoring = () => {
   if (typeof window === 'undefined') return;
 
   const originalUrl = window.location.href;
-  const expectedDomain = 'smartfinancialplanning.com';
+  const expectedDomain = 'thesmartfinancialplan.com';
   const referrer = document.referrer;
   const host = window.location.hostname.toLowerCase();
 
@@ -99,7 +99,7 @@ export const monitorClipboardUrls = () => {
 };
 
 // Enforce canonical domain at runtime (helps if iOS uses og:url/canonical when sharing)
-export const enforceCanonicalDomain = (canonicalHost: string = 'smartfinancialplanning.com') => {
+export const enforceCanonicalDomain = (canonicalHost: string = 'thesmartfinancialplan.com') => {
   if (typeof window === 'undefined') return;
 
   const host = window.location.hostname.toLowerCase();
@@ -122,8 +122,8 @@ export const enforceCanonicalDomain = (canonicalHost: string = 'smartfinancialpl
   const knownAliases = new Set([
     'smartfinancialplan.com',
     'www.smartfinancialplan.com',
-    'thesmartfinancialplan.com',
-    'www.thesmartfinancialplan.com',
+    'smartfinancialplanning.com',
+    'www.smartfinancialplanning.com',
   ]);
 
   if (!isCanonical && (knownAliases.has(host) || !host.includes(canonicalHost))) {
@@ -164,7 +164,7 @@ export const initSecurityMonitoring = () => {
       const currentHost = new URL(currentUrl).hostname;
       const previousHost = new URL(previousUrl).hostname;
       
-      if (currentHost !== previousHost && !currentHost.includes('smartfinancialplanning.com')) {
+      if (currentHost !== previousHost && !currentHost.includes('thesmartfinancialplan.com')) {
         console.warn('Potential security redirect detected:', {
           from: previousHost,
           to: currentHost,

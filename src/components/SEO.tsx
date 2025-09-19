@@ -19,9 +19,9 @@ const SEO: React.FC<SEOProps> = ({
   jsonLd,
 }) => {
   const computedCanonical =
-    canonicalUrl || (typeof window !== 'undefined' ? `https://smartfinancialplanning.com${window.location.pathname}` : undefined);
+    canonicalUrl || (typeof window !== 'undefined' ? `https://thesmartfinancialplan.com${window.location.pathname}` : undefined);
 
-  const computedOrigin = 'https://smartfinancialplanning.com';
+  const computedOrigin = 'https://thesmartfinancialplan.com';
   const defaultImagePath = '/lovable-uploads/144559fd-7765-4c3f-8256-fbde965750ab.png';
   const computedImage = imageUrl || `${computedOrigin}${defaultImagePath}`;
   const siteName = 'Smart Financial Planning';
