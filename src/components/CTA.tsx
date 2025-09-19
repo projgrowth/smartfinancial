@@ -26,16 +26,14 @@ const CTA = () => {
             <Button 
               variant="cta"
               size="lg"
-              asChild
               className="group"
+              onClick={() => document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <a href="#schedule">
-                <span className="relative z-10 flex items-center">
-                  Schedule Your Strategy Session
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_ease-in-out]"></div>
-              </a>
+              <span className="relative z-10 flex items-center">
+                Schedule Your Strategy Session
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_ease-in-out]"></div>
             </Button>
           </div>
         </ScrollReveal>
