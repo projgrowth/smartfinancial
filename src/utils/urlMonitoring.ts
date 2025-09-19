@@ -103,3 +103,62 @@ export const enforceCanonicalDomain = (canonicalHost: string = 'smartfinancialpl
     window.location.replace(target);
   }
 };
+
+// Enhanced security monitoring
+export const initSecurityMonitoring = () => {
+  if (typeof window === 'undefined') return;
+
+  // Monitor for CSP violations
+  document.addEventListener('securitypolicyviolation', (e) => {
+    console.warn('CSP Violation detected:', {
+      blockedURI: e.blockedURI,
+      violatedDirective: e.violatedDirective,
+      originalPolicy: e.originalPolicy,
+      disposition: e.disposition
+    });
+    
+    // Could send to analytics/logging service
+    if (typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'security_violation', {
+        event_category: 'Security',
+        event_label: e.violatedDirective,
+        value: 1
+      });
+    }
+  });
+
+  // Monitor for potential security redirects
+  let previousUrl = window.location.href;
+  const checkForSuspiciousRedirects = () => {
+    const currentUrl = window.location.href;
+    if (currentUrl !== previousUrl) {
+      const currentHost = new URL(currentUrl).hostname;
+      const previousHost = new URL(previousUrl).hostname;
+      
+      if (currentHost !== previousHost && !currentHost.includes('smartfinancialplanning.com')) {
+        console.warn('Potential security redirect detected:', {
+          from: previousHost,
+          to: currentHost,
+          timestamp: new Date().toISOString()
+        });
+      }
+      previousUrl = currentUrl;
+    }
+  };
+
+  // Check every 2 seconds for URL changes
+  setInterval(checkForSuspiciousRedirects, 2000);
+
+  // Monitor for JavaScript errors that might indicate security issues
+  window.addEventListener('error', (e) => {
+    if (e.message.includes('CSP') || e.message.includes('blocked') || e.message.includes('security')) {
+      console.warn('Potential security-related error:', {
+        message: e.message,
+        filename: e.filename,
+        lineno: e.lineno,
+        colno: e.colno,
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
+};

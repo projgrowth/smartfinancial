@@ -9,6 +9,7 @@ import { CalendarIcon, Clock, Mail, Phone, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
+import { sanitizeInput, isValidEmail, isValidPhone } from '@/utils/security';
 
 const MEETING_TIMES = [
   '9:00 AM', '10:00 AM', '11:00 AM', 
@@ -47,13 +48,14 @@ const MeetingScheduler = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setContactInfo(prev => ({ ...prev, [name]: value }));
+    const sanitizedValue = sanitizeInput(value);
+    setContactInfo(prev => ({ ...prev, [name]: sanitizedValue }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validation
+    // Enhanced validation with security checks
     if (!contactInfo.name.trim() || !contactInfo.email.trim() || !contactInfo.phone.trim()) {
       toast({
         title: "Missing Information",
@@ -63,11 +65,31 @@ const MeetingScheduler = () => {
       return;
     }
 
-    try {
-      const webhook = webhookUrl.trim();
+    // Email validation
+    if (!isValidEmail(contactInfo.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-      if (webhook) {
-        await fetch(webhook, {
+    // Phone validation
+    if (!isValidPhone(contactInfo.phone)) {
+      toast({
+        title: "Invalid Phone",
+        description: "Please enter a valid phone number.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const sanitizedWebhook = sanitizeInput(webhookUrl.trim());
+
+      if (sanitizedWebhook) {
+        await fetch(sanitizedWebhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           mode: 'no-cors',

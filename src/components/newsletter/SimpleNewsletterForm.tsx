@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from 'lucide-react';
 import MicroAnimations from '../ui/micro-animations';
+import { sanitizeInput } from '@/utils/security';
 
 interface SimpleNewsletterFormProps {
   email: string;
@@ -25,7 +26,7 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(sanitizeInput(e.target.value))}
           placeholder="Your email address"
           required
           className="w-full px-4 py-2.5 pr-12 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 placeholder:text-charcoal/40"

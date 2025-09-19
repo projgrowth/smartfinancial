@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail } from 'lucide-react';
 import SimpleSuccessMessage from './newsletter/SimpleSuccessMessage';
 import SimpleNewsletterForm from './newsletter/SimpleNewsletterForm';
+import { sanitizeInput } from '@/utils/security';
 
 interface NewsletterSignupProps {
   title?: string;
@@ -45,22 +46,23 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     setIsSubmitting(true);
     
     try {
-      // Email validation
+      // Email validation with sanitization
+      const sanitizedEmail = sanitizeInput(email.trim());
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
+      if (!emailRegex.test(sanitizedEmail)) {
         return;
       }
 
       // Connect to email marketing service via Zapier webhook if provided
-      const webhook = webhookUrl.trim();
+      const sanitizedWebhook = sanitizeInput(webhookUrl.trim());
       
-      if (webhook) {
-        await fetch(webhook, {
+      if (sanitizedWebhook) {
+        await fetch(sanitizedWebhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           mode: 'no-cors',
           body: JSON.stringify({ 
-            email,
+            email: sanitizedEmail,
             timestamp: new Date().toISOString(),
             source: 'website_newsletter'
           })
