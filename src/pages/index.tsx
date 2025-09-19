@@ -15,6 +15,7 @@ import PremiumBackground from '../components/PremiumBackground';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FinancialTerm } from '@/components/FinancialTermGlossary';
 import { Button } from '@/components/ui/button';
+import { PremiumCard } from '@/components/ui/premium-card';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
@@ -114,7 +115,7 @@ const Index = () => {
         
         <section className="section-md bg-accent/5 relative" aria-labelledby="educational-resources-heading">
           <div className="container-unified">
-            <div className="max-w-4xl mx-auto bg-card rounded-lg p-6 lg:p-8 shadow-sm border border-border/50">
+            <PremiumCard variant="info" size="lg" className="max-w-4xl mx-auto border-border/50">
               <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
                 <div className="lg:max-w-[60%] space-component-sm">
                   <h3 id="educational-resources-heading" className="heading-sm text-card-foreground mb-3">
@@ -141,7 +142,7 @@ const Index = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </PremiumCard>
           </div>
         </section>
         

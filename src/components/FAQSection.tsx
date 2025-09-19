@@ -2,6 +2,7 @@
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { PremiumCard } from './ui/premium-card';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 
@@ -17,19 +18,23 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="border border-blue-100 rounded-lg overflow-hidden bg-white mb-4 shadow-sm hover:shadow-md transition-all duration-300"
     >
-      <CollapsibleTrigger className="flex w-full items-center justify-between p-5 text-left">
-        <h3 className="font-medium text-charcoal">{question}</h3>
-        {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-blue-500 flex-shrink-0" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-blue-500 flex-shrink-0" />
-        )}
-      </CollapsibleTrigger>
-      <CollapsibleContent className="p-5 pt-0 text-charcoal/80 border-t border-blue-50">
-        {answer}
-      </CollapsibleContent>
+      <PremiumCard 
+        variant="faq"
+        className="mb-4 transition-all duration-300"
+      >
+        <CollapsibleTrigger className="flex w-full items-center justify-between p-5 text-left">
+          <h3 className="font-medium text-charcoal">{question}</h3>
+          {isOpen ? (
+            <ChevronUp className="h-5 w-5 text-blue-500 flex-shrink-0" />
+          ) : (
+            <ChevronDown className="h-5 w-5 text-blue-500 flex-shrink-0" />
+          )}
+        </CollapsibleTrigger>
+        <CollapsibleContent className="p-5 pt-0 text-charcoal/80 border-t border-blue-50">
+          {answer}
+        </CollapsibleContent>
+      </PremiumCard>
     </Collapsible>
   );
 };

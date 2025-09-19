@@ -6,6 +6,7 @@ import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
 import { ScaleOnHover } from '@/components/ui/micro-animations';
 import { ProcessStep } from './types';
 import { Button } from '@/components/ui/button';
+import { PremiumCard } from '@/components/ui/premium-card';
 
 interface ProcessStepCardProps {
   step: ProcessStep;
@@ -19,8 +20,11 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
   onStepClick 
 }) => {
   return (
-    <div 
-      className={`glass-dark hover:bg-charcoal/50 transition-all duration-500 p-8 rounded-lg h-full border ${activeStep === step.id ? 'border-blue-400/50 shadow-lg shadow-blue-900/10' : 'border-white/15'} group`}
+    <PremiumCard 
+      variant="process-dark" 
+      size="lg"
+      active={activeStep === step.id}
+      className="h-full group"
     >
       <div className="flex items-center justify-between mb-5">
         <span className="text-blue-300 text-4xl font-heading font-medium opacity-90 block group-hover:text-blue-200 transition-colors duration-300">
@@ -93,7 +97,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
           ))}
         </CollapsibleContent>
       </Collapsible>
-    </div>
+    </PremiumCard>
   );
 };
 

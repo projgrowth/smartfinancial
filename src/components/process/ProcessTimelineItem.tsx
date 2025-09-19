@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ProcessStep } from './types';
 import KeyTerms from './KeyTerms';
+import { PremiumCard } from '@/components/ui/premium-card';
 
 interface ProcessTimelineItemProps {
   step: ProcessStep;
@@ -34,12 +35,12 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
       </div>
       
       {/* Enhanced card with better shadows and hover effects */}
-      <div className={`
-        ${isActive 
-          ? 'bg-charcoal/50 border-blue-400/30 shadow-lg shadow-blue-900/5' 
-          : 'bg-charcoal/30 border-white/15 hover:bg-charcoal/40'
-        } border p-6 rounded-lg transition-all duration-300`
-      }>
+      <PremiumCard 
+        variant="timeline"
+        size="default"
+        active={isActive}
+        className="transition-all duration-300"
+      >
         <div className="flex items-center mb-5">
           <span className={`${
             isActive ? 'text-blue-300 scale-110' : 'text-blue-300'
@@ -98,7 +99,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
             )}
           </CollapsibleContent>
         </Collapsible>
-      </div>
+      </PremiumCard>
     </div>
   );
 };

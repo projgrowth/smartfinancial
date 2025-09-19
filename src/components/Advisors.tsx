@@ -3,6 +3,7 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import { Button } from '@/components/ui/button';
+import { PremiumCard, PremiumCardContent } from '@/components/ui/premium-card';
 import { ArrowRight } from 'lucide-react';
 import { advisors } from '@/data/team';
 import { generateTeamAltText, getHeadshotPosition } from '@/utils/imageOptimization';
@@ -19,7 +20,7 @@ interface AdvisorProps {
 
 const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, specialties }) => {
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300 p-4 md:p-6 h-full flex flex-col">
+    <PremiumCard variant="advisor" size="responsive" className="h-full flex flex-col">
       <div className="mb-4 md:mb-6 flex justify-center">
         <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden rounded-full border-2 border-border shadow-sm">
           <img 
@@ -37,11 +38,11 @@ const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, spe
       </div>
       <h3 className="heading-xs mb-1 text-center">{name}</h3>
       <p className="text-primary font-medium mb-3 md:mb-4 text-center text-sm md:text-base">{title}</p>
-      <div className="text-muted-foreground flex-grow space-y-2 md:space-y-3 text-sm md:text-base">
+      <PremiumCardContent className="text-muted-foreground flex-grow space-y-2 md:space-y-3 text-sm md:text-base">
         {bio.split('\n\n').map((paragraph, index) => (
           <p key={index} className="leading-relaxed">{paragraph}</p>
         ))}
-      </div>
+      </PremiumCardContent>
       <div className="mt-4 flex flex-wrap gap-1 md:gap-2 justify-center">
         {specialties.map((specialty, index) => (
           <span key={index} className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full">
@@ -60,7 +61,7 @@ const Advisor: React.FC<AdvisorProps> = ({ slug, name, title, bio, imageUrl, spe
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
       </div>
-    </div>
+    </PremiumCard>
   );
 };
 

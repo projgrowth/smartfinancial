@@ -289,40 +289,9 @@
   }
 
   /* ========================================
-     7. UNIFIED CARD SYSTEM
+     7. CARD UTILITIES (Keep minimal utilities only)
      ======================================== */
   
-  /* Base Card */
-  .card {
-    @apply bg-white border border-slate-100 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-200;
-  }
-
-  /* Card Variants */
-  .card-interactive {
-    @apply bg-white rounded-lg border border-slate-100 shadow-sm p-6 transition-all duration-300
-           hover:shadow-md hover:border-blue-100/50 hover:-translate-y-1;
-  }
-
-  .card-glass {
-    @apply bg-white/80 backdrop-blur-md shadow-md border border-white/20 rounded-lg 
-           transition-all duration-300 hover:shadow-lg hover:bg-white/90;
-  }
-
-  .card-feature {
-    @apply relative overflow-hidden bg-white rounded-lg border border-slate-100/80 shadow-sm
-           transition-all duration-300 hover:shadow-md hover:border-blue-100 p-6;
-  }
-
-  /* Card Modifiers */
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-xl rounded-md hover:-translate-y-1;
-  }
-
-  .card-elevated {
-    @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-xl hover:shadow-2xl 
-           transition-all duration-300 rounded-xl overflow-hidden hover:-translate-y-1;
-  }
-
   /* Card Layout Utilities */
   .card-equal-height {
     @apply h-full flex flex-col;

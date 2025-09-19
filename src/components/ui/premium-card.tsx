@@ -12,13 +12,21 @@ const premiumCardVariants = cva(
         elevated: "border-border/50 shadow-md hover:shadow-lg hover:-translate-y-1",
         premium: "border-border/30 shadow-lg hover:shadow-xl hover:-translate-y-2 bg-gradient-to-br from-background/95 to-background/80 backdrop-blur-sm",
         glass: "border-white/20 shadow-lg bg-white/80 backdrop-blur-md hover:bg-white/90 hover:shadow-xl",
-        hero: "border-gradient-to-r from-primary/20 via-accent/20 to-primary/20 shadow-xl hover:shadow-2xl bg-gradient-to-br from-background via-background/95 to-accent/5"
+        hero: "border-gradient-to-r from-primary/20 via-accent/20 to-primary/20 shadow-xl hover:shadow-2xl bg-gradient-to-br from-background via-background/95 to-accent/5",
+        advisor: "border-border shadow-sm hover:shadow-md hover:border-primary/20 rounded-lg",
+        "process-dark": "border-white/15 shadow-sm bg-charcoal/30 hover:bg-charcoal/50 rounded-lg",
+        timeline: "border-white/15 bg-charcoal/30 hover:bg-charcoal/40 rounded-lg",
+        info: "border-border/50 shadow-sm rounded-lg",
+        "glass-light": "border-blue-100/80 shadow-sm bg-white hover:shadow-md hover:border-blue-100 rounded-lg",
+        faq: "border-blue-100 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md"
       },
       size: {
+        xs: "p-3",
         sm: "p-4",
         default: "p-6", 
         lg: "p-8",
-        xl: "p-10"
+        xl: "p-10",
+        responsive: "p-4 md:p-6"
       },
       spacing: {
         tight: "space-y-3",
@@ -39,15 +47,18 @@ export interface PremiumCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof premiumCardVariants> {
   hover?: boolean
+  active?: boolean
 }
 
 const PremiumCard = React.forwardRef<HTMLDivElement, PremiumCardProps>(
-  ({ className, variant, size, spacing, hover = true, children, ...props }, ref) => (
+  ({ className, variant, size, spacing, hover = true, active, children, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
         premiumCardVariants({ variant, size, spacing }),
         hover && "group cursor-pointer",
+        active && variant === "process-dark" && "border-blue-400/50 shadow-lg shadow-blue-900/10",
+        active && variant === "timeline" && "bg-charcoal/50 border-blue-400/30 shadow-lg shadow-blue-900/5",
         className
       )}
       {...props}

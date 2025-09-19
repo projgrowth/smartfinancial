@@ -4,6 +4,7 @@ import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { PremiumCard } from '@/components/ui/premium-card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
@@ -89,7 +90,7 @@ const TeamDetails = () => {
           </div>
           
           <div className="col-span-2">
-            <div className="bg-card rounded-xl shadow-sm border border-border p-4 md:p-6 lg:p-8">
+            <PremiumCard variant="advisor" size="lg" className="lg:p-8">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 md:mb-8">
                 <div className="lg:col-span-1 flex flex-col items-center">
                   <div className="relative w-32 h-32 md:w-40 lg:w-48 md:h-40 lg:h-48 mb-4 overflow-hidden rounded-full border-4 border-accent/20 shadow-sm">
@@ -187,7 +188,7 @@ const TeamDetails = () => {
                   </div>
                 </TabsContent>
               </Tabs>
-            </div>
+            </PremiumCard>
           </div>
         </div>
       </div>
