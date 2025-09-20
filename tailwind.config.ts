@@ -139,7 +139,8 @@ export default {
 				inter: ['Inter', 'sans-serif'],
 				neue: ['"Neue Haas Grotesk"', 'sans-serif'],
 				sans: ['Inter', 'sans-serif'],
-				heading: ['"Space Grotesk"', 'sans-serif']
+				heading: ['"Space Grotesk"', 'sans-serif'],
+				work: ['"Work Sans"', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {

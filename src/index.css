@@ -2,6 +2,7 @@
 @import './styles/base.css';
 @import './styles/unified-design-system.css';
 @import './styles/animations/index.css';
+@import './styles/animations/premium-gradients.css';
 
 /* Mobile optimization */
 html {

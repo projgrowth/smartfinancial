@@ -4,7 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
+import PremiumHeroGradient from './PremiumHeroGradient';
 import GradientAccent from './GradientAccent';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
@@ -93,10 +93,13 @@ const Hero = () => {
       ref={heroRef as React.RefObject<HTMLElement>}
       className="relative flex items-center justify-center min-h-[calc(90svh-var(--nav-h))] md:min-h-[calc(100svh-var(--nav-h))] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden"
     >
+      {/* Premium gradient background */}
+      <PremiumHeroGradient />
+      
       {/* Enhanced background accents with better positioning */}
-      <GradientAccent variant="blue" position="top-right" size="md" intensity="ultra-low" animated className="opacity-[0.7]" />
+      <GradientAccent variant="blue" position="top-right" size="md" intensity="ultra-low" animated className="opacity-[0.4]" />
       <div className="hidden sm:block">
-        <GradientAccent variant="gold" position="bottom-left" size="sm" intensity="ultra-low" animated className="opacity-[0.6]" />
+        <GradientAccent variant="gold" position="bottom-left" size="sm" intensity="ultra-low" animated className="opacity-[0.3]" />
       </div>
       
       {/* Bull shape gradient only on education page */}
@@ -115,7 +118,7 @@ const Hero = () => {
       <div className="container-unified z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal distance="0px" duration={400}>
-            <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-4 sm:mb-5 text-balance">
+            <h1 className="heading-display-fluid heading-premium leading-[1.05] sm:leading-[1.02] tracking-tight mb-4 sm:mb-5 text-balance">
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
@@ -125,11 +128,11 @@ const Hero = () => {
                 >
                   <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
-                    <span className="word-layer word-exit" aria-hidden="true">{prevWord}</span>
+                    <span className="word-layer word-exit-premium" aria-hidden="true">{prevWord}</span>
                   )}
                   <span
                     key={index}
-                    className="word-layer word-enter text-accent"
+                    className="word-layer word-enter-premium text-shimmer-subtle"
                   >
                     {words[index]}
                   </span>
@@ -140,7 +143,7 @@ const Hero = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={150} distance="0px" duration={400}>
-            <p className="text-body-lg sm:text-body-xl mx-auto mb-7 sm:mb-8 max-w-2xl text-balance">
+            <p className="text-body-lg sm:text-body-xl text-premium-light mx-auto mb-7 sm:mb-8 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
