@@ -96,25 +96,6 @@
     @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light bg-clip-text text-transparent;
   }
 
-  /* Premium typography system */
-  .heading-premium {
-    @apply font-work font-semibold tracking-tight;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-
-  .text-premium {
-    @apply font-work font-normal;
-    letter-spacing: -0.01em;
-    line-height: 1.6;
-  }
-
-  .text-premium-light {
-    @apply font-work font-light;
-    letter-spacing: 0.01em;
-    line-height: 1.7;
-  }
-
   /* ========================================
      3. LAYOUT & CONTAINER SYSTEM
      ======================================== */
