@@ -1,164 +1,67 @@
 
-import React, { useEffect, useMemo, useState, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 import PremiumHeroBackground from './PremiumHeroBackground';
 import { Button } from '@/components/ui/button';
-import { useLocation } from 'react-router-dom';
-import { useIsMobile } from '../hooks/use-mobile';
 
 const Hero = () => {
-  const location = useLocation();
-  const isEducationPage = location.pathname === '/education';
-  const isMobile = useIsMobile();
-  
-  // Word carousel for headline
-  const words = useMemo(() => ['Elevated.', 'Optimized.', 'Protected.', 'Compounded.'], []);
-  const longestWord = useMemo(
-    () => words.reduce((a, b) => (a.length >= b.length ? a : b), ''),
-    [words]
-  );
-  const [index, setIndex] = useState(0);
-  const [reduceMotion, setReduceMotion] = useState(false);
-  const [prevWord, setPrevWord] = useState<string | null>(null);
-  const exitDuration = 350;
-  
-  // Intersection observer for performance optimization
-  const { ref: heroRef, isIntersecting } = useIntersectionObserver({
-    threshold: 0.1,
-    triggerOnce: false, // Keep observing for pause/resume
-  });
-  
-  // Keep the headline centered by locking the rotator width to the longest word
-  const placeholderRef = useRef<HTMLSpanElement | null>(null);
-  const [rotatorWidth, setRotatorWidth] = useState<number>(0);
-  
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const handleReduce = () => setReduceMotion(mqReduce.matches);
-    handleReduce();
-    mqReduce.addEventListener?.('change', handleReduce);
-    return () => mqReduce.removeEventListener?.('change', handleReduce);
-  }, []);
-
-  // Measure and lock the rotator width to the longest word to prevent reflow
-  useEffect(() => {
-    let ro: ResizeObserver | null = null;
-    let cleanup = () => {};
-
-    const setup = () => {
-      const el = placeholderRef.current;
-      if (!el) return;
-      const measure = () => setRotatorWidth(el.offsetWidth);
-      measure();
-      ro = new ResizeObserver(() => measure());
-      ro.observe(el);
-      window.addEventListener('resize', measure);
-      cleanup = () => {
-        ro?.disconnect();
-        window.removeEventListener('resize', measure);
-      };
-    };
-
-    const fontsReady = (document as any).fonts?.ready as Promise<void> | undefined;
-    if (fontsReady && typeof fontsReady.then === 'function') {
-      fontsReady.then(setup).catch(setup);
-    } else {
-      setup();
-    }
-
-    return () => cleanup();
-  }, []);
-
-  useEffect(() => {
-    if (reduceMotion || !isIntersecting) return;
-    
-    const intervalId = window.setInterval(() => {
-      setIndex((i) => {
-        setPrevWord(words[i]);
-        window.setTimeout(() => setPrevWord(null), exitDuration);
-        return (i + 1) % words.length;
-      });
-    }, 2500); // Unified timing across devices
-    
-    return () => window.clearInterval(intervalId);
-  }, [reduceMotion, isIntersecting, words.length, exitDuration]);
 
   return (
-    <section 
-      ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative flex items-center justify-center min-h-[calc(90svh-var(--nav-h))] md:min-h-[calc(100svh-var(--nav-h))] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden"
-    >
+    <section className="relative min-h-[calc(100svh-var(--nav-h))] flex items-center overflow-hidden">
       {/* Premium Background */}
       <PremiumHeroBackground variant="primary" />
       
       <div className="container-unified z-10 w-full">
-        <div className="max-w-5xl mx-auto text-center">
-          <ScrollReveal distance="0px" duration={400}>
-            <h1 className="heading-display-premium mb-6 sm:mb-8 text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-4 gap-y-2 sm:gap-y-0">
-                <span className="shrink-0 leading-none">Your wealth.</span>
-                <span 
-                  className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
-                  aria-hidden="true" 
-                  style={rotatorWidth ? { width: rotatorWidth } : undefined}
-                >
-                  <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
-                  {prevWord && (
-                    <span className="word-layer word-exit" aria-hidden="true">{prevWord}</span>
-                  )}
-                  <span
-                    key={index}
-                    className="word-layer word-enter text-gold-light"
-                  >
-                    {words[index]}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center min-h-[70vh]">
+          {/* Content - Left aligned with asymmetrical layout */}
+          <div className="lg:col-span-7 xl:col-span-6 space-y-12">
+            <ScrollReveal distance="20px" duration={600}>
+              <div className="space-y-6">
+                <h1 className="heading-display-premium text-left text-balance tracking-tight">
+                  Private Wealth
+                  <span className="block text-gold-light font-light tracking-wide">
+                    Management
                   </span>
-                </span>
-                <span className="sr-only" aria-live="polite" aria-atomic="true">Your wealth. {words[index]}</span>
+                </h1>
+                <div className="h-px w-24 bg-gradient-to-r from-gold via-gold/60 to-transparent"></div>
               </div>
-            </h1>
-          </ScrollReveal>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={200} distance="20px" duration={600}>
+              <p className="text-premium text-xl lg:text-2xl max-w-2xl text-left leading-relaxed font-light">
+                Institutional-grade strategies for sophisticated investors. 
+                We deliver precision wealth management with the discretion and 
+                expertise you expect from a premier advisory firm.
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={400} distance="20px" duration={600}>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button
+                  variant="outline"
+                  onClick={() => smoothScrollTo('schedule')}
+                  className="group border-2 border-white/20 bg-transparent hover:bg-white/5 text-white hover:text-white transition-all duration-300 px-8 py-4 text-base font-medium tracking-wide focus-enhanced"
+                >
+                  Private Consultation
+                  <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+                <button
+                  onClick={() => smoothScrollTo('process')}
+                  className="text-white/70 hover:text-white transition-colors duration-300 text-base font-medium tracking-wide underline decoration-white/20 underline-offset-4 hover:decoration-white/60 focus-enhanced"
+                >
+                  Our Approach
+                </button>
+              </div>
+            </ScrollReveal>
+          </div>
           
-          <ScrollReveal delay={150} distance="0px" duration={400}>
-            <p className="text-premium text-lg sm:text-xl mx-auto mb-8 sm:mb-10 max-w-3xl text-balance leading-relaxed">
-              Tailored financial strategies for ambitious professionals who demand more than 
-              cookie-cutter solutions. We help you build, protect, and grow your wealth with 
-              sophisticated precision.
-            </p>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={250} distance="0px" duration={400}>
-            <Button
-              onClick={() => smoothScrollTo('schedule')}
-              aria-label="Schedule your private strategy call"
-              className="btn-premium group w-auto min-w-[240px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base focus-enhanced"
-            >
-              <span className="mr-3 font-medium">
-                <span className="xs:hidden">Schedule Call</span>
-                <span className="hidden xs:inline sm:hidden">Schedule Strategy Call</span>
-                <span className="hidden sm:inline">Schedule Your Private Strategy Call</span>
-              </span>
-              <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Button>
-          </ScrollReveal>
+          {/* Right side - Empty space for asymmetrical balance */}
+          <div className="hidden lg:block lg:col-span-5 xl:col-span-6"></div>
         </div>
       </div>
-
-      {!reduceMotion && (
-        <button
-          onClick={() => smoothScrollTo('schedule')}
-          aria-label="Scroll to schedule section"
-          className={`absolute left-1/2 -translate-x-1/2 text-gold/60 hover:text-gold transition-all duration-300 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] touch-target ${
-            isMobile ? 'scale-75 opacity-60' : ''
-          }`}
-        >
-          <ChevronRight className="w-6 h-6 rotate-90 animate-bounce" aria-hidden="true" />
-        </button>
-      )}
     </section>
   );
 };

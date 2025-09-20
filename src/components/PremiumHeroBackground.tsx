@@ -42,54 +42,43 @@ const PremiumHeroBackground: React.FC<PremiumHeroBackgroundProps> = ({
 
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
-      {/* Premium Dark Gradient Base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-charcoal-dark to-navy-dark/95" />
+      {/* Deep Sophisticated Gradient Base */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-950" />
       
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }}
-        />
-      </div>
-      
-      {/* Bull Silhouette */}
+      {/* Subtle Bull Silhouette - More Refined */}
       <div 
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 flex items-center justify-end pr-[10%]"
         style={{
-          transform: reduceMotion ? 'none' : `translate(${mousePosition.x * 20}px, ${mousePosition.y * 10}px)`
+          transform: reduceMotion ? 'none' : `translate(${mousePosition.x * 8}px, ${mousePosition.y * 4}px)`
         }}
       >
         <img
           src={bullImage}
           alt=""
-          className="w-full h-full object-cover opacity-[0.08] mix-blend-screen scale-110"
+          className="w-3/4 h-3/4 object-contain opacity-[0.04] mix-blend-screen scale-125"
           style={{
-            filter: 'brightness(1.2) contrast(1.1) sepia(0.3) hue-rotate(15deg)'
+            filter: 'brightness(1.5) contrast(0.8) grayscale(0.2)'
           }}
         />
       </div>
       
-      {/* Warm Gold Accents */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-radial from-gold/10 via-gold/5 to-transparent rounded-full blur-3xl opacity-60" />
-      <div className="absolute bottom-1/3 left-1/6 w-80 h-80 bg-gradient-radial from-amber/8 via-amber/4 to-transparent rounded-full blur-2xl opacity-40" />
+      {/* Minimal Gold Accent */}
+      <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-radial from-gold/6 via-gold/2 to-transparent rounded-full blur-3xl opacity-40" />
       
-      {/* Noise Texture for Premium Feel */}
+      {/* Subtle Geometric Frame */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      
+      {/* Premium Noise Texture */}
       <div 
-        className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
+        className="absolute inset-0 opacity-[0.008] mix-blend-overlay"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
         }}
       />
       
-      {/* Vignette Effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-navy-dark/80" />
+      {/* Deep Vignette for Focus */}
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-slate-950/60" />
     </div>
   );
 };
