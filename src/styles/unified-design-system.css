@@ -14,49 +14,9 @@
     --gutter: clamp(1rem, 3vw, 2rem);
   }
 
-  /* Premium Typography */
-  .heading-display-premium {
-    font-size: clamp(2.5rem, 6vw + 0.5rem, 5.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    @apply font-serif font-semibold tracking-tight text-offwhite-50;
-  }
-
-  .text-premium {
-    @apply text-offwhite-100/90 font-sans font-light leading-relaxed;
-  }
-
-  /* Premium Interactive Elements */
-  .btn-premium {
-    @apply relative inline-flex items-center justify-center px-8 py-4 font-medium
-           rounded-md overflow-hidden transition-all duration-300
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark;
-    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
-    color: hsl(var(--navy-dark));
-    border: 1px solid hsl(var(--gold-dark) / 0.2);
-  }
-
-  .btn-premium::before {
-    @apply content-[''] absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-dark)) 100%);
-  }
-
-  .btn-premium:hover {
-    box-shadow: 0 10px 25px -3px hsl(var(--gold) / 0.2);
-    transform: scale(1.02);
-  }
-
-  .btn-premium:hover::before {
-    @apply opacity-100;
-  }
-
-  .btn-premium:active {
-    transform: scale(0.98);
-  }
-
-  .btn-premium > * {
-    @apply relative z-10;
-  }
+  /* ========================================
+     2. TYPOGRAPHY SYSTEM
+     ======================================== */
   
   .heading-display {
     @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-medium tracking-tight text-foreground;
