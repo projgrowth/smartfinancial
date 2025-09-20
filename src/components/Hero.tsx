@@ -17,13 +17,10 @@ const Hero = () => {
   
   // Word carousel for headline
   const words = useMemo(() => ['Elevated.', 'Optimized.', 'Protected.', 'Compounded.'], []);
-  const longestWord = useMemo(
-    () => words.reduce((a, b) => (a.length >= b.length ? a : b), ''),
-    [words]
-  );
   const [index, setIndex] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [prevWord, setPrevWord] = useState<string | null>(null);
+  const [currentWordWidth, setCurrentWordWidth] = useState<number>(0);
   const exitDuration = 350;
   
   // Intersection observer for performance optimization
@@ -32,9 +29,8 @@ const Hero = () => {
     triggerOnce: false, // Keep observing for pause/resume
   });
   
-  // Keep the headline centered by locking the rotator width to the longest word
-  const placeholderRef = useRef<HTMLSpanElement | null>(null);
-  const [rotatorWidth, setRotatorWidth] = useState<number>(0);
+  // Measure current word width for dynamic sizing
+  const currentWordRef = useRef<HTMLSpanElement | null>(null);
   
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -45,34 +41,22 @@ const Hero = () => {
     return () => mqReduce.removeEventListener?.('change', handleReduce);
   }, []);
 
-  // Measure and lock the rotator width to the longest word to prevent reflow
+  // Measure current word width dynamically
   useEffect(() => {
-    let ro: ResizeObserver | null = null;
-    let cleanup = () => {};
-
-    const setup = () => {
-      const el = placeholderRef.current;
-      if (!el) return;
-      const measure = () => setRotatorWidth(el.offsetWidth);
-      measure();
-      ro = new ResizeObserver(() => measure());
-      ro.observe(el);
-      window.addEventListener('resize', measure);
-      cleanup = () => {
-        ro?.disconnect();
-        window.removeEventListener('resize', measure);
-      };
+    const measureCurrentWord = () => {
+      const el = currentWordRef.current;
+      if (el) {
+        setCurrentWordWidth(el.offsetWidth);
+      }
     };
 
     const fontsReady = (document as any).fonts?.ready as Promise<void> | undefined;
     if (fontsReady && typeof fontsReady.then === 'function') {
-      fontsReady.then(setup).catch(setup);
+      fontsReady.then(measureCurrentWord).catch(measureCurrentWord);
     } else {
-      setup();
+      measureCurrentWord();
     }
-
-    return () => cleanup();
-  }, []);
+  }, [index, words]);
 
   useEffect(() => {
     if (reduceMotion || !isIntersecting) return;
@@ -100,18 +84,21 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto text-center">
           <ScrollReveal distance="0px" duration={400}>
             <h1 className="heading-display-premium mb-6 sm:mb-8 text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-4 gap-y-2 sm:gap-y-0">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-0 gap-y-2 sm:gap-y-0">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
-                  className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
+                  className="shrink-0 word-rotator leading-none mt-0 sm:mt-0" 
                   aria-hidden="true" 
-                  style={rotatorWidth ? { width: rotatorWidth } : undefined}
+                  style={{ 
+                    width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto',
+                    transition: 'width 300ms ease-out'
+                  }}
                 >
-                  <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
                     <span className="word-layer word-exit" aria-hidden="true">{prevWord}</span>
                   )}
                   <span
+                    ref={currentWordRef}
                     key={index}
                     className="word-layer word-enter text-gold-light"
                   >
