@@ -492,20 +492,125 @@
     @apply w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent;
   }
 
-  /* Legacy compatibility classes (to be removed in Phase 2) */
-  .paragraph {
-    @apply text-base md:text-lg text-charcoal/90 leading-relaxed;
+  /* ========================================
+     12. ENHANCED AESTHETIC SYSTEM
+     ======================================== */
+  
+  /* Premium Visual Effects */
+  .glass-effect {
+    @apply backdrop-blur-md bg-card/60 border border-border/20;
   }
   
-  .paragraph-sm {
-    @apply text-sm md:text-base text-charcoal/80 leading-relaxed;
+  .glass-effect-strong {
+    @apply backdrop-blur-xl bg-card/80 border border-border/30;
   }
-
-  .section {
-    @apply py-16 md:py-24;
+  
+  /* Enhanced Gradients */
+  .gradient-bg-primary {
+    @apply bg-gradient-to-br from-background via-background to-accent/5;
   }
-
-  .container-custom {
-    @apply container-unified;
+  
+  .gradient-bg-accent {
+    @apply bg-gradient-to-br from-accent/10 via-transparent to-accent/5;
+  }
+  
+  .gradient-text-premium {
+    @apply bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent;
+  }
+  
+  /* Premium Cards */
+  .card-premium {
+    @apply bg-card border border-border/60 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500;
+  }
+  
+  .card-premium-interactive {
+    @apply card-premium hover:border-accent/30 hover:-translate-y-1 hover:shadow-2xl;
+  }
+  
+  /* Section Backgrounds */
+  .section-bg-primary {
+    @apply bg-background relative;
+  }
+  
+  .section-bg-accent {
+    @apply bg-gradient-to-br from-accent/5 to-background relative;
+  }
+  
+  .section-bg-muted {
+    @apply bg-muted/30 relative;
+  }
+  
+  /* Enhanced Interactive Elements */
+  .interactive-accent {
+    @apply text-accent hover:text-accent/80 transition-all duration-300;
+  }
+  
+  .interactive-primary {
+    @apply text-foreground hover:text-accent transition-all duration-300;
+  }
+  
+  /* Premium Spacing System */
+  .space-premium-xl {
+    @apply space-y-16 md:space-y-24;
+  }
+  
+  .space-premium-lg {
+    @apply space-y-12 md:space-y-16;
+  }
+  
+  .space-premium-md {
+    @apply space-y-8 md:space-y-12;
+  }
+  
+  /* Enhanced Focus States */
+  .focus-premium {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:border-accent transition-all duration-300;
+  }
+  
+  /* Semantic Text Colors */
+  .text-primary-content {
+    @apply text-foreground;
+  }
+  
+  .text-secondary-content {
+    @apply text-muted-foreground;
+  }
+  
+  .text-accent-content {
+    @apply text-accent;
+  }
+  
+  .text-muted-content {
+    @apply text-muted-foreground/80;
+  }
+  
+  /* Background Semantic Classes */
+  .bg-primary-content {
+    @apply bg-background;
+  }
+  
+  .bg-secondary-content {
+    @apply bg-muted/30;
+  }
+  
+  .bg-accent-content {
+    @apply bg-accent/10;
+  }
+  
+  .bg-card-content {
+    @apply bg-card;
+  }
+  
+  /* Enhanced Button System Extension */
+  .btn-premium {
+    @apply btn-primary;
+  }
+  
+  .btn-premium::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .btn-premium:hover::after {
+    @apply scale-x-100 origin-bottom-left;
   }
 }

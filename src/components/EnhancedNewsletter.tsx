@@ -68,7 +68,7 @@ const EnhancedNewsletter = () => {
   };
 
   return (
-    <section id="newsletter" className="section relative overflow-hidden bg-blue-50/40">
+    <section id="newsletter" className="section relative overflow-hidden section-bg-muted">
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
       
       <div className="container-unified relative z-10">

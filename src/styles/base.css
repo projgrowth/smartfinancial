@@ -53,68 +53,67 @@
   }
 
   body {
-    @apply bg-offwhite text-charcoal font-sans;
+    @apply bg-background text-foreground font-sans;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-medium text-charcoal;
+    @apply font-heading font-medium text-foreground;
   }
   
-  
   p {
-    @apply mb-4 text-charcoal/90;
-    max-width: 70ch; /* Better readability with controlled line length */
+    @apply mb-4 text-muted-foreground;
+    max-width: 70ch;
   }
   
   a {
-    @apply text-blue-500 hover:text-blue-600 transition-colors duration-300;
-    text-underline-offset: 0.2em; /* Improved underline positioning */
+    @apply text-accent hover:text-accent/80 transition-colors duration-300;
+    text-underline-offset: 0.2em;
   }
   
   /* Improved focus styles for accessibility */
   :focus-visible {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+    @apply outline-none ring-2 ring-ring ring-offset-2;
   }
   
   /* Better selection styling */
   ::selection {
-    @apply bg-blue-500/20 text-charcoal;
+    @apply bg-accent/20 text-foreground;
   }
   
   /* Enhanced form elements with better accessibility */
   input, select, textarea {
-    @apply rounded-md border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200;
-    font-size: 16px; /* Prevents zoom on mobile devices */
+    @apply rounded-md border border-input focus:border-accent focus:ring-2 focus:ring-ring/20 transition-all duration-200;
+    font-size: 16px;
   }
   
   /* Skip to content link for screen readers */
   .skip-to-content {
-    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-blue-600 focus:shadow-md;
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-card focus:text-accent focus:shadow-md;
   }
   
   /* Improved buttons with accessibility focus */
   button {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
   
-  /* Responsive containers */
+  /* Responsive containers - use unified system */
   .container {
-    @apply px-4 sm:px-6 lg:px-8;
+    @apply container-unified;
   }
   
-  /* Improved list styling with better spacing */
+  /* Improved list styling */
   ul, ol {
     @apply pl-6 mb-4;
   }
   
   li {
-    @apply mb-2; /* Increased spacing between list items */
+    @apply mb-2;
   }
   
   /* Better code blocks */
   pre, code {
-    @apply rounded-md bg-slate-100 px-1.5 py-0.5 text-sm;
+    @apply rounded-md bg-muted px-1.5 py-0.5 text-sm;
   }
   
   pre {
@@ -131,11 +130,11 @@
   }
   
   th, td {
-    @apply border border-slate-200 p-2 text-left;
+    @apply border border-border p-2 text-left;
   }
   
   th {
-    @apply bg-slate-50;
+    @apply bg-muted;
   }
   
   /* Reduced motion preferences support */
