@@ -4,6 +4,8 @@ import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useTouchGestures } from '../hooks/useTouchGestures';
+import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
 
 import GradientAccent from './GradientAccent';
 import { Button } from '@/components/ui/button';
@@ -14,6 +16,7 @@ const Hero = () => {
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
   const isMobile = useIsMobile();
+  const { isTouchDevice, hapticFeedback, getTouchTargetClasses } = useTouchOptimizations();
   
   // Word carousel for headline
   const words = useMemo(() => ['Elevated.', 'Optimized.', 'Protected.', 'Compounded.'], []);
@@ -74,6 +77,37 @@ const Hero = () => {
     return () => cleanup();
   }, []);
 
+  // Touch gesture handlers for word carousel
+  const touchGestures = useTouchGestures({
+    onSwipeLeft: () => {
+      if (reduceMotion) return;
+      setIndex((i) => {
+        setPrevWord(words[i]);
+        window.setTimeout(() => setPrevWord(null), exitDuration);
+        return (i + 1) % words.length;
+      });
+      hapticFeedback('light');
+    },
+    onSwipeRight: () => {
+      if (reduceMotion) return;
+      setIndex((i) => {
+        setPrevWord(words[i]);
+        window.setTimeout(() => setPrevWord(null), exitDuration);
+        return i === 0 ? words.length - 1 : i - 1;
+      });
+      hapticFeedback('light');
+    },
+    onTap: () => {
+      if (reduceMotion || !isTouchDevice) return;
+      setIndex((i) => {
+        setPrevWord(words[i]);
+        window.setTimeout(() => setPrevWord(null), exitDuration);
+        return (i + 1) % words.length;
+      });
+      hapticFeedback('light');
+    }
+  });
+
   useEffect(() => {
     if (reduceMotion || !isIntersecting) return;
     
@@ -119,9 +153,10 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
-                  className="shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0" 
+                  className={`shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0 ${isTouchDevice ? 'cursor-pointer select-none' : ''}`}
                   aria-hidden="true" 
                   style={rotatorWidth ? { width: rotatorWidth } : undefined}
+                  {...(isTouchDevice ? touchGestures : {})}
                 >
                   <span ref={placeholderRef} aria-hidden="true" className="opacity-0 whitespace-nowrap">{longestWord}</span>
                   {prevWord && (
@@ -150,9 +185,12 @@ const Hero = () => {
             <Button
               variant="shimmer"
               size="lg"
-              onClick={() => smoothScrollTo('schedule')}
+              onClick={() => {
+                smoothScrollTo('schedule');
+                hapticFeedback('medium');
+              }}
               aria-label="Schedule your private strategy call"
-              className="group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced hover:scale-[1.02] transition-transform duration-300"
+              className={`group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced hover:scale-[1.02] transition-transform duration-300 ${getTouchTargetClasses()} ${isTouchDevice ? 'touch-hover-mobile' : ''}`}
             >
               <span className="mr-2">
                 <span className="xs:hidden">Schedule</span>
@@ -167,10 +205,13 @@ const Hero = () => {
 
       {!reduceMotion && (
         <button
-          onClick={() => smoothScrollTo('schedule')}
+          onClick={() => {
+            smoothScrollTo('schedule');
+            hapticFeedback('light');
+          }}
           aria-label="Scroll to schedule section"
-          className={`absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all duration-300 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] touch-target ${
-            isMobile ? 'scale-75 opacity-60' : ''
+          className={`absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all duration-300 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] ${getTouchTargetClasses()} ${
+            isMobile ? 'scale-75 opacity-60 touch-hover-mobile' : ''
           }`}
         >
           <ChevronRight className="w-6 h-6 rotate-90 animate-bounce" aria-hidden="true" />

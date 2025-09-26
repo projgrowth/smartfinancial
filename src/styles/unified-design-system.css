@@ -224,6 +224,28 @@
     @apply min-h-[48px] min-w-[48px];
   }
 
+  /* Enhanced touch interactions */
+  .touch-target-enhanced {
+    @apply min-h-[48px] min-w-[48px] inline-flex items-center justify-center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .touch-spacing-mobile {
+    @apply space-y-6 md:space-y-4;
+  }
+  
+  /* Touch interaction states */
+  .touch-active {
+    @apply scale-95 transition-transform duration-150;
+  }
+  
+  .touch-hover-mobile {
+    @apply active:bg-accent/10 active:scale-[0.98] transition-all duration-150;
+  }
+
   /* Image System - Consistent Cropping */
   .img-headshot {
     @apply aspect-square object-cover object-center;

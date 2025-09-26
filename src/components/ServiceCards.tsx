@@ -5,6 +5,7 @@ import GradientAccent from './GradientAccent';
 import AnimatedSectionTransition from './AnimatedSectionTransition';
 import { PremiumCard, PremiumCardHeader, PremiumCardTitle, PremiumCardContent, PremiumCardFooter } from '@/components/ui/premium-card';
 import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
+import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
 
 interface ServiceCardProps {
   title: string;
@@ -14,12 +15,15 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, icon }) => {
+  const { isTouchDevice, hapticFeedback } = useTouchOptimizations();
+  
   return (
     <ScrollReveal delay={delay}>
       <PremiumCard 
         variant="elevated" 
         size="lg"
-        className="card-equal-height group"
+        className={`card-equal-height group ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
+        onClick={() => isTouchDevice && hapticFeedback('light')}
       >
         <PremiumCardHeader>
           <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80">
