@@ -179,10 +179,7 @@ const Navbar = () => {
         </Link>
 
         <div 
-          className={cn(
-            "items-center gap-unified-md",
-            isMobile ? "hidden" : "flex"
-          )}
+          className="hidden md:flex items-center gap-unified-md"
           role="navigation"
           aria-label="Desktop navigation"
         >
@@ -251,10 +248,7 @@ const Navbar = () => {
 
         <Button 
           onClick={() => setIsOpen(!isOpen)} 
-          className={cn(
-            "text-muted-foreground hover:text-foreground transition-colors duration-300 touch-target-lg",
-            isMobile ? "flex" : "hidden"
-          )}
+          className="flex md:hidden text-muted-foreground hover:text-foreground transition-colors duration-300 touch-target-lg"
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           variant="ghost"
@@ -267,8 +261,7 @@ const Navbar = () => {
       <div 
         ref={mobileMenuRef}
         className={cn(
-          "transition-all duration-300 ease-in-out overflow-hidden",
-          isMobile ? "block" : "hidden",
+          "block md:hidden transition-all duration-300 ease-in-out overflow-hidden",
           isOpen 
             ? 'max-h-[400px] opacity-100' 
             : 'max-h-0 opacity-0'
