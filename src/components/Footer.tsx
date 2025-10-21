@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
 import Newsletter from './Newsletter';
+import GradientAccent from './GradientAccent';
+import AnimatedSectionTransition from './AnimatedSectionTransition';
 import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -10,50 +12,62 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-primary text-primary-foreground">
-      <div className="container-unified section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+    <footer id="contact" className="section-bg-premium-dark text-primary-foreground relative overflow-hidden">
+      {/* Add transition from previous section */}
+      <AnimatedSectionTransition 
+        style="wave" 
+        colorScheme="dark-to-light" 
+        position="top" 
+        height={40}
+      />
+      
+      {/* Add gradient accents */}
+      <GradientAccent variant="blue" position="top-right" intensity="ultra-low" animated />
+      <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
+      
+      <div className="container-unified section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))] relative z-10">
         <div className="grid-four-col gap-unified-xl">
           <div className="xl:col-span-2">
             <ScrollReveal>
               <div className="space-component-md">
-                <Link to="/" className="heading-sm text-primary-foreground block mb-3">
+                <Link to="/" className="heading-sm text-primary-foreground block space-component-xs">
                   Smart Financial Planning
                 </Link>
-                <p className="text-body-sm text-primary-foreground/80">
+                <p className="text-body text-primary-foreground/80">
                   Tailored financial strategies for ambitious professionals in Lake Nona and Orlando who demand more than 
                   cookie-cutter solutions.
                 </p>
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-unified-sm space-component-sm">
                 <a
                   href="#"
-                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  className="footer-icon-link"
                   aria-label="Facebook"
                 >
-                  <Facebook size={18} />
+                  <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  className="footer-icon-link"
                   aria-label="Twitter"
                 >
-                  <Twitter size={18} />
+                  <Twitter className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  className="footer-icon-link"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin size={18} />
+                  <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="https://www.instagram.com/thesmartfinancialplan/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary-foreground/10 hover:bg-accent/30 transition-colors touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced"
+                  className="footer-icon-link"
                   aria-label="Instagram"
                 >
-                  <Instagram size={18} />
+                  <Instagram className="w-5 h-5" />
                 </a>
               </div>
             </ScrollReveal>
@@ -61,31 +75,31 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <ScrollReveal delay={100}>
-              <h3 id="footer-company" className="heading-xs text-primary-foreground mb-4">Company</h3>
+              <h3 id="footer-company" className="heading-xs text-primary-foreground space-component-sm">Company</h3>
               <nav aria-labelledby="footer-company">
                 <ul className="space-component-xs">
                   <li>
-                    <a href="#" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <a href="#" className="footer-nav-link">
                       About Us
                     </a>
                   </li>
                   <li>
-                    <Link to="/#team" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#team" className="footer-nav-link">
                       Our Team
                     </Link>
                   </li>
                   <li>
-                    <Link to="/education" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/education" className="footer-nav-link">
                       Education Center
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="footer-nav-link">
                       Case Studies
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <a href="#" className="footer-nav-link">
                       Careers
                     </a>
                   </li>
@@ -96,31 +110,31 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <ScrollReveal delay={200}>
-              <h3 id="footer-services" className="heading-xs text-primary-foreground mb-4">Services</h3>
+              <h3 id="footer-services" className="heading-xs text-primary-foreground space-component-sm">Services</h3>
               <nav aria-labelledby="footer-services">
                 <ul className="space-component-xs">
                   <li>
-                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="footer-nav-link">
                       Wealth Management
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="footer-nav-link">
                       Investment Planning
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="footer-nav-link">
                       Retirement Planning
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="footer-nav-link">
                       Tax Optimization
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#services" className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors touch-target focus-enhanced">
+                    <Link to="/#services" className="footer-nav-link">
                       Estate Planning
                     </Link>
                   </li>
@@ -131,30 +145,30 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <ScrollReveal delay={300}>
-              <h3 className="heading-xs text-primary-foreground mb-4">Contact Information</h3>
+              <h3 className="heading-xs text-primary-foreground space-component-sm">Contact Information</h3>
               <address className="not-italic">
-                <ul className="space-component-sm mb-6">
-                  <li className="flex items-start">
-                    <MapPin className="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-body-sm text-primary-foreground/80">
+                <ul className="space-component-sm space-component-md">
+                  <li className="flex items-start group">
+                    <MapPin className="footer-contact-icon" />
+                    <span className="text-body text-primary-foreground/80 ml-3">
                       111 N Orange Ave, STE 800<br />
                       Orlando, Florida 32801
                     </span>
                   </li>
-                  <li className="flex items-center touch-target">
-                    <Phone className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
+                  <li className="flex items-center touch-target group">
+                    <Phone className="footer-contact-icon" />
                     <a
                       href="tel:+17066275729"
-                      className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced"
+                      className="text-body text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced ml-3"
                     >
                       (706) 627-5729
                     </a>
                   </li>
-                  <li className="flex items-center touch-target">
-                    <Mail className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
+                  <li className="flex items-center touch-target group">
+                    <Mail className="footer-contact-icon" />
                     <a
                       href="mailto:info@thesmartfinancialplan.com"
-                      className="text-body-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced break-all"
+                      className="text-body text-primary-foreground/80 hover:text-primary-foreground transition-colors focus-enhanced break-all ml-3"
                     >
                       info@thesmartfinancialplan.com
                     </a>
@@ -175,13 +189,13 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="mt-10 pt-6 border-t border-primary-foreground/20 text-primary-foreground/70 text-body-sm flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="space-component-lg border-t border-primary-foreground/20 text-primary-foreground/70 text-body flex flex-col md:flex-row justify-between items-center gap-unified-sm">
             <div>
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-unified-md">
               <nav aria-label="Legal">
-                <ul className="flex gap-6">
+                <ul className="flex gap-unified-md">
                   <li>
                       <Link to="/privacy" className="hover:text-primary-foreground transition-colors touch-target focus-enhanced">
                         Privacy Policy
