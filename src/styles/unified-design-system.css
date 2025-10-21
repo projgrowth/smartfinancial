@@ -12,6 +12,13 @@
     --container-default: 90rem; /* ~1440px (wider site width) */
     --container-wide: 96rem; /* ~1536px for hero/footer if needed */
     --gutter: clamp(1rem, 3vw, 2rem);
+    
+    /* Chart Colors (using design system colors) */
+    --chart-primary: var(--primary);
+    --chart-success: var(--accent);
+    --chart-warning: 41 94% 57%; /* amber-500 */
+    --chart-error: 0 84% 60%; /* red-500 */
+    --chart-info: 217 91% 60%; /* blue-500 */
   }
 
   /* ========================================
@@ -538,6 +545,50 @@
   
   .section-bg-muted {
     @apply bg-muted/30 relative;
+  }
+  
+  /* Premium Section Backgrounds */
+  .section-bg-premium-light {
+    @apply bg-gradient-to-br from-background via-accent/5 to-background relative;
+  }
+
+  .section-bg-premium-dark {
+    @apply bg-gradient-to-br from-primary/98 via-primary to-primary/95 relative;
+  }
+
+  .section-bg-premium-accent {
+    @apply bg-gradient-to-br from-accent/10 via-background to-accent/5 relative;
+  }
+  
+  /* Premium Decorative Elements */
+  .floating-gradient-accent {
+    @apply absolute rounded-full blur-3xl animate-float pointer-events-none;
+  }
+
+  .floating-gradient-accent-primary {
+    @apply floating-gradient-accent bg-gradient-to-br from-accent/12 to-accent/8;
+  }
+
+  .floating-gradient-accent-secondary {
+    @apply floating-gradient-accent bg-gradient-to-tl from-accent/10 to-accent/6;
+  }
+
+  /* Footer Specific */
+  .footer-nav-link {
+    @apply text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-300 touch-target focus-enhanced;
+  }
+
+  .footer-icon-link {
+    @apply bg-primary-foreground/10 hover:bg-accent/30 active:bg-accent/40 transition-all duration-300 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
+  }
+
+  .footer-contact-icon {
+    @apply w-5 h-5 text-accent flex-shrink-0 transition-transform duration-300 group-hover:scale-110;
+  }
+
+  /* CTA Specific */
+  .cta-content-container {
+    @apply max-w-4xl mx-auto text-center card-premium py-12 sm:py-14 md:py-16 px-6 sm:px-10 md:px-12 rounded-2xl;
   }
   
   /* Enhanced Interactive Elements */
