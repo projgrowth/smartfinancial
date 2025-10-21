@@ -8,6 +8,7 @@ import ClientStoryCard from './case-studies/ClientStoryCard';
 import StoryNavigation from './case-studies/StoryNavigation';
 import InteractiveTimeline from './case-studies/InteractiveTimeline';
 import useNavigateSection from '@/hooks/useNavigateSection';
+import { chartColors } from './case-studies/chartConfig';
 
 const CaseStudies = () => {
   const [expandedCase, setExpandedCase] = useState<string | null>(null);
@@ -108,9 +109,9 @@ const CaseStudies = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="debt" fill="#f87171" name="Remaining Debt" />
-            <Bar dataKey="savings" fill="#60a5fa" name="Savings" />
-            <Bar dataKey="investmentGrowth" fill="#34d399" name="Investment Growth" />
+            <Bar dataKey="debt" fill={chartColors.error} name="Remaining Debt" />
+            <Bar dataKey="savings" fill={chartColors.info} name="Savings" />
+            <Bar dataKey="investmentGrowth" fill={chartColors.success} name="Investment Growth" />
           </BarChart>
         </ChartContainer>
       )
@@ -174,8 +175,8 @@ const CaseStudies = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Line type="monotone" dataKey="college" stroke="#60a5fa" name="College Fund" />
-            <Line type="monotone" dataKey="retirement" stroke="#34d399" name="Retirement Assets" />
+            <Line type="monotone" dataKey="college" stroke={chartColors.info} name="College Fund" />
+            <Line type="monotone" dataKey="retirement" stroke={chartColors.success} name="Retirement Assets" />
           </LineChart>
         </ChartContainer>
       )
@@ -239,8 +240,8 @@ const CaseStudies = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="businessValue" fill="#60a5fa" name="Business Value" />
-            <Bar dataKey="personalAssets" fill="#34d399" name="Personal Assets" />
+            <Bar dataKey="businessValue" fill={chartColors.info} name="Business Value" />
+            <Bar dataKey="personalAssets" fill={chartColors.success} name="Personal Assets" />
           </BarChart>
         </ChartContainer>
       )
@@ -304,8 +305,8 @@ const CaseStudies = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="currentIncome" fill="#60a5fa" name="Current Income" />
-            <Bar dataKey="retirementIncome" fill="#34d399" name="Retirement Income" />
+            <Bar dataKey="currentIncome" fill={chartColors.info} name="Current Income" />
+            <Bar dataKey="retirementIncome" fill={chartColors.success} name="Retirement Income" />
           </BarChart>
         </ChartContainer>
       )
@@ -334,18 +335,18 @@ const CaseStudies = () => {
       
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="heading-lg text-foreground mb-6">
+          <div className="text-center space-component-xl">
+            <h2 className="heading-lg text-foreground space-component-lg">
               Real Client Success Stories
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Every financial journey is unique, but the principles of success are consistent. 
               Follow these real client stories to see how strategic planning transforms lives and builds lasting wealth.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="mb-8">
+        <div className="space-component-lg">
           <StoryNavigation
             currentStory={currentStoryIndex}
             totalStories={caseStudies.length}
@@ -373,12 +374,12 @@ const CaseStudies = () => {
               >
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-medium text-charcoal mb-4">Implementation Timeline</h4>
+                    <h4 className="heading-xs text-foreground space-component-sm">Implementation Timeline</h4>
                     <InteractiveTimeline phases={study.timeline} />
                   </div>
                   
                   <div className="bg-accent/5 p-6 rounded-xl">
-                    <h4 className="font-medium text-charcoal mb-4">Financial Progress</h4>
+                    <h4 className="heading-xs text-foreground space-component-sm">Financial Progress</h4>
                     {study.chartComponent}
                     <p className="mt-4 text-xs text-muted-foreground text-center">
                       Real results from implemented strategies
@@ -390,20 +391,20 @@ const CaseStudies = () => {
           ))}
         </div>
         
-        <div className="text-center mt-16">
-          <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow-sm border border-blue-100">
-            <h3 className="text-xl font-medium text-charcoal mb-4">
+        <div className="text-center space-component-2xl">
+          <div className="max-w-2xl mx-auto p-8 bg-background rounded-xl shadow-sm border border-border">
+            <h3 className="heading-md text-foreground space-component-sm">
               Your Story Starts Here
             </h3>
-            <p className="text-charcoal/70 mb-6">
+            <p className="text-body text-muted-foreground space-component-lg">
               Every success story begins with a conversation. Let's discuss your financial goals and see how our proven strategies can be tailored to your unique situation.
             </p>
             <button
               onClick={() => navigateToSection('contact')}
-              className="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
+              className="btn-primary inline-flex items-center gap-unified-xs"
             >
               Schedule Your Strategy Session
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

@@ -68,18 +68,19 @@ const EnhancedNewsletter = () => {
   };
 
   return (
-    <section id="newsletter" className="section relative overflow-hidden section-bg-muted">
+    <section id="newsletter" className="section section-xl relative overflow-hidden section-bg-premium-light">
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
+      <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center mb-4">
+          <h2 className="heading-lg text-foreground text-center space-component-sm">
             Financial Insights Newsletter
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-center text-body-lg text-muted-foreground max-w-2xl mx-auto space-component-xl">
             Stay informed with our expert insights on investment strategies, tax planning, and wealth management.
           </p>
         </ScrollReveal>

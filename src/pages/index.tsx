@@ -161,12 +161,36 @@ const Index = () => {
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
           <MeetingScheduler />
         </Suspense>
+        
+        <AnimatedSectionTransition 
+          style="wave" 
+          colorScheme="light-to-dark" 
+          position="bottom" 
+          height={50}
+        />
+        
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
           <FAQSection />
         </Suspense>
+        
+        <AnimatedSectionTransition 
+          style="diagonal" 
+          colorScheme="light-to-dark" 
+          position="bottom" 
+          height={50}
+        />
+        
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-32 w-full" /></div>}>
           <Newsletter variant="enhanced" />
         </Suspense>
+        
+        <AnimatedSectionTransition 
+          style="wave" 
+          colorScheme="light-to-dark" 
+          position="bottom" 
+          height={50}
+        />
+        
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-24 w-full" /></div>}>
           <CTA />
         </Suspense>
