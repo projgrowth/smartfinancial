@@ -78,7 +78,7 @@ const Navbar = () => {
       // Only compute active section on home page
       if (!isHomePage) return;
 
-      const sections = ['services', 'process', 'case-studies', 'team'];
+      const sections = ['services', 'process', 'team', 'schedule'];
       let currentSection = '';
 
       for (const section of sections) {
@@ -143,8 +143,8 @@ const Navbar = () => {
   const mainNavItems: NavItem[] = [
     { name: 'Services', id: 'services' },
     { name: 'Process', id: 'process' },
-    { name: 'Case Studies', id: 'case-studies' },
-    { name: 'Team', id: 'team' }
+    { name: 'Team', id: 'team' },
+    { name: 'Schedule', id: 'schedule' }
   ];
 
   const navItems: NavItem[] = [
