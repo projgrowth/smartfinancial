@@ -49,7 +49,7 @@ const Hero = () => {
     return () => mqReduce.removeEventListener?.('change', handleReduce);
   }, []);
 
-  // Measure and lock the rotator width to the longest word to prevent reflow
+  // Measure and lock the rotator width to the WIDEST word (not longest by characters)
   useEffect(() => {
     let ro: ResizeObserver | null = null;
     let cleanup = () => {};
@@ -57,14 +57,34 @@ const Hero = () => {
     const setup = () => {
       const el = placeholderRef.current;
       if (!el) return;
-      const measure = () => setRotatorWidth(el.offsetWidth);
-      measure();
-      ro = new ResizeObserver(() => measure());
+      
+      // Measure all words and find the widest
+      const measureAllWords = () => {
+        if (!el) return;
+        let maxWidth = 0;
+        
+        words.forEach(word => {
+          el.textContent = word;
+          const width = el.offsetWidth;
+          if (width > maxWidth) {
+            maxWidth = width;
+          }
+        });
+        
+        // Reset to longest word for accessibility
+        el.textContent = longestWord;
+        
+        // Add 2px buffer to prevent subpixel rounding issues
+        setRotatorWidth(Math.ceil(maxWidth) + 2);
+      };
+      
+      measureAllWords();
+      ro = new ResizeObserver(() => measureAllWords());
       ro.observe(el);
-      window.addEventListener('resize', measure);
+      window.addEventListener('resize', measureAllWords);
       cleanup = () => {
         ro?.disconnect();
-        window.removeEventListener('resize', measure);
+        window.removeEventListener('resize', measureAllWords);
       };
     };
 
@@ -76,7 +96,7 @@ const Hero = () => {
     }
 
     return () => cleanup();
-  }, []);
+  }, [words, longestWord]);
 
   // Touch gesture handlers for word carousel
   const touchGestures = useTouchGestures({
@@ -154,8 +174,8 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-1 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
-                  className={`shrink-0 word-rotator text-center leading-none mt-1 sm:mt-0 ${isTouchDevice ? 'cursor-pointer select-none' : ''}`}
-                  aria-hidden="true" 
+                  className={`shrink-0 word-rotator leading-none mt-1 sm:mt-0 ${isTouchDevice ? 'cursor-pointer select-none' : ''}`}
+                  aria-hidden="true"
                   style={rotatorWidth ? { width: rotatorWidth } : undefined}
                   {...(isTouchDevice ? touchGestures : {})}
                 >
