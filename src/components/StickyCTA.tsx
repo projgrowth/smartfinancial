@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
 import { smoothScrollTo } from '@/utils/smoothScroll';
+import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 
 const StickyCTA: React.FC = () => {
   const [hide, setHide] = React.useState(false);
@@ -39,6 +40,8 @@ const StickyCTA: React.FC = () => {
               className="shrink-0"
               aria-label="Schedule a free consultation"
               onClick={(e) => { e.preventDefault(); smoothScrollTo('schedule'); }}
+              onMouseEnter={preloadMeetingScheduler}
+              onFocus={preloadMeetingScheduler}
             >
               <Button size="sm" className="gap-2">
                 <Calendar className="h-4 w-4" aria-hidden="true" />

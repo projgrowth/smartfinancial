@@ -11,6 +11,7 @@ import { ArrowRight } from 'lucide-react';
 import { advisors as teamAdvisors } from '@/data/team';
 import { getHeadshotPosition, generateTeamAltText } from '@/utils/imageOptimization';
 import { smoothScrollTo } from '@/utils/smoothScroll';
+import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 
 
 const TeamDetails = () => {
@@ -135,6 +136,8 @@ const TeamDetails = () => {
                   
                   <Button 
                     onClick={() => smoothScrollTo('schedule')}
+                    onMouseEnter={preloadMeetingScheduler}
+                    onFocus={preloadMeetingScheduler}
                     className="group text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
                   >
                     Schedule a Consultation

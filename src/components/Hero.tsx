@@ -11,6 +11,7 @@ import GradientAccent from './GradientAccent';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
+import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 
 const Hero = () => {
   const location = useLocation();
@@ -189,6 +190,8 @@ const Hero = () => {
                 smoothScrollTo('schedule');
                 hapticFeedback('medium');
               }}
+              onMouseEnter={preloadMeetingScheduler}
+              onFocus={preloadMeetingScheduler}
               aria-label="Schedule your private strategy call"
               className={`group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced hover:scale-[1.02] transition-transform duration-300 ${getTouchTargetClasses()} ${isTouchDevice ? 'touch-hover-mobile' : ''}`}
             >
@@ -209,6 +212,8 @@ const Hero = () => {
             smoothScrollTo('schedule');
             hapticFeedback('light');
           }}
+          onMouseEnter={preloadMeetingScheduler}
+          onFocus={preloadMeetingScheduler}
           aria-label="Scroll to schedule section"
           className={`absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all duration-300 focus-enhanced bottom-[calc(1.5rem+env(safe-area-inset-bottom))] ${getTouchTargetClasses()} ${
             isMobile ? 'scale-75 opacity-60 touch-hover-mobile' : ''
