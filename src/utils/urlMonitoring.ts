@@ -1,3 +1,5 @@
+import { log, warn, error } from './logger';
+
 // URL Monitoring Utility for detecting redirect issues on iOS
 export const initUrlMonitoring = () => {
   // Only run in browser environment
@@ -19,7 +21,7 @@ export const initUrlMonitoring = () => {
 
   // Enhanced domain check with immediate redirect if wrong domain (but respect dev environments)
   if (!isAllowed && !window.location.hostname.includes(expectedDomain)) {
-    console.warn('CRITICAL: Wrong domain detected on page load:', {
+    warn('CRITICAL: Wrong domain detected on page load:', {
       current: window.location.hostname,
       expected: expectedDomain,
       fullUrl: window.location.href,
@@ -30,7 +32,7 @@ export const initUrlMonitoring = () => {
 
     // If this came from a Google search, log it specifically
     if (referrer.includes('google.com')) {
-      console.error('GOOGLE SEARCH REDIRECT ISSUE: Search result led to wrong domain!', {
+      error('GOOGLE SEARCH REDIRECT ISSUE: Search result led to wrong domain!', {
         searchReferrer: referrer,
         wrongDomain: window.location.hostname,
         expectedDomain: expectedDomain
@@ -39,7 +41,7 @@ export const initUrlMonitoring = () => {
 
     // Immediate redirect to correct domain
     const correctUrl = `https://${expectedDomain}${window.location.pathname}${window.location.search}${window.location.hash}`;
-    console.log('Redirecting to correct domain:', correctUrl);
+    log('Redirecting to correct domain:', correctUrl);
     window.location.replace(correctUrl);
     return; // Don't set up monitoring if we're redirecting
   }
@@ -51,14 +53,14 @@ export const initUrlMonitoring = () => {
   const checkUrl = () => {
     if (window.location.href !== originalUrl && !window.location.href.includes(expectedDomain)) {
       redirectCount++;
-      console.warn('Unexpected redirect detected:', {
+      warn('Unexpected redirect detected:', {
         from: originalUrl,
         to: window.location.href,
         count: redirectCount
       });
       
       if (redirectCount >= maxRedirects) {
-        console.error('Multiple unexpected redirects detected. Possible DNS/domain issue.');
+        error('Multiple unexpected redirects detected. Possible DNS/domain issue.');
       }
     }
   };
@@ -71,7 +73,7 @@ export const initUrlMonitoring = () => {
 
   // Log successful page load with correct domain
   if (window.location.hostname.includes(expectedDomain)) {
-    console.log('Page loaded successfully on correct domain:', window.location.href);
+    log('Page loaded successfully on correct domain:', window.location.href);
   }
 };
 
@@ -83,17 +85,17 @@ export const monitorClipboardUrls = () => {
   document.addEventListener('copy', (event) => {
     const selection = window.getSelection()?.toString();
     if (selection && selection.includes('http')) {
-      console.log('URL copied to clipboard:', selection);
+      log('URL copied to clipboard:', selection);
     }
     
     // Log the current page URL being copied
-    console.log('Current page URL when copy occurred:', window.location.href);
+    log('Current page URL when copy occurred:', window.location.href);
   });
 
   // Monitor when the page becomes visible (iOS app switching detection)
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) {
-      console.log('Page became visible, current URL:', window.location.href);
+      log('Page became visible, current URL:', window.location.href);
     }
   });
 };
@@ -139,7 +141,7 @@ export const initSecurityMonitoring = () => {
 
   // Monitor for CSP violations
   document.addEventListener('securitypolicyviolation', (e) => {
-    console.warn('CSP Violation detected:', {
+    warn('CSP Violation detected:', {
       blockedURI: e.blockedURI,
       violatedDirective: e.violatedDirective,
       originalPolicy: e.originalPolicy,
@@ -165,7 +167,7 @@ export const initSecurityMonitoring = () => {
       const previousHost = new URL(previousUrl).hostname;
       
       if (currentHost !== previousHost && !currentHost.includes('thesmartfinancialplan.com')) {
-        console.warn('Potential security redirect detected:', {
+        warn('Potential security redirect detected:', {
           from: previousHost,
           to: currentHost,
           timestamp: new Date().toISOString()
@@ -181,7 +183,7 @@ export const initSecurityMonitoring = () => {
   // Monitor for JavaScript errors that might indicate security issues
   window.addEventListener('error', (e) => {
     if (e.message.includes('CSP') || e.message.includes('blocked') || e.message.includes('security')) {
-      console.warn('Potential security-related error:', {
+      warn('Potential security-related error:', {
         message: e.message,
         filename: e.filename,
         lineno: e.lineno,

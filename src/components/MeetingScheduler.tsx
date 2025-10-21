@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import { sanitizeInput, isValidEmail, isValidPhone } from '@/utils/security';
+import { warn } from '@/utils/logger';
 
 const MEETING_TIMES = [
   '9:00 AM', '10:00 AM', '11:00 AM', 
@@ -103,7 +104,7 @@ const MeetingScheduler = () => {
           })
         });
       } else {
-        console.warn('No Zapier webhook configured for scheduling. Add one in the Webhook URL field.');
+        warn('No Zapier webhook configured for scheduling. Add one in the Webhook URL field.');
       }
       
       toast({

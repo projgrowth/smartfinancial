@@ -5,6 +5,7 @@ import { Mail } from 'lucide-react';
 import SimpleSuccessMessage from './newsletter/SimpleSuccessMessage';
 import SimpleNewsletterForm from './newsletter/SimpleNewsletterForm';
 import { sanitizeInput } from '@/utils/security';
+import { warn } from '@/utils/logger';
 
 interface NewsletterSignupProps {
   title?: string;
@@ -68,7 +69,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
           })
         });
       } else {
-        console.warn('No Zapier webhook configured for newsletter. Add one in the Webhook URL field.');
+        warn('No Zapier webhook configured for newsletter. Add one in the Webhook URL field.');
       }
       
       setIsSubscribed(true);
