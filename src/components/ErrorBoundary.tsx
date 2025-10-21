@@ -14,6 +14,16 @@ interface State {
 /**
  * ErrorBoundary - Catches React errors and displays fallback UI
  * Logs errors in development and can be integrated with error tracking services
+ * 
+ * Usage:
+ * <ErrorBoundary>
+ *   <App />
+ * </ErrorBoundary>
+ * 
+ * With custom fallback:
+ * <ErrorBoundary fallback={<CustomErrorUI />}>
+ *   <Component />
+ * </ErrorBoundary>
  */
 class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {

@@ -6,22 +6,40 @@
 
 const isDev = import.meta.env.MODE === 'development';
 
+/**
+ * Log general information (development only)
+ * @param args - Arguments to log
+ */
 export const log = (...args: any[]) => {
   if (isDev) console.log(...args);
 };
 
+/**
+ * Log warnings (development only)
+ * @param args - Arguments to log
+ * @example warn('User attempted invalid action:', actionData);
+ */
 export const warn = (...args: any[]) => {
   if (isDev) console.warn(...args);
   // TODO: Integrate with error tracking service if needed
   // e.g., Sentry.captureMessage(args[0], 'warning');
 };
 
+/**
+ * Log errors (development only)
+ * @param args - Arguments to log
+ * @example error('Failed to load component:', error);
+ */
 export const error = (...args: any[]) => {
   if (isDev) console.error(...args);
   // TODO: Integrate with error tracking service
   // e.g., Sentry.captureException(args[0]);
 };
 
+/**
+ * Log informational messages (development only)
+ * @param args - Arguments to log
+ */
 export const info = (...args: any[]) => {
   if (isDev) console.info(...args);
 };
