@@ -126,7 +126,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative flex items-center justify-center min-h-[calc(90svh-var(--nav-h))] md:min-h-[calc(100svh-var(--nav-h))] pt-4 pb-8 md:pt-0 md:pb-0 overflow-hidden"
+      className="relative flex items-center justify-center min-h-[calc(92svh-var(--nav-h))] md:min-h-[calc(100svh-var(--nav-h))] py-6 md:py-0 overflow-hidden"
     >
       {/* Enhanced background accents with better positioning */}
       <GradientAccent variant="blue" position="top-right" size="md" intensity="ultra-low" animated className="opacity-[0.7]" />
@@ -149,12 +149,12 @@ const Hero = () => {
       
       <div className="container-unified z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal distance="0px" duration={400}>
-            <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-4 sm:mb-5 text-balance">
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-0 sm:gap-y-1">
+          <ScrollReveal distance="20px" duration={400}>
+            <h1 className="heading-display-fluid leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-6 md:mb-7 text-balance">
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:items-center justify-center whitespace-normal sm:whitespace-nowrap gap-x-2 sm:gap-x-3 gap-y-1 sm:gap-y-1">
                 <span className="shrink-0 leading-none">Your wealth.</span>
                 <span 
-                  className={`shrink-0 word-rotator text-center leading-none mt-0 sm:mt-0 ${isTouchDevice ? 'cursor-pointer select-none' : ''}`}
+                  className={`shrink-0 word-rotator text-center leading-none mt-1 sm:mt-0 ${isTouchDevice ? 'cursor-pointer select-none' : ''}`}
                   aria-hidden="true" 
                   style={rotatorWidth ? { width: rotatorWidth } : undefined}
                   {...(isTouchDevice ? touchGestures : {})}
@@ -175,14 +175,14 @@ const Hero = () => {
             </h1>
           </ScrollReveal>
           
-          <ScrollReveal delay={150} distance="0px" duration={400}>
-            <p className="text-body-lg sm:text-body-xl mx-auto mb-7 sm:mb-8 max-w-2xl text-balance">
+          <ScrollReveal delay={200} distance="16px" duration={400}>
+            <p className="text-body-lg sm:text-body-xl mx-auto mb-6 sm:mb-7 md:mb-8 max-w-2xl text-balance">
               Tailored financial strategies for ambitious professionals who demand more than 
               cookie-cutter solutions. We help you build, protect, and grow your wealth.
             </p>
           </ScrollReveal>
           
-          <ScrollReveal delay={250} distance="0px" duration={400}>
+          <ScrollReveal delay={350} distance="12px" duration={400}>
             <Button
               variant="shimmer"
               size="lg"
@@ -193,7 +193,7 @@ const Hero = () => {
               onMouseEnter={preloadMeetingScheduler}
               onFocus={preloadMeetingScheduler}
               aria-label="Schedule your private strategy call"
-              className={`group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 text-primary-foreground focus-enhanced hover:scale-[1.02] transition-transform duration-300 ${getTouchTargetClasses()} ${isTouchDevice ? 'touch-hover-mobile' : ''}`}
+              className={`group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-sm sm:text-base px-4 xs:px-5 sm:px-6 text-primary-foreground focus-enhanced hover:scale-[1.02] transition-transform duration-300 ${getTouchTargetClasses()} ${isTouchDevice ? 'touch-hover-mobile active:scale-95' : ''}`}
             >
               <span className="mr-2">
                 <span className="xs:hidden">Schedule</span>
