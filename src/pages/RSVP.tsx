@@ -2,14 +2,36 @@ import React, { useState } from 'react';
 import SEO from '@/components/SEO';
 import GradientAccent from '@/components/GradientAccent';
 import { Button } from '@/components/ui/button';
-import { Calendar, MapPin, Clock, ExternalLink, CheckCircle2, Users, Phone, Mail, Building2, Globe } from 'lucide-react';
+import { Calendar, MapPin, Clock, ExternalLink, CheckCircle2, Users, Phone, Mail, Building2, Globe, Copy, Check } from 'lucide-react';
+import { smoothScrollTo } from '@/utils/smoothScroll';
+import { toast } from 'sonner';
+import { StickyRSVPButton } from '@/components/StickyRSVPButton';
 
 const RSVP = () => {
   const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
   const rsvpUrl = 'https://www.yoursvp.com/73bf00b9-1724-4773-8666-cd5d869287ae';
+  
+  const copyToClipboard = async (text: string, type: 'phone' | 'email') => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (type === 'phone') {
+        setCopiedPhone(true);
+        setTimeout(() => setCopiedPhone(false), 2000);
+      } else {
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2000);
+      }
+      toast.success('Copied to clipboard!');
+    } catch (err) {
+      toast.error('Failed to copy');
+    }
+  };
 
   return (
     <>
+      <StickyRSVPButton />
       <SEO
         title="Social Security Maximization Seminar | Orlando, FL | Smart Financial Planning"
         description="Join our exclusive Social Security seminar on Nov 13 or 18 in Orlando. Learn how to maximize benefits, minimize taxes, and avoid costly retirement mistakes. Reserve your spot today!"
@@ -43,26 +65,26 @@ const RSVP = () => {
 
               {/* Event Details */}
               <div className="grid md:grid-cols-3 gap-6 mt-12">
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
-                  <Calendar className="w-8 h-8 text-primary" />
+                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+                  <Calendar className="w-10 h-10 text-primary" />
                   <div className="text-center">
                     <p className="font-semibold text-foreground mb-2">Date</p>
-                    <p className="text-sm text-muted-foreground">Thursday, November 13</p>
+                    <p className="text-sm text-muted-foreground">Thursday, November 13, 2024</p>
                     <p className="text-sm text-muted-foreground">or</p>
-                    <p className="text-sm text-muted-foreground">Tuesday, November 18</p>
+                    <p className="text-sm text-muted-foreground">Tuesday, November 18, 2024</p>
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
-                  <Clock className="w-8 h-8 text-primary" />
+                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+                  <Clock className="w-10 h-10 text-primary" />
                   <div className="text-center">
                     <p className="font-semibold text-foreground mb-2">Time</p>
                     <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
-                  <MapPin className="w-8 h-8 text-primary" />
+                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+                  <MapPin className="w-10 h-10 text-primary" />
                   <div className="text-center">
                     <p className="font-semibold text-foreground mb-2">Location</p>
                     <p className="text-sm text-muted-foreground">SpringHill Suites</p>
@@ -82,6 +104,18 @@ const RSVP = () => {
               {/* Host Badge */}
               <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-foreground border border-primary/20">
                 <span className="text-sm">Hosted by <span className="font-semibold">Vince Gallegos</span>, Smart Financial Planning</span>
+              </div>
+              
+              {/* Hero CTA Button */}
+              <div className="mt-8">
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={() => smoothScrollTo('rsvp-form')}
+                  className="shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  Reserve Your Spot Today
+                </Button>
               </div>
             </div>
           </div>
@@ -110,8 +144,8 @@ const RSVP = () => {
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="flex gap-4 p-6 rounded-lg bg-card/40 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Claiming Age Impact</p>
@@ -119,7 +153,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-accent/5 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Tax Minimization</p>
@@ -127,7 +161,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-card/40 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Income Coordination</p>
@@ -135,7 +169,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-accent/5 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">COLA Adjustments</p>
@@ -143,7 +177,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-card/40 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Delaying Benefits</p>
@@ -151,7 +185,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-accent/5 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Employment Effects</p>
@@ -159,7 +193,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-card/40 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Family & Survivor Benefits</p>
@@ -167,7 +201,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-accent/5 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Fixing Mistakes</p>
@@ -175,7 +209,7 @@ const RSVP = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 p-6 rounded-lg bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex gap-4 p-6 rounded-lg bg-card/40 border border-border/50 hover:border-primary/30 shadow-elegant hover:-translate-y-1 transition-all duration-200">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground mb-1">Holistic Planning</p>
@@ -219,27 +253,43 @@ const RSVP = () => {
                   </h3>
                   
                   <div className="space-component-sm">
-                    <a 
-                      href="tel:+17066275729" 
-                      className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group"
-                    >
+                    <div className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group">
                       <Phone className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      <div>
+                      <div className="flex-1">
                         <p className="text-xs text-muted-foreground mb-1">Phone</p>
-                        <p className="font-semibold text-foreground">(706) 627-5729</p>
+                        <div className="flex items-center gap-2">
+                          <a href="tel:+17066275729" className="font-semibold text-foreground text-lg hover:text-primary transition-colors">
+                            (706) 627-5729
+                          </a>
+                          <button
+                            onClick={() => copyToClipboard('(706) 627-5729', 'phone')}
+                            className="p-1.5 hover:bg-accent/10 rounded transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                            aria-label="Copy phone number"
+                          >
+                            {copiedPhone ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                          </button>
+                        </div>
                       </div>
-                    </a>
+                    </div>
 
-                    <a 
-                      href="mailto:vince@thesmartfinancialplan.com" 
-                      className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group"
-                    >
+                    <div className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group">
                       <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      <div>
+                      <div className="flex-1">
                         <p className="text-xs text-muted-foreground mb-1">Email</p>
-                        <p className="font-semibold text-foreground break-all">vince@thesmartfinancialplan.com</p>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <a href="mailto:vince@thesmartfinancialplan.com" className="font-semibold text-foreground text-lg hover:text-primary transition-colors break-words">
+                            vince@thesmartfinancialplan.com
+                          </a>
+                          <button
+                            onClick={() => copyToClipboard('vince@thesmartfinancialplan.com', 'email')}
+                            className="p-1.5 hover:bg-accent/10 rounded transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center flex-shrink-0"
+                            aria-label="Copy email address"
+                          >
+                            {copiedEmail ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                          </button>
+                        </div>
                       </div>
-                    </a>
+                    </div>
 
                     <div className="flex items-start gap-3 p-4 rounded-lg">
                       <Building2 className="w-5 h-5 text-muted-foreground mt-1 flex-shrink-0" />
@@ -308,7 +358,7 @@ const RSVP = () => {
         </section>
 
         {/* RSVP Form Section */}
-        <section className="section-bg-default section-xl relative">
+        <section id="rsvp-form" className="section-bg-default section-xl relative scroll-mt-20">
           <div className="container">
             <div className="max-w-5xl mx-auto">
               <div className="space-component-md text-center mb-12">
