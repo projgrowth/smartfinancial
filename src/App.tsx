@@ -18,6 +18,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 const Index = lazy(() => import("./pages/index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Education = lazy(() => import("./pages/Education"));
+const RSVP = lazy(() => import("./pages/RSVP"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 
@@ -58,6 +59,7 @@ const App = () => (
               <Route element={<Layout />}>
                 <Route path="/" element={<Index />} />
                 <Route path="/education" element={<Education />} />
+                <Route path="/rsvp" element={<RSVP />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
               </Route>

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Menu, X, ChevronRight, BookOpen } from 'lucide-react';
+import { Menu, X, ChevronRight, BookOpen, Calendar } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { useLocation, Link } from 'react-router-dom';
@@ -149,6 +149,7 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     ...mainNavItems,
+    { name: 'RSVP', id: 'rsvp', isLink: true, path: '/rsvp' },
     { name: 'Education', id: 'education', isLink: true, path: '/education' }
   ];
 
@@ -197,6 +198,7 @@ const Navbar = () => {
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 <span className="inline-flex items-center gap-1">
+                  {item.name === 'RSVP' && <Calendar className="w-3.5 h-3.5" />}
                   {item.name === 'Education' && <BookOpen className="w-3.5 h-3.5" />}
                   {item.name}
                 </span>
@@ -290,6 +292,7 @@ const Navbar = () => {
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 <span className="inline-flex items-center gap-2">
+                  {item.name === 'RSVP' && <Calendar className="w-4 h-4" />}
                   {item.name === 'Education' && <BookOpen className="w-4 h-4" />}
                   {item.name}
                 </span>
