@@ -58,8 +58,8 @@ const RSVP = () => {
           <GradientAccent variant="blue" position="bottom-right" />
           
           <div className="container relative z-10">
-            <div className="max-w-4xl mx-auto text-center space-component-lg">
-              {/* Badge Row - Simplified */}
+            <div className="max-w-4xl mx-auto text-center">
+              {/* Badge Row */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
                   <CheckCircle2 className="w-4 h-4" />
@@ -71,16 +71,16 @@ const RSVP = () => {
                 </div>
               </div>
               
-              <h1 className="heading-xl">
+              <h1 className="heading-xl mb-6">
                 Maximize Your Social Security. Minimize Regret.
               </h1>
               
-              <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
                 Join Smart Financial Planning for an exclusive educational seminar on how to make the most of your Social Security benefits and avoid common retirement mistakes. Nearly half of retirees lose <strong className="text-foreground">tens of thousands</strong> in lifetime benefits by claiming at <strong className="text-foreground">age 62</strong>.
               </p>
               
-              {/* CTA - Simplified */}
-              <div className="mt-8 mb-10">
+              {/* CTA */}
+              <div className="mb-12">
                 <Button 
                   variant="hero" 
                   size="lg"
@@ -94,48 +94,67 @@ const RSVP = () => {
                 <p className="text-xs text-muted-foreground mt-3">Free admission • Choose your date</p>
               </div>
 
-              {/* Event Details */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200">
-                  <Calendar className="w-10 h-10 text-accent" />
-                  <div className="text-center">
-                    <p className="font-semibold text-foreground mb-2">Date</p>
-                    <p className="text-sm text-muted-foreground">Thursday, Nov 13, 2024</p>
-                    <p className="text-xs text-muted-foreground my-1">or</p>
-                    <p className="text-sm text-muted-foreground">Tuesday, Nov 18, 2024</p>
+              {/* Event Details - Enhanced Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="flex flex-col items-start gap-4 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200 h-full">
+                  <div className="flex items-center gap-3 w-full">
+                    <div className="p-2 rounded-lg bg-accent/10">
+                      <Calendar className="w-6 h-6 text-accent" />
+                    </div>
+                    <p className="font-semibold text-foreground">Event Dates</p>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
+                      <span className="text-muted-foreground">Thursday, Nov 13, 2024</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                      <span className="text-muted-foreground">Tuesday, Nov 18, 2024</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground pt-2">Select your preferred date when registering</p>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200">
-                  <Clock className="w-10 h-10 text-primary" />
-                  <div className="text-center">
-                    <p className="font-semibold text-foreground mb-2">Time</p>
-                    <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
-                    <p className="text-xs text-muted-foreground">(90 minutes)</p>
+                <div className="flex flex-col items-start gap-4 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200 h-full">
+                  <div className="flex items-center gap-3 w-full">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Clock className="w-6 h-6 text-primary" />
+                    </div>
+                    <p className="font-semibold text-foreground">Schedule</p>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Duration:</strong> 90 minutes</p>
+                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Time:</strong> 6:30 PM - 8:00 PM</p>
+                    <p className="text-xs text-muted-foreground pt-2">Doors open at 6:15 PM</p>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200">
-                  <MapPin className="w-10 h-10 text-primary" />
-                  <div className="text-center">
-                    <p className="font-semibold text-foreground mb-2">Location</p>
-                    <p className="text-sm text-muted-foreground">SpringHill Suites</p>
+                <div className="flex flex-col items-start gap-4 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200 h-full">
+                  <div className="flex items-center gap-3 w-full">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <p className="font-semibold text-foreground">Venue</p>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <p className="text-sm font-medium text-foreground">SpringHill Suites</p>
                     <p className="text-sm text-muted-foreground">Orlando Lake Nona</p>
                     <a 
                       href="https://www.google.com/maps/search/?api=1&query=13700+Boggy+Creek+Rd+Orlando+FL+32824" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-xs text-primary hover:underline mt-1 inline-block"
+                      className="text-xs text-primary hover:underline inline-flex items-center gap-1 pt-2"
                       aria-label="View SpringHill Suites on Google Maps"
                     >
-                      View Map →
+                      View Map <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                 </div>
               </div>
               
               {/* Host Badge */}
-              <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
                 <span className="text-sm">Hosted by <span className="font-semibold">Vince Gallegos, CFP®</span></span>
               </div>
             </div>
@@ -147,91 +166,67 @@ const RSVP = () => {
           <GradientAccent variant="gold" position="top-right" />
           
           <div className="container">
-            <div className="max-w-5xl mx-auto space-component-xl">
+            <div className="max-w-5xl mx-auto">
               {/* Event Overview */}
-              <div className="text-center space-component-md mb-12">
-                <h2 className="heading-lg mb-6">What You'll Learn</h2>
+              <div className="text-center mb-12">
+                <h2 className="heading-lg mb-4">What You'll Learn</h2>
                 <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto">
                   One of the most important retirement decisions you'll make is when and how to claim Social Security benefits. Walk away with actionable strategies to <strong className="text-foreground">maximize your benefits</strong> and avoid costly mistakes.
                 </p>
               </div>
 
-              {/* Learning Points Grid */}
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Claiming Age Impact</p>
-                    <p className="text-sm text-muted-foreground">How the age you apply affects your total lifetime benefit.</p>
+              {/* Learning Points Grid - Balanced 3x3 */}
+              <div className="grid md:grid-cols-3 gap-6 mb-10">
+                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="font-semibold text-foreground">Claiming Age Impact</p>
                   </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Discover how the age you apply for benefits can add or cost you tens of thousands over your lifetime.</p>
                 </div>
 
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Tax Minimization</p>
-                    <p className="text-sm text-muted-foreground">Strategies for minimizing taxes on Social Security income.</p>
+                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="font-semibold text-foreground">Tax Minimization</p>
                   </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Learn proven strategies to reduce taxes on your Social Security income and keep more of your benefits.</p>
                 </div>
 
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Income Coordination</p>
-                    <p className="text-sm text-muted-foreground">Coordinating Social Security with pensions, IRAs, and other income sources.</p>
+                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="font-semibold text-foreground">Income Coordination</p>
                   </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Understand how to coordinate Social Security with pensions, IRAs, and other income sources effectively.</p>
                 </div>
 
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">COLA Adjustments</p>
-                    <p className="text-sm text-muted-foreground">Understanding cost-of-living adjustments and their impact.</p>
+                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="font-semibold text-foreground">COLA Adjustments</p>
                   </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Understand how cost-of-living adjustments work and their long-term impact on your benefits.</p>
                 </div>
 
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Delaying Benefits</p>
-                    <p className="text-sm text-muted-foreground">When delaying benefits makes sense—and when it doesn't.</p>
+                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="font-semibold text-foreground">Spousal & Survivor Benefits</p>
                   </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Discover lesser-known strategies to maximize family and survivor benefits for couples.</p>
                 </div>
 
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Employment Effects</p>
-                    <p className="text-sm text-muted-foreground">How current employment affects benefit eligibility.</p>
+                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="font-semibold text-foreground">Retirement Planning</p>
                   </div>
-                </div>
-
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Family & Survivor Benefits</p>
-                    <p className="text-sm text-muted-foreground">Two lesser-known strategies to increase family and survivor benefits.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Fixing Mistakes</p>
-                    <p className="text-sm text-muted-foreground">What to do if you've made a filing mistake.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 p-6 rounded-lg bg-card border border-border hover:border-primary/30 shadow-md hover:shadow-lg transition-all duration-200">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Holistic Planning</p>
-                    <p className="text-sm text-muted-foreground">How to integrate Social Security with your overall retirement plan.</p>
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Learn how to integrate Social Security decisions into your comprehensive retirement strategy.</p>
                 </div>
               </div>
 
-              {/* Who Should Attend - Compact */}
+              {/* Who Should Attend */}
               <div className="text-center p-8 rounded-xl bg-accent/5 border border-accent/20">
                 <Users className="w-10 h-10 text-accent mx-auto mb-4" />
                 <h3 className="font-semibold text-foreground text-lg mb-2">Perfect for ages 55-70 approaching retirement</h3>
@@ -334,7 +329,7 @@ const RSVP = () => {
           
           <div className="container">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center space-component-md mb-10">
+              <div className="text-center mb-10">
                 <h2 className="heading-lg">Questions? Get in Touch</h2>
                 <p className="text-body text-muted-foreground">
                   Need more information? We're here to help.
@@ -343,13 +338,13 @@ const RSVP = () => {
 
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Contact Information */}
-                <div className="space-component-md p-8 rounded-xl bg-card border border-border shadow-elegant">
+                <div className="p-8 rounded-xl bg-card border border-border shadow-md">
                   <h3 className="heading-sm mb-6 flex items-center gap-2">
                     <Phone className="w-5 h-5 text-primary" />
                     Contact Information
                   </h3>
                   
-                  <div className="space-component-sm">
+                  <div className="space-y-4">
                     <div className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group">
                       <Phone className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                       <div className="flex-1">
@@ -374,7 +369,7 @@ const RSVP = () => {
                       <div className="flex-1">
                         <p className="text-xs text-muted-foreground mb-1">Email</p>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <a href="mailto:vince@thesmartfinancialplan.com" className="font-semibold text-foreground text-lg hover:text-primary transition-colors break-words">
+                          <a href="mailto:vince@thesmartfinancialplan.com" className="font-semibold text-foreground hover:text-primary transition-colors break-words text-sm">
                             vince@thesmartfinancialplan.com
                           </a>
                           <button
@@ -413,14 +408,14 @@ const RSVP = () => {
                 </div>
 
                 {/* Venue Details */}
-                <div className="space-component-md p-8 rounded-xl bg-card border border-border shadow-elegant">
+                <div className="p-8 rounded-xl bg-card border border-border shadow-md">
                   <h3 className="heading-sm mb-6 flex items-center gap-2">
                     <MapPin className="w-5 h-5 text-primary" />
                     Venue Information
                   </h3>
                   
-                  <div className="space-component-sm">
-                    <div className="mb-6">
+                  <div className="space-y-4">
+                    <div>
                       <p className="font-semibold text-foreground text-lg mb-2">SpringHill Suites Orlando Lake Nona</p>
                       <p className="text-sm text-muted-foreground mb-4">13700 Boggy Creek Rd, Orlando, FL 32824</p>
                       
@@ -437,15 +432,13 @@ const RSVP = () => {
                     </div>
 
                     <div className="p-4 rounded-lg bg-accent/5 border border-accent/20">
-                      <p className="text-sm text-foreground">
-                        <strong>Parking:</strong> Complimentary parking available on-site
-                      </p>
+                      <p className="text-sm font-semibold text-foreground mb-1">Free Parking Available</p>
+                      <p className="text-xs text-muted-foreground">Complimentary on-site parking for all attendees</p>
                     </div>
 
                     <div className="p-4 rounded-lg bg-muted/30">
-                      <p className="text-sm text-muted-foreground">
-                        The venue is wheelchair accessible and offers convenient amenities for all attendees.
-                      </p>
+                      <p className="text-sm font-semibold text-foreground mb-1">Accessible Venue</p>
+                      <p className="text-xs text-muted-foreground">Wheelchair accessible with convenient amenities</p>
                     </div>
                   </div>
                 </div>
