@@ -97,9 +97,9 @@
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
   
-  /* Responsive containers - use unified system */
+  /* Responsive containers */
   .container {
-    @apply container-unified;
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   /* Improved list styling */
