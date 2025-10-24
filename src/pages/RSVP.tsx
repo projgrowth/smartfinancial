@@ -61,11 +61,11 @@ const RSVP = () => {
             <div className="max-w-4xl mx-auto text-center">
               {/* Badge Row */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20">
                   <CheckCircle2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Free Seminar</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
                   <Users className="w-4 h-4" />
                   <span className="text-sm font-medium">Limited Seating</span>
                 </div>
@@ -162,7 +162,7 @@ const RSVP = () => {
         </section>
 
         {/* Event Description Section */}
-        <section className="section-bg-default section-xl relative">
+        <section className="section-bg-primary section-xl relative">
           <GradientAccent variant="gold" position="top-right" />
           
           <div className="container">
@@ -281,7 +281,7 @@ const RSVP = () => {
                 
                 <iframe
                   src={rsvpUrl}
-                  className="w-full min-h-[500px] md:min-h-[800px] border-0"
+                  className="w-full min-h-[32rem] md:min-h-[50rem] border-0"
                   title="Event RSVP Form"
                   onLoad={() => setIframeLoaded(true)}
                   allowFullScreen
@@ -324,7 +324,7 @@ const RSVP = () => {
         </section>
 
         {/* Contact & Venue Information */}
-        <section className="section-bg-default section-xl relative">
+        <section className="section-bg-primary section-xl relative">
           <GradientAccent variant="blue" position="top-left" />
           
           <div className="container">
@@ -355,10 +355,10 @@ const RSVP = () => {
                           </a>
                           <button
                             onClick={() => copyToClipboard('(706) 627-5729', 'phone')}
-                            className="p-1.5 hover:bg-accent/10 rounded transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                            className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center"
                             aria-label="Copy phone number"
                           >
-                            {copiedPhone ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                            {copiedPhone ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
                           </button>
                         </div>
                       </div>
@@ -374,10 +374,10 @@ const RSVP = () => {
                           </a>
                           <button
                             onClick={() => copyToClipboard('vince@thesmartfinancialplan.com', 'email')}
-                            className="p-1.5 hover:bg-accent/10 rounded transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center flex-shrink-0"
+                            className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center flex-shrink-0"
                             aria-label="Copy email address"
                           >
-                            {copiedEmail ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                            {copiedEmail ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
                           </button>
                         </div>
                       </div>
