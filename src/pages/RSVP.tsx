@@ -80,26 +80,26 @@ const RSVP = () => {
               <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-3xl mx-auto">
                 {/* Date & Time Card */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-primary/10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
                       <Calendar className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-bold text-lg text-foreground">Choose Your Date</h3>
+                    <h3 className="heading-xs">Choose Your Date</h3>
                   </div>
                   
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-accent/10 border border-accent/30">
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-accent/10 border border-accent/30 transition-all duration-300 hover:bg-accent/15">
                       <Clock className="w-5 h-5 text-accent flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-foreground">Thursday, Nov 13</p>
+                      <div className="space-y-0.5">
+                        <p className="font-semibold text-base text-foreground">Thursday, Nov 13</p>
                         <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/30">
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/30 transition-all duration-300 hover:bg-primary/15">
                       <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-foreground">Tuesday, Nov 18</p>
+                      <div className="space-y-0.5">
+                        <p className="font-semibold text-base text-foreground">Tuesday, Nov 18</p>
                         <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
                       </div>
                     </div>
@@ -110,14 +110,14 @@ const RSVP = () => {
 
                 {/* Location Card */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-primary/10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-bold text-lg text-foreground">Location</h3>
+                    <h3 className="heading-xs">Location</h3>
                   </div>
                   
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2 mb-6">
                     <p className="font-semibold text-foreground text-lg">SpringHill Suites</p>
                     <p className="text-sm text-muted-foreground">Orlando Lake Nona</p>
                     <p className="text-sm text-muted-foreground">13700 Boggy Creek Rd<br/>Orlando, FL 32824</p>
@@ -128,7 +128,7 @@ const RSVP = () => {
                       href="https://www.google.com/maps/search/?api=1&query=13700+Boggy+Creek+Rd+Orlando+FL+32824" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline transition-colors duration-300"
                       aria-label="View location on Google Maps"
                     >
                       <MapPin className="w-4 h-4" />
@@ -144,23 +144,23 @@ const RSVP = () => {
               </div>
 
               {/* CTA */}
-              <div className="text-center">
+              <div className="text-center space-y-4">
                 <Button 
                   variant="hero" 
                   size="lg"
                   onClick={() => smoothScrollTo('rsvp-form')}
-                  className="shadow-lg hover:shadow-xl transition-all duration-300 mb-3"
+                  className="shadow-lg hover:shadow-xl transition-all duration-300"
                   aria-label="Scroll to registration form"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Reserve Your Free Seat
                 </Button>
-                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
+                <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-accent" />
                     No cost
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center gap-1.5">
                     <Users className="w-4 h-4 text-primary" />
                     Limited seating
                   </span>
@@ -221,9 +221,9 @@ const RSVP = () => {
                 </div>
               </div>
 
-              <div className="mt-8 text-center p-6 rounded-xl bg-accent/5 border border-accent/20">
-                <Users className="w-8 h-8 text-accent mx-auto mb-3" />
-                <p className="font-semibold text-foreground mb-1">Ideal for ages 55-70</p>
+              <div className="mt-8 text-center p-6 rounded-xl bg-accent/5 border border-accent/20 shadow-sm">
+                <Users className="w-8 h-8 text-accent mx-auto mb-4" />
+                <p className="font-semibold text-base text-foreground mb-2">Ideal for ages 55-70</p>
                 <p className="text-sm text-muted-foreground">
                   Whether planning to claim soon or already receiving benefits
                 </p>
@@ -283,25 +283,25 @@ const RSVP = () => {
               </div>
 
               {/* After Registration Info */}
-              <div className="mt-8 p-5 rounded-lg bg-card border border-border shadow-sm">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+              <div className="mt-8 p-6 rounded-lg bg-card border border-border shadow-sm">
+                <h3 className="font-semibold text-base text-foreground mb-6 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-accent" />
                   What Happens Next
                 </h3>
-                <div className="grid sm:grid-cols-3 gap-6 text-sm">
-                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5 border border-accent/20">
-                    <Mail className="w-6 h-6 text-accent mb-2" />
-                    <p className="font-medium text-foreground mb-1">Instant Confirmation</p>
+                <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center text-center p-4 rounded-lg bg-accent/5 border border-accent/20 transition-all duration-300 hover:bg-accent/10">
+                    <Mail className="w-6 h-6 text-accent mb-3" />
+                    <p className="font-medium text-sm text-foreground mb-1">Instant Confirmation</p>
                     <p className="text-xs text-muted-foreground">Email with event details</p>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-primary/5 border border-primary/20">
-                    <Calendar className="w-6 h-6 text-primary mb-2" />
-                    <p className="font-medium text-foreground mb-1">Calendar Invite</p>
+                  <div className="flex flex-col items-center text-center p-4 rounded-lg bg-primary/5 border border-primary/20 transition-all duration-300 hover:bg-primary/10">
+                    <Calendar className="w-6 h-6 text-primary mb-3" />
+                    <p className="font-medium text-sm text-foreground mb-1">Calendar Invite</p>
                     <p className="text-xs text-muted-foreground">Add to your schedule</p>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5 border border-accent/20">
-                    <Clock className="w-6 h-6 text-accent mb-2" />
-                    <p className="font-medium text-foreground mb-1">Event Reminder</p>
+                  <div className="flex flex-col items-center text-center p-4 rounded-lg bg-accent/5 border border-accent/20 transition-all duration-300 hover:bg-accent/10">
+                    <Clock className="w-6 h-6 text-accent mb-3" />
+                    <p className="font-medium text-sm text-foreground mb-1">Event Reminder</p>
                     <p className="text-xs text-muted-foreground">48 hours before</p>
                   </div>
                 </div>
@@ -326,38 +326,38 @@ const RSVP = () => {
               <div className="grid sm:grid-cols-2 gap-6">
                 {/* Contact Card */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
-                  <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <h3 className="heading-xs mb-6 flex items-center gap-2">
                     <Phone className="w-5 h-5 text-primary" />
                     Get in Touch
                   </h3>
                   
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group">
-                      <Phone className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-all duration-300 group">
+                      <Phone className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                       <div className="flex-1">
-                        <a href="tel:+17066275729" className="font-semibold text-foreground hover:text-primary transition-colors">
+                        <a href="tel:+17066275729" className="font-semibold text-base text-foreground hover:text-primary transition-colors duration-300">
                           (706) 627-5729
                         </a>
                       </div>
                       <button
                         onClick={() => copyToClipboard('(706) 627-5729', 'phone')}
-                        className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center"
+                        className="touch-target p-1.5 hover:bg-accent/10 rounded transition-all duration-300 flex items-center justify-center"
                         aria-label="Copy phone number"
                       >
                         {copiedPhone ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
                       </button>
                     </div>
 
-                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group">
-                      <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-all duration-300 group">
+                      <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                       <div className="flex-1 min-w-0">
-                        <a href="mailto:vince@thesmartfinancialplan.com" className="font-medium text-foreground hover:text-primary transition-colors text-sm break-words">
+                        <a href="mailto:vince@thesmartfinancialplan.com" className="font-medium text-sm text-foreground hover:text-primary transition-colors duration-300 break-words">
                           vince@thesmartfinancialplan.com
                         </a>
                       </div>
                       <button
                         onClick={() => copyToClipboard('vince@thesmartfinancialplan.com', 'email')}
-                        className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center flex-shrink-0"
+                        className="touch-target p-1.5 hover:bg-accent/10 rounded transition-all duration-300 flex items-center justify-center flex-shrink-0"
                         aria-label="Copy email address"
                       >
                         {copiedEmail ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
@@ -368,10 +368,10 @@ const RSVP = () => {
                       href="https://thesmartfinancialplan.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group"
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-all duration-300 group"
                     >
-                      <Globe className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                      <Globe className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                      <span className="font-medium text-base text-foreground group-hover:text-primary transition-colors duration-300">
                         thesmartfinancialplan.com
                       </span>
                       <ExternalLink className="w-4 h-4 text-muted-foreground ml-auto" />
@@ -381,7 +381,7 @@ const RSVP = () => {
 
                 {/* Office Location */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
-                  <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <h3 className="heading-xs mb-6 flex items-center gap-2">
                     <Building2 className="w-5 h-5 text-primary" />
                     Office Location
                   </h3>
@@ -390,12 +390,12 @@ const RSVP = () => {
                     <div>
                       <p className="text-sm text-muted-foreground mb-2">Smart Financial Planning</p>
                       <p className="text-sm text-foreground">111 N Orange Ave, Suite 800</p>
-                      <p className="text-sm text-foreground mb-3">Orlando, FL 32801</p>
+                      <p className="text-sm text-foreground mb-4">Orlando, FL 32801</p>
                       <a 
                         href="https://www.google.com/maps/search/?api=1&query=111+N+Orange+Ave+Suite+800+Orlando+FL+32801" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline transition-colors duration-300"
                       >
                         <MapPin className="w-4 h-4" />
                         Get Directions
