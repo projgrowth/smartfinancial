@@ -118,7 +118,7 @@ const RSVP = () => {
                   </div>
                   
                   <div className="space-y-2 mb-6">
-                    <p className="font-semibold text-foreground text-lg">SpringHill Suites</p>
+                    <p className="text-lg font-semibold text-foreground">SpringHill Suites</p>
                     <p className="text-sm text-muted-foreground">Orlando Lake Nona</p>
                     <p className="text-sm text-muted-foreground">13700 Boggy Creek Rd<br/>Orlando, FL 32824</p>
                   </div>
@@ -186,37 +186,37 @@ const RSVP = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
-                  <p className="font-semibold text-foreground mb-2">Optimal Claiming Age</p>
+                  <p className="text-base font-semibold text-foreground mb-2">Optimal Claiming Age</p>
                   <p className="text-sm text-muted-foreground">When to start benefits for maximum lifetime income</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
-                  <p className="font-semibold text-foreground mb-2">Tax Strategies</p>
+                  <p className="text-base font-semibold text-foreground mb-2">Tax Strategies</p>
                   <p className="text-sm text-muted-foreground">Reduce taxes on your Social Security income</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
-                  <p className="font-semibold text-foreground mb-2">Spousal Benefits</p>
+                  <p className="text-base font-semibold text-foreground mb-2">Spousal Benefits</p>
                   <p className="text-sm text-muted-foreground">Maximize family and survivor benefits</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
-                  <p className="font-semibold text-foreground mb-2">Income Coordination</p>
+                  <p className="text-base font-semibold text-foreground mb-2">Income Coordination</p>
                   <p className="text-sm text-muted-foreground">Integrate with pensions, IRAs, and other sources</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
-                  <p className="font-semibold text-foreground mb-2">COLA Impact</p>
+                  <p className="text-base font-semibold text-foreground mb-2">COLA Impact</p>
                   <p className="text-sm text-muted-foreground">How adjustments affect long-term benefits</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
-                  <p className="font-semibold text-foreground mb-2">Common Mistakes</p>
+                  <p className="text-base font-semibold text-foreground mb-2">Common Mistakes</p>
                   <p className="text-sm text-muted-foreground">Avoid errors that cost thousands in benefits</p>
                 </div>
               </div>
@@ -327,7 +327,7 @@ const RSVP = () => {
                 {/* Contact Card */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
                   <h3 className="heading-xs mb-6 flex items-center gap-2">
-                    <Phone className="w-5 h-5 text-primary" />
+                    <Phone className="w-6 h-6 text-primary" />
                     Get in Touch
                   </h3>
                   
@@ -382,11 +382,11 @@ const RSVP = () => {
                 {/* Office Location */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
                   <h3 className="heading-xs mb-6 flex items-center gap-2">
-                    <Building2 className="w-5 h-5 text-primary" />
+                    <Building2 className="w-6 h-6 text-primary" />
                     Office Location
                   </h3>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div>
                       <p className="text-sm text-muted-foreground mb-2">Smart Financial Planning</p>
                       <p className="text-sm text-foreground">111 N Orange Ave, Suite 800</p>
