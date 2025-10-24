@@ -208,8 +208,8 @@ export default {
 					'100%': { backgroundPosition: '200% 0' },
 				},
 				'border-pulse': {
-					'0%, 100%': { borderColor: 'rgba(230, 198, 131, 0.3)' },
-					'50%': { borderColor: 'rgba(230, 198, 131, 0.8)' },
+					'0%, 100%': { borderColor: 'hsl(var(--accent) / 0.3)' },
+					'50%': { borderColor: 'hsl(var(--accent) / 0.8)' },
 				},
 				'soft-spin': {
 					'0%': { transform: 'rotate(0deg)' },

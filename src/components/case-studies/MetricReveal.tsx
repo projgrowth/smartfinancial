@@ -50,10 +50,10 @@ const MetricReveal: React.FC<MetricRevealProps> = ({
   }, [value, animationDelay]);
 
   const colorClasses = {
-    blue: 'text-blue-600',
-    green: 'text-green-600',
-    orange: 'text-orange-600',
-    red: 'text-red-600'
+    blue: 'text-primary',
+    green: 'text-accent',
+    orange: 'text-accent',
+    red: 'text-destructive'
   };
 
   const sizeClasses = {
@@ -74,7 +74,7 @@ const MetricReveal: React.FC<MetricRevealProps> = ({
       )}>
         {prefix}{Math.round(displayValue).toLocaleString()}{suffix}
       </div>
-      <div className="text-sm text-gray-600 mt-1">
+      <div className="text-sm text-muted-foreground mt-1">
         {label}
       </div>
     </div>
