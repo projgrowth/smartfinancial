@@ -46,7 +46,7 @@ const RSVP = () => {
           <GradientAccent variant="blue" position="bottom-right" />
           
           <div className="container relative z-10">
-            <div className="max-w-5xl mx-auto bg-slate-100">
+            <div className="max-w-5xl mx-auto">
               {/* Main Headline */}
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20 mb-4">
@@ -76,7 +76,7 @@ const RSVP = () => {
                   </div>
                   
                   <div className="space-y-3 mb-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg border border-accent/30 bg-gray-200">
+                  <div className="flex items-center gap-3 p-3 rounded-lg border border-accent/30 bg-accent/10">
                       <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                       <div>
                         <p className="font-semibold text-foreground">Thursday, Nov 13</p>
