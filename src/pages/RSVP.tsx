@@ -166,19 +166,12 @@ const RSVP = () => {
                   </span>
                 </div>
               </div>
-              
-              {/* Host Info */}
-              <div className="mt-8 text-center">
-                <p className="text-sm text-muted-foreground">
-                  Hosted by <span className="font-semibold text-foreground">Vince Gallegos, CFP®</span>
-                </p>
-              </div>
             </div>
           </div>
         </section>
 
         {/* What You'll Learn - Simplified */}
-        <section className="py-12 md:py-16 relative bg-background">
+        <section className="py-12 md:py-16 relative">
           <GradientAccent variant="gold" position="top-right" />
           
           <div className="container">
@@ -318,7 +311,7 @@ const RSVP = () => {
         </section>
 
         {/* Contact Information - Simplified */}
-        <section className="py-12 md:py-16 relative bg-background">
+        <section className="py-12 md:py-16 relative">
           <GradientAccent variant="blue" position="top-left" />
           
           <div className="container">
