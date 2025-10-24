@@ -79,7 +79,7 @@ const RSVP = () => {
               {/* Key Event Details - Prominent Cards */}
               <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-3xl mx-auto">
                 {/* Date & Time Card */}
-                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg">
+                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-3 rounded-lg bg-primary/10">
                       <Calendar className="w-6 h-6 text-primary" />
@@ -109,7 +109,7 @@ const RSVP = () => {
                 </div>
 
                 {/* Location Card */}
-                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg">
+                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-3 rounded-lg bg-primary/10">
                       <MapPin className="w-6 h-6 text-primary" />
@@ -183,38 +183,38 @@ const RSVP = () => {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
                   <p className="font-semibold text-foreground mb-2">Optimal Claiming Age</p>
                   <p className="text-sm text-muted-foreground">When to start benefits for maximum lifetime income</p>
                 </div>
 
-                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
                   <p className="font-semibold text-foreground mb-2">Tax Strategies</p>
                   <p className="text-sm text-muted-foreground">Reduce taxes on your Social Security income</p>
                 </div>
 
-                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
                   <p className="font-semibold text-foreground mb-2">Spousal Benefits</p>
                   <p className="text-sm text-muted-foreground">Maximize family and survivor benefits</p>
                 </div>
 
-                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
                   <p className="font-semibold text-foreground mb-2">Income Coordination</p>
                   <p className="text-sm text-muted-foreground">Integrate with pensions, IRAs, and other sources</p>
                 </div>
 
-                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
                   <p className="font-semibold text-foreground mb-2">COLA Impact</p>
                   <p className="text-sm text-muted-foreground">How adjustments affect long-term benefits</p>
                 </div>
 
-                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                <div className="p-5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300">
                   <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
                   <p className="font-semibold text-foreground mb-2">Common Mistakes</p>
                   <p className="text-sm text-muted-foreground">Avoid errors that cost thousands in benefits</p>
@@ -250,7 +250,7 @@ const RSVP = () => {
               </div>
 
               {/* Iframe */}
-              <div className="relative rounded-xl overflow-hidden shadow-xl bg-card border-2 border-primary/20">
+              <div className="relative rounded-xl overflow-hidden shadow-lg bg-card border-2 border-primary/20 hover:shadow-xl transition-all duration-300">
                 {!iframeLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center bg-muted/50 z-10">
                     <div className="text-center">
@@ -283,23 +283,23 @@ const RSVP = () => {
               </div>
 
               {/* After Registration Info */}
-              <div className="mt-8 p-6 rounded-lg bg-card border border-border">
+              <div className="mt-8 p-5 rounded-lg bg-card border border-border shadow-sm">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-accent" />
                   What Happens Next
                 </h3>
-                <div className="grid sm:grid-cols-3 gap-4 text-sm">
-                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5">
+                <div className="grid sm:grid-cols-3 gap-6 text-sm">
+                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5 border border-accent/20">
                     <Mail className="w-6 h-6 text-accent mb-2" />
                     <p className="font-medium text-foreground mb-1">Instant Confirmation</p>
                     <p className="text-xs text-muted-foreground">Email with event details</p>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-primary/5">
+                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-primary/5 border border-primary/20">
                     <Calendar className="w-6 h-6 text-primary mb-2" />
                     <p className="font-medium text-foreground mb-1">Calendar Invite</p>
                     <p className="text-xs text-muted-foreground">Add to your schedule</p>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5">
+                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5 border border-accent/20">
                     <Clock className="w-6 h-6 text-accent mb-2" />
                     <p className="font-medium text-foreground mb-1">Event Reminder</p>
                     <p className="text-xs text-muted-foreground">48 hours before</p>
@@ -325,8 +325,8 @@ const RSVP = () => {
 
               <div className="grid sm:grid-cols-2 gap-6">
                 {/* Contact Card */}
-                <div className="p-6 rounded-xl bg-card border border-border shadow-md">
-                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                  <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                     <Phone className="w-5 h-5 text-primary" />
                     Get in Touch
                   </h3>
@@ -380,8 +380,8 @@ const RSVP = () => {
                 </div>
 
                 {/* Office Location */}
-                <div className="p-6 rounded-xl bg-card border border-border shadow-md">
-                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                  <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                     <Building2 className="w-5 h-5 text-primary" />
                     Office Location
                   </h3>
