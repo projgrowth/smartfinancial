@@ -76,8 +76,8 @@ const RSVP = () => {
                   </div>
                   
                   <div className="space-y-3 mb-4">
-                    <div className="flex items-center gap-3 p-3 rounded-lg border border-accent/30 bg-gray-200">
-                      <Clock className="w-5 h-5 text-accent flex-shrink-0" />
+                  <div className="flex items-center gap-3 p-3 rounded-lg border border-accent/30 bg-gray-200">
+                      <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                       <div>
                         <p className="font-semibold text-foreground">Thursday, Nov 13</p>
                         <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
@@ -161,37 +161,37 @@ const RSVP = () => {
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">Optimal Claiming Age</p>
                   <p className="text-sm text-muted-foreground">When to start benefits for maximum lifetime income</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">Tax Strategies</p>
                   <p className="text-sm text-muted-foreground">Reduce taxes on your Social Security income</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">Spousal Benefits</p>
                   <p className="text-sm text-muted-foreground">Maximize family and survivor benefits</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">Income Coordination</p>
                   <p className="text-sm text-muted-foreground">Integrate with pensions, IRAs, and other sources</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">COLA Impact</p>
                   <p className="text-sm text-muted-foreground">How adjustments affect long-term benefits</p>
                 </div>
 
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">Common Mistakes</p>
                   <p className="text-sm text-muted-foreground">Avoid errors that cost thousands in benefits</p>
                 </div>
