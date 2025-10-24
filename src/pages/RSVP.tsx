@@ -52,226 +52,214 @@ const RSVP = () => {
       />
       
       <main id="main-content" className="relative">
-        {/* Hero Section */}
-        <section className="section-bg-premium-light section-xl relative overflow-hidden">
+        {/* Hero Section - Key Information Front and Center */}
+        <section className="section-bg-premium-light py-12 md:py-20 relative overflow-hidden">
           <GradientAccent variant="purple" position="top-left" />
           <GradientAccent variant="blue" position="bottom-right" />
           
           <div className="container relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              {/* Badge Row */}
-              <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20">
+            <div className="max-w-5xl mx-auto">
+              {/* Main Headline */}
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20 mb-4">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span className="text-sm font-medium">Free Seminar</span>
+                  <span className="text-sm font-semibold">FREE Educational Seminar</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
-                  <Users className="w-4 h-4" />
-                  <span className="text-sm font-medium">Limited Seating</span>
-                </div>
-              </div>
-              
-              <h1 className="heading-xl mb-6">
-                Maximize Your Social Security. Minimize Regret.
-              </h1>
-              
-              <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-                Join Smart Financial Planning for an exclusive educational seminar on how to make the most of your Social Security benefits and avoid common retirement mistakes. Nearly half of retirees lose <strong className="text-foreground">tens of thousands</strong> in lifetime benefits by claiming at <strong className="text-foreground">age 62</strong>.
-              </p>
-              
-              {/* CTA */}
-              <div className="mb-12">
-                <Button 
-                  variant="hero" 
-                  size="lg"
-                  onClick={() => smoothScrollTo('rsvp-form')}
-                  className="shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
-                  aria-label="Scroll to registration form"
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Reserve Your Spot Today
-                </Button>
-                <p className="text-xs text-muted-foreground mt-3">Free admission • Choose your date</p>
+                
+                <h1 className="heading-xl mb-4">
+                  Maximize Your Social Security Benefits
+                </h1>
+                
+                <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+                  Learn strategies to increase your lifetime benefits by tens of thousands of dollars. 
+                  Avoid the costly mistakes that nearly <strong className="text-foreground">half of retirees</strong> make.
+                </p>
               </div>
 
-              {/* Event Details - Enhanced Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="flex flex-col items-start gap-4 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200 h-full">
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 rounded-lg bg-accent/10">
-                      <Calendar className="w-6 h-6 text-accent" />
+              {/* Key Event Details - Prominent Cards */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-3xl mx-auto">
+                {/* Date & Time Card */}
+                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-primary/10">
+                      <Calendar className="w-6 h-6 text-primary" />
                     </div>
-                    <p className="font-semibold text-foreground">Event Dates</p>
+                    <h3 className="font-bold text-lg text-foreground">Choose Your Date</h3>
                   </div>
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      <span className="text-muted-foreground">Thursday, Nov 13, 2024</span>
+                  
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-accent/10 border border-accent/30">
+                      <Clock className="w-5 h-5 text-accent flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-foreground">Thursday, Nov 13</p>
+                        <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 rounded-full bg-primary"></div>
-                      <span className="text-muted-foreground">Tuesday, Nov 18, 2024</span>
+                    
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/30">
+                      <Clock className="w-5 h-5 text-primary flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-foreground">Tuesday, Nov 18</p>
+                        <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground pt-2">Select your preferred date when registering</p>
                   </div>
+                  
+                  <p className="text-xs text-muted-foreground">90 minutes • Doors open at 6:15 PM</p>
                 </div>
 
-                <div className="flex flex-col items-start gap-4 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200 h-full">
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Clock className="w-6 h-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-foreground">Schedule</p>
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Duration:</strong> 90 minutes</p>
-                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">Time:</strong> 6:30 PM - 8:00 PM</p>
-                    <p className="text-xs text-muted-foreground pt-2">Doors open at 6:15 PM</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-start gap-4 p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow duration-200 h-full">
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 rounded-lg bg-primary/10">
+                {/* Location Card */}
+                <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-primary/10">
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
-                    <p className="font-semibold text-foreground">Venue</p>
+                    <h3 className="font-bold text-lg text-foreground">Location</h3>
                   </div>
-                  <div className="flex-1 space-y-2">
-                    <p className="text-sm font-medium text-foreground">SpringHill Suites</p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <p className="font-semibold text-foreground text-lg">SpringHill Suites</p>
                     <p className="text-sm text-muted-foreground">Orlando Lake Nona</p>
+                    <p className="text-sm text-muted-foreground">13700 Boggy Creek Rd<br/>Orlando, FL 32824</p>
+                  </div>
+                  
+                  <div className="space-y-2">
                     <a 
                       href="https://www.google.com/maps/search/?api=1&query=13700+Boggy+Creek+Rd+Orlando+FL+32824" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-xs text-primary hover:underline inline-flex items-center gap-1 pt-2"
-                      aria-label="View SpringHill Suites on Google Maps"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                      aria-label="View location on Google Maps"
                     >
-                      View Map <ExternalLink className="w-3 h-3" />
+                      <MapPin className="w-4 h-4" />
+                      Get Directions
+                      <ExternalLink className="w-3 h-3" />
                     </a>
+                    <p className="text-xs text-muted-foreground flex items-center gap-2">
+                      <CheckCircle2 className="w-3 h-3 text-accent" />
+                      Free parking • Wheelchair accessible
+                    </p>
                   </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="text-center">
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={() => smoothScrollTo('rsvp-form')}
+                  className="shadow-lg hover:shadow-xl transition-all duration-300 mb-3"
+                  aria-label="Scroll to registration form"
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Reserve Your Free Seat
+                </Button>
+                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4 text-accent" />
+                    No cost
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Users className="w-4 h-4 text-primary" />
+                    Limited seating
+                  </span>
                 </div>
               </div>
               
-              {/* Host Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                <span className="text-sm">Hosted by <span className="font-semibold">Vince Gallegos, CFP®</span></span>
+              {/* Host Info */}
+              <div className="mt-8 text-center">
+                <p className="text-sm text-muted-foreground">
+                  Hosted by <span className="font-semibold text-foreground">Vince Gallegos, CFP®</span>
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Event Description Section */}
-        <section className="section-bg-primary section-xl relative">
+        {/* What You'll Learn - Simplified */}
+        <section className="py-12 md:py-16 relative bg-background">
           <GradientAccent variant="gold" position="top-right" />
           
           <div className="container">
-            <div className="max-w-5xl mx-auto">
-              {/* Event Overview */}
-              <div className="text-center mb-12">
-                <h2 className="heading-lg mb-4">What You'll Learn</h2>
-                <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto">
-                  One of the most important retirement decisions you'll make is when and how to claim Social Security benefits. Walk away with actionable strategies to <strong className="text-foreground">maximize your benefits</strong> and avoid costly mistakes.
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="heading-lg mb-3">What You'll Discover</h2>
+                <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+                  Walk away with actionable strategies to maximize your Social Security benefits
                 </p>
               </div>
 
-              {/* Learning Points Grid - Balanced 3x3 */}
-              <div className="grid md:grid-cols-3 gap-6 mb-10">
-                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-semibold text-foreground">Claiming Age Impact</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Discover how the age you apply for benefits can add or cost you tens of thousands over your lifetime.</p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <p className="font-semibold text-foreground mb-2">Optimal Claiming Age</p>
+                  <p className="text-sm text-muted-foreground">When to start benefits for maximum lifetime income</p>
                 </div>
 
-                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-semibold text-foreground">Tax Minimization</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Learn proven strategies to reduce taxes on your Social Security income and keep more of your benefits.</p>
+                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <p className="font-semibold text-foreground mb-2">Tax Strategies</p>
+                  <p className="text-sm text-muted-foreground">Reduce taxes on your Social Security income</p>
                 </div>
 
-                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-semibold text-foreground">Income Coordination</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Understand how to coordinate Social Security with pensions, IRAs, and other income sources effectively.</p>
+                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <p className="font-semibold text-foreground mb-2">Spousal Benefits</p>
+                  <p className="text-sm text-muted-foreground">Maximize family and survivor benefits</p>
                 </div>
 
-                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-semibold text-foreground">COLA Adjustments</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Understand how cost-of-living adjustments work and their long-term impact on your benefits.</p>
+                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <p className="font-semibold text-foreground mb-2">Income Coordination</p>
+                  <p className="text-sm text-muted-foreground">Integrate with pensions, IRAs, and other sources</p>
                 </div>
 
-                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-semibold text-foreground">Spousal & Survivor Benefits</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Discover lesser-known strategies to maximize family and survivor benefits for couples.</p>
+                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <p className="font-semibold text-foreground mb-2">COLA Impact</p>
+                  <p className="text-sm text-muted-foreground">How adjustments affect long-term benefits</p>
                 </div>
 
-                <div className="flex flex-col gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 h-full">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-semibold text-foreground">Retirement Planning</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Learn how to integrate Social Security decisions into your comprehensive retirement strategy.</p>
+                <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-primary mb-3" />
+                  <p className="font-semibold text-foreground mb-2">Common Mistakes</p>
+                  <p className="text-sm text-muted-foreground">Avoid errors that cost thousands in benefits</p>
                 </div>
               </div>
 
-              {/* Who Should Attend */}
-              <div className="text-center p-8 rounded-xl bg-accent/5 border border-accent/20">
-                <Users className="w-10 h-10 text-accent mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground text-lg mb-2">Perfect for ages 55-70 approaching retirement</h3>
-                <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-                  Whether planning to claim soon or already receiving benefits, gain valuable insights to maximize your retirement income.
+              <div className="mt-8 text-center p-6 rounded-xl bg-accent/5 border border-accent/20">
+                <Users className="w-8 h-8 text-accent mx-auto mb-3" />
+                <p className="font-semibold text-foreground mb-1">Ideal for ages 55-70</p>
+                <p className="text-sm text-muted-foreground">
+                  Whether planning to claim soon or already receiving benefits
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* RSVP Form Section */}
-        <section id="rsvp-form" className="section-bg-premium-light section-xl relative scroll-mt-20">
+        {/* RSVP Form Section - Primary Focus */}
+        <section id="rsvp-form" className="section-bg-premium-light py-12 md:py-20 relative scroll-mt-20">
           <GradientAccent variant="purple" position="top-right" />
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="heading-lg mb-4">Reserve Your Seat</h2>
-                <p className="text-body-lg text-muted-foreground">
-                  Choose your preferred date below. Space is limited.
+                <h2 className="heading-lg mb-3">Reserve Your Seat</h2>
+                <p className="text-body-lg text-muted-foreground mb-6">
+                  Select your preferred date in the form below
                 </p>
-              </div>
-
-              {/* Date Options */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
-                <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-                  <Calendar className="w-6 h-6 text-accent flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Thursday, Nov 13</p>
-                    <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-                  <Calendar className="w-6 h-6 text-primary flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Tuesday, Nov 18</p>
-                    <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
-                  </div>
+                
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
+                  <Users className="w-4 h-4" />
+                  <span className="text-sm font-medium">Limited seating available</span>
                 </div>
               </div>
 
               {/* Iframe */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg bg-card border border-border">
+              <div className="relative rounded-xl overflow-hidden shadow-xl bg-card border-2 border-primary/20">
                 {!iframeLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted/50 z-10">
                     <div className="text-center">
                       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
                       <p className="text-muted-foreground">Loading registration form...</p>
@@ -288,25 +276,6 @@ const RSVP = () => {
                 />
               </div>
 
-              {/* Post-Registration */}
-              <div className="mt-8 p-6 rounded-lg bg-card border border-border">
-                <h3 className="font-semibold text-foreground mb-4">After You Register</h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Confirmation email with event details</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Calendar invite for easy scheduling</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Reminder 48 hours before the event</span>
-                  </li>
-                </ul>
-              </div>
-
               {/* Fallback */}
               <div className="mt-6 text-center">
                 <Button
@@ -319,126 +288,126 @@ const RSVP = () => {
                   <ExternalLink className="w-4 h-4" />
                 </Button>
               </div>
+
+              {/* After Registration Info */}
+              <div className="mt-8 p-6 rounded-lg bg-card border border-border">
+                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent" />
+                  What Happens Next
+                </h3>
+                <div className="grid sm:grid-cols-3 gap-4 text-sm">
+                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5">
+                    <Mail className="w-6 h-6 text-accent mb-2" />
+                    <p className="font-medium text-foreground mb-1">Instant Confirmation</p>
+                    <p className="text-xs text-muted-foreground">Email with event details</p>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-primary/5">
+                    <Calendar className="w-6 h-6 text-primary mb-2" />
+                    <p className="font-medium text-foreground mb-1">Calendar Invite</p>
+                    <p className="text-xs text-muted-foreground">Add to your schedule</p>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5">
+                    <Clock className="w-6 h-6 text-accent mb-2" />
+                    <p className="font-medium text-foreground mb-1">Event Reminder</p>
+                    <p className="text-xs text-muted-foreground">48 hours before</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Contact & Venue Information */}
-        <section className="section-bg-primary section-xl relative">
+        {/* Contact Information - Simplified */}
+        <section className="py-12 md:py-16 relative bg-background">
           <GradientAccent variant="blue" position="top-left" />
           
           <div className="container">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="heading-lg">Questions? Get in Touch</h2>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="heading-lg mb-2">Questions?</h2>
                 <p className="text-body text-muted-foreground">
-                  Need more information? We're here to help.
+                  We're here to help
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Contact Information */}
-                <div className="p-8 rounded-xl bg-card border border-border shadow-md">
-                  <h3 className="heading-sm mb-6 flex items-center gap-2">
+              <div className="grid sm:grid-cols-2 gap-6">
+                {/* Contact Card */}
+                <div className="p-6 rounded-xl bg-card border border-border shadow-md">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                     <Phone className="w-5 h-5 text-primary" />
-                    Contact Information
+                    Get in Touch
                   </h3>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group">
                       <Phone className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                       <div className="flex-1">
-                        <p className="text-xs text-muted-foreground mb-1">Phone</p>
-                        <div className="flex items-center gap-2">
-                          <a href="tel:+17066275729" className="font-semibold text-foreground text-lg hover:text-primary transition-colors">
-                            (706) 627-5729
-                          </a>
-                          <button
-                            onClick={() => copyToClipboard('(706) 627-5729', 'phone')}
-                            className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center"
-                            aria-label="Copy phone number"
-                          >
-                            {copiedPhone ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
-                          </button>
-                        </div>
+                        <a href="tel:+17066275729" className="font-semibold text-foreground hover:text-primary transition-colors">
+                          (706) 627-5729
+                        </a>
                       </div>
+                      <button
+                        onClick={() => copyToClipboard('(706) 627-5729', 'phone')}
+                        className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center"
+                        aria-label="Copy phone number"
+                      >
+                        {copiedPhone ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                      </button>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group">
                       <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      <div className="flex-1">
-                        <p className="text-xs text-muted-foreground mb-1">Email</p>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <a href="mailto:vince@thesmartfinancialplan.com" className="font-semibold text-foreground hover:text-primary transition-colors break-words text-sm">
-                            vince@thesmartfinancialplan.com
-                          </a>
-                          <button
-                            onClick={() => copyToClipboard('vince@thesmartfinancialplan.com', 'email')}
-                            className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center flex-shrink-0"
-                            aria-label="Copy email address"
-                          >
-                            {copiedEmail ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
-                          </button>
-                        </div>
+                      <div className="flex-1 min-w-0">
+                        <a href="mailto:vince@thesmartfinancialplan.com" className="font-medium text-foreground hover:text-primary transition-colors text-sm break-words">
+                          vince@thesmartfinancialplan.com
+                        </a>
                       </div>
-                    </div>
-
-                    <div className="flex items-start gap-3 p-4 rounded-lg">
-                      <Building2 className="w-5 h-5 text-muted-foreground mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-xs text-muted-foreground mb-1">Office</p>
-                        <p className="text-sm text-foreground">111 N Orange Ave, Suite 800</p>
-                        <p className="text-sm text-foreground">Orlando, FL 32801</p>
-                      </div>
+                      <button
+                        onClick={() => copyToClipboard('vince@thesmartfinancialplan.com', 'email')}
+                        className="touch-target p-1.5 hover:bg-accent/10 rounded transition-colors flex items-center justify-center flex-shrink-0"
+                        aria-label="Copy email address"
+                      >
+                        {copiedEmail ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                      </button>
                     </div>
 
                     <a 
                       href="https://thesmartfinancialplan.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-4 rounded-lg hover:bg-accent/5 transition-colors group"
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group"
                     >
                       <Globe className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      <div>
-                        <p className="text-xs text-muted-foreground mb-1">Website</p>
-                        <p className="font-semibold text-foreground group-hover:text-primary transition-colors">thesmartfinancialplan.com →</p>
-                      </div>
+                      <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                        thesmartfinancialplan.com
+                      </span>
+                      <ExternalLink className="w-4 h-4 text-muted-foreground ml-auto" />
                     </a>
                   </div>
                 </div>
 
-                {/* Venue Details */}
-                <div className="p-8 rounded-xl bg-card border border-border shadow-md">
-                  <h3 className="heading-sm mb-6 flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    Venue Information
+                {/* Office Location */}
+                <div className="p-6 rounded-xl bg-card border border-border shadow-md">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                    <Building2 className="w-5 h-5 text-primary" />
+                    Office Location
                   </h3>
                   
                   <div className="space-y-4">
                     <div>
-                      <p className="font-semibold text-foreground text-lg mb-2">SpringHill Suites Orlando Lake Nona</p>
-                      <p className="text-sm text-muted-foreground mb-4">13700 Boggy Creek Rd, Orlando, FL 32824</p>
-                      
+                      <p className="text-sm text-muted-foreground mb-2">Smart Financial Planning</p>
+                      <p className="text-sm text-foreground">111 N Orange Ave, Suite 800</p>
+                      <p className="text-sm text-foreground mb-3">Orlando, FL 32801</p>
                       <a 
-                        href="https://www.google.com/maps/search/?api=1&query=SpringHill+Suites+Orlando+Lake+Nona+13700+Boggy+Creek+Rd+Orlando+FL+32824" 
+                        href="https://www.google.com/maps/search/?api=1&query=111+N+Orange+Ave+Suite+800+Orlando+FL+32801" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                       >
                         <MapPin className="w-4 h-4" />
-                        View on Google Maps
+                        Get Directions
                         <ExternalLink className="w-3 h-3" />
                       </a>
-                    </div>
-
-                    <div className="p-4 rounded-lg bg-accent/5 border border-accent/20">
-                      <p className="text-sm font-semibold text-foreground mb-1">Free Parking Available</p>
-                      <p className="text-xs text-muted-foreground">Complimentary on-site parking for all attendees</p>
-                    </div>
-
-                    <div className="p-4 rounded-lg bg-muted/30">
-                      <p className="text-sm font-semibold text-foreground mb-1">Accessible Venue</p>
-                      <p className="text-xs text-muted-foreground">Wheelchair accessible with convenient amenities</p>
                     </div>
                   </div>
                 </div>
