@@ -41,11 +41,11 @@ const Hero = () => {
       className="hero-section relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-[calc(100svh-var(--nav-h))] py-8 sm:py-12 md:py-0 overflow-hidden"
     >
       {/* Enhanced Background System */}
-      <GradientAccent variant="blue" position="top-right" size="md" intensity="low" animated />
+      <GradientAccent variant="blue" position="top-right" size="md" intensity="medium" animated />
       <div className="hidden sm:block">
-        <GradientAccent variant="gold" position="bottom-left" size="sm" intensity="low" animated />
+        <GradientAccent variant="gold" position="bottom-left" size="sm" intensity="medium" animated />
       </div>
-      <GradientAccent variant="purple" position="center" size="lg" intensity="ultra-low" animated className="opacity-20" />
+      <GradientAccent variant="purple" position="center" size="lg" intensity="low" animated />
       
       {/* Bull shape gradient only on education page */}
       {isEducationPage && (
@@ -80,13 +80,7 @@ const Hero = () => {
             >
               <h1 className="heading-display-fluid tracking-tight text-balance max-w-3xl mx-auto">
                 Your Wealth.{' '}
-                <span 
-                  className="text-gradient-accent inline-block"
-                  style={{
-                    fontSize: '1.05em',
-                    letterSpacing: '-0.01em',
-                  }}
-                >
+                <span className="text-gradient-accent inline-block">
                   Elevated.
                 </span>
               </h1>

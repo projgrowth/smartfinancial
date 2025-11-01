@@ -8,7 +8,7 @@ interface NoiseOverlayProps {
 
 const NoiseOverlay: React.FC<NoiseOverlayProps> = ({ 
   className,
-  opacity = 0.03 
+  opacity = 0.06 
 }) => {
   return (
     <div 

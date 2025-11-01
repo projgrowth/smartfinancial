@@ -34,7 +34,6 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
             style={{
               animation: 'fade-in 0.5s ease-out forwards',
               animationDelay: `${400 + index * 100}ms`,
-              opacity: 0,
             }}
           >
             <badge.icon className="w-4 h-4 transition-transform group-hover:scale-110" aria-hidden="true" />

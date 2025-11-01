@@ -13,8 +13,8 @@ const RadialGradientOverlay: React.FC<RadialGradientOverlayProps> = ({ className
         className
       )}
       style={{
-        background: 'radial-gradient(circle at center, transparent 0%, hsl(var(--background)) 100%)',
-        opacity: 0.6,
+        background: 'radial-gradient(circle at center, transparent 30%, hsl(var(--background)) 90%)',
+        opacity: 0.25,
       }}
       aria-hidden="true"
     />
