@@ -36,6 +36,22 @@
     animation: gradient-shift 8s linear infinite;
   }
   
+  /* Gradient text for accent words */
+  .text-gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 50%, hsl(var(--accent)) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px hsla(var(--accent), 0.15));
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
   /* Fade-in-up animation for text */
   .text-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;

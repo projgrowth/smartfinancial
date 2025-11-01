@@ -214,6 +214,11 @@ export default {
 				'soft-spin': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' },
+				},
+				'glow-pulse': {
+					'0%': { boxShadow: '0 0 20px rgba(var(--primary), 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(var(--primary), 0.6), 0 0 60px rgba(var(--primary), 0.4)' },
+					'100%': { boxShadow: '0 0 20px rgba(var(--primary), 0.3)' },
 				}
 			},
 			animation: {
@@ -241,6 +246,7 @@ export default {
 				'shimmer': 'shimmer 2s linear infinite',
 				'border-pulse': 'border-pulse 2s ease-in-out infinite',
 				'soft-spin': 'soft-spin 15s linear infinite',
+				'glow-pulse': 'glow-pulse 2s ease-in-out',
 			}
 		}
 	},
