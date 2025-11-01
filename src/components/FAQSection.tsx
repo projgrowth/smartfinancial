@@ -92,7 +92,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="section relative overflow-hidden section-bg-premium-accent">
+    <section id="faq" className="section-lg relative overflow-hidden section-bg-premium-accent">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       <div className="container-unified relative z-10">
         <ScrollReveal>

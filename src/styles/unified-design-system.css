@@ -220,8 +220,19 @@
   }
 
   /* ========================================
-     12-Column Grid System - Spec Compliant
-     Based on 1200px container with proper breakpoints
+     GRID & LAYOUT SYSTEM
+     12-column foundation with responsive patterns
+     
+     Usage Guidelines:
+     - .grid-12: Full 12-column grid for maximum layout flexibility
+     - .grid-auto: Equal-width columns (1 -> 2 -> 3 at breakpoints)
+     - .grid-two-col: 2-column layout (mobile: 1, desktop: 2)
+     - .grid-three-col: 3-column layout (mobile: 1, tablet: 2, desktop: 3)
+     - .grid-four-col: 4-column layout (mobile: 1, tablet: 2, lg: 3, xl: 4)
+     
+     All grids include gap-8 for consistent spacing.
+     Combine with .container-unified for proper width constraints.
+     For custom column spans, use Tailwind's col-span-* utilities.
      ======================================== */
   
   .grid-12 {

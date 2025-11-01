@@ -38,7 +38,7 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
               animationDelay: `${400 + index * 100}ms`,
             }}
           >
-            <badge.icon className="w-4 h-4 text-primary transition-transform group-hover:scale-110" aria-hidden="true" />
+            <badge.icon className="w-5 h-5 text-primary transition-transform group-hover:scale-110" aria-hidden="true" />
             <span className="text-xs font-semibold">{badge.label}</span>
           </div>
         ))}

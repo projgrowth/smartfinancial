@@ -73,7 +73,7 @@ const Process = () => {
         
         {/* Add the section transition at the bottom with enhanced interaction */}
         <div className="relative z-10 mt-8 md:mt-10">
-          <AnimatedSectionTransition style="curved" colorScheme="dark-to-light" position="bottom" height={50} showIcon={true} iconType="chevron" onClick={() => document.getElementById('services')?.scrollIntoView({
+          <AnimatedSectionTransition style="curved" colorScheme="dark-to-light" position="bottom" height={60} showIcon={true} iconType="chevron" onClick={() => document.getElementById('services')?.scrollIntoView({
           behavior: 'smooth'
         })} />
         </div>

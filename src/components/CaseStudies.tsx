@@ -336,7 +336,7 @@ const CaseStudies = () => {
       <div className="container-unified relative z-10">
         <ScrollReveal>
           <div className="text-center space-component-xl">
-            <h2 className="heading-lg text-foreground space-component-lg">
+            <h2 className="heading-lg text-foreground mb-6">
               Real Client Success Stories
             </h2>
             <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">

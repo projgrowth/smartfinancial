@@ -34,7 +34,7 @@ const TeamDetails = () => {
   
 
   return (
-    <section id="team" className="section bg-background relative overflow-hidden">
+    <section id="team" className="section-lg bg-background relative overflow-hidden">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       
       <div className="container-unified relative z-10">

@@ -16,7 +16,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
   onStepClick 
 }) => {
   return (
-    <div className="relative max-w-3xl mx-auto pl-6 border-l-2 border-blue-400/30 space-y-12">
+    <div className="relative max-w-3xl mx-auto pl-6 border-l-2 border-accent/30 space-y-12">
       {steps.map((step, idx) => (
         <ScrollReveal key={step.id} delay={idx * 150}>
           <ProcessTimelineItem 

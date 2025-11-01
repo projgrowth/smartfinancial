@@ -16,7 +16,7 @@ const ProcessCards: React.FC<ProcessCardsProps> = ({
   onStepClick 
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+    <div className="grid-three-col">
       {steps.map((step) => (
         <ScrollReveal key={step.id} delay={steps.indexOf(step) * 150}>
           <ProcessStepCard 

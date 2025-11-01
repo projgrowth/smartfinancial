@@ -78,7 +78,7 @@ const Hero = () => {
       
       <div className="container-unified z-10 w-full">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          <div className="flex flex-col gap-unified-lg">
             
             <ScrollReveal 
               distance="20px" 
