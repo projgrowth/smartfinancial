@@ -39,25 +39,30 @@ const EnhancedScrollIndicator: React.FC<EnhancedScrollIndicatorProps> = ({
           'relative group',
           'min-h-[44px] min-w-[44px] rounded-full',
           'flex items-center justify-center',
-          'text-muted-foreground hover:text-foreground',
+          'text-primary hover:text-primary',
           'transition-all duration-300',
+          'hover:scale-110',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
           isMobile && 'scale-90 opacity-70'
         )}
       >
         {/* Pulsing ring */}
         <div 
-          className="absolute inset-0 rounded-full border-2 border-muted-foreground/20 animate-ping"
+          className="absolute inset-0 rounded-full border-2 border-primary/40 animate-ping"
           style={{
             animationDuration: '3s',
             animationIterationCount: 'infinite',
+            boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
           }}
           aria-hidden="true"
         />
         
         {/* Static ring */}
         <div 
-          className="absolute inset-0 rounded-full border border-muted-foreground/10 group-hover:border-muted-foreground/30 transition-colors"
+          className="absolute inset-0 rounded-full border-2 border-primary/30 group-hover:border-primary/60 transition-colors"
+          style={{
+            boxShadow: '0 0 15px rgba(59, 130, 246, 0.2)',
+          }}
           aria-hidden="true"
         />
         

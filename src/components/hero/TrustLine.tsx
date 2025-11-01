@@ -21,22 +21,25 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
       )}
     >
       {/* Trust text */}
-      <p className="text-xs sm:text-sm text-muted-foreground/70 tracking-wide">
+      <p className="text-xs sm:text-sm text-foreground/80 font-medium tracking-wide">
         Licensed Fiduciary Advisors · 20+ Years Experience
       </p>
       
+      {/* Subtle separator line */}
+      <div className="hidden sm:block w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
+      
       {/* Trust badges */}
-      <div className="hidden sm:flex items-center gap-4 md:gap-6">
+      <div className="hidden sm:flex items-center gap-3 md:gap-4">
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground group animate-fade-in"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background/40 backdrop-blur-sm border border-border/50 text-foreground transition-all duration-300 hover:bg-background/60 hover:border-primary/30 hover:shadow-lg group animate-fade-in"
             style={{
               animationDelay: `${400 + index * 100}ms`,
             }}
           >
-            <badge.icon className="w-4 h-4 transition-transform group-hover:scale-110" aria-hidden="true" />
-            <span className="text-xs font-medium">{badge.label}</span>
+            <badge.icon className="w-4 h-4 text-primary transition-transform group-hover:scale-110" aria-hidden="true" />
+            <span className="text-xs font-semibold">{badge.label}</span>
           </div>
         ))}
       </div>

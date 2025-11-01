@@ -27,6 +27,7 @@ import TrustLine from './hero/TrustLine';
 import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
 import NoiseOverlay from './hero/NoiseOverlay';
 import RadialGradientOverlay from './hero/RadialGradientOverlay';
+import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
 
 const Hero = () => {
   const location = useLocation();
@@ -39,13 +40,19 @@ const Hero = () => {
       role="region"
       aria-label="Hero section"
       className="hero-section relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-[calc(100svh-var(--nav-h))] py-8 sm:py-12 md:py-0 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(0 0% 100%) 100%)',
+      }}
     >
+      {/* Animated Gradient Mesh */}
+      <AnimatedGradientMesh />
+      
       {/* Enhanced Background System */}
-      <GradientAccent variant="blue" position="top-right" size="md" intensity="medium" animated />
+      <GradientAccent variant="blue" position="top-right" size="md" intensity="high" animated />
       <div className="hidden sm:block">
-        <GradientAccent variant="gold" position="bottom-left" size="sm" intensity="medium" animated />
+        <GradientAccent variant="gold" position="bottom-left" size="md" intensity="high" animated />
       </div>
-      <GradientAccent variant="purple" position="center" size="lg" intensity="low" animated />
+      <GradientAccent variant="purple" position="center" size="lg" intensity="medium" animated />
       
       {/* Bull shape gradient only on education page */}
       {isEducationPage && (
@@ -78,9 +85,14 @@ const Hero = () => {
               duration={500}
               delay={0}
             >
-              <h1 className="heading-display-fluid tracking-tight text-balance max-w-3xl mx-auto">
+              <h1 className="heading-display-fluid tracking-tight text-balance max-w-3xl mx-auto font-bold text-foreground">
                 Your Wealth.{' '}
-                <span className="text-gradient-accent inline-block">
+                <span 
+                  className="text-gradient-accent inline-block"
+                  style={{
+                    filter: 'drop-shadow(0 2px 12px hsla(210, 100%, 60%, 0.3)) drop-shadow(0 0 20px hsla(45, 90%, 57%, 0.2))',
+                  }}
+                >
                   Elevated.
                 </span>
               </h1>
@@ -91,7 +103,7 @@ const Hero = () => {
               distance="16px" 
               duration={500}
             >
-              <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance">
+              <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-foreground/90 font-medium">
                 Financial planning for ambitious professionals who demand more than average.
               </p>
             </ScrollReveal>
@@ -112,7 +124,10 @@ const Hero = () => {
                   onMouseEnter={preloadMeetingScheduler}
                   onFocus={preloadMeetingScheduler}
                   aria-label="Schedule your private strategy call"
-                  className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-primary-foreground ${getTouchTargetClasses()}`}
+                  className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-primary-foreground font-semibold text-base ${getTouchTargetClasses()}`}
+                  style={{
+                    boxShadow: '0 8px 24px rgba(59, 130, 246, 0.3), 0 4px 12px rgba(251, 191, 36, 0.2)',
+                  }}
                 >
                   <span className="gap-unified-xs">
                     <span className="xs:hidden">Schedule</span>
