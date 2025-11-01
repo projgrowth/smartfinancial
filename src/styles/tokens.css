@@ -1,0 +1,83 @@
+/**
+ * Centralized Color Token System
+ * All colors use HSL format for consistency
+ * Semantic opacity scale: 100%, 80%, 60%, 40%
+ */
+
+:root {
+    /* ========== CORE BRAND COLORS ========== */
+    /* Primary (Dark Charcoal) */
+    --primary: 215 28% 17%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Accent (Brand Blue) */
+    --accent: 210 100% 60%;
+    --accent-foreground: 210 40% 98%;
+    
+    /* Gold (Luxury Accent) */
+    --gold: 45 90% 57%;
+    --gold-dark: 45 75% 45%;
+    --gold-light: 45 95% 70%;
+    
+    /* ========== NEUTRAL COLORS ========== */
+    --background: 0 0% 98%;
+    --foreground: 215 28% 17%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+    
+    /* ========== UI COLORS ========== */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 215 28% 17%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 100% 60%;
+    
+    /* ========== CHARCOAL VARIANTS ========== */
+    --charcoal: 215 28% 17%;
+    --charcoal-dark: 215 35% 12%;
+    --charcoal-light: 215 22% 25%;
+    
+    /* ========== SEMANTIC STATES ========== */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --info: 210 100% 60%;
+    --info-foreground: 0 0% 100%;
+    
+    /* ========== CHART COLORS ========== */
+    --chart-primary: 210 100% 60%;
+    --chart-success: 142 76% 36%;
+    --chart-warning: 38 92% 50%;
+    --chart-error: 0 84.2% 60.2%;
+    --chart-info: 210 100% 60%;
+    
+    /* ========== SEMANTIC OPACITY SCALE ========== */
+    /* Use with color variables: hsl(var(--foreground) / 0.8) */
+    --opacity-primary: 1.0;      /* 100% - Full strength */
+    --opacity-secondary: 0.8;    /* 80% - Secondary content */
+    --opacity-muted: 0.6;        /* 60% - Muted content */
+    --opacity-disabled: 0.4;     /* 40% - Disabled states */
+    
+    /* ========== GRADIENT DEFINITIONS ========== */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--gold)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold-light)));
+    
+    /* Background gradients */
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(0 0% 100%) 100%);
+    --gradient-background-subtle: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  }

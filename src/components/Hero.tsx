@@ -41,7 +41,7 @@ const Hero = () => {
       aria-label="Hero section"
       className="hero-section relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-[calc(100svh-var(--nav-h))] py-8 sm:py-12 md:py-0 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(0 0% 100%) 100%)',
+        background: 'var(--gradient-background)',
       }}
     >
       {/* Animated Gradient Mesh */}
@@ -103,7 +103,7 @@ const Hero = () => {
               distance="16px" 
               duration={500}
             >
-              <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-foreground/90 font-medium">
+              <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-muted-foreground font-medium">
                 Financial planning for ambitious professionals who demand more than average.
               </p>
             </ScrollReveal>

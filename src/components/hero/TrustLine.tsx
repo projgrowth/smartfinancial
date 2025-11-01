@@ -21,7 +21,7 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
       )}
     >
       {/* Trust text */}
-      <p className="text-xs sm:text-sm text-foreground/80 font-medium tracking-wide">
+      <p className="text-xs sm:text-sm font-medium tracking-wide" style={{ color: 'hsl(var(--foreground) / var(--opacity-secondary))' }}>
         Licensed Fiduciary Advisors · 20+ Years Experience
       </p>
       
@@ -33,7 +33,7 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background/40 backdrop-blur-sm border border-border/50 text-foreground transition-all duration-300 hover:bg-background/60 hover:border-primary/30 hover:shadow-lg group animate-fade-in"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background/80 backdrop-blur-sm border border-border text-foreground transition-all duration-300 hover:bg-background hover:border-primary/30 hover:shadow-lg group animate-fade-in"
             style={{
               animationDelay: `${400 + index * 100}ms`,
             }}

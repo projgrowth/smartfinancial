@@ -34,7 +34,7 @@ const IntroSection = () => {
           <ScrollReveal distance="3rem">
             <h2 className="heading-lg mb-4">
               Generic plans weren't made for{' '}
-              <span className="text-blue-400">you</span>.
+              <span className="text-accent">you</span>.
             </h2>
           </ScrollReveal>
           

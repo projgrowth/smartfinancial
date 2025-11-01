@@ -39,8 +39,8 @@ const ElevationBars: React.FC<ElevationBarsProps> = ({ className }) => {
           )}
           style={{
             animationDelay: bar.delay,
-            background: 'linear-gradient(90deg, hsl(210 100% 60%) 0%, hsl(45 90% 57%) 50%, hsl(210 100% 60%) 100%)',
-            boxShadow: '0 4px 20px rgba(59, 130, 246, 0.4), 0 2px 10px rgba(251, 191, 36, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3)',
+            background: 'linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--gold)) 50%, hsl(var(--accent)) 100%)',
+            boxShadow: '0 4px 20px hsl(var(--accent) / 0.4), 0 2px 10px hsl(var(--gold) / 0.3), inset 0 1px 2px hsl(0 0% 100% / 0.3)',
           }}
         />
       ))}
