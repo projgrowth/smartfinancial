@@ -40,60 +40,24 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex gap-unified-sm space-component-sm">
-                <Button
-                  asChild
-                  variant="bare"
-                  size="none"
+                <a href="#" className="footer-icon-link" aria-label="Facebook">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="footer-icon-link" aria-label="Twitter">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="footer-icon-link" aria-label="LinkedIn">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/thesmartfinancialplan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="footer-icon-link"
+                  aria-label="Instagram"
                 >
-                  <a
-                    href="#"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="bare"
-                  size="none"
-                  className="footer-icon-link"
-                >
-                  <a
-                    href="#"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="bare"
-                  size="none"
-                  className="footer-icon-link"
-                >
-                  <a
-                    href="#"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="bare"
-                  size="none"
-                  className="footer-icon-link"
-                >
-                  <a
-                    href="https://www.instagram.com/thesmartfinancialplan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-5 h-5" />
-                  </a>
-                </Button>
+                  <Instagram className="w-5 h-5" />
+                </a>
               </div>
             </ScrollReveal>
           </div>
