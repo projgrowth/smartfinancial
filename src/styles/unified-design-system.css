@@ -22,15 +22,11 @@
   }
 
   /* ========================================
-     2. TYPOGRAPHY SYSTEM
+     2. TYPOGRAPHY SYSTEM - FLUID & CONSISTENT
+     All headings use clamp() for true fluid scaling
      ======================================== */
   
-  .heading-display {
-    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-medium tracking-tight text-foreground;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
+  /* Display Heading - Hero sections */
   .heading-display-fluid {
     font-size: clamp(2.25rem, 5vw + 0.5rem, 4.75rem);
     line-height: 1.05;
@@ -38,52 +34,72 @@
     @apply font-heading font-medium tracking-tight text-foreground;
   }
 
-  .heading-xl {
-    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-medium tracking-tight text-foreground;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-  }
-
+  /* Large Heading - Section headers */
   .heading-lg {
-    @apply text-2xl md:text-3xl lg:text-4xl font-heading font-medium tracking-tight text-foreground;
+    font-size: clamp(1.75rem, 3.5vw + 0.5rem, 2.5rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
+    @apply font-heading font-medium tracking-tight text-foreground;
   }
 
+  /* Medium Heading - Subsections */
   .heading-md {
-    @apply text-xl md:text-2xl lg:text-3xl font-heading font-medium tracking-tight text-foreground;
+    font-size: clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem);
     line-height: 1.25;
+    letter-spacing: -0.005em;
+    @apply font-heading font-medium tracking-tight text-foreground;
   }
 
+  /* Small Heading - Card titles */
   .heading-sm {
-    @apply text-lg md:text-xl lg:text-2xl font-heading font-medium tracking-tight text-foreground;
+    font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
     line-height: 1.3;
+    @apply font-heading font-medium tracking-tight text-foreground;
   }
 
+  /* Extra Small Heading - Component titles */
   .heading-xs {
-    @apply text-base md:text-lg lg:text-xl font-heading font-medium tracking-tight text-foreground;
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
     line-height: 1.35;
+    @apply font-heading font-medium tracking-tight text-foreground;
   }
 
-  /* Body Text Scale */
+  /* Body Text Scale - Proportional to headings */
   .text-body-xl {
-    @apply text-lg md:text-xl leading-relaxed text-muted-foreground;
+    font-size: clamp(1.125rem, 1.5vw + 0.25rem, 1.25rem);
+    @apply leading-relaxed text-muted-foreground;
     max-width: 65ch;
   }
 
   .text-body-lg {
-    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
+    font-size: clamp(1rem, 1.25vw + 0.25rem, 1.125rem);
+    @apply leading-relaxed text-muted-foreground;
     max-width: 68ch;
   }
 
   .text-body {
-    @apply text-sm md:text-base leading-relaxed text-muted-foreground;
+    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+    @apply leading-relaxed text-muted-foreground;
     max-width: 70ch;
   }
 
   .text-body-sm {
-    @apply text-xs md:text-sm leading-relaxed text-muted-foreground;
+    font-size: clamp(0.75rem, 0.75vw + 0.25rem, 0.875rem);
+    @apply leading-relaxed text-muted-foreground;
     max-width: 72ch;
+  }
+
+  /* Navbar Fluid Typography */
+  .text-nav-brand {
+    font-size: clamp(1.125rem, 1.75vw + 0.25rem, 1.5rem);
+    line-height: 1.2;
+    @apply font-heading font-medium tracking-tight;
+  }
+
+  .text-nav-link {
+    font-size: clamp(0.875rem, 1vw + 0.125rem, 1rem);
+    line-height: 1.5;
+    @apply font-medium;
   }
 
   /* Typography utilities */
@@ -96,11 +112,13 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-charcoal to-charcoal-light bg-clip-text text-transparent;
+    background: linear-gradient(90deg, hsl(var(--charcoal)) 0%, hsl(var(--charcoal-light)) 100%);
+    @apply bg-clip-text text-transparent;
   }
   
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light bg-clip-text text-transparent;
+    background: linear-gradient(90deg, hsl(var(--gold-dark)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-light)) 100%);
+    @apply bg-clip-text text-transparent;
   }
 
   /* ========================================

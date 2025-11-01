@@ -35,7 +35,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </div>
       </div>
       
-      <h3 className="text-xl font-heading font-medium mb-4 text-white flex items-center">
+      <h3 className="text-xl font-heading font-medium mb-4 flex items-center" style={{ color: 'hsl(var(--primary-foreground))' }}>
         {step.title}
         {step.keyTerms.length > 0 && (
           <InteractiveTooltip
@@ -70,7 +70,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </h3>
       
-      <p className="text-white/95 group-hover:text-white transition-colors duration-300 mb-5 leading-relaxed">
+      <p className="mb-5 leading-relaxed transition-colors duration-300" style={{ color: 'hsl(var(--primary-foreground) / 0.95)' }}>
         {step.description}
       </p>
       
@@ -95,7 +95,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
           {step.details.map((detail, idx) => (
             <ScaleOnHover key={idx} scale="sm" className="bg-charcoal/40 p-4 rounded-md hover:bg-charcoal/60 border border-charcoal/80 shadow-sm">
               <h4 className="text-sm font-medium text-blue-100 mb-2">{detail.title}</h4>
-              <p className="text-xs text-white/90 leading-relaxed">{detail.description}</p>
+              <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--primary-foreground) / 0.9)' }}>{detail.description}</p>
             </ScaleOnHover>
           ))}
         </CollapsibleContent>

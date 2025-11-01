@@ -34,7 +34,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               aria-expanded={expandedTerm === idx}
               aria-controls={`term-content-${idx}`}
             >
-              <h5 className="text-sm font-medium text-white group-hover:text-blue-200 transition-colors duration-200">
+              <h5 className="text-sm font-medium group-hover:text-blue-200 transition-colors duration-200" style={{ color: 'hsl(var(--primary-foreground))' }}>
                 {term.term}
               </h5>
               {expandedTerm === idx ? (

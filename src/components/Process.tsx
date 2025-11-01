@@ -16,7 +16,7 @@ const Process = () => {
     setActiveStep(activeStep === id ? null : id);
   };
   return <>
-      <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark text-white relative overflow-hidden" aria-labelledby="process-heading">
+      <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark relative overflow-hidden" style={{ color: 'hsl(var(--primary-foreground))' }} aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay"></div>
         
@@ -39,10 +39,22 @@ const Process = () => {
 
           <Tabs defaultValue="cards" value={activeView} onValueChange={setActiveView} className="w-full mb-10">
             <TabsList className="w-full max-w-md mx-auto mb-10 border shadow-md rounded-full overflow-hidden" style={{ backgroundColor: 'hsl(var(--charcoal) / 0.6)', borderColor: 'hsl(0 0% 100% / 0.15)' }} aria-label="Process view options">
-              <TabsTrigger value="cards" className="flex-1 data-[state=active]:text-white font-medium py-2.5 rounded-full transition-all duration-300" style={{ color: 'hsl(0 0% 100% / var(--opacity-secondary))' }} data-active-style="background: hsl(var(--accent) / 0.5);" onClick={() => setActiveView("cards")}>
+              <TabsTrigger 
+                value="cards" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50" 
+                style={{ color: 'hsl(0 0% 100% / var(--opacity-secondary))' }}
+                data-state={activeView === "cards" ? "active" : "inactive"}
+                onClick={() => setActiveView("cards")}
+              >
                 Visual Overview
               </TabsTrigger>
-              <TabsTrigger value="timeline" className="flex-1 data-[state=active]:text-white font-medium py-2.5 rounded-full transition-all duration-300" style={{ color: 'hsl(0 0% 100% / var(--opacity-secondary))' }} data-active-style="background: hsl(var(--accent) / 0.5);" onClick={() => setActiveView("timeline")}>
+              <TabsTrigger 
+                value="timeline" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50" 
+                style={{ color: 'hsl(0 0% 100% / var(--opacity-secondary))' }}
+                data-state={activeView === "timeline" ? "active" : "inactive"}
+                onClick={() => setActiveView("timeline")}
+              >
                 Timeline View
               </TabsTrigger>
             </TabsList>

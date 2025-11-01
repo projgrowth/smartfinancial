@@ -47,10 +47,10 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           } text-3xl font-heading font-medium mr-3 transition-all duration-300`}>
             {step.number}
           </span>
-          <h3 className="text-xl font-heading font-medium text-white">{step.title}</h3>
+          <h3 className="text-xl font-heading font-medium" style={{ color: 'hsl(var(--primary-foreground))' }}>{step.title}</h3>
         </div>
         
-        <p className="text-white/95 mb-6 leading-relaxed">{step.description}</p>
+        <p className="mb-6 leading-relaxed" style={{ color: 'hsl(var(--primary-foreground) / 0.95)' }}>{step.description}</p>
         
         <Collapsible 
           open={isActive} 
@@ -59,10 +59,10 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           <CollapsibleTrigger className={`
             flex items-center text-sm font-medium px-4 py-2 rounded-full 
             ${isActive 
-              ? 'text-white bg-blue-600/60 hover:bg-blue-600/80 border-blue-500/50' 
+              ? 'bg-accent/60 hover:bg-accent/80 border-accent/50' 
               : 'text-blue-200 hover:text-blue-100 bg-blue-900/30 hover:bg-blue-900/50 border-blue-700/30'
             } transition-colors duration-300 border`
-          } aria-expanded={isActive}>
+          } style={{ color: isActive ? 'hsl(var(--primary-foreground))' : undefined }} aria-expanded={isActive}>
             {isActive ? (
               <>
                 <span>Show less</span>
@@ -87,7 +87,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
                     <span className="w-1 h-1 bg-blue-400 rounded-full mr-2"></span>
                     {detail.title}
                   </h4>
-                  <p className="text-xs text-white/90 leading-relaxed">{detail.description}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--primary-foreground) / 0.9)' }}>{detail.description}</p>
                 </div>
               ))}
             </div>

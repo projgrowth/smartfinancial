@@ -171,7 +171,7 @@ const Navbar = () => {
       <div className="container-unified flex justify-between items-center">
         <Link 
           to="/"
-          className="font-heading text-foreground text-fluid-xl font-medium tracking-tight hover:text-primary transition-colors duration-300 focus-enhanced"
+          className="text-nav-brand text-foreground hover:text-primary transition-colors duration-300 focus-enhanced"
           aria-label="Back to home"
         >
           <span className="inline-flex items-center">
@@ -190,7 +190,7 @@ const Navbar = () => {
                 key={item.id}
                 to={item.path || '/'}
                 className={cn(
-                  "relative px-1 py-1 overflow-hidden text-fluid-sm font-medium transition-colors duration-300 group focus-enhanced",
+                  "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
                   location.pathname === item.path 
                     ? "text-primary" 
                     : "text-muted-foreground hover:text-foreground"
@@ -219,7 +219,7 @@ const Navbar = () => {
                   handleNavClick(item.id);
                 }}
                 className={cn(
-                  "relative px-1 py-1 overflow-hidden text-fluid-sm font-medium transition-colors duration-300 group focus-enhanced",
+                  "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
                   activeSection === item.id && isHomePage ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                 )}
                 aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}

@@ -87,8 +87,6 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				inter: ['Inter', 'sans-serif'],
-				neue: ['"Neue Haas Grotesk"', 'sans-serif'],
 				sans: ['Inter', 'sans-serif'],
 				heading: ['"Space Grotesk"', 'sans-serif']
 			},
