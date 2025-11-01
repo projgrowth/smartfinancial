@@ -22,13 +22,13 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   shape = 'circle',
 }) => {
   const variantStyles = {
-    blue: 'bg-gradient-to-br from-blue-400/40 via-blue-500/25 to-blue-600/15',
-    subtle: 'bg-gradient-to-br from-slate-200/50 via-slate-300/30 to-slate-400/15',
-    dark: 'bg-gradient-to-br from-charcoal/30 via-charcoal/20 to-charcoal/10',
-    gold: 'bg-gradient-to-br from-amber-200/50 via-amber-300/30 to-amber-400/15',
-    green: 'bg-gradient-to-br from-emerald-300/35 via-emerald-400/20 to-teal-500/10',
-    purple: 'bg-gradient-to-br from-violet-300/35 via-purple-400/20 to-fuchsia-500/10',
-    bull: 'bg-gradient-to-br from-blue-400/25 via-amber-200/18 to-blue-500/12',
+    blue: 'bg-gradient-to-br from-blue-400/50 via-blue-500/35 to-blue-600/20',
+    subtle: 'bg-gradient-to-br from-slate-200/60 via-slate-300/40 to-slate-400/20',
+    dark: 'bg-gradient-to-br from-charcoal/40 via-charcoal/30 to-charcoal/15',
+    gold: 'bg-gradient-to-br from-amber-200/60 via-amber-300/40 to-amber-400/20',
+    green: 'bg-gradient-to-br from-emerald-300/45 via-emerald-400/30 to-teal-500/15',
+    purple: 'bg-gradient-to-br from-violet-300/45 via-purple-400/30 to-fuchsia-500/15',
+    bull: 'bg-gradient-to-br from-blue-400/35 via-amber-200/25 to-blue-500/18',
   };
   
   const sizeStyles = {
@@ -48,10 +48,10 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   };
   
   const intensityStyles = {
-    'ultra-low': 'opacity-20',
-    low: 'opacity-50',
-    medium: 'opacity-70',
-    high: 'opacity-90',
+    'ultra-low': 'opacity-15',
+    low: 'opacity-55',
+    medium: 'opacity-75',
+    high: 'opacity-95',
   };
 
   // Custom shape for bull
