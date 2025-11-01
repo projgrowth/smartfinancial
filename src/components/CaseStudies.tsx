@@ -103,8 +103,8 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
-          <BarChart data={youngProfessionalData}>
+        <ChartContainer config={{}} className="h-64 mt-4 w-full">
+          <BarChart data={youngProfessionalData} width={500} height={300}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
@@ -169,8 +169,8 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
-          <LineChart data={familyData}>
+        <ChartContainer config={{}} className="h-64 mt-4 w-full">
+          <LineChart data={familyData} width={500} height={300}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
@@ -234,8 +234,8 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
-          <BarChart data={businessData}>
+        <ChartContainer config={{}} className="h-64 mt-4 w-full">
+          <BarChart data={businessData} width={500} height={300}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
@@ -299,8 +299,8 @@ const CaseStudies = () => {
         }
       ],
       chartComponent: (
-        <ChartContainer config={{}} className="h-64 mt-4">
-          <BarChart data={preRetirementData}>
+        <ChartContainer config={{}} className="h-64 mt-4 w-full">
+          <BarChart data={preRetirementData} width={500} height={300}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
@@ -335,7 +335,7 @@ const CaseStudies = () => {
       
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <div className="text-center space-component-xl">
+          <div className="text-center mb-12">
             <h2 className="heading-lg text-foreground mb-6">
               Real Client Success Stories
             </h2>

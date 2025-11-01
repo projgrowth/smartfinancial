@@ -59,3 +59,25 @@ export const preloadFAQSection = () => {
     'FAQSection'
   );
 };
+
+/**
+ * Preload CaseStudies component
+ * Call on hover/focus of case studies navigation
+ */
+export const preloadCaseStudies = () => {
+  preloadComponent(
+    () => import('../components/CaseStudies'),
+    'CaseStudies'
+  );
+};
+
+/**
+ * Preload TeamDetails component
+ * Call on hover/focus of team section links
+ */
+export const preloadTeamDetails = () => {
+  preloadComponent(
+    () => import('../components/TeamDetails'),
+    'TeamDetails'
+  );
+};

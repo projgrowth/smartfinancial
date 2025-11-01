@@ -180,11 +180,11 @@ const MeetingScheduler = () => {
   };
 
   return (
-    <section id="schedule" className="section relative overflow-hidden bg-blue-50/20">
+    <section id="schedule" className="section-lg relative overflow-hidden bg-accent/5" role="region" aria-labelledby="schedule-heading">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center mb-4">
+          <h2 id="schedule-heading" className="heading-lg text-foreground text-center mb-4">
             Schedule a Meeting
           </h2>
         </ScrollReveal>
@@ -196,7 +196,7 @@ const MeetingScheduler = () => {
         </ScrollReveal>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+          <Card className="border-accent/30 shadow-sm hover:shadow-md transition-all duration-300">
             <CardContent className="pt-6">
               <Tabs defaultValue="schedule" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8">
@@ -209,8 +209,8 @@ const MeetingScheduler = () => {
                     {step === 1 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h3 className="text-lg font-medium text-charcoal mb-4">Select a Date</h3>
-                          <div className="border border-blue-100 rounded-md p-1 bg-white">
+                          <h3 className="text-lg font-medium text-foreground mb-4">Select a Date</h3>
+                          <div className="border border-accent/30 rounded-md p-1 bg-background">
                             <Calendar
                               mode="single"
                               selected={date}
@@ -226,7 +226,7 @@ const MeetingScheduler = () => {
                         
                         <div>
                           <div className="mb-6">
-                            <h3 className="text-lg font-medium text-charcoal mb-4">Select Meeting Type</h3>
+                            <h3 className="text-lg font-medium text-foreground mb-4">Select Meeting Type</h3>
                             <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
@@ -236,10 +236,10 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 ${
+                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 min-h-[44px] ${
                                     meetingType === type.id
-                                      ? 'border-blue-500 bg-blue-50'
-                                      : 'border-gray-200 hover:border-blue-200'
+                                      ? 'border-accent bg-accent/10'
+                                      : 'border-border hover:border-accent/50'
                                   }`}
                                   onClick={() => setMeetingType(type.id)}
                                   onKeyDown={(e) => {
@@ -252,12 +252,12 @@ const MeetingScheduler = () => {
                                   <div className="flex justify-between items-center">
                                     <div>
                                       <h4 className="font-medium">{type.name}</h4>
-                                      <p className="text-xs text-charcoal/70">Duration: {type.duration}</p>
+                                      <p className="text-xs text-muted-foreground">Duration: {type.duration}</p>
                                     </div>
                                     <div className={`h-4 w-4 rounded-full border ${
                                       meetingType === type.id
-                                        ? 'bg-blue-500 border-blue-500'
-                                        : 'border-gray-300'
+                                        ? 'bg-accent border-accent'
+                                        : 'border-border'
                                     }`}>
                                       {meetingType === type.id && (
                                         <div className="h-full w-full flex items-center justify-center">
@@ -273,7 +273,7 @@ const MeetingScheduler = () => {
                           
                           {date && (
                             <div>
-                              <h3 className="text-lg font-medium text-charcoal mb-4">
+                              <h3 className="text-lg font-medium text-foreground mb-4">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
                               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
@@ -283,10 +283,10 @@ const MeetingScheduler = () => {
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 ${
+                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 min-h-[44px] ${
                                       time === t
-                                        ? 'border-blue-500 bg-blue-50 text-blue-700'
-                                        : 'border-gray-200 hover:border-blue-200'
+                                        ? 'border-accent bg-accent/10 text-accent-foreground'
+                                        : 'border-border hover:border-accent/50'
                                     }`}
                                     onClick={() => setTime(t)}
                                     onKeyDown={(e) => {
@@ -308,17 +308,17 @@ const MeetingScheduler = () => {
                     
                     {step === 2 && (
                       <div>
-                        <div className="mb-6 p-4 bg-blue-50/50 rounded-md">
-                          <h3 className="text-lg font-medium text-charcoal mb-2">Your Selected Time</h3>
-                          <div className="flex items-center gap-2 text-charcoal/80 mb-1">
+                        <div className="mb-6 p-4 bg-accent/5 rounded-md">
+                          <h3 className="text-lg font-medium text-foreground mb-2">Your Selected Time</h3>
+                          <div className="flex items-center gap-2 text-muted-foreground mb-1">
                             <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-charcoal/80 mb-1">
+                          <div className="flex items-center gap-2 text-muted-foreground mb-1">
                             <Clock className="h-4 w-4" />
                             <span>{time}</span>
                           </div>
-                          <div className="text-charcoal/80">
+                          <div className="text-muted-foreground">
                             <span className="font-medium">{MEETING_TYPES.find(t => t.id === meetingType)?.name}</span>
                             <span> ({MEETING_TYPES.find(t => t.id === meetingType)?.duration})</span>
                           </div>
@@ -326,7 +326,7 @@ const MeetingScheduler = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                           <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1">
+                            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                               Your Name
                             </label>
                             <input
@@ -336,11 +336,12 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.name}
                               onChange={handleInputChange}
-                              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
+                              aria-required="true"
                             />
                           </div>
                           <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1">
+                            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
                               Email Address
                             </label>
                             <input
@@ -350,27 +351,30 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.email}
                               onChange={handleInputChange}
-                              className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
+                              aria-required="true"
                             />
                           </div>
                         </div>
                         
                         <div className="mb-4">
-                          <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-1">
+                          <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1">
                             Phone Number
                           </label>
                           <input
                             type="tel"
                             id="phone"
                             name="phone"
+                            required
                             value={contactInfo.phone}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
+                            aria-required="true"
                           />
                         </div>
                         
                         <div className="mb-4">
-                          <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-1">
+                          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
                             What would you like to discuss? (Optional)
                           </label>
                           <textarea
@@ -379,12 +383,12 @@ const MeetingScheduler = () => {
                             rows={3}
                             value={contactInfo.message}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background"
                           />
                         </div>
 
                         <div className="mt-6">
-                          <label htmlFor="zapierWebhook" className="block text-xs font-medium text-charcoal mb-1">
+                          <label htmlFor="zapierWebhook" className="block text-xs font-medium text-foreground mb-1">
                             Zapier Webhook URL (optional, site owner)
                           </label>
                           <input
@@ -393,9 +397,9 @@ const MeetingScheduler = () => {
                             placeholder="https://hooks.zapier.com/..."
                             value={webhookUrl}
                             onChange={(e) => setWebhookUrl(e.target.value)}
-                            className="w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
                           />
-                          <p className="text-[11px] text-charcoal/60 mt-1">If provided, a request is sent to this URL on submit.</p>
+                          <p className="text-[11px] text-muted-foreground mt-1">If provided, a request is sent to this URL on submit.</p>
                         </div>
                       </div>
                     )}
@@ -431,27 +435,27 @@ const MeetingScheduler = () => {
                 
                 <TabsContent value="contact">
                   <div className="text-center py-6 px-4 max-w-lg mx-auto">
-                    <h3 className="text-lg font-medium text-charcoal mb-6">
+                    <h3 className="text-lg font-medium text-foreground mb-6">
                       Prefer to reach us directly?
                     </h3>
                     
                     <div className="space-y-6">
                       <div>
-                        <div className="inline-block p-3 rounded-full bg-blue-100 mb-3">
-                          <Phone className="h-6 w-6 text-blue-600" />
+                        <div className="inline-block p-3 rounded-full bg-accent/10 mb-3">
+                          <Phone className="h-6 w-6 text-accent" aria-hidden="true" />
                         </div>
                         <h4 className="font-medium">Call Us</h4>
-                        <p className="text-charcoal/80">(706) 627-5729</p>
-                        <p className="text-xs text-charcoal/60 mt-1">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
+                        <a href="tel:+17066275729" className="text-muted-foreground hover:text-accent transition-colors">(706) 627-5729</a>
+                        <p className="text-xs text-muted-foreground mt-1">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
                       </div>
                       
                       <div>
-                        <div className="inline-block p-3 rounded-full bg-blue-100 mb-3">
-                          <Mail className="h-6 w-6 text-blue-600" />
+                        <div className="inline-block p-3 rounded-full bg-accent/10 mb-3">
+                          <Mail className="h-6 w-6 text-accent" aria-hidden="true" />
                         </div>
                         <h4 className="font-medium">Email Us</h4>
-                        <p className="text-charcoal/80">info@thesmartfinancialplan.com</p>
-                        <p className="text-xs text-charcoal/60 mt-1">We'll respond within 24 business hours</p>
+                        <a href="mailto:info@thesmartfinancialplan.com" className="text-muted-foreground hover:text-accent transition-colors break-all">info@thesmartfinancialplan.com</a>
+                        <p className="text-xs text-muted-foreground mt-1">We'll respond within 24 business hours</p>
                       </div>
                     </div>
                   </div>
