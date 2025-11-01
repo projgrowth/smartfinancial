@@ -5,29 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-250 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98]",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:scale-[0.98]",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 active:scale-[0.98]",
+        ghost: "hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg",
-        subtle: "border border-input bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground",
+        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg active:scale-[0.98]",
+        subtle: "border border-input bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
         bare: "bg-transparent text-current hover:bg-transparent focus-visible:ring-0 focus-visible:outline-none",
-        shimmer: "relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground hover:scale-[1.02] shadow-lg hover:shadow-[0_0_25px_rgba(var(--primary),0.4)] overflow-hidden whitespace-nowrap leading-none min-h-[44px] transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-background/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-[shimmer_1s_ease-in-out]",
-        glow: "relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground hover:scale-[1.02] shadow-lg hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] animate-[glow-pulse_3s_ease-in-out_2]",
-        cta: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl relative overflow-hidden group",
-        navigation: "hover:bg-accent hover:text-accent-foreground transition-all duration-300",
-        "card-action": "bg-transparent text-current hover:bg-accent/50 hover:text-accent-foreground rounded-lg",
-        floating: "fixed bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl rounded-full",
-        "icon-only": "bg-transparent hover:bg-accent hover:text-accent-foreground rounded-full aspect-square",
+        shimmer: "relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground hover:scale-[1.02] shadow-lg hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)] overflow-hidden whitespace-nowrap leading-none min-h-[44px] transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-background/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-[shimmer_1s_ease-in-out]",
       },
       size: {
         default: "h-10 px-4 py-2",

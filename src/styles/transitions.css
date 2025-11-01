@@ -1,0 +1,32 @@
+/**
+ * Standardized Transition Timing System
+ * Use these custom properties for consistent animation timing
+ */
+
+:root {
+  /* Transition Durations */
+  --transition-micro: 150ms;     /* Quick micro-interactions (hover, active states) */
+  --transition-standard: 250ms;  /* Standard transitions (buttons, links, cards) */
+  --transition-major: 400ms;     /* Major UI changes (modals, drawers, page transitions) */
+  
+  /* Transition Easing */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Utility Classes for Standard Transitions */
+.transition-micro {
+  transition-duration: var(--transition-micro);
+  transition-timing-function: var(--ease-standard);
+}
+
+.transition-standard {
+  transition-duration: var(--transition-standard);
+  transition-timing-function: var(--ease-standard);
+}
+
+.transition-major {
+  transition-duration: var(--transition-major);
+  transition-timing-function: var(--ease-standard);
+}

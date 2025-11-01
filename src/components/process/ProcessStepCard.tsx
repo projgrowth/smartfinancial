@@ -21,7 +21,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
 }) => {
   return (
     <PremiumCard 
-      variant="process-dark" 
+      variant="dark" 
       size="lg"
       active={activeStep === step.id}
       className="h-full group"
