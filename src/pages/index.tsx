@@ -152,7 +152,7 @@ const Index = () => {
           style="chevron" 
           colorScheme="light-to-dark" 
           position="bottom" 
-          height={50}
+          height={60}
         />
         
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-64 w-full" /></div>}>
@@ -166,7 +166,7 @@ const Index = () => {
           style="wave" 
           colorScheme="light-to-dark" 
           position="bottom" 
-          height={50}
+          height={60}
         />
         
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
@@ -177,7 +177,7 @@ const Index = () => {
           style="diagonal" 
           colorScheme="light-to-dark" 
           position="bottom" 
-          height={50}
+          height={60}
         />
         
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-32 w-full" /></div>}>
@@ -188,7 +188,7 @@ const Index = () => {
           style="wave" 
           colorScheme="light-to-dark" 
           position="bottom" 
-          height={50}
+          height={60}
         />
         
         <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-24 w-full" /></div>}>

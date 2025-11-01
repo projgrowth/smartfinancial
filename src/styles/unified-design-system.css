@@ -7,11 +7,11 @@
      ======================================== */
   
   :root {
-    /* Container widths and unified gutter */
+    /* Container widths - Aligned to 12-column grid spec */
     --container-narrow: 64rem; /* ~1024px */
-    --container-default: 90rem; /* ~1440px (wider site width) */
+    --container-default: 75rem; /* 1200px - matches 12-column grid spec */
     --container-wide: 96rem; /* ~1536px for hero/footer if needed */
-    --gutter: clamp(1rem, 3vw, 2rem);
+    --gutter: clamp(1.5rem, 5vw, 5rem); /* 24px-80px responsive gutter */
     
     /* Chart Colors (using design system colors) */
     --chart-primary: var(--primary);
@@ -219,21 +219,64 @@
     @apply gap-3 md:gap-4;
   }
 
-  /* Grid System - Standardized Responsive Patterns */
+  /* ========================================
+     12-Column Grid System - Spec Compliant
+     Based on 1200px container with proper breakpoints
+     ======================================== */
+  
+  .grid-12 {
+    @apply grid gap-8;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  /* Responsive Grid Patterns */
   .grid-auto {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
   }
 
   .grid-two-col {
-    @apply grid grid-cols-1 md:grid-cols-2;
+    @apply grid gap-8;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    .grid-two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .grid-three-col {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+    @apply grid gap-8;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    .grid-three-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-three-col {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .grid-four-col {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+    @apply grid gap-8;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    .grid-four-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-four-col {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   /* ========================================
@@ -632,18 +675,7 @@
     @apply text-foreground hover:text-accent transition-all duration-300;
   }
   
-  /* Premium Spacing System */
-  .space-premium-xl {
-    @apply space-y-16 md:space-y-24;
-  }
-  
-  .space-premium-lg {
-    @apply space-y-12 md:space-y-16;
-  }
-  
-  .space-premium-md {
-    @apply space-y-8 md:space-y-12;
-  }
+  /* Premium spacing classes removed - use space-component-* instead */
   
   /* Enhanced Focus States */
   .focus-premium {

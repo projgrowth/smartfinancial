@@ -357,7 +357,7 @@ const CaseStudies = () => {
           />
         </div>
         
-        <div className="space-premium-lg">
+        <div className="space-component-lg">
           {caseStudies.map((study, index) => (
             <ScrollReveal key={study.id} delay={index * 100}>
               <ClientStoryCard

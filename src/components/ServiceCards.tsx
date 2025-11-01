@@ -92,7 +92,7 @@ const ServiceCards = () => {
             </div>
           </ScrollReveal>
           
-          <div className="grid-four-col gap-unified-lg">
+          <div className="grid-four-col">
             {services.map((service, index) => (
               <ServiceCard 
                 key={index} 
@@ -110,7 +110,7 @@ const ServiceCards = () => {
             style="diagonal" 
             colorScheme="light-to-dark" 
             position="bottom" 
-            height={50}
+            height={60}
             showIcon={true}
             iconType="arrow"
             onClick={() => document.getElementById('calculators')?.scrollIntoView({ behavior: 'smooth' })}

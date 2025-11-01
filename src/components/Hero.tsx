@@ -76,7 +76,7 @@ const Hero = () => {
       {/* Elevation Bars - Visual Anchor */}
       <ElevationBars />
       
-      <div className="container-unified px-4 sm:px-6 md:px-8 lg:px-12 z-10 w-full">
+      <div className="container-unified z-10 w-full">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12">
             
