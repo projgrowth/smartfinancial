@@ -30,9 +30,8 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="flex items-center gap-1.5 text-muted-foreground/60 transition-colors hover:text-muted-foreground group"
+            className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground group animate-fade-in"
             style={{
-              animation: 'fade-in 0.5s ease-out forwards',
               animationDelay: `${400 + index * 100}ms`,
             }}
           >

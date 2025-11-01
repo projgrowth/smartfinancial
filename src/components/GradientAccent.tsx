@@ -22,13 +22,13 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   shape = 'circle',
 }) => {
   const variantStyles = {
-    blue: 'bg-gradient-to-br from-blue-400/20 via-blue-500/10 to-blue-600/5',
-    subtle: 'bg-gradient-to-br from-slate-200/40 via-slate-300/20 to-slate-400/10',
-    dark: 'bg-gradient-to-br from-charcoal/20 via-charcoal/10 to-charcoal/5',
-    gold: 'bg-gradient-to-br from-amber-200/30 via-amber-300/15 to-amber-400/5',
-    green: 'bg-gradient-to-br from-emerald-300/20 via-emerald-400/10 to-teal-500/5',
-    purple: 'bg-gradient-to-br from-violet-300/20 via-purple-400/10 to-fuchsia-500/5',
-    bull: 'bg-gradient-to-br from-blue-400/15 via-amber-200/10 to-blue-500/5',
+    blue: 'bg-gradient-to-br from-blue-400/40 via-blue-500/25 to-blue-600/15',
+    subtle: 'bg-gradient-to-br from-slate-200/50 via-slate-300/30 to-slate-400/15',
+    dark: 'bg-gradient-to-br from-charcoal/30 via-charcoal/20 to-charcoal/10',
+    gold: 'bg-gradient-to-br from-amber-200/50 via-amber-300/30 to-amber-400/15',
+    green: 'bg-gradient-to-br from-emerald-300/35 via-emerald-400/20 to-teal-500/10',
+    purple: 'bg-gradient-to-br from-violet-300/35 via-purple-400/20 to-fuchsia-500/10',
+    bull: 'bg-gradient-to-br from-blue-400/25 via-amber-200/18 to-blue-500/12',
   };
   
   const sizeStyles = {
@@ -48,10 +48,10 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   };
   
   const intensityStyles = {
-    'ultra-low': 'opacity-10',
-    low: 'opacity-30',
-    medium: 'opacity-50',
-    high: 'opacity-70',
+    'ultra-low': 'opacity-20',
+    low: 'opacity-50',
+    medium: 'opacity-70',
+    high: 'opacity-90',
   };
 
   // Custom shape for bull
