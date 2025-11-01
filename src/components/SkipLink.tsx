@@ -1,12 +1,21 @@
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 const SkipLink: React.FC = () => {
   return (
     <a
       href="#main-content"
-      className="sr-only focus:not-sr-only fixed top-2 left-2 z-50 rounded-md bg-primary text-primary-foreground px-3 py-2 shadow ring-2 ring-ring"
+      className={cn(
+        "sr-only focus:not-sr-only",
+        "fixed top-4 left-4 z-[100]",
+        "bg-primary text-primary-foreground",
+        "px-4 py-2 rounded-md",
+        "font-medium text-sm",
+        "focus:ring-2 focus:ring-accent/50 focus:ring-offset-2",
+        "transition-all duration-200"
+      )}
     >
-      Skip to content
+      Skip to main content
     </a>
   );
 };

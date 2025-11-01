@@ -89,6 +89,13 @@
     max-width: 72ch;
   }
 
+  /* Caption text for small annotations */
+  .text-caption {
+    font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.8125rem);
+    line-height: 1.5;
+    @apply text-muted-foreground;
+  }
+
   /* Navbar Fluid Typography */
   .text-nav-brand {
     font-size: clamp(1.125rem, 1.75vw + 0.25rem, 1.5rem);
@@ -119,6 +126,13 @@
   .text-gradient-gold {
     background: linear-gradient(90deg, hsl(var(--gold-dark)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-light)) 100%);
     @apply bg-clip-text text-transparent;
+  }
+
+  /* Accent gradient with enhanced shadow */
+  .text-gradient-accent {
+    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--gold)) 100%);
+    @apply bg-clip-text text-transparent;
+    letter-spacing: -0.02em;
   }
 
   /* ========================================
@@ -436,15 +450,24 @@
   /* Shadow classes removed - use Tailwind's shadow-* utilities instead */
 
   /* ========================================
-     10. ACCESSIBILITY & FOCUS STATES
+     10. ACCESSIBILITY & FOCUS STATES - Standardized
      ======================================== */
   
   .focus-enhanced {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 transition-shadow duration-200;
   }
 
   .focus-ring {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 transition-all duration-300;
+    @apply focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Ensure all interactive elements have focus-visible */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-accent/50 ring-offset-2;
   }
 
   /* Reduced motion support */
@@ -529,13 +552,37 @@
     @apply bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent;
   }
   
-  /* Premium Cards */
+  /* Premium Cards with depth */
   .card-premium {
-    @apply bg-card border border-border/60 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500;
+    @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-lg ring-1 ring-border/20;
+    box-shadow: 0 10px 40px hsl(var(--foreground) / 0.08);
   }
   
   .card-premium-interactive {
-    @apply card-premium hover:border-accent/30 hover:-translate-y-1 hover:shadow-2xl;
+    @apply card-premium hover:border-accent/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300;
+  }
+
+  /* Micro-interaction utilities */
+  .micro-hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .micro-hover-lift:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+  
+  .micro-hover-scale {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .micro-hover-scale:hover {
+    @apply scale-105;
+  }
+
+  /* Enhanced text colors with better contrast */
+  .text-muted-strong {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.85;
   }
   
   /* Section Backgrounds */
@@ -560,6 +607,40 @@
   .section-bg-premium-dark {
     @apply relative;
     background: linear-gradient(to bottom right, hsl(var(--primary) / 0.98), hsl(var(--primary)), hsl(var(--primary) / 0.95));
+  }
+
+  .section-bg-premium-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, hsl(var(--primary) / 0.6) 100%);
+    pointer-events: none;
+  }
+
+  /* Radial spotlight effect for key sections */
+  .bg-radial-spotlight {
+    position: relative;
+  }
+  
+  .bg-radial-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% 50%, hsl(var(--accent) / 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Section depth with subtle shadow */
+  section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    box-shadow: 0 -40px 80px rgba(0,0,0,0.02);
+    pointer-events: none;
   }
 
   .section-bg-premium-accent {
@@ -588,7 +669,7 @@
   }
 
   .footer-icon-link {
-    @apply bg-primary-foreground/10 hover:bg-accent/30 active:bg-accent/40 transition-all duration-300 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
+    @apply bg-primary-foreground/10 hover:bg-accent/30 hover:rotate-6 active:bg-accent/40 transition-all duration-300 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
   }
 
   .footer-contact-icon {
@@ -597,7 +678,7 @@
 
   /* CTA Specific */
   .cta-content-container {
-    @apply max-w-4xl mx-auto text-center card-premium py-12 sm:py-14 md:py-16 px-6 sm:px-10 md:px-12 rounded-2xl;
+    @apply max-w-4xl mx-auto text-center card-premium py-12 md:py-16 px-6 sm:px-10 md:px-12 rounded-2xl;
   }
   
   /* Hero Specific */

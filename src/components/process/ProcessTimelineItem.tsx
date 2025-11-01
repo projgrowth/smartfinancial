@@ -61,7 +61,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
             ${isActive 
               ? 'bg-accent/60 hover:bg-accent/80 border-accent/50' 
               : 'text-blue-200 hover:text-blue-100 bg-blue-900/30 hover:bg-blue-900/50 border-blue-700/30'
-            } transition-colors duration-300 border`
+            } transition-colors duration-300 border focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2`
           } style={{ color: isActive ? 'hsl(var(--primary-foreground))' : undefined }} aria-expanded={isActive}>
             {isActive ? (
               <>

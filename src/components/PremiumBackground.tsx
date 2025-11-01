@@ -134,9 +134,9 @@ const PremiumBackground = () => {
         </div>
       )}
       
-      {/* Interactive blue gradient shape (left) */}
+      {/* Interactive blue gradient shape (left) with anchoring */}
       <div 
-        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/20 to-blue-300/15 blur-3xl rounded-full transform -rotate-12 ${reduceMotion ? '' : 'animate-float duration-25000'}`}
+        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/20 to-blue-300/15 blur-3xl rounded-full transform -rotate-12 border border-white/5 ${reduceMotion ? '' : 'animate-float duration-25000'}`}
         style={{ 
           transform: `rotate(-12deg) translate(${translateX1}px, ${translateY1 + scrollPosition}px)`,
           transition: 'transform 0.5s ease-out'
@@ -173,8 +173,8 @@ const PremiumBackground = () => {
       <div className="absolute inset-0 opacity-[0.03]" 
            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E\")" }}></div>
       
-      {/* Noise texture overlay */}
-      <div className="absolute inset-0 bg-noise opacity-[0.01] mix-blend-overlay"></div>
+      {/* Enhanced noise texture overlay */}
+      <div className="absolute inset-0 bg-noise opacity-[0.015] mix-blend-overlay"></div>
     </div>
   );
 };

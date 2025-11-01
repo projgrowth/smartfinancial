@@ -96,11 +96,11 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
     );
   }
   
-  // Regular circular or blob gradients
+  // Regular circular or blob gradients - only render on desktop
   return (
     <div
       className={cn(
-        'absolute rounded-full blur-3xl -z-10',
+        'absolute rounded-full blur-3xl -z-10 hidden lg:block',
         variantStyles[variant],
         sizeStyles[size],
         positionStyles[position],

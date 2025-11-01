@@ -107,9 +107,9 @@ const FAQSection = () => {
           </p>
         </ScrollReveal>
         
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <ScrollReveal key={index} delay={index * 100}>
+            <ScrollReveal key={index} delay={index * 75}>
               <FAQItem question={faq.question} answer={faq.answer} />
             </ScrollReveal>
           ))}

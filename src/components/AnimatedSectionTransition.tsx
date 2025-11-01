@@ -127,14 +127,23 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
     };
 
     return (
-      <div 
+      <button 
         className={cn(
-          "cursor-pointer",
+          "focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 transition-all",
           onClick && "cursor-pointer"
         )}
+        onClick={onClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onClick?.();
+          }
+        }}
+        aria-label={position === 'bottom' ? 'Scroll to next section' : 'Scroll to previous section'}
+        tabIndex={onClick ? 0 : -1}
       >
         {renderIconComponent()}
-      </div>
+      </button>
     );
   };
 

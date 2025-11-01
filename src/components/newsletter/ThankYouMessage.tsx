@@ -10,9 +10,9 @@ interface ThankYouMessageProps {
 
 const ThankYouMessage: React.FC<ThankYouMessageProps> = ({ onReset }) => {
   return (
-    <Card className="max-w-2xl mx-auto border-blue-100 shadow-sm overflow-hidden">
+    <Card className="max-w-2xl mx-auto border-blue-100 shadow-sm overflow-hidden animate-scale-in">
       <CardContent className="p-8 text-center">
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 animate-scale-in" style={{ animationDelay: '100ms' }}>
           <div className="rounded-full bg-green-100 p-4">
             <CheckCircle className="h-10 w-10 text-green-600" />
           </div>

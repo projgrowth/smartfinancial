@@ -26,19 +26,19 @@ const Process = () => {
         
         <div className="container-unified relative z-10">
           <ScrollReveal>
-            <h2 id="process-heading" className="heading-lg text-center mb-6 text-primary-foreground">
+            <h2 id="process-heading" className="heading-lg text-center mb-6 text-primary-foreground text-balance">
               <span className="inline-block relative">
                 Our Process
                 <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></span>
               </span>
             </h2>
-            <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: 'hsl(var(--primary-foreground) / 0.95)' }}>
+            <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance" style={{ color: 'hsl(var(--primary-foreground) / 0.9)' }}>
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
 
           <Tabs defaultValue="cards" value={activeView} onValueChange={setActiveView} className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-10 border shadow-md rounded-full overflow-hidden" style={{ backgroundColor: 'hsl(var(--charcoal) / 0.6)', borderColor: 'hsl(0 0% 100% / 0.15)' }} aria-label="Process view options">
+            <TabsList className="w-full max-w-md mx-auto mb-10 border shadow-md rounded-full overflow-hidden" style={{ backgroundColor: 'hsl(var(--charcoal) / 0.8)', borderColor: 'hsl(0 0% 100% / 0.15)' }} aria-label="Process view options">
               <TabsTrigger 
                 value="cards" 
                 className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50" 

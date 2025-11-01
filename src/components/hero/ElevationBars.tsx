@@ -17,7 +17,7 @@ const ElevationBars: React.FC<ElevationBarsProps> = ({ className }) => {
     <div 
       className={cn(
         'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10',
-        'opacity-0 md:opacity-100 flex flex-col gap-3 lg:gap-4 items-center pointer-events-none',
+        'hidden lg:flex flex-col gap-3 lg:gap-4 items-center pointer-events-none',
         className
       )}
       aria-hidden="true"

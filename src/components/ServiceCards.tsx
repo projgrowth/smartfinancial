@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
       <PremiumCard 
         variant="elevated" 
         size="lg"
-        className={`card-equal-height group ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
+        className={`card-equal-height group ring-1 ring-border/20 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
         onClick={() => isTouchDevice && hapticFeedback('light')}
       >
         <PremiumCardHeader>
@@ -83,10 +83,10 @@ const ServiceCards = () => {
         <div className="container-unified relative z-10">
           <ScrollReveal>
             <div className="text-center space-component-lg">
-              <h2 className="heading-lg mb-6">
+              <h2 className="heading-lg mb-6 text-balance">
                 Services Tailored to Your Needs
               </h2>
-              <p className="text-body-lg mx-auto">
+              <p className="text-body-lg mx-auto text-muted-strong text-balance">
                 Strategic financial planning designed for high-performing professionals who expect exceptional results.
               </p>
             </div>

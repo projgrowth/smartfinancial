@@ -69,12 +69,12 @@ const EnhancedNewsletter = () => {
 
   return (
     <section id="newsletter" className="section section-xl relative overflow-hidden section-bg-premium-light">
-      <GradientAccent variant="subtle" position="top-left" intensity="low" />
-      <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
+      <GradientAccent variant="subtle" position="top-left" intensity="low" className="hidden lg:block" />
+      <GradientAccent variant="subtle" position="bottom-right" intensity="low" className="hidden lg:block" />
       
       <div className="container-unified relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center space-component-sm">
+          <h2 className="heading-lg text-foreground text-center text-balance mb-4">
             Financial Insights Newsletter
           </h2>
         </ScrollReveal>
