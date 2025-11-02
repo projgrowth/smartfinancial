@@ -182,7 +182,7 @@ const MeetingScheduler = () => {
   return (
     <section id="schedule" className="section-lg relative overflow-hidden bg-accent/5" role="region" aria-labelledby="schedule-heading">
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
-      <div className="container-unified relative z-10">
+      <div className="container-narrow relative z-10">
         <ScrollReveal>
           <h2 id="schedule-heading" className="heading-lg text-foreground text-center mb-4">
             Schedule a Meeting

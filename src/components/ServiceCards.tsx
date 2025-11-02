@@ -80,7 +80,7 @@ const ServiceCards = () => {
       <section id="services" className="section-xl bg-gradient-to-br from-accent/5 via-background to-accent/10 relative overflow-hidden">
         <GradientAccent variant="subtle" position="top-left" intensity="low" />
         
-        <div className="container-unified relative z-10">
+        <div className="container-wide relative z-10">
           <ScrollReveal>
             <div className="text-center space-component-lg">
               <h2 className="heading-lg mb-6 text-balance">

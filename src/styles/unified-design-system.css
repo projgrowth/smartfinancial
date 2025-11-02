@@ -7,11 +7,11 @@
      ======================================== */
   
   :root {
-    /* Container widths - Aligned to 12-column grid spec */
-    --container-narrow: 64rem; /* ~1024px */
-    --container-default: 75rem; /* 1200px - matches 12-column grid spec */
-    --container-wide: 96rem; /* ~1536px for hero/footer if needed */
-    --gutter: clamp(1.5rem, 5vw, 5rem); /* 24px-80px responsive gutter */
+    /* Container widths - Optimized for content readability and breathing room */
+    --container-narrow: 60rem; /* 960px - for focused content (forms, long text) */
+    --container-default: 80rem; /* 1280px - balanced content width */
+    --container-wide: 90rem; /* 1440px - for visual sections (hero, team) */
+    --gutter: clamp(1.5rem, 3vw, 3rem); /* 24px-48px responsive gutter */
     
     /* Chart Colors (using design system colors) */
     --chart-primary: var(--primary);
@@ -178,21 +178,21 @@
      4. SPACING & GRID SYSTEM
      ======================================== */
   
-  /* Section Spacing */
+  /* Section Spacing - Smooth progression across breakpoints */
   .section-xl {
-    @apply py-20 md:py-32;
+    @apply py-16 md:py-24 lg:py-32;
   }
 
   .section-lg {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-20 lg:py-24;
   }
 
   .section-md {
-    @apply py-12 md:py-20;
+    @apply py-10 md:py-16 lg:py-20;
   }
 
   .section-sm {
-    @apply py-8 md:py-12;
+    @apply py-8 md:py-12 lg:py-16;
   }
 
   /* Component Spacing Scale */

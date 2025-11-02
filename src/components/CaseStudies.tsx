@@ -333,7 +333,7 @@ const CaseStudies = () => {
     <section id="case-studies" className="section-lg section-bg-accent relative overflow-hidden">
       <GradientAccent variant="blue" position="bottom-right" intensity="low" />
       
-      <div className="container-unified relative z-10">
+      <div className="container-wide relative z-10">
         <ScrollReveal>
           <div className="text-center mb-12">
             <h2 className="heading-lg text-foreground mb-6">

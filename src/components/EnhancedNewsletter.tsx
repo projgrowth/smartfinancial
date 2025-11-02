@@ -72,7 +72,7 @@ const EnhancedNewsletter = () => {
       <GradientAccent variant="subtle" position="top-left" intensity="low" className="hidden lg:block" />
       <GradientAccent variant="subtle" position="bottom-right" intensity="low" className="hidden lg:block" />
       
-      <div className="container-unified relative z-10">
+      <div className="container-narrow relative z-10">
         <ScrollReveal>
           <h2 className="heading-lg text-foreground text-center text-balance mb-4">
             Financial Insights Newsletter

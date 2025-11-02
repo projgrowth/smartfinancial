@@ -17,7 +17,7 @@ const CTA = () => {
       <GradientAccent variant="blue" position="top-left" intensity="low" animated />
       <GradientAccent variant="subtle" position="bottom-right" intensity="ultra-low" />
       
-      <div className="container-unified relative z-10">
+      <div className="container-wide relative z-10">
         <ScrollReveal>
           <div className="cta-content-container">
             <h2 className="heading-lg space-component-md text-primary-foreground">

@@ -29,8 +29,8 @@ const IntroSection = () => {
         />
       )}
       
-      <div className="container-unified relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-component-lg">
+      <div className="container-narrow relative z-10">
+        <div className="mx-auto text-center space-component-lg">
           <ScrollReveal distance="3rem">
             <h2 className="heading-lg mb-4">
               Generic plans weren't made for{' '}

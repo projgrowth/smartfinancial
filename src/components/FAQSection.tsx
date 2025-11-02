@@ -94,7 +94,7 @@ const FAQSection = () => {
   return (
     <section id="faq" className="section-lg relative overflow-hidden section-bg-premium-accent">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
-      <div className="container-unified relative z-10">
+      <div className="container-narrow relative z-10">
         <ScrollReveal>
           <h2 className="heading-lg text-foreground text-center space-component-md">
             Frequently Asked Questions
