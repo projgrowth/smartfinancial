@@ -1,18 +1,23 @@
-
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { PremiumCard } from '@/components/ui/premium-card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { advisors as teamAdvisors } from '@/data/team';
 import { getHeadshotPosition, generateTeamAltText } from '@/utils/imageOptimization';
 import { smoothScrollTo } from '@/utils/smoothScroll';
 import { preloadMeetingScheduler } from '@/utils/componentPreloader';
-
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const TeamDetails = () => {
   const advisors = teamAdvisors;
@@ -26,12 +31,34 @@ const TeamDetails = () => {
     return 0;
   };
   const [activeAdvisor, setActiveAdvisor] = useState<number>(getIndexFromHash());
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   useEffect(() => {
     const onHashChange = () => setActiveAdvisor(getIndexFromHash());
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
-  
+
+  const handleAdvisorChange = (index: number) => {
+    if (index === activeAdvisor) return;
+    setIsTransitioning(true);
+    setIsExpanded(false);
+    setTimeout(() => {
+      setActiveAdvisor(index);
+      window.location.hash = `advisor=${advisors[index].slug}`;
+      setTimeout(() => setIsTransitioning(false), 50);
+    }, 200);
+  };
+
+  const navigateAdvisor = (direction: 'prev' | 'next') => {
+    const newIndex = direction === 'prev' 
+      ? (activeAdvisor - 1 + advisors.length) % advisors.length
+      : (activeAdvisor + 1) % advisors.length;
+    handleAdvisorChange(newIndex);
+  };
+
+  const advisor = advisors[activeAdvisor];
 
   return (
     <section id="team" className="section-lg bg-background relative overflow-hidden">
@@ -51,147 +78,222 @@ const TeamDetails = () => {
         </ScrollReveal>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 max-w-6xl mx-auto">
-          <div className="col-span-1 mb-8 lg:mb-0">
-            <div className="space-y-3 md:space-y-4">
-              {advisors.map((advisor, index) => (
+          {/* Desktop Sidebar */}
+          <div className="hidden lg:block col-span-1">
+            <div className="space-component-md">
+              {advisors.map((adv, index) => (
                 <Button 
                   key={index} 
                   variant="subtle" 
                   size="none" 
-                  className={`p-3 md:p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-3 md:gap-4 ${
+                  className={`p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-4 ${
                     activeAdvisor === index 
-                      ? 'bg-accent/10 border border-accent/20 shadow-sm' 
-                      : 'hover:bg-muted'
+                      ? 'bg-accent/10 border border-accent/20 shadow-sm scale-105' 
+                      : 'hover:bg-muted hover:scale-102'
                   }`}
                   aria-pressed={activeAdvisor === index}
-                  onClick={() => {
-                    setActiveAdvisor(index);
-                    window.location.hash = `advisor=${advisors[index].slug}`;
-                  }}
+                  onClick={() => handleAdvisorChange(index)}
                 >
-                    <Avatar className="h-12 w-12 md:h-14 md:w-14 border-2 border-border flex-shrink-0">
-                      <AvatarImage 
-                        src={advisor.imageUrl} 
-                        alt={generateTeamAltText(advisor.name, advisor.title)}
-                        width={56}
-                        height={56}
-                        loading="lazy"
-                        decoding="async"
-                        sizes="56px"
-                        style={{ objectPosition: getHeadshotPosition(advisor.imageUrl) }}
-                      />
-                      <AvatarFallback>{advisor.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="font-medium text-foreground text-sm md:text-base truncate">{advisor.name}</h3>
-                      <p className="text-xs md:text-sm text-primary leading-tight">{advisor.title}</p>
-                    </div>
+                  <Avatar className="h-14 w-14 border-2 border-border flex-shrink-0">
+                    <AvatarImage 
+                      src={adv.imageUrl} 
+                      alt={generateTeamAltText(adv.name, adv.title)}
+                      width={56}
+                      height={56}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="56px"
+                      style={{ objectPosition: getHeadshotPosition(adv.imageUrl) }}
+                    />
+                    <AvatarFallback>{adv.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-medium text-foreground text-base truncate">{adv.name}</h3>
+                    <p className="text-sm text-primary leading-tight">{adv.title}</p>
+                  </div>
                 </Button>
               ))}
             </div>
           </div>
+
+          {/* Mobile Carousel */}
+          <div className="lg:hidden mb-6">
+            <Carousel className="w-full">
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {advisors.map((adv, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-auto">
+                    <Button
+                      variant="subtle"
+                      size="none"
+                      className={`p-3 rounded-lg cursor-pointer transition-all duration-300 flex flex-col items-center gap-2 min-w-[120px] ${
+                        activeAdvisor === index 
+                          ? 'bg-accent/10 border border-accent/20 shadow-sm' 
+                          : 'hover:bg-muted'
+                      }`}
+                      aria-pressed={activeAdvisor === index}
+                      onClick={() => handleAdvisorChange(index)}
+                    >
+                      <Avatar className="h-16 w-16 border-2 border-border">
+                        <AvatarImage 
+                          src={adv.imageUrl} 
+                          alt={generateTeamAltText(adv.name, adv.title)}
+                          width={64}
+                          height={64}
+                          loading="lazy"
+                          decoding="async"
+                          sizes="64px"
+                          style={{ objectPosition: getHeadshotPosition(adv.imageUrl) }}
+                        />
+                        <AvatarFallback>{adv.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <div className="text-center">
+                        <p className="font-medium text-foreground text-sm">{adv.name.split(' ')[0]}</p>
+                      </div>
+                    </Button>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
+            </Carousel>
+          </div>
           
-          <div className="col-span-2">
-            <PremiumCard variant="advisor" size="lg" className="lg:p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 md:mb-8">
-                <div className="lg:col-span-1 flex flex-col items-center">
-                  <div className="relative w-32 h-32 md:w-40 lg:w-48 md:h-40 lg:h-48 mb-4 overflow-hidden rounded-full border-4 border-accent/20 shadow-sm">
-                    <img 
-                      src={advisors[activeAdvisor].imageUrl} 
-                      alt={generateTeamAltText(advisors[activeAdvisor].name, advisors[activeAdvisor].title)}
-                      className="object-cover object-center w-full h-full"
-                      loading="lazy"
-                      decoding="async"
-                      width={192}
-                      height={192}
-                      sizes="(min-width: 1024px) 192px, (min-width: 768px) 160px, 128px"
-                      style={{ objectPosition: getHeadshotPosition(advisors[activeAdvisor].imageUrl) }}
-                    />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-medium text-foreground text-center">
-                    {advisors[activeAdvisor].name}
-                  </h3>
-                  <p className="text-primary font-medium text-center text-sm md:text-base">
-                    {advisors[activeAdvisor].title}
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-2 mt-3">
-                    {advisors[activeAdvisor].specialties.slice(0, 3).map((specialty, index) => (
-                      <Badge key={index} variant="outline" className="text-accent border-accent/30">
-                        {specialty}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="lg:col-span-2">
-                  <div className="text-muted-foreground mb-4 md:mb-6 space-y-2 md:space-y-3 text-sm md:text-base">
-                    {advisors[activeAdvisor].bio.split('\n\n').map((paragraph, index) => (
-                      <p key={index} className="leading-relaxed">{paragraph}</p>
-                    ))}
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-4 md:mb-6 text-sm md:text-base leading-relaxed">
-                    {advisors[activeAdvisor].approach}
-                  </p>
-                  
-                  <Button 
-                    onClick={() => smoothScrollTo('schedule')}
-                    onMouseEnter={preloadMeetingScheduler}
-                    onFocus={preloadMeetingScheduler}
-                    className="group text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
-                  >
-                    Schedule a Consultation
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </div>
-              </div>
-              
-              <Tabs defaultValue="experience" className="w-full mt-4 md:mt-6">
-                <TabsList className="grid w-full grid-cols-3 text-xs md:text-sm">
-                  <TabsTrigger value="experience">Experience</TabsTrigger>
-                  <TabsTrigger value="education">Education</TabsTrigger>
-                  <TabsTrigger value="certifications">Certifications</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="experience" className="p-3 md:p-4">
-                  <ul className="space-y-2">
-                    {advisors[activeAdvisor].experience?.map((exp, index) => (
-                      <li key={index} className="text-muted-foreground flex items-start text-sm md:text-base">
-                        <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="leading-relaxed">{exp}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </TabsContent>
-                
-                <TabsContent value="education" className="p-3 md:p-4">
-                  <ul className="space-y-2">
-                    {advisors[activeAdvisor].education?.map((edu, index) => (
-                      <li key={index} className="text-muted-foreground flex items-start text-sm md:text-base">
-                        <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="leading-relaxed">{edu}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </TabsContent>
-                
-                <TabsContent value="certifications" className="p-3 md:p-4">
-                  <ul className="space-y-2">
-                    {advisors[activeAdvisor].certifications?.map((cert, index) => (
-                      <li key={index} className="text-muted-foreground flex items-start text-sm md:text-base">
-                        <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="leading-relaxed">{cert}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="mt-4 p-3 bg-accent/10 rounded-lg">
-                    <p className="text-xs md:text-sm text-primary">
-                      <span className="font-medium">Professional Credentials:</span> Our team maintains the highest industry standards through continuing education and professional certification requirements.
+          {/* Advisor Details */}
+          <div className="col-span-1 lg:col-span-2">
+            <PremiumCard 
+              variant="advisor" 
+              size="lg" 
+              className={`lg:p-8 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100 animate-fade-in'}`}
+            >
+              {/* Header with Name, Title, and Specialties */}
+              <div className="mb-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="heading-sm text-foreground mb-1">
+                      {advisor.name}
+                    </h3>
+                    <p className="text-primary font-medium text-base">
+                      {advisor.title}
                     </p>
                   </div>
-                </TabsContent>
-              </Tabs>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => navigateAdvisor('prev')}
+                      className="h-8 w-8"
+                      aria-label="Previous advisor"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => navigateAdvisor('next')}
+                      className="h-8 w-8"
+                      aria-label="Next advisor"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  {advisor.specialties.map((specialty, index) => (
+                    <Badge key={index} variant="outline" className="text-accent border-accent/30">
+                      {specialty}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              {/* Summary and Full Bio */}
+              <div className="mb-6 space-component-sm">
+                <p className="text-body text-muted-foreground leading-relaxed">
+                  {advisor.summary}
+                </p>
+                
+                <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
+                  <CollapsibleContent className="space-component-sm animate-accordion-down">
+                    {advisor.fullBio.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className="text-body text-muted-foreground leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </CollapsibleContent>
+                  <CollapsibleTrigger asChild>
+                    <Button variant="link" className="text-accent p-0 h-auto font-medium">
+                      {isExpanded ? 'Show less' : 'Read full story'}
+                    </Button>
+                  </CollapsibleTrigger>
+                </Collapsible>
+              </div>
+
+              {/* CTA Button */}
+              <Button 
+                onClick={() => smoothScrollTo('schedule')}
+                onMouseEnter={preloadMeetingScheduler}
+                onFocus={preloadMeetingScheduler}
+                className="group mb-6"
+              >
+                Schedule a Consultation
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+
+              {/* Background & Credentials Section */}
+              <div className="border-t border-border pt-6">
+                <h4 className="heading-xs text-foreground mb-4">Background & Credentials</h4>
+                
+                <div className="space-component-md">
+                  {advisor.credentials.education && advisor.credentials.education.length > 0 && (
+                    <div>
+                      <h5 className="text-sm font-semibold text-primary mb-2">Education</h5>
+                      <ul className="space-y-2">
+                        {advisor.credentials.education.map((edu, index) => (
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{edu}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {advisor.credentials.certifications && advisor.credentials.certifications.length > 0 && (
+                    <div>
+                      <h5 className="text-sm font-semibold text-primary mb-2">Certifications</h5>
+                      <ul className="space-y-2">
+                        {advisor.credentials.certifications.map((cert, index) => (
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{cert}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {advisor.credentials.experience && advisor.credentials.experience.length > 0 && (
+                    <div>
+                      <h5 className="text-sm font-semibold text-primary mb-2">Experience</h5>
+                      <ul className="space-y-2">
+                        {advisor.credentials.experience.map((exp, index) => (
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{exp}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-4 p-3 bg-accent/10 rounded-lg">
+                  <p className="text-body-sm text-primary">
+                    <span className="font-medium">Professional Standards:</span> Our team maintains the highest industry standards through continuing education and professional certification requirements.
+                  </p>
+                </div>
+              </div>
             </PremiumCard>
           </div>
         </div>
