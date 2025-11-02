@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 
 const RetirementCalculator = () => {
   return (
-    <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+    <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
       <CardHeader>
         <CardTitle>Retirement Calculator</CardTitle>
         <CardDescription>
@@ -12,7 +12,7 @@ const RetirementCalculator = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="text-center py-12">
-        <p className="text-blue-500 mb-4">Coming Soon</p>
+        <p className="text-primary mb-4">Coming Soon</p>
         <p className="text-muted-foreground max-w-lg mx-auto">
           Our comprehensive retirement calculator will help you determine how much you need to save for a comfortable retirement based on your expected lifestyle and goals.
         </p>

@@ -20,13 +20,13 @@ const StoryChapter: React.FC<StoryChapterProps> = ({ chapter, isActive, onClick,
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'text-green-500 bg-green-50';
+        return 'text-success bg-success/10';
       case 'current':
-        return 'text-blue-500 bg-blue-50';
+        return 'text-primary bg-primary/10';
       case 'upcoming':
-        return 'text-gray-400 bg-gray-50';
+        return 'text-muted-foreground bg-muted';
       default:
-        return 'text-gray-400 bg-gray-50';
+        return 'text-muted-foreground bg-muted';
     }
   };
 
@@ -53,7 +53,7 @@ const StoryChapter: React.FC<StoryChapterProps> = ({ chapter, isActive, onClick,
     >
       <div className={cn(
         "flex items-start gap-4 p-4 rounded-lg border transition-all duration-300",
-        isActive ? "bg-blue-50 border-blue-200 shadow-md" : "bg-white border-gray-200 hover:border-blue-200 hover:shadow-sm"
+        isActive ? "bg-accent/10 border-primary/20 shadow-md" : "bg-card border-border hover:border-primary/20 hover:shadow-sm"
       )}>
         <div className={cn(
           "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
@@ -64,20 +64,20 @@ const StoryChapter: React.FC<StoryChapterProps> = ({ chapter, isActive, onClick,
         
         <div className="flex-grow min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-medium text-gray-500">
+            <span className="text-xs font-medium text-muted-foreground">
               Chapter {index + 1}
             </span>
             {getStatusIcon(chapter.status)}
           </div>
-          <h4 className="font-medium text-gray-900 mb-1">{chapter.title}</h4>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <h4 className="font-medium text-foreground mb-1">{chapter.title}</h4>
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {chapter.description}
           </p>
         </div>
       </div>
       
       {isActive && chapter.content && (
-        <div className="mt-4 p-4 bg-white rounded-lg border border-blue-100 shadow-sm animate-fade-in">
+        <div className="mt-4 p-4 bg-card rounded-lg border border-border shadow-sm animate-fade-in">
           {chapter.content}
         </div>
       )}

@@ -84,7 +84,7 @@ export const FinancialTerm: React.FC<FinancialTermGlossaryProps> = ({
           {glossaryTerm.learnMoreLink && (
             <a 
               href={glossaryTerm.learnMoreLink} 
-              className="block text-blue-600 hover:text-blue-800 text-xs font-medium pt-1"
+              className="block text-primary hover:text-primary/80 text-xs font-medium pt-1"
             >
               Learn more about {glossaryTerm.term}
             </a>
@@ -131,7 +131,7 @@ export const GlossaryButton: React.FC<GlossaryButtonProps> = ({
           {glossaryTerm.learnMoreLink && (
             <a 
               href={glossaryTerm.learnMoreLink} 
-              className="block text-blue-600 hover:text-blue-800 text-xs font-medium pt-1"
+              className="block text-primary hover:text-primary/80 text-xs font-medium pt-1"
             >
               Learn more about {glossaryTerm.term}
             </a>
@@ -155,7 +155,7 @@ export const AllFinancialTerms = () => {
           {term.learnMoreLink && (
             <a 
               href={term.learnMoreLink} 
-              className="text-blue-600 hover:text-blue-800 text-xs font-medium mt-2 inline-block"
+              className="text-primary hover:text-primary/80 text-xs font-medium mt-2 inline-block"
             >
               Learn more
             </a>

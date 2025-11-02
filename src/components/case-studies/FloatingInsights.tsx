@@ -22,13 +22,13 @@ const FloatingInsights: React.FC<FloatingInsightsProps> = ({ insights, className
   const getInsightStyles = (type: string) => {
     switch (type) {
       case 'tip':
-        return 'bg-blue-50 border-blue-200 text-blue-700';
+        return 'bg-primary/10 border-primary/20 text-primary';
       case 'insight':
-        return 'bg-green-50 border-green-200 text-green-700';
+        return 'bg-success/10 border-success/20 text-success';
       case 'warning':
-        return 'bg-orange-50 border-orange-200 text-orange-700';
+        return 'bg-warning/10 border-warning/20 text-warning';
       default:
-        return 'bg-gray-50 border-gray-200 text-gray-700';
+        return 'bg-muted border-border text-muted-foreground';
     }
   };
 
@@ -61,10 +61,10 @@ const FloatingInsights: React.FC<FloatingInsightsProps> = ({ insights, className
           
           {activeInsight === insight.id && (
             <div className={cn(
-              "absolute top-full left-0 right-0 mt-2 p-4 rounded-lg border shadow-lg bg-white z-10 animate-fade-in",
-              "border-gray-200"
+              "absolute top-full left-0 right-0 mt-2 p-4 rounded-lg border shadow-lg bg-card z-10 animate-fade-in",
+              "border-border"
             )}>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-foreground leading-relaxed">
                 {insight.content}
               </p>
             </div>

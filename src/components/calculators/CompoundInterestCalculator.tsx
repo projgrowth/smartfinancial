@@ -60,12 +60,12 @@ const CompoundInterestCalculator = () => {
   };
 
   return (
-    <Card className="border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+    <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
       <CardHeader>
         <div className="flex items-center gap-2">
           <CardTitle>Compound Interest Calculator</CardTitle>
           <InteractiveTooltip
-            trigger={<Info className="h-4 w-4 text-blue-500 cursor-help" />}
+            trigger={<Info className="h-4 w-4 text-primary cursor-help" />}
             content={
               <div className="text-sm">
                 <p>Compound interest allows your money to grow exponentially over time as you earn returns on both your initial investment and accumulated gains.</p>
@@ -94,7 +94,7 @@ const CompoundInterestCalculator = () => {
                   type="number"
                   value={principal}
                   onChange={(e) => setPrincipal(Number(e.target.value))}
-                  className="block w-full pl-8 pr-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="block w-full pl-8 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 />
               </div>
             </div>
@@ -110,7 +110,7 @@ const CompoundInterestCalculator = () => {
                   type="number"
                   value={monthlyContribution}
                   onChange={(e) => setMonthlyContribution(Number(e.target.value))}
-                  className="block w-full pl-8 pr-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="block w-full pl-8 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 />
               </div>
             </div>
@@ -125,7 +125,7 @@ const CompoundInterestCalculator = () => {
                   type="number"
                   value={rate}
                   onChange={(e) => setRate(Number(e.target.value))}
-                  className="block w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="block w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                   step="0.1"
                   min="0"
                   max="30"
@@ -143,7 +143,7 @@ const CompoundInterestCalculator = () => {
                 type="number"
                 value={years}
                 onChange={(e) => setYears(Number(e.target.value))}
-                className="block w-full px-3 py-2 border border-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="block w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 min="1"
                 max="50"
               />
@@ -151,13 +151,13 @@ const CompoundInterestCalculator = () => {
           </div>
           
           <div>
-            <div className="bg-blue-50/50 p-4 rounded-lg mb-4">
+            <div className="bg-accent/10 p-4 rounded-lg mb-4">
               <p className="text-sm text-muted-foreground mb-1">Future Value</p>
-              <p className="text-2xl font-bold text-blue-700">{formatCurrency(result)}</p>
+              <p className="text-2xl font-bold text-primary">{formatCurrency(result)}</p>
               <p className="text-sm text-muted-foreground mt-2">
                 Total Contributions: {formatCurrency(principal + (monthlyContribution * 12 * years))}
               </p>
-              <p className="text-sm text-green-600 font-medium">
+              <p className="text-sm text-success font-medium">
                 Interest Earned: {formatCurrency(result - (principal + (monthlyContribution * 12 * years)))}
               </p>
             </div>

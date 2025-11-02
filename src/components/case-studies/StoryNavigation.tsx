@@ -21,15 +21,15 @@ const StoryNavigation: React.FC<StoryNavigationProps> = ({
   storyTitles
 }) => {
   return (
-    <div className="flex items-center justify-between bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+    <div className="flex items-center justify-between bg-card rounded-lg p-4 shadow-sm border border-border">
       <button
         onClick={onPrevious}
         disabled={currentStory === 0}
         className={cn(
           "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
           currentStory === 0 
-            ? "text-gray-400 cursor-not-allowed" 
-            : "text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+            ? "text-muted-foreground cursor-not-allowed" 
+            : "text-primary hover:bg-accent/10 hover:text-primary/80"
         )}
       >
         <ChevronLeft className="w-4 h-4" />
@@ -39,7 +39,7 @@ const StoryNavigation: React.FC<StoryNavigationProps> = ({
       <div className="flex items-center gap-4">
         <button
           onClick={onHome}
-          className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-700 transition-all duration-200"
+          className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200"
         >
           <Home className="w-4 h-4" />
           All Stories
@@ -51,7 +51,7 @@ const StoryNavigation: React.FC<StoryNavigationProps> = ({
               key={i}
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300",
-                i === currentStory ? "bg-blue-500" : "bg-gray-300"
+                i === currentStory ? "bg-primary" : "bg-muted-foreground/30"
               )}
             />
           ))}
@@ -64,8 +64,8 @@ const StoryNavigation: React.FC<StoryNavigationProps> = ({
         className={cn(
           "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
           currentStory === totalStories - 1
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+            ? "text-muted-foreground cursor-not-allowed"
+            : "text-primary hover:bg-accent/10 hover:text-primary/80"
         )}
       >
         Next Story
