@@ -23,7 +23,6 @@ import { useIsMobile } from '../hooks/use-mobile';
 import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
 import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 import ElevationBars from './hero/ElevationBars';
-import TrustLine from './hero/TrustLine';
 import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
 import NoiseOverlay from './hero/NoiseOverlay';
 import RadialGradientOverlay from './hero/RadialGradientOverlay';
@@ -99,7 +98,7 @@ const Hero = () => {
               duration={500}
             >
               <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-muted-foreground font-medium">
-                Financial planning for ambitious professionals who demand more than average.
+                You've built significant wealth. Now let's preserve it, multiply it, and pass it on — on your terms.
               </p>
             </ScrollReveal>
             
@@ -129,15 +128,6 @@ const Hero = () => {
                   <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-0" aria-hidden="true" />
                 </Button>
               </div>
-            </ScrollReveal>
-            
-            {/* Trust Indicators */}
-            <ScrollReveal 
-              delay={400} 
-              distance="8px" 
-              duration={500}
-            >
-              <TrustLine className="mt-4" />
             </ScrollReveal>
             
           </div>
