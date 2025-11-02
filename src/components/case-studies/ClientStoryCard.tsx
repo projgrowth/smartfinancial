@@ -54,9 +54,9 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       icon: <Target className="w-5 h-5" />,
       content: (
         <div className="space-y-4">
-          <p className="text-gray-700 leading-relaxed">{situation}</p>
+          <p className="text-foreground/80 leading-relaxed">{situation}</p>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-muted/50 rounded-lg">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -83,9 +83,9 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       content: (
         <div className="space-y-3">
           {challenges.map((challenge, index) => (
-            <div key={index} className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
-              <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
-              <p className="text-gray-700 text-sm">{challenge}</p>
+            <div key={index} className="flex items-start gap-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
+              <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-foreground/80 text-sm">{challenge}</p>
             </div>
           ))}
         </div>
@@ -109,14 +109,14 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {outcomes.map((outcome, index) => (
-              <div key={index} className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-700 text-sm">{outcome}</p>
+              <div key={index} className="flex items-start gap-3 p-3 bg-success/10 rounded-lg border border-success/20">
+                <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-foreground/80 text-sm">{outcome}</p>
               </div>
             ))}
           </div>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-green-50 rounded-lg">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-success/10 rounded-lg border border-success/20">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -152,25 +152,25 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       size="lg"
       className={cn(
         "overflow-hidden transition-all duration-500 cursor-pointer",
-        isExpanded && "bg-gradient-to-br from-blue-50/30 to-white"
+        isExpanded && "bg-gradient-to-br from-accent/5 to-background"
       )}
       onClick={!isExpanded ? onToggle : undefined}
     >
       <PremiumCardHeader className={cn(
         "transition-all duration-500",
-        isExpanded ? "bg-gradient-to-r from-blue-50/50 to-white pb-6" : "bg-gradient-to-r from-blue-50/30 to-white"
+        isExpanded ? "bg-gradient-to-r from-accent/10 to-background pb-6" : "bg-gradient-to-r from-accent/5 to-background"
       )}>
         <div className="flex items-start justify-between">
-          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
             <div className={cn(
               "p-3 rounded-xl transition-all duration-300",
-              isExpanded ? "bg-blue-100 shadow-md" : "bg-blue-100"
+              isExpanded ? "bg-accent/20 shadow-md" : "bg-accent/10"
             )}>
               {icon}
             </div>
             <div>
               <PremiumCardTitle className="mb-1">{title}</PremiumCardTitle>
-              <p className="text-blue-600 font-medium">{clientName}</p>
+              <p className="text-accent font-medium">{clientName}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -195,7 +195,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
         <PremiumCardContent className="space-y-6">
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-4">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Client Story Journey</h3>
+              <h3 className="text-lg font-medium text-foreground mb-4">Client Story Journey</h3>
               {storyChapters.map((chapter, index) => (
                 <StoryChapter
                   key={chapter.id}
@@ -209,12 +209,12 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
             
             <div className="space-y-6">
               <div className="sticky top-6">
-                <h4 className="font-medium text-gray-900 mb-4">Key Insights</h4>
+                <h4 className="font-medium text-foreground mb-4">Key Insights</h4>
                 <FloatingInsights insights={insights} />
                 
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                  <h4 className="font-medium text-blue-800 mb-2">Could This Be Your Story?</h4>
-                  <p className="text-blue-700 text-sm mb-4">
+                <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
+                  <h4 className="font-medium text-accent mb-2">Could This Be Your Story?</h4>
+                  <p className="text-foreground/80 text-sm mb-4">
                     If you're facing similar challenges, we'd love to explore how our approach might work for your unique situation.
                   </p>
                   <button
@@ -222,7 +222,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
                       e.stopPropagation();
                       navigateToSection('contact');
                     }}
-                    className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                    className="w-full bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors"
                   >
                     Start Your Success Story
                   </button>

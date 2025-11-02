@@ -12,11 +12,11 @@ const premiumCardVariants = cva(
         elevated: "border-border/50 shadow-md hover:shadow-lg hover:-translate-y-1",
         premium: "border-border/30 shadow-lg hover:shadow-xl hover:-translate-y-2 bg-gradient-to-br from-background/95 to-background/80 backdrop-blur-sm",
         glass: "border-white/20 shadow-lg bg-white/80 backdrop-blur-md hover:bg-white/90 hover:shadow-xl",
-        dark: "border-white/15 shadow-sm bg-charcoal/30 hover:bg-charcoal/50 rounded-lg",
+        dark: "border-white/15 shadow-sm bg-primary/30 hover:bg-primary/50 rounded-lg",
         advisor: "border-border shadow-sm hover:shadow-md hover:border-primary/20 rounded-lg",
         timeline: "border-white/15 bg-charcoal/30 hover:bg-charcoal/40 rounded-lg",
         info: "border-border/50 shadow-sm rounded-lg",
-        faq: "border-blue-100 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md",
+        faq: "border-accent/20 rounded-lg overflow-hidden bg-card shadow-sm hover:shadow-md",
       },
       size: {
         xs: "p-3",

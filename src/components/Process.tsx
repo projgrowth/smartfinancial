@@ -16,7 +16,7 @@ const Process = () => {
     setActiveStep(activeStep === id ? null : id);
   };
   return <>
-      <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark relative overflow-hidden" style={{ color: 'hsl(var(--primary-foreground))' }} aria-labelledby="process-heading">
+      <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark relative overflow-hidden text-primary-foreground" aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay"></div>
         
@@ -32,17 +32,16 @@ const Process = () => {
                 <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></span>
               </span>
             </h2>
-            <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance" style={{ color: 'hsl(var(--primary-foreground) / 0.9)' }}>
+            <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance text-primary-foreground/90">
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
 
           <Tabs defaultValue="cards" value={activeView} onValueChange={setActiveView} className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-10 border shadow-md rounded-full overflow-hidden" style={{ backgroundColor: 'hsl(var(--charcoal) / 0.8)', borderColor: 'hsl(0 0% 100% / 0.15)' }} aria-label="Process view options">
+            <TabsList className="w-full max-w-md mx-auto mb-10 border border-white/15 shadow-md rounded-full overflow-hidden bg-charcoal/80" aria-label="Process view options">
               <TabsTrigger 
                 value="cards" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50" 
-                style={{ color: 'hsl(0 0% 100% / var(--opacity-secondary))' }}
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80" 
                 data-state={activeView === "cards" ? "active" : "inactive"}
                 onClick={() => setActiveView("cards")}
               >
@@ -50,8 +49,7 @@ const Process = () => {
               </TabsTrigger>
               <TabsTrigger 
                 value="timeline" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50" 
-                style={{ color: 'hsl(0 0% 100% / var(--opacity-secondary))' }}
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80" 
                 data-state={activeView === "timeline" ? "active" : "inactive"}
                 onClick={() => setActiveView("timeline")}
               >
