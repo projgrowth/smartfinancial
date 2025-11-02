@@ -16,7 +16,7 @@ const Process = () => {
     setActiveStep(activeStep === id ? null : id);
   };
   return <>
-      <section id="process" className="section-lg bg-gradient-to-br from-charcoal to-charcoal-dark relative overflow-hidden text-primary-foreground" aria-labelledby="process-heading">
+      <section id="process" className="section-lg bg-gradient-to-br from-primary to-primary/95 relative overflow-hidden text-primary-foreground" aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay"></div>
         
@@ -38,20 +38,22 @@ const Process = () => {
           </ScrollReveal>
 
           <Tabs defaultValue="cards" value={activeView} onValueChange={setActiveView} className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-10 border border-white/15 shadow-md rounded-full overflow-hidden bg-charcoal/80" aria-label="Process view options">
+            <TabsList className="w-full max-w-md mx-auto mb-10 border border-border shadow-md rounded-full overflow-hidden bg-card/10" aria-label="Process view options">
               <TabsTrigger 
                 value="cards" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
                 data-state={activeView === "cards" ? "active" : "inactive"}
                 onClick={() => setActiveView("cards")}
+                aria-label="Switch to visual overview of our process"
               >
                 Visual Overview
               </TabsTrigger>
               <TabsTrigger 
                 value="timeline" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
                 data-state={activeView === "timeline" ? "active" : "inactive"}
                 onClick={() => setActiveView("timeline")}
+                aria-label="Switch to timeline view of our process"
               >
                 Timeline View
               </TabsTrigger>
