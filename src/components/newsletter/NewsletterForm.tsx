@@ -113,7 +113,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
         </CardFooter>
       </form>
       
-      <div className="p-4 bg-blue-50/50 text-xs text-center text-charcoal/50 border-t border-blue-100">
+      <div className="p-4 bg-blue-50/50 text-xs text-center text-muted-foreground/80 border-t border-blue-100">
         We respect your privacy. Unsubscribe anytime. View our <a href="#" className="text-blue-500 hover:underline">Privacy Policy</a>.
       </div>
     </Card>

@@ -376,7 +376,7 @@ const Education = () => {
                             required
                             className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
-                          <p className="text-xs text-charcoal/50">
+                          <p className="text-xs text-muted-foreground/80">
                             We respect your privacy and will never share your information.
                           </p>
                         </div>
@@ -425,13 +425,13 @@ const Education = () => {
       <section className="section-md">
         <div className="container-unified text-center">
           <ScrollReveal>
-            <h2 className="heading-md text-charcoal mb-4">
+            <h2 className="heading-md text-foreground mb-4">
               Ready to Take the Next Step?
             </h2>
           </ScrollReveal>
           
           <ScrollReveal delay={100}>
-            <p className="text-charcoal/70 max-w-2xl mx-auto mb-8">
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
               Schedule a complimentary 30-minute consultation to discuss your financial situation and explore how our personalized approach can help you achieve your goals.
             </p>
           </ScrollReveal>

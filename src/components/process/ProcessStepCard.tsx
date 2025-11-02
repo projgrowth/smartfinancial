@@ -57,7 +57,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
                 {step.keyTerms.map((term, idx) => (
                   <div key={idx} className="mb-3 last:mb-0">
                     <h5 className="text-sm font-medium">{term.term}</h5>
-                    <p className="text-xs text-charcoal/80 mt-0.5 leading-relaxed">{term.definition}</p>
+                    <p className="text-xs text-foreground/80 mt-0.5 leading-relaxed">{term.definition}</p>
                   </div>
                 ))}
               </div>

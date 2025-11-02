@@ -150,8 +150,8 @@ export const AllFinancialTerms = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {financialTerms.map((term) => (
         <div key={term.term} className="p-4 border rounded-md bg-white shadow-sm">
-          <h3 className="font-medium text-charcoal mb-2">{term.term}</h3>
-          <p className="text-sm text-charcoal/70">{term.definition}</p>
+          <h3 className="font-medium text-foreground mb-2">{term.term}</h3>
+          <p className="text-sm text-muted-foreground">{term.definition}</p>
           {term.learnMoreLink && (
             <a 
               href={term.learnMoreLink} 

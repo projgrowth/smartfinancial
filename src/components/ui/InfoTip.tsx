@@ -62,7 +62,7 @@ const InfoTip: React.FC<InfoTipProps> = ({
       <div 
         className={`info-content absolute z-50 ${positionClasses[position]} ${animationClasses[position]}`}
       >
-        <div className="text-sm text-charcoal bg-white rounded-md shadow-lg border border-slate-100 p-3 max-w-xs">
+        <div className="text-sm text-foreground bg-white rounded-md shadow-lg border border-slate-100 p-3 max-w-xs">
           {content}
         </div>
         <div className={arrowClasses[position]}></div>

@@ -42,14 +42,14 @@ const StoryTimeline: React.FC<StoryTimelineProps> = ({ steps }) => {
             
             <div className="ml-6 flex-grow">
               <div className="flex items-center gap-3 mb-2">
-                <h4 className="font-medium text-charcoal">{step.title}</h4>
+                <h4 className="font-medium text-foreground">{step.title}</h4>
                 {getStatusIcon(step.status)}
                 <span className="text-xs text-blue-500 bg-blue-50 px-2 py-1 rounded-full">
                   {step.timeframe}
                 </span>
               </div>
               
-              <p className="text-charcoal/70 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {step.description}
               </p>
               

@@ -20,7 +20,7 @@
   }
 
   .typing-text {
-    @apply whitespace-nowrap border-r-2 border-charcoal;
+    @apply whitespace-nowrap border-r-2 border-foreground;
     animation: typing 3s steps(28, end), blink 0.75s step-end infinite;
     overflow: hidden;
     width: 0;

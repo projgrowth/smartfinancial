@@ -103,7 +103,7 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
     if (!showIcon) return null;
 
     const iconClasses = cn(
-      "absolute left-1/2 -translate-x-1/2 text-charcoal/60 hover:text-charcoal transition-colors",
+      "absolute left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors",
       position === 'bottom' ? "-bottom-6" : "-top-6",
       animated && "animate-bounce-subtle"
     );

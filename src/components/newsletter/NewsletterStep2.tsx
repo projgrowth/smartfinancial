@@ -20,7 +20,7 @@ const NewsletterStep2: React.FC<NewsletterStep2Props> = ({
 }) => {
   return (
     <div>
-      <h3 className="font-medium text-charcoal mb-4">How often would you like to hear from us?</h3>
+      <h3 className="font-medium text-foreground mb-4">How often would you like to hear from us?</h3>
       <div className="space-y-3">
         {frequencyOptions.map((option) => (
           <div
@@ -35,7 +35,7 @@ const NewsletterStep2: React.FC<NewsletterStep2Props> = ({
             <div className="flex justify-between items-center">
               <div>
                 <h4 className="font-medium">{option.label}</h4>
-                <p className="text-xs text-charcoal/70">{option.description}</p>
+                <p className="text-xs text-muted-foreground">{option.description}</p>
               </div>
               <div className={`h-4 w-4 rounded-full border ${
                 frequency === option.id

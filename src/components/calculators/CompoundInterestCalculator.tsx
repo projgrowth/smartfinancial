@@ -84,11 +84,11 @@ const CompoundInterestCalculator = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <label htmlFor="principal" className="block text-sm font-medium text-charcoal mb-1">
+              <label htmlFor="principal" className="block text-sm font-medium text-foreground mb-1">
                 Initial Investment
               </label>
               <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-charcoal/70">$</span>
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
                 <input
                   id="principal"
                   type="number"
@@ -100,11 +100,11 @@ const CompoundInterestCalculator = () => {
             </div>
             
             <div>
-              <label htmlFor="monthlyContribution" className="block text-sm font-medium text-charcoal mb-1">
+              <label htmlFor="monthlyContribution" className="block text-sm font-medium text-foreground mb-1">
                 Monthly Contribution
               </label>
               <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-charcoal/70">$</span>
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
                 <input
                   id="monthlyContribution"
                   type="number"
@@ -116,7 +116,7 @@ const CompoundInterestCalculator = () => {
             </div>
             
             <div>
-              <label htmlFor="rate" className="block text-sm font-medium text-charcoal mb-1">
+              <label htmlFor="rate" className="block text-sm font-medium text-foreground mb-1">
                 Annual Interest Rate (%)
               </label>
               <div className="relative">
@@ -130,12 +130,12 @@ const CompoundInterestCalculator = () => {
                   min="0"
                   max="30"
                 />
-                <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-charcoal/70">%</span>
+                <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">%</span>
               </div>
             </div>
             
             <div>
-              <label htmlFor="years" className="block text-sm font-medium text-charcoal mb-1">
+              <label htmlFor="years" className="block text-sm font-medium text-foreground mb-1">
                 Time Period (years)
               </label>
               <input
@@ -152,9 +152,9 @@ const CompoundInterestCalculator = () => {
           
           <div>
             <div className="bg-blue-50/50 p-4 rounded-lg mb-4">
-              <p className="text-sm text-charcoal/70 mb-1">Future Value</p>
+              <p className="text-sm text-muted-foreground mb-1">Future Value</p>
               <p className="text-2xl font-bold text-blue-700">{formatCurrency(result)}</p>
-              <p className="text-sm text-charcoal/70 mt-2">
+              <p className="text-sm text-muted-foreground mt-2">
                 Total Contributions: {formatCurrency(principal + (monthlyContribution * 12 * years))}
               </p>
               <p className="text-sm text-green-600 font-medium">

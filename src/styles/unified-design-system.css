@@ -372,7 +372,7 @@
   }
 
   .form-label {
-    @apply block text-sm font-medium text-charcoal mb-1;
+    @apply block text-sm font-medium text-foreground mb-1;
   }
 
   .form-input {
@@ -411,7 +411,7 @@
 
   /* Navigation Effects */
   .nav-link {
-    @apply relative overflow-hidden inline-block px-1 py-1 text-charcoal/80 hover:text-charcoal transition-colors duration-300;
+    @apply relative overflow-hidden inline-block px-1 py-1 text-foreground/80 hover:text-foreground transition-colors duration-300;
   }
 
   .nav-link::after {
@@ -436,15 +436,15 @@
   }
 
   .badge-primary {
-    @apply bg-charcoal/10 text-charcoal hover:bg-charcoal/20;
+    @apply bg-primary/10 text-foreground hover:bg-primary/20;
   }
 
   .badge-accent {
-    @apply bg-gold/20 text-charcoal hover:bg-gold/30;
+    @apply bg-gold/20 text-foreground hover:bg-gold/30;
   }
 
   .badge-outline {
-    @apply bg-transparent border border-charcoal/20 text-charcoal hover:bg-charcoal/5;
+    @apply bg-transparent border border-border text-foreground hover:bg-primary/5;
   }
 
   /* Shadow classes removed - use Tailwind's shadow-* utilities instead */

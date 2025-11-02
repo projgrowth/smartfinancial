@@ -58,7 +58,7 @@ export function InteractiveTooltip({
   }, [isOpen, interactive, closeOnClickOutside]);
 
   const variantClasses = {
-    default: "bg-white border-gray-200 text-charcoal shadow-lg",
+    default: "bg-white border-gray-200 text-foreground shadow-lg",
     info: "bg-blue-50 border-blue-300 text-blue-900 shadow-lg shadow-blue-900/5",
     success: "bg-green-50 border-green-300 text-green-900 shadow-lg shadow-green-900/5",
     warning: "bg-amber-50 border-amber-300 text-amber-900 shadow-lg shadow-amber-900/5",
