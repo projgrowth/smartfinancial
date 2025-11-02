@@ -53,10 +53,10 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       status: 'completed' as const,
       icon: <Target className="w-5 h-5" />,
       content: (
-        <div className="space-y-4">
-          <p className="text-foreground/80 leading-relaxed">{situation}</p>
+        <div className="space-component-md">
+          <p className="text-body text-foreground/80 leading-relaxed">{situation}</p>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-muted/50 rounded-lg">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-unified-md p-4 bg-muted/50 rounded-lg">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -81,11 +81,11 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       status: 'completed' as const,
       icon: <CheckCircle className="w-5 h-5" />,
       content: (
-        <div className="space-y-3">
+        <div className="space-component-sm">
           {challenges.map((challenge, index) => (
             <div key={index} className="flex items-start gap-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
               <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
-              <p className="text-foreground/80 text-sm">{challenge}</p>
+              <p className="text-body-sm text-foreground/80">{challenge}</p>
             </div>
           ))}
         </div>
@@ -106,17 +106,17 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       status: 'completed' as const,
       icon: <TrendingUp className="w-5 h-5" />,
       content: (
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-component-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-unified-md">
             {outcomes.map((outcome, index) => (
               <div key={index} className="flex items-start gap-3 p-3 bg-success/10 rounded-lg border border-success/20">
                 <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-foreground/80 text-sm">{outcome}</p>
+                <p className="text-body-sm text-foreground/80">{outcome}</p>
               </div>
             ))}
           </div>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-success/10 rounded-lg border border-success/20">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-unified-md p-4 bg-success/10 rounded-lg border border-success/20">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -174,7 +174,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="bg-white/80">
+            <Badge variant="outline" className="text-accent/90 border-accent/30">
               <BookOpen className="w-3 h-3 mr-1" />
               {isExpanded ? 'Reading Story' : 'Read Story'}
             </Badge>
@@ -192,10 +192,10 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       </PremiumCardHeader>
 
       {isExpanded && (
-        <PremiumCardContent className="space-y-6">
-          <div className="grid lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 space-y-4">
-              <h3 className="text-lg font-medium text-foreground mb-4">Client Story Journey</h3>
+        <PremiumCardContent className="space-component-lg">
+          <div className="grid lg:grid-cols-3 gap-unified-lg">
+            <div className="lg:col-span-2 space-component-md">
+              <h3 className="heading-sm font-medium text-foreground mb-4">Client Story Journey</h3>
               {storyChapters.map((chapter, index) => (
                 <StoryChapter
                   key={chapter.id}
@@ -207,14 +207,14 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
               ))}
             </div>
             
-            <div className="space-y-6">
+            <div className="space-component-lg">
               <div className="sticky top-6">
-                <h4 className="font-medium text-foreground mb-4">Key Insights</h4>
+                <h4 className="heading-xs font-medium text-foreground mb-4">Key Insights</h4>
                 <FloatingInsights insights={insights} />
                 
                 <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
-                  <h4 className="font-medium text-accent mb-2">Could This Be Your Story?</h4>
-                  <p className="text-foreground/80 text-sm mb-4">
+                  <h4 className="heading-xs font-medium text-accent mb-2">Could This Be Your Story?</h4>
+                  <p className="text-body-sm text-foreground/80 mb-4">
                     If you're facing similar challenges, we'd love to explore how our approach might work for your unique situation.
                   </p>
                   <button
@@ -222,7 +222,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
                       e.stopPropagation();
                       navigateToSection('contact');
                     }}
-                    className="w-full bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors"
+                    className="w-full bg-accent text-accent-foreground px-4 py-2 rounded-lg text-body-sm font-medium hover:bg-accent/90 transition-colors"
                   >
                     Start Your Success Story
                   </button>

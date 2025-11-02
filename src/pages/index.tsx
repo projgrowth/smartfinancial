@@ -51,10 +51,10 @@ const Index = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-accent/10" aria-live="polite" aria-busy="true">
-        <div className="container-unified section-lg">
-          <Skeleton className="h-8 md:h-12 w-3/4 max-w-lg mx-auto mb-6 md:mb-8" />
-          <Skeleton className="h-4 md:h-6 w-2/3 max-w-md mx-auto mb-8 md:mb-12" />
-          <Skeleton className="h-8 md:h-10 w-36 md:w-48 mx-auto mb-12 md:mb-20" />
+        <div className="container-default section-lg">
+          <Skeleton className="h-8 md:h-12 w-3/4 max-w-lg mx-auto space-component-md" />
+          <Skeleton className="h-4 md:h-6 w-2/3 max-w-md mx-auto space-component-lg" />
+          <Skeleton className="h-8 md:h-10 w-36 md:w-48 mx-auto space-component-xl" />
           <div className="grid-three-col gap-unified-lg">
             <Skeleton className="h-48 md:h-64 w-full" />
             <Skeleton className="h-48 md:h-64 w-full" />
@@ -112,9 +112,9 @@ const Index = () => {
         <ServiceCards />
         
         <section className="section-md bg-accent/5 relative" aria-labelledby="educational-resources-heading">
-          <div className="container-unified">
+          <div className="container-default">
             <PremiumCard variant="info" size="lg" className="max-w-4xl mx-auto border-border/50">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-unified-lg">
                 <div className="lg:max-w-[60%] space-component-sm">
                   <h3 id="educational-resources-heading" className="heading-sm text-card-foreground mb-3">
                     Financial Education for Lake Nona & Orlando Professionals

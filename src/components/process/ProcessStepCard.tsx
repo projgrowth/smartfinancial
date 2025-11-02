@@ -27,7 +27,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
       className="h-full group"
     >
       <div className="flex items-center justify-between mb-5">
-        <span className="text-accent text-4xl font-heading font-medium opacity-90 block group-hover:text-accent/80 transition-colors duration-300">
+        <span className="heading-lg text-accent font-heading font-medium opacity-90 block group-hover:text-accent/80 transition-colors duration-300">
           {step.number}
         </span>
         <div className="text-accent group-hover:text-accent/80 transition-colors duration-300">
@@ -35,7 +35,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </div>
       </div>
       
-      <h3 className="text-xl font-heading font-medium mb-4 flex items-center text-primary-foreground">
+      <h3 className="heading-sm font-heading font-medium mb-4 flex items-center text-primary-foreground">
         {step.title}
         {step.keyTerms.length > 0 && (
           <InteractiveTooltip
@@ -43,7 +43,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
               <Button 
                 variant="subtle" 
                 size="xs" 
-                className="ml-2 text-accent cursor-pointer text-xs border border-accent/40 px-2 py-0.5 rounded-full hover:bg-accent/20 flex items-center" 
+                className="ml-2 text-accent cursor-pointer border border-accent/40 px-2 py-0.5 rounded-full hover:bg-accent/20 flex items-center" 
                 aria-label={`Learn more about ${step.title}`}
               >
                 <span className="sr-only">Learn about key terms</span>
@@ -70,7 +70,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </h3>
       
-      <p className="mb-5 leading-relaxed transition-colors duration-300 text-primary-foreground/95">
+      <p className="text-body mb-5 leading-relaxed transition-colors duration-300 text-primary-foreground/95">
         {step.description}
       </p>
       
@@ -78,7 +78,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         open={activeStep === step.id} 
         onOpenChange={() => onStepClick(step.id)}
       >
-        <CollapsibleTrigger className="flex items-center text-sm text-accent-foreground hover:text-accent-foreground/80 transition-colors duration-300 font-medium px-3 py-1.5 rounded-full bg-accent/30 hover:bg-accent/50 border border-accent/30" aria-expanded={activeStep === step.id}>
+        <CollapsibleTrigger className="flex items-center text-body-sm text-accent-foreground hover:text-accent-foreground/80 transition-colors duration-300 font-medium px-3 py-1.5 rounded-full bg-accent/30 hover:bg-accent/50 border border-accent/30" aria-expanded={activeStep === step.id}>
           {activeStep === step.id ? (
             <>
               <span>Show less</span>
@@ -94,8 +94,8 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         <CollapsibleContent className="mt-5 space-y-4 border-t border-white/15 pt-4">
           {step.details.map((detail, idx) => (
             <ScaleOnHover key={idx} scale="sm" className="bg-charcoal/40 p-4 rounded-md hover:bg-charcoal/60 border border-charcoal-light shadow-sm">
-              <h4 className="text-sm font-medium text-accent-foreground mb-2">{detail.title}</h4>
-              <p className="text-xs leading-relaxed text-primary-foreground/90">{detail.description}</p>
+              <h4 className="text-body-sm font-medium text-accent-foreground mb-2">{detail.title}</h4>
+              <p className="text-body-sm leading-relaxed text-primary-foreground/90">{detail.description}</p>
             </ScaleOnHover>
           ))}
         </CollapsibleContent>

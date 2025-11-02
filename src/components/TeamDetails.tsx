@@ -116,7 +116,7 @@ const TeamDetails = () => {
                   </p>
                   <div className="flex flex-wrap justify-center gap-2 mt-3">
                     {advisors[activeAdvisor].specialties.slice(0, 3).map((specialty, index) => (
-                      <Badge key={index} variant="outline" className="bg-accent/10 text-xs">
+                      <Badge key={index} variant="outline" className="text-accent border-accent/30">
                         {specialty}
                       </Badge>
                     ))}

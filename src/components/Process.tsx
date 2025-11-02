@@ -24,7 +24,7 @@ const Process = () => {
         <GradientAccent variant="blue" position="top-right" intensity="low" size="xl" animated />
         <GradientAccent variant="dark" position="bottom-left" intensity="medium" size="lg" animated />
         
-        <div className="container-unified relative z-10">
+        <div className="container-default relative z-10">
           <ScrollReveal>
             <h2 id="process-heading" className="heading-lg text-center mb-6 text-primary-foreground text-balance">
               <span className="inline-block relative">

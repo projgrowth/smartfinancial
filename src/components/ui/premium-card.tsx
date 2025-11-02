@@ -55,7 +55,7 @@ const PremiumCard = React.forwardRef<HTMLDivElement, PremiumCardProps>(
       className={cn(
         premiumCardVariants({ variant, size, spacing }),
         hover && "group cursor-pointer",
-        active && (variant === "dark" || variant === "timeline") && "border-blue-400/50 shadow-lg shadow-blue-900/10",
+        active && (variant === "dark" || variant === "timeline") && "border-accent/50 shadow-lg shadow-accent/10",
         className
       )}
       {...props}
@@ -123,7 +123,7 @@ const PremiumCardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center pt-4 opacity-0 translate-y-4 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0", className)}
+    className={cn("flex items-center pt-4 animate-fade-in group-hover:animate-enter", className)}
     {...props}
   />
 ))
