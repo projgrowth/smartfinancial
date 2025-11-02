@@ -45,7 +45,7 @@ const RSVP = () => {
           <GradientAccent variant="purple" position="top-left" />
           <GradientAccent variant="blue" position="bottom-right" />
           
-          <div className="container relative z-10">
+          <div className="container-unified relative z-10">
             <div className="max-w-5xl mx-auto">
               {/* Main Headline */}
               <div className="text-center mb-8">
@@ -150,7 +150,7 @@ const RSVP = () => {
         <section className="py-12 md:py-16 relative">
           <GradientAccent variant="gold" position="top-right" />
           
-          <div className="container">
+          <div className="container-unified">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-10">
                 <h2 className="heading-lg mb-3">What You'll Discover</h2>
@@ -211,7 +211,7 @@ const RSVP = () => {
         {/* RSVP Form Section - Primary Focus */}
         <section id="rsvp-form" className="section-bg-premium-light py-12 md:py-20 relative scroll-mt-20">
           <GradientAccent variant="purple" position="top-right" />
-          <div className="container">
+          <div className="container-unified">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="heading-lg mb-3">Reserve Your Seat</h2>
@@ -277,7 +277,7 @@ const RSVP = () => {
         <section className="py-12 md:py-16 relative">
           <GradientAccent variant="blue" position="top-left" />
           
-          <div className="container">
+          <div className="container-unified">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="heading-lg mb-2">Questions?</h2>

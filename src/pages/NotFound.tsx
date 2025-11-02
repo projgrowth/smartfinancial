@@ -14,12 +14,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center section-bg-subtle">
       <SEO title="404 Not Found | Smart Financial Planning" description="Page not found." noindex />
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <Link to="/" className="text-blue-500 hover:text-blue-700 underline">
+      <div className="container-unified max-w-lg text-center space-component-md">
+        <h1 className="heading-xl">404</h1>
+        <p className="text-body-lg text-muted-foreground mb-6">Oops! Page not found</p>
+        <Link to="/" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2">
           Return to Home
         </Link>
       </div>
