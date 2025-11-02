@@ -394,7 +394,7 @@ const Education = () => {
                   </div>
                   
                   <div className="md:col-span-2 bg-primary text-primary-foreground p-8 flex flex-col justify-center">
-                    <h4 className="font-medium text-lg mb-4">What You'll Receive:</h4>
+                    <h4 className="heading-sm mb-4">What You'll Receive:</h4>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">✓</div>

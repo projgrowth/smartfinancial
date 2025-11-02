@@ -11,7 +11,7 @@ const SimpleSuccessMessage: React.FC = () => {
           <CheckCircle className="h-6 w-6 text-green-600" />
         </div>
       </div>
-      <h3 className="font-heading text-lg font-medium text-green-800">
+      <h3 className="font-heading heading-sm text-green-800">
         Thank You for Subscribing!
       </h3>
       <p className="text-sm text-green-700">

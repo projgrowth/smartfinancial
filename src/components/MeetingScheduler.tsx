@@ -209,7 +209,7 @@ const MeetingScheduler = () => {
                     {step === 1 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h3 className="text-lg font-medium text-foreground mb-4">Select a Date</h3>
+                          <h3 className="heading-sm text-foreground mb-4">Select a Date</h3>
                           <div className="border border-accent/30 rounded-md p-1 bg-background">
                             <Calendar
                               mode="single"
@@ -226,7 +226,7 @@ const MeetingScheduler = () => {
                         
                         <div>
                           <div className="mb-6">
-                            <h3 className="text-lg font-medium text-foreground mb-4">Select Meeting Type</h3>
+                            <h3 className="heading-sm text-foreground mb-4">Select Meeting Type</h3>
                             <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
@@ -273,7 +273,7 @@ const MeetingScheduler = () => {
                           
                           {date && (
                             <div>
-                              <h3 className="text-lg font-medium text-foreground mb-4">
+                              <h3 className="heading-sm text-foreground mb-4">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
                               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
@@ -309,7 +309,7 @@ const MeetingScheduler = () => {
                     {step === 2 && (
                       <div>
                         <div className="mb-6 p-4 bg-accent/5 rounded-md">
-                          <h3 className="text-lg font-medium text-foreground mb-2">Your Selected Time</h3>
+                          <h3 className="heading-sm text-foreground mb-2">Your Selected Time</h3>
                           <div className="flex items-center gap-2 text-muted-foreground mb-1">
                             <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
@@ -435,7 +435,7 @@ const MeetingScheduler = () => {
                 
                 <TabsContent value="contact">
                   <div className="text-center py-6 px-4 max-w-lg mx-auto">
-                    <h3 className="text-lg font-medium text-foreground mb-6">
+                    <h3 className="heading-sm text-foreground mb-6">
                       Prefer to reach us directly?
                     </h3>
                     

@@ -153,7 +153,7 @@ const CompoundInterestCalculator = () => {
           <div>
             <div className="bg-accent/10 p-4 rounded-lg mb-4">
               <p className="text-sm text-muted-foreground mb-1">Future Value</p>
-              <p className="text-2xl font-bold text-primary">{formatCurrency(result)}</p>
+              <p className="heading-md text-primary">{formatCurrency(result)}</p>
               <p className="text-sm text-muted-foreground mt-2">
                 Total Contributions: {formatCurrency(principal + (monthlyContribution * 12 * years))}
               </p>
