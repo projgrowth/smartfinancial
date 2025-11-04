@@ -1,28 +1,26 @@
 
 import React, { useEffect, useState, Suspense } from 'react';
 import SEO from '@/components/SEO';
-import Hero from '../components/Hero';
-import IntroSection from '../components/IntroSection';
-import Process from '../components/Process';
-import ServiceCards from '../components/ServiceCards';
-const FinancialCalculator = React.lazy(() => import('../components/FinancialCalculator'));
-const TeamDetails = React.lazy(() => import('../components/TeamDetails'));
-const MeetingScheduler = React.lazy(() => import('../components/MeetingScheduler'));
-const FAQSection = React.lazy(() => import('../components/FAQSection'));
-const Newsletter = React.lazy(() => import('../components/Newsletter'));
-const CTA = React.lazy(() => import('../components/CTA'));
-import PremiumBackground from '../components/PremiumBackground';
+import Hero from '@/components/Hero';
+import IntroSection from '@/components/IntroSection';
+import Process from '@/components/Process';
+import ServiceCards from '@/components/ServiceCards';
+const FinancialCalculator = React.lazy(() => import('@/components/FinancialCalculator'));
+const TeamDetails = React.lazy(() => import('@/components/TeamDetails'));
+const MeetingScheduler = React.lazy(() => import('@/components/MeetingScheduler'));
+const FAQSection = React.lazy(() => import('@/components/FAQSection'));
+const Newsletter = React.lazy(() => import('@/components/Newsletter'));
+const CTA = React.lazy(() => import('@/components/CTA'));
+import AnimatedSectionTransition from '@/components/AnimatedSectionTransition';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FinancialTerm } from '@/components/FinancialTermGlossary';
 import { Button } from '@/components/ui/button';
 import { PremiumCard } from '@/components/ui/premium-card';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
-import { preloadCriticalImages } from '../utils/imageOptimization';
-import StickyCTA from '../components/StickyCTA';
+import { preloadCriticalImages } from '@/utils/imageOptimization';
 import { advisors } from '@/data/team';
-import { ServiceCardSkeleton, CaseStudySkeleton, FAQSkeleton, CalculatorSkeleton } from '@/components/ui/skeleton-loaders';
+import { ServiceCardSkeleton, CaseStudySkeleton, FAQSkeleton, CalculatorSkeleton, SectionSkeleton } from '@/components/ui/skeleton-loaders';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,12 +44,10 @@ const Index = () => {
     };
   }, []);
 
-  // SEO handled via component below
-
-
   if (isLoading) {
     return (
-      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-accent/10" aria-live="polite" aria-busy="true">
+      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-accent/10" role="status" aria-label="Loading page content">
+        <span className="sr-only">Loading page content</span>
         <div className="container-default section-lg">
           <Skeleton className="h-8 md:h-12 w-3/4 max-w-lg mx-auto space-component-md" />
           <Skeleton className="h-4 md:h-6 w-2/3 max-w-md mx-auto space-component-lg" />
@@ -87,32 +83,30 @@ const Index = () => {
   }));
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
-      <PremiumBackground />
+    <>
       <SEO 
         title="Smart Financial Planning — Your wealth. Elevated."
         description="Tailored financial strategies for ambitious professionals. Build, protect, and grow your wealth."
         jsonLd={[breadcrumbJsonLd, ...teamJsonLd]}
       />
       
-      <main id="main-content" role="main">
-        <Hero />
-        <IntroSection />
-        
-        <AnimatedSectionTransition 
+      <Hero />
+      <IntroSection />
+      
+      <AnimatedSectionTransition
           style="wave" 
           colorScheme="white-to-dark" 
           position="bottom" 
           height={60}
           showIcon={true}
           iconType="chevron"
-          onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
-        />
-        
-        <Process />
-        <ServiceCards />
-        
-        <section className="section-md bg-accent/5 relative" aria-labelledby="educational-resources-heading">
+        onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+      />
+      
+      <Process />
+      <ServiceCards />
+      
+      <section id="education-resources" className="section-md bg-accent/5 relative" aria-labelledby="educational-resources-heading">
           <div className="container-default">
             <PremiumCard variant="info" size="lg" className="max-w-4xl mx-auto border-border/50">
               <div className="flex flex-col lg:flex-row items-center justify-between gap-unified-lg">
@@ -141,11 +135,12 @@ const Index = () => {
                   </Link>
                 </div>
               </div>
-            </PremiumCard>
-          </div>
-        </section>
-        
-      <Suspense fallback={
+          </PremiumCard>
+        </div>
+      </section>
+      
+      <section id="calculators" aria-label="Financial calculators">
+        <Suspense fallback={
         <section className="section-xl bg-background">
           <div className="container-wide">
             <div className="text-center mb-12">
@@ -160,68 +155,69 @@ const Index = () => {
         </section>
       }>
         <FinancialCalculator />
-      </Suspense>
-        
-        <AnimatedSectionTransition 
-          style="chevron" 
-          colorScheme="light-to-dark" 
-          position="bottom" 
-          height={60}
-        />
-        
-        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-64 w-full" /></div>}>
-          <TeamDetails />
         </Suspense>
-        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
-          <MeetingScheduler />
+      </section>
+      
+      <section id="team" aria-label="Team members">
+        <Suspense fallback={<SectionSkeleton height="h-64" />}>
+        <TeamDetails />
         </Suspense>
-        
-        <AnimatedSectionTransition 
-          style="wave" 
-          colorScheme="light-to-dark" 
-          position="bottom" 
-          height={60}
-        />
-        
+      </section>
+      
+      <section id="schedule" aria-label="Schedule consultation">
+        <Suspense fallback={<SectionSkeleton height="h-40" />}>
+        <MeetingScheduler />
+        </Suspense>
+      </section>
+      
+      <AnimatedSectionTransition
+        style="wave" 
+        colorScheme="light-to-dark" 
+        position="bottom" 
+        height={60}
+        showIcon={true}
+        iconType="chevron"
+        onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
+      />
+      
+      <section id="faq" aria-label="Frequently asked questions">
         <Suspense fallback={
-          <section className="section-xl bg-background">
-            <div className="container-narrow">
-              <div className="text-center mb-12">
-                <Skeleton className="h-10 w-1/2 mx-auto mb-4" />
-                <Skeleton className="h-6 w-2/3 mx-auto" />
-              </div>
-              <FAQSkeleton />
+        <section className="section-xl bg-background">
+          <div className="container-narrow">
+            <div className="text-center mb-12">
+              <Skeleton className="h-10 w-1/2 mx-auto mb-4" />
+              <Skeleton className="h-6 w-2/3 mx-auto" />
             </div>
-          </section>
-        }>
-          <FAQSection />
+            <FAQSkeleton />
+          </div>
+        </section>
+      }>
+        <FAQSection />
         </Suspense>
-        
-        <AnimatedSectionTransition 
-          style="diagonal" 
-          colorScheme="light-to-dark" 
-          position="bottom" 
-          height={60}
-        />
-        
-        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-32 w-full" /></div>}>
-          <Newsletter variant="enhanced" />
+      </section>
+      
+      <section id="newsletter" aria-label="Newsletter signup">
+        <Suspense fallback={<SectionSkeleton height="h-32" />}>
+        <Newsletter variant="enhanced" />
         </Suspense>
-        
-        <AnimatedSectionTransition 
-          style="wave" 
-          colorScheme="light-to-dark" 
-          position="bottom" 
-          height={60}
-        />
-        
-        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-24 w-full" /></div>}>
+      </section>
+      
+      <AnimatedSectionTransition
+        style="wave" 
+        colorScheme="light-to-dark" 
+        position="bottom" 
+        height={60}
+        showIcon={true}
+        iconType="chevron"
+        onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
+      />
+      
+      <section id="cta" aria-label="Call to action">
+        <Suspense fallback={<SectionSkeleton height="h-24" />}>
           <CTA />
         </Suspense>
-      </main>
-      
-      
-    </div>
+      </section>
+    </>
   );
 };
 

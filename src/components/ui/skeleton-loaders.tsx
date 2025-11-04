@@ -123,3 +123,17 @@ export const CaseStudySkeleton = () => (
     </PremiumCardContent>
   </PremiumCard>
 );
+
+export const SectionSkeleton = ({ 
+  height = "h-64", 
+  container = "container-default" 
+}: { 
+  height?: string; 
+  container?: string 
+}) => (
+  <section className="section-md bg-background">
+    <div className={container}>
+      <Skeleton className={`${height} w-full`} />
+    </div>
+  </section>
+);

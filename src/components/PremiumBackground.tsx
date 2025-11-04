@@ -86,7 +86,7 @@ const PremiumBackground = () => {
   return (
     <div className="fixed inset-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
       {/* Enhanced gradient base with subtle color shifts */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/40 via-white/90 to-amber-50/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-gold/5"></div>
       
       {/* Geometric patterns for texture */}
       <div className="absolute inset-0 opacity-[0.04]" 
@@ -109,9 +109,9 @@ const PremiumBackground = () => {
           >
             <defs>
               <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
-                <stop offset="45%" stopColor="#F59E0B" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.2" />
+                <stop offset="0%" className="text-primary" stopOpacity="0.3" />
+                <stop offset="45%" className="text-gold" stopOpacity="0.25" />
+                <stop offset="100%" className="text-primary" stopOpacity="0.2" />
               </linearGradient>
               <filter id="bullBlur" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
@@ -136,7 +136,7 @@ const PremiumBackground = () => {
       
       {/* Interactive blue gradient shape (left) with anchoring */}
       <div 
-        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-sky-200/20 to-blue-300/15 blur-3xl rounded-full transform -rotate-12 border border-white/5 ${reduceMotion ? '' : 'animate-float duration-25000'}`}
+        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-accent/20 to-primary/15 blur-3xl rounded-full transform -rotate-12 border border-white/5 ${reduceMotion ? '' : 'animate-float duration-25000'}`}
         style={{ 
           transform: `rotate(-12deg) translate(${translateX1}px, ${translateY1 + scrollPosition}px)`,
           transition: 'transform 0.5s ease-out'
@@ -154,7 +154,7 @@ const PremiumBackground = () => {
       
       {/* Additional subtle shapes with staggered animations and interactivity */}
       <div 
-        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-blue-200/15 to-sky-300/10 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-float duration-15000'}`}
+        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-primary/15 to-accent/10 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-float duration-15000'}`}
         style={{ 
           transform: `translate(${translateX1 * 0.5}px, ${translateY1 * 0.5 - scrollPosition * 0.3}px)`,
           transition: 'transform 0.7s ease-out'

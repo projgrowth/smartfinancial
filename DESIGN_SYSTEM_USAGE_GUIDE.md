@@ -348,5 +348,28 @@ GAPS               SPACING          BACKGROUNDS
 
 ---
 
-*Last Updated: Phase 2 Audit Completion*
+## Container Usage Examples
+
+### Homepage Sections
+- Hero: No explicit container (full-width design)
+- IntroSection: `container-default`
+- Process: `container-wide`
+- Services: `container-default`
+- Education CTA: `container-default`
+- Calculators: `container-wide`
+- Team: Varies by component
+- Meeting Scheduler: `container-narrow`
+- FAQ: `container-narrow`
+- Newsletter: `container-default`
+- CTA: `container-default`
+
+### Other Pages
+- RSVP: `container-wide` (hero), `container-default` (content), `container-narrow` (form)
+- Privacy/Terms: `container-narrow` (focused reading)
+- Education: `container-default` (standard content)
+- 404: `container-narrow` (error message)
+
+---
+
+*Last Updated: Phase 5 Homepage Cleanup*
 *For questions or additions, consult the design team.*
