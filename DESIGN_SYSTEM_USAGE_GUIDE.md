@@ -348,6 +348,78 @@ GAPS               SPACING          BACKGROUNDS
 
 ---
 
+## ❌ What NOT to Do - Anti-Patterns
+
+### Never Use:
+1. **Hardcoded Colors**
+   - ❌ `bg-blue-500`, `text-slate-600`, `border-gray-200`, `from-sky-50`
+   - ❌ Hex values: `#3B82F6`, `#64748b`
+   - ✅ Design tokens: `bg-accent`, `text-primary`, `border-border`, `from-accent/5`
+
+2. **Manual Grid Classes**
+   - ❌ `grid grid-cols-3`, `grid md:grid-cols-2`, `grid-cols-1 md:grid-cols-3`
+   - ✅ Semantic classes: `.grid-three-col`, `.grid-two-col`, `.grid-auto`
+
+3. **Direct Gap Values for Grids**
+   - ❌ `gap-4`, `gap-6`, `gap-8`
+   - ✅ Gap tokens: `gap-unified-sm`, `gap-unified-md`, `gap-unified-lg`
+
+4. **Hardcoded Background Colors**
+   - ❌ `bg-white`, `bg-slate-50`, `bg-blue-900`
+   - ✅ Semantic backgrounds: `bg-background`, `bg-card`, `section-bg-subtle`
+
+5. **Color-Specific Classes**
+   - ❌ `text-blue-300`, `hover:text-blue-200`, `border-slate-200`
+   - ✅ Context-aware: `text-accent`, `hover:text-primary`, `border-border`
+
+### Always Use:
+1. **Design Tokens for Colors**
+   - `bg-accent`, `text-primary`, `border-border`, `text-muted-foreground`
+   - `bg-primary/80`, `text-accent/60` (with opacity modifiers)
+
+2. **Semantic Grid Classes**
+   - `.grid-three-col`, `.grid-two-col` for standard layouts
+   - `.grid-metrics`, `.grid-time-slots` for specific use cases
+
+3. **Gap Tokens for Layouts**
+   - `gap-unified-lg`, `gap-unified-md`, `gap-unified-sm` for grids
+   - `gap-2`, `gap-3` are acceptable for flex layouts (small component spacing)
+
+4. **CSS Custom Properties**
+   - `hsl(var(--accent))`, `hsl(var(--primary))` in inline styles
+   - Never hardcode HSL/RGB values directly
+
+5. **Semantic Background Classes**
+   - `section-bg-premium`, `section-bg-subtle`, `bg-card`
+   - Use design system backgrounds for consistency
+
+### Common Mistakes to Avoid:
+```css
+/* ❌ WRONG */
+.my-component {
+  background: linear-gradient(to-br, #3B82F6, #60A5FA);
+  color: #1E293B;
+  border: 1px solid #CBD5E1;
+}
+
+/* ✅ CORRECT */
+.my-component {
+  @apply bg-gradient-to-br from-accent to-accent/60;
+  @apply text-foreground;
+  @apply border border-border;
+}
+```
+
+### Quick Refactoring Checklist:
+- [ ] All colors use design tokens or CSS variables
+- [ ] Grids use semantic classes (`.grid-three-col`, etc.)
+- [ ] Grid gaps use `gap-unified-*` tokens
+- [ ] No hardcoded hex or named colors (`#fff`, `blue-500`)
+- [ ] Backgrounds use semantic classes or CSS variables
+- [ ] Text colors are context-aware (`text-foreground`, `text-muted-foreground`)
+
+---
+
 ## Container Usage Examples
 
 ### Homepage Sections
@@ -371,5 +443,5 @@ GAPS               SPACING          BACKGROUNDS
 
 ---
 
-*Last Updated: Phase 5 Homepage Cleanup*
+*Last Updated: Phase 1-5 Systematic Cleanup - All hardcoded colors replaced with design tokens*
 *For questions or additions, consult the design team.*

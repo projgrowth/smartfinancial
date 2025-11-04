@@ -403,20 +403,24 @@
   }
 
   .form-input {
-    @apply w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm
-           focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-200;
+    @apply w-full px-3 py-2 bg-card border border-border rounded-md shadow-sm
+           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-200;
   }
 
   .input-primary {
-    @apply w-full px-4 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300;
+    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300;
   }
 
   .select-primary {
-    @apply w-full px-4 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300 bg-white;
+    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300 bg-card;
   }
 
   .checkbox-primary {
-    @apply h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold/50 transition-all duration-300;
+    @apply h-4 w-4 rounded border-border text-gold focus:ring-gold/50 transition-all duration-300;
+  }
+  
+  .divider {
+    @apply w-full h-px bg-border;
   }
 
   /* ========================================

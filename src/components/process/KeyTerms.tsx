@@ -17,16 +17,16 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
   };
   
   return (
-    <div className="bg-gradient-to-br from-blue-900/80 to-blue-950/90 p-5 rounded-lg border border-blue-400/50 shadow-md">
-      <h4 className="text-sm font-medium text-blue-50 mb-4 tracking-wide flex items-center">
-        <span className="w-1.5 h-1.5 bg-blue-300 rounded-full mr-2"></span>
+    <div className="bg-gradient-to-br from-primary/80 to-primary/90 p-5 rounded-lg border border-accent/50 shadow-md">
+      <h4 className="text-sm font-medium text-primary-foreground mb-4 tracking-wide flex items-center">
+        <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></span>
         Key Financial Concepts
       </h4>
       <div className="space-y-3">
         {terms.map((term, idx) => (
           <div 
             key={idx} 
-            className="bg-blue-800/50 rounded-md border border-blue-700/50 overflow-hidden transition-all duration-300 hover:border-blue-500/50"
+            className="bg-primary/50 rounded-md border border-primary/50 overflow-hidden transition-all duration-300 hover:border-accent/50"
           >
             <button
               onClick={() => toggleTerm(idx)}
@@ -34,13 +34,13 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               aria-expanded={expandedTerm === idx}
               aria-controls={`term-content-${idx}`}
             >
-              <h5 className="text-sm font-medium group-hover:text-blue-200 transition-colors duration-200" style={{ color: 'hsl(var(--primary-foreground))' }}>
+              <h5 className="text-sm font-medium text-primary-foreground group-hover:text-accent transition-colors duration-200">
                 {term.term}
               </h5>
               {expandedTerm === idx ? (
-                <ChevronUp className="h-4 w-4 text-blue-300 transition-transform duration-300" />
+                <ChevronUp className="h-4 w-4 text-accent transition-transform duration-300" />
               ) : (
-                <ChevronDown className="h-4 w-4 text-blue-300 transition-transform duration-300" />
+                <ChevronDown className="h-4 w-4 text-accent transition-transform duration-300" />
               )}
             </button>
             <div 
@@ -50,7 +50,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               }`}
             >
               <div className="px-3 pb-3 pt-1">
-                <p className="text-xs text-blue-100 leading-relaxed border-t border-blue-700/30 pt-2">
+                <p className="text-xs text-primary-foreground leading-relaxed border-t border-primary/30 pt-2">
                   {term.definition}
                 </p>
               </div>

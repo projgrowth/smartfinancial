@@ -45,9 +45,9 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
       case 'dark-to-light':
         return { from: 'from-charcoal', to: 'to-white' };
       case 'blue-to-white':
-        return { from: 'from-blue-50', to: 'to-white' };
+        return { from: 'from-accent/5', to: 'to-background' };
       case 'white-to-blue':
-        return { from: 'from-white', to: 'to-blue-50' };
+        return { from: 'from-background', to: 'to-accent/5' };
       case 'white-to-dark':
         return { from: 'from-white', to: 'to-charcoal' };
       default:

@@ -171,7 +171,7 @@ const Education = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid-three-col max-w-4xl mx-auto">
               <Card className="bg-card/80 backdrop-blur-sm border-border hover:shadow-md transition-all duration-300">
                 <CardHeader className="p-4">
                   <CardTitle className="heading-sm flex items-center">
@@ -235,7 +235,7 @@ const Education = () => {
                 <TabsTrigger value="glossary">Financial Glossary</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="resources" className="bg-white p-6 rounded-lg border border-slate-100 shadow-sm">
+              <TabsContent value="resources" className="bg-card p-6 rounded-lg border border-border shadow-sm">
                 <div className="space-y-6">
                   {educationalResourceLists.map((section) => (
                     <Collapsible 
@@ -255,7 +255,7 @@ const Education = () => {
                       </CollapsibleTrigger>
                       
                       <CollapsibleContent className="p-4 bg-muted/50 border-t">
-                        <div className="grid-three-col gap-4">
+                        <div className="grid-three-col gap-unified-sm">
                           {section.resources.map((resource, i) => (
                             <Card key={i} className="overflow-hidden hover:shadow-md transition-all duration-300">
                               <CardHeader className="p-4 bg-card flex flex-row items-start space-y-0 gap-2">

@@ -19,7 +19,7 @@ const LoadingIndicator = ({ variant = 'default' }: LoadingIndicatorProps) => {
   }
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-sky-50/30 via-white/80 to-amber-50/30 py-12">
+    <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-gold/10 py-12">
       <div className="container-default mx-auto">
         <Skeleton className="h-12 w-3/4 max-w-lg mx-auto mb-8" />
         <Skeleton className="h-6 w-2/3 max-w-md mx-auto mb-12" />

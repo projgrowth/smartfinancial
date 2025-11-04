@@ -72,7 +72,7 @@ const RSVP = () => {
               </div>
 
               {/* Key Event Details - Prominent Cards */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-3xl mx-auto">
+              <div className="grid-two-col mb-8 max-w-3xl mx-auto">
                 {/* Date & Time Card */}
                 <div className="p-6 rounded-xl bg-card border-2 border-primary/20 shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
@@ -166,7 +166,7 @@ const RSVP = () => {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid-three-col gap-unified-sm">
                 <div className="p-5 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
                   <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                   <p className="font-semibold text-foreground mb-2">Optimal Claiming Age</p>
@@ -293,7 +293,7 @@ const RSVP = () => {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid-two-col">
                 {/* Contact Card */}
                 <div className="p-6 rounded-xl bg-card border border-border shadow-md">
                   <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
