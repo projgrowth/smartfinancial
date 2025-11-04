@@ -27,12 +27,12 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Preload critical team images
+    // Preload critical team images that match current team data
     const criticalImages = [
-      '/lovable-uploads/83c79661-f83a-4390-a3ed-d2cbea760fab.png',
+      '/lovable-uploads/razell-smart-new.jpg',
       '/lovable-uploads/9a1a6d90-cf14-4f3e-a92d-2ac3bb515025.png',
       '/lovable-uploads/c90c6dda-53e6-45f2-8b9b-d36329401aa9.png',
-      '/lovable-uploads/3dda3ab1-0f6f-4e70-bff1-ce75f2161c6f.png'
+      '/lovable-uploads/joseph-schreiner-new.jpg'
     ];
     preloadCriticalImages(criticalImages);
 
