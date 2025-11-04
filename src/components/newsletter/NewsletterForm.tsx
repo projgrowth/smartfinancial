@@ -49,10 +49,10 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
   interestTopics
 }) => {
   return (
-    <Card className="max-w-2xl mx-auto border-blue-100 shadow-sm overflow-hidden">
-      <CardHeader className="bg-blue-500 text-white p-6">
+    <Card className="max-w-2xl mx-auto border-accent/20 shadow-sm overflow-hidden">
+      <CardHeader className="bg-primary text-primary-foreground p-6">
         <CardTitle className="text-xl">Subscribe to Our Financial Insights</CardTitle>
-        <CardDescription className="text-blue-100">
+        <CardDescription className="text-primary-foreground/90">
           Get personalized financial guidance delivered to your inbox
         </CardDescription>
       </CardHeader>
@@ -113,8 +113,8 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
         </CardFooter>
       </form>
       
-      <div className="p-4 bg-blue-50/50 text-xs text-center text-muted-foreground/80 border-t border-blue-100">
-        We respect your privacy. Unsubscribe anytime. View our <a href="#" className="text-blue-500 hover:underline">Privacy Policy</a>.
+      <div className="p-4 bg-accent/5 text-xs text-center text-muted-foreground/80 border-t border-accent/20">
+        We respect your privacy. Unsubscribe anytime. View our <a href="#" className="text-accent hover:underline">Privacy Policy</a>.
       </div>
     </Card>
   );
