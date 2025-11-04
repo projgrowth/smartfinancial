@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import useNavigateSection from '@/hooks/useNavigateSection';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { preloadMeetingScheduler, preloadCaseStudies, preloadTeamDetails } from '@/utils/componentPreloader';
 
 interface NavItem {
   name: string;
@@ -218,6 +219,10 @@ const Navbar = () => {
                   e.preventDefault();
                   handleNavClick(item.id);
                 }}
+                onMouseEnter={() => {
+                  if (item.id === 'schedule') preloadMeetingScheduler();
+                  if (item.id === 'team') preloadTeamDetails();
+                }}
                 className={cn(
                   "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
                   activeSection === item.id && isHomePage ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
@@ -237,6 +242,7 @@ const Navbar = () => {
           )}
           <Button 
              onClick={() => handleNavClick('schedule')}
+            onMouseEnter={preloadMeetingScheduler}
             className="group"
             size="sm"
             variant="hero"

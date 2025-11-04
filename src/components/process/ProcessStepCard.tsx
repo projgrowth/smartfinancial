@@ -109,4 +109,4 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
   );
 };
 
-export default ProcessStepCard;
+export default React.memo(ProcessStepCard);

@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { MicroAnimations } from './ui/micro-animations';
 import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { preloadComponent } from '@/utils/componentPreloader';
 
 const IntroSection = () => {
   const location = useLocation();
@@ -53,6 +54,7 @@ const IntroSection = () => {
                   variant="outline"
                   className="group"
                   onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+                  onMouseEnter={() => preloadComponent(() => import('./Process'), 'Process')}
                 >
                   <span className="mr-2">Discover Your Financial Profile</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

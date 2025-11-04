@@ -14,7 +14,7 @@ interface ServiceCardProps {
   icon: React.ReactNode;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, icon }) => {
+const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description, delay, icon }) => {
   const { isTouchDevice, hapticFeedback } = useTouchOptimizations();
   
   return (
@@ -49,7 +49,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, delay, ic
       </PremiumCard>
     </ScrollReveal>
   );
-};
+});
 
 const ServiceCards = () => {
   const services = [

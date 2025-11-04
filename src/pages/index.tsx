@@ -22,6 +22,7 @@ import AnimatedSectionTransition from '../components/AnimatedSectionTransition';
 import { preloadCriticalImages } from '../utils/imageOptimization';
 import StickyCTA from '../components/StickyCTA';
 import { advisors } from '@/data/team';
+import { ServiceCardSkeleton, CaseStudySkeleton, FAQSkeleton, CalculatorSkeleton } from '@/components/ui/skeleton-loaders';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -144,9 +145,22 @@ const Index = () => {
           </div>
         </section>
         
-        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
-          <FinancialCalculator />
-        </Suspense>
+      <Suspense fallback={
+        <section className="section-xl bg-background">
+          <div className="container-wide">
+            <div className="text-center mb-12">
+              <Skeleton className="h-10 w-2/3 mx-auto mb-4" />
+              <Skeleton className="h-6 w-1/2 mx-auto" />
+            </div>
+            <div className="grid-two-col gap-8">
+              <CalculatorSkeleton />
+              <CalculatorSkeleton />
+            </div>
+          </div>
+        </section>
+      }>
+        <FinancialCalculator />
+      </Suspense>
         
         <AnimatedSectionTransition 
           style="chevron" 
@@ -169,7 +183,17 @@ const Index = () => {
           height={60}
         />
         
-        <Suspense fallback={<div className="container-unified section-md"><Skeleton className="h-40 w-full" /></div>}>
+        <Suspense fallback={
+          <section className="section-xl bg-background">
+            <div className="container-narrow">
+              <div className="text-center mb-12">
+                <Skeleton className="h-10 w-1/2 mx-auto mb-4" />
+                <Skeleton className="h-6 w-2/3 mx-auto" />
+              </div>
+              <FAQSkeleton />
+            </div>
+          </section>
+        }>
           <FAQSection />
         </Suspense>
         
