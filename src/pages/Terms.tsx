@@ -12,7 +12,7 @@ const Terms = () => {
       />
       
       <main id="main-content" className="section-lg">
-        <div className="container-unified max-w-4xl">
+        <div className="container-narrow">
           <div className="text-center space-component-lg">
             <h1 className="heading-xl text-balance">Terms of Service</h1>
             <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>

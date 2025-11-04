@@ -253,17 +253,17 @@
      ======================================== */
   
   .grid-12 {
-    @apply grid gap-8;
+    @apply grid gap-unified-lg;
     grid-template-columns: repeat(12, 1fr);
   }
 
   /* Responsive Grid Patterns */
   .grid-auto {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-unified-lg;
   }
 
   .grid-two-col {
-    @apply grid gap-8;
+    @apply grid gap-unified-lg;
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -274,7 +274,7 @@
   }
 
   .grid-three-col {
-    @apply grid gap-8;
+    @apply grid gap-unified-lg;
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -291,7 +291,7 @@
   }
 
   .grid-four-col {
-    @apply grid gap-8;
+    @apply grid gap-unified-lg;
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -615,6 +615,10 @@
   /* Section Backgrounds */
   .section-bg-primary {
     @apply bg-background relative;
+  }
+  
+  .section-bg-subtle {
+    @apply bg-muted/10 relative;
   }
   
   .section-bg-accent {

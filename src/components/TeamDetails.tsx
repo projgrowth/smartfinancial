@@ -72,7 +72,7 @@ const TeamDetails = () => {
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 text-base md:text-lg leading-relaxed">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 text-body-lg leading-relaxed">
             Our Orlando and Lake Nona advisors bring decades of combined experience and specialized expertise to help you achieve your financial goals.
           </p>
         </ScrollReveal>
