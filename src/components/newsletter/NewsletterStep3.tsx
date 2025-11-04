@@ -27,16 +27,16 @@ const NewsletterStep3: React.FC<NewsletterStep3Props> = ({
             key={topic.id}
             className={`p-3 border rounded-md cursor-pointer transition-all duration-200 ${
               interests.includes(topic.id)
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-gray-200 hover:border-blue-200'
+                ? 'border-accent bg-accent/10'
+                : 'border-border hover:border-accent/50'
             }`}
             onClick={() => handleInterestToggle(topic.id)}
           >
             <div className="flex items-center gap-2">
               <div className={`h-4 w-4 rounded flex-shrink-0 border ${
                 interests.includes(topic.id)
-                  ? 'bg-blue-500 border-blue-500 flex items-center justify-center'
-                  : 'border-gray-300'
+                  ? 'bg-accent border-accent flex items-center justify-center'
+                  : 'border-border'
               }`}>
                 {interests.includes(topic.id) && (
                   <CheckCheck className="h-3 w-3 text-white" />

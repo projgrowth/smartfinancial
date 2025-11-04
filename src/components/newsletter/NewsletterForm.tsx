@@ -85,7 +85,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
           )}
         </CardContent>
         
-        <CardFooter className="bg-slate-50 border-t border-slate-100 p-6 flex justify-between">
+        <CardFooter className="bg-muted/30 border-t border-border p-6 flex justify-between">
           {step > 1 && (
             <Button
               type="button"

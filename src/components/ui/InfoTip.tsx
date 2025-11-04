@@ -31,10 +31,10 @@ const InfoTip: React.FC<InfoTipProps> = ({
   
   // Determine arrow positioning classes
   const arrowClasses = {
-    top: 'absolute w-3 h-3 bg-white transform rotate-45 -bottom-1.5 left-1/2 -translate-x-1/2 border-b border-r border-slate-100',
-    bottom: 'absolute w-3 h-3 bg-white transform rotate-45 -top-1.5 left-1/2 -translate-x-1/2 border-t border-l border-slate-100',
-    left: 'absolute w-3 h-3 bg-white transform rotate-45 -right-1.5 top-1/2 -translate-y-1/2 border-t border-r border-slate-100',
-    right: 'absolute w-3 h-3 bg-white transform rotate-45 -left-1.5 top-1/2 -translate-y-1/2 border-b border-l border-slate-100'
+    top: 'absolute w-3 h-3 bg-white transform rotate-45 -bottom-1.5 left-1/2 -translate-x-1/2 border-b border-r border-border',
+    bottom: 'absolute w-3 h-3 bg-white transform rotate-45 -top-1.5 left-1/2 -translate-x-1/2 border-t border-l border-border',
+    left: 'absolute w-3 h-3 bg-white transform rotate-45 -right-1.5 top-1/2 -translate-y-1/2 border-t border-r border-border',
+    right: 'absolute w-3 h-3 bg-white transform rotate-45 -left-1.5 top-1/2 -translate-y-1/2 border-b border-l border-border'
   };
   
   // Determine content animation based on position
@@ -62,7 +62,7 @@ const InfoTip: React.FC<InfoTipProps> = ({
       <div 
         className={`info-content absolute z-50 ${positionClasses[position]} ${animationClasses[position]}`}
       >
-        <div className="text-sm text-foreground bg-white rounded-md shadow-lg border border-slate-100 p-3 max-w-xs">
+        <div className="text-sm text-foreground bg-white rounded-md shadow-lg border border-border p-3 max-w-xs">
           {content}
         </div>
         <div className={arrowClasses[position]}></div>

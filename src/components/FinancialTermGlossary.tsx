@@ -147,7 +147,7 @@ export const GlossaryButton: React.FC<GlossaryButtonProps> = ({
 
 export const AllFinancialTerms = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-unified-sm">
       {financialTerms.map((term) => (
         <div key={term.term} className="p-4 border rounded-md bg-white shadow-sm">
           <h3 className="font-medium text-foreground mb-2">{term.term}</h3>

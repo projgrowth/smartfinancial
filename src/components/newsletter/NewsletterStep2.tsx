@@ -27,8 +27,8 @@ const NewsletterStep2: React.FC<NewsletterStep2Props> = ({
             key={option.id}
             className={`p-3 border rounded-md cursor-pointer transition-all duration-200 ${
               frequency === option.id
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-gray-200 hover:border-blue-200'
+                ? 'border-accent bg-accent/10'
+                : 'border-border hover:border-accent/50'
             }`}
             onClick={() => setFrequency(option.id)}
           >
@@ -39,8 +39,8 @@ const NewsletterStep2: React.FC<NewsletterStep2Props> = ({
               </div>
               <div className={`h-4 w-4 rounded-full border ${
                 frequency === option.id
-                  ? 'bg-blue-500 border-blue-500'
-                  : 'border-gray-300'
+                  ? 'bg-accent border-accent'
+                  : 'border-border'
               }`}>
                 {frequency === option.id && (
                   <div className="h-full w-full flex items-center justify-center">

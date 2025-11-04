@@ -304,6 +304,30 @@
     }
   }
 
+  /* Time Slots Grid - 2 cols mobile, 3 cols tablet+ */
+  .grid-time-slots {
+    @apply grid gap-2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    .grid-time-slots {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Metrics Grid - 2 cols mobile, 4 cols desktop */
+  .grid-metrics {
+    @apply grid gap-unified-md;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    .grid-metrics {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
   /* ========================================
      5. COMPONENT BASE STYLES
      ======================================== */

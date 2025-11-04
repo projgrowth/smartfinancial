@@ -207,7 +207,7 @@ const MeetingScheduler = () => {
                 <TabsContent value="schedule">
                   <form onSubmit={handleSubmit}>
                     {step === 1 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="grid-two-col">
                         <div>
                           <h3 className="heading-sm text-foreground mb-4">Select a Date</h3>
                           <div className="border border-accent/30 rounded-md p-1 bg-background">
@@ -276,7 +276,7 @@ const MeetingScheduler = () => {
                               <h3 className="heading-sm text-foreground mb-4">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
-                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
+                              <div className="grid-time-slots" role="radiogroup" aria-label="Select a time slot">
                                 {MEETING_TIMES.map((t) => (
                                   <button
                                     key={t}
@@ -310,11 +310,11 @@ const MeetingScheduler = () => {
                       <div>
                         <div className="mb-6 p-4 bg-accent/5 rounded-md">
                           <h3 className="heading-sm text-foreground mb-2">Your Selected Time</h3>
-                          <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                          <div className="flex items-center gap-unified-xs text-muted-foreground mb-1">
                             <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                          <div className="flex items-center gap-unified-xs text-muted-foreground mb-1">
                             <Clock className="h-4 w-4" />
                             <span>{time}</span>
                           </div>
@@ -324,7 +324,7 @@ const MeetingScheduler = () => {
                           </div>
                         </div>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div className="grid-two-col gap-unified-sm mb-4">
                           <div>
                             <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                               Your Name

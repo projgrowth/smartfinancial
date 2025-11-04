@@ -257,7 +257,7 @@ const Education = () => {
                       </CollapsibleTrigger>
                       
                       <CollapsibleContent className="p-4 bg-muted/50 border-t">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid-three-col gap-4">
                           {section.resources.map((resource, i) => (
                             <Card key={i} className="overflow-hidden hover:shadow-md transition-all duration-300">
                               <CardHeader className="p-4 bg-card flex flex-row items-start space-y-0 gap-2">

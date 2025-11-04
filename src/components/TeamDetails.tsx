@@ -77,7 +77,7 @@ const TeamDetails = () => {
           </p>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-unified-xl mx-auto">
           {/* Desktop Sidebar */}
           <div className="hidden lg:block col-span-1">
             <div className="space-component-md">
@@ -86,7 +86,7 @@ const TeamDetails = () => {
                   key={index} 
                   variant="subtle" 
                   size="none" 
-                  className={`p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-4 ${
+                  className={`p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-unified-sm ${
                     activeAdvisor === index 
                       ? 'bg-accent/10 border border-accent/20 shadow-sm scale-105' 
                       : 'hover:bg-muted hover:scale-102'
@@ -125,7 +125,7 @@ const TeamDetails = () => {
                     <Button
                       variant="subtle"
                       size="none"
-                      className={`p-3 rounded-lg cursor-pointer transition-all duration-300 flex flex-col items-center gap-2 min-w-[120px] ${
+                      className={`p-3 rounded-lg cursor-pointer transition-all duration-300 flex flex-col items-center gap-unified-xs min-w-[120px] ${
                         activeAdvisor === index 
                           ? 'bg-accent/10 border border-accent/20 shadow-sm' 
                           : 'hover:bg-muted'
@@ -176,7 +176,7 @@ const TeamDetails = () => {
                       {advisor.title}
                     </p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-unified-xs">
                     <Button
                       variant="ghost"
                       size="icon"
@@ -198,7 +198,7 @@ const TeamDetails = () => {
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-unified-xs">
                   {advisor.specialties.map((specialty, index) => (
                     <Badge key={index} variant="outline" className="text-accent border-accent/30">
                       {specialty}

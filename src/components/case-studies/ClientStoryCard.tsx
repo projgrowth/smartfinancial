@@ -56,7 +56,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
         <div className="space-component-md">
           <p className="text-body text-foreground/80 leading-relaxed">{situation}</p>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-unified-md p-4 bg-muted/50 rounded-lg">
+            <div className="grid-metrics p-4 bg-muted/50 rounded-lg">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -107,7 +107,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
       icon: <TrendingUp className="w-5 h-5" />,
       content: (
         <div className="space-component-md">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-unified-md">
+          <div className="grid-two-col gap-unified-md">
             {outcomes.map((outcome, index) => (
               <div key={index} className="flex items-start gap-3 p-3 bg-success/10 rounded-lg border border-success/20">
                 <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
@@ -116,7 +116,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
             ))}
           </div>
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-unified-md p-4 bg-success/10 rounded-lg border border-success/20">
+            <div className="grid-metrics p-4 bg-success/10 rounded-lg border border-success/20">
               {metrics.map((metric, index) => (
                 <MetricReveal
                   key={index}
@@ -161,7 +161,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
         isExpanded ? "bg-gradient-to-r from-accent/10 to-background pb-6" : "bg-gradient-to-r from-accent/5 to-background"
       )}>
         <div className="flex items-start justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-unified-sm">
             <div className={cn(
               "p-3 rounded-xl transition-all duration-300",
               isExpanded ? "bg-accent/20 shadow-md" : "bg-accent/10"
@@ -173,7 +173,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
               <p className="text-accent font-medium">{clientName}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-unified-xs">
             <Badge variant="outline" className="text-accent/90 border-accent/30">
               <BookOpen className="w-3 h-3 mr-1" />
               {isExpanded ? 'Reading Story' : 'Read Story'}
