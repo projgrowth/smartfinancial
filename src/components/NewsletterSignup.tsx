@@ -16,6 +16,8 @@ interface NewsletterSignupProps {
   showWebhook?: boolean;
 }
 
+const NEWSLETTER_VERSION = 'v1';
+
 const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ 
   title = "Subscribe to Our Financial Insights",
   description = "Get exclusive financial tips, market insights, and educational resources delivered to your inbox.",
@@ -26,18 +28,38 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedVersion = localStorage.getItem('newsletter_version');
+      const isSubscribedStored = localStorage.getItem('newsletter_subscribed') === 'true';
+      // Reset subscription state if version changed
+      if (storedVersion !== NEWSLETTER_VERSION) {
+        localStorage.removeItem('newsletter_subscribed');
+        localStorage.setItem('newsletter_version', NEWSLETTER_VERSION);
+        return false;
+      }
+      return isSubscribedStored;
+    }
+    return false;
+  });
   const [webhookUrl, setWebhookUrl] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('zapier_webhook_newsletter') || '';
     }
     return '';
   });
+  
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('zapier_webhook_newsletter', webhookUrl);
     }
   }, [webhookUrl]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && isSubscribed) {
+      localStorage.setItem('newsletter_subscribed', 'true');
+    }
+  }, [isSubscribed]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

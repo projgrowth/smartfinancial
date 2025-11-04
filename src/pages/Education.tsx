@@ -11,13 +11,10 @@ import ScrollReveal from '../components/ScrollReveal';
 import PremiumBackground from '../components/PremiumBackground';
 import SEO from '@/components/SEO';
 import useNavigateSection from '@/hooks/useNavigateSection';
+import Newsletter from '@/components/Newsletter';
 
 const Education = () => {
   const navigateToSection = useNavigateSection();
-  // State for newsletter sign-up
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   // State for collapsibles
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
@@ -32,19 +29,6 @@ const Education = () => {
       ...prev,
       [section]: !prev[section]
     }));
-  };
-
-  // Handle newsletter sign-up
-  const handleNewsletterSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setHasSubmitted(true);
-      setEmail('');
-    }, 1500);
   };
 
   const educationalResourceLists = [
@@ -341,82 +325,15 @@ const Education = () => {
         </div>
       </section>
       
-      {/* Newsletter Section */}
-      <section className="section-md bg-blue-500/10">
+      {/* Newsletter Section - Using Unified Component */}
+      <section className="section-md bg-accent/5">
         <div className="container-unified max-w-3xl">
           <ScrollReveal>
-            <Card className="border-0 bg-card shadow-md overflow-hidden">
-              <CardContent className="p-0">
-                <div className="grid grid-cols-1 md:grid-cols-5">
-                  <div className="md:col-span-3 p-8">
-                    <h3 className="heading-md mb-3">
-                      Subscribe to Our Financial Insights
-                    </h3>
-                    <p className="text-muted-foreground mb-6 text-sm">
-                      Receive our exclusive educational content, market insights, and personalized financial tips directly to your inbox.
-                    </p>
-                    
-                    {hasSubmitted ? (
-                      <div className="bg-green-50 border border-green-100 p-4 rounded-md">
-                        <p className="text-green-800 font-medium">
-                          Thank you for subscribing!
-                        </p>
-                        <p className="text-green-700 text-sm mt-1">
-                          Check your email for a confirmation message and your first financial insight.
-                        </p>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleNewsletterSignup} className="space-y-4">
-                        <div className="space-y-2">
-                          <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Your email address"
-                            required
-                            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          />
-                          <p className="text-xs text-muted-foreground/80">
-                            We respect your privacy and will never share your information.
-                          </p>
-                        </div>
-                        
-                        <Button 
-                          type="submit" 
-                          variant="default"
-                          className="w-full"
-                          disabled={isSubmitting}
-                        >
-                          {isSubmitting ? 'Subscribing...' : 'Subscribe to Newsletter'}
-                        </Button>
-                      </form>
-                    )}
-                  </div>
-                  
-                  <div className="md:col-span-2 bg-primary text-primary-foreground p-8 flex flex-col justify-center">
-                    <h4 className="heading-sm mb-4">What You'll Receive:</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start">
-                        <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">✓</div>
-                        <span className="text-sm">Monthly financial planning insights</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">✓</div>
-                        <span className="text-sm">Exclusive educational resources</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">✓</div>
-                        <span className="text-sm">Market updates and analysis</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">✓</div>
-                        <span className="text-sm">Invitations to exclusive webinars</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <Newsletter variant="simple" 
+              title="Subscribe to Our Financial Insights"
+              description="Receive our exclusive educational content, market insights, and personalized financial tips directly to your inbox."
+              showWebhook={false}
+            />
           </ScrollReveal>
         </div>
       </section>
