@@ -10,7 +10,7 @@ interface ThankYouMessageProps {
 
 const ThankYouMessage: React.FC<ThankYouMessageProps> = ({ onReset }) => {
   return (
-    <Card className="max-w-2xl mx-auto border-blue-100 shadow-sm overflow-hidden animate-scale-in">
+    <Card className="max-w-2xl mx-auto border-accent/20 shadow-sm overflow-hidden animate-scale-in">
       <CardContent className="p-8 text-center">
         <div className="flex justify-center mb-6 animate-scale-in" style={{ animationDelay: '100ms' }}>
           <div className="rounded-full bg-green-100 p-4">
@@ -24,22 +24,22 @@ const ThankYouMessage: React.FC<ThankYouMessageProps> = ({ onReset }) => {
           We're excited to help you on your journey to financial success.
         </CardDescription>
         
-        <div className="bg-blue-50 rounded-lg p-4 mb-6 max-w-md mx-auto">
-          <h4 className="font-medium text-blue-700 mb-2 flex items-center justify-center gap-2">
+        <div className="bg-accent/5 rounded-lg p-4 mb-6 max-w-md mx-auto">
+          <h4 className="font-medium text-accent mb-2 flex items-center justify-center gap-2">
             <CheckCheck className="h-5 w-5" />
             <span>What to expect next:</span>
           </h4>
-          <ul className="text-sm text-blue-700/80 text-left space-y-2">
+          <ul className="text-sm text-accent/80 text-left space-y-2">
             <li className="flex items-start gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"></div>
+              <div className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
               <span>A welcome email with exclusive financial resources</span>
             </li>
             <li className="flex items-start gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"></div>
+              <div className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
               <span>Regular insights based on your selected preferences</span>
             </li>
             <li className="flex items-start gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"></div>
+              <div className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
               <span>Invitations to exclusive webinars and events</span>
             </li>
           </ul>
@@ -47,7 +47,7 @@ const ThankYouMessage: React.FC<ThankYouMessageProps> = ({ onReset }) => {
         
         <Button
           variant="outline"
-          className="border-blue-200 hover:bg-blue-50"
+          className="border-accent/20 hover:bg-accent/5"
           onClick={onReset}
         >
           Subscribe Another Email

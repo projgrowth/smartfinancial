@@ -310,7 +310,7 @@ When you see inline styles, ask:
 
 ---
 
-## Best Practices Summary
+## 🎨 Best Practices Summary
 
 ### The Golden Rules
 1. **Semantic First**: Always try semantic classes before custom values
@@ -318,6 +318,44 @@ When you see inline styles, ask:
 3. **Consistent Patterns**: Same content type = same styling
 4. **Document Exceptions**: If you must break a rule, comment why
 5. **Responsive by Default**: All spacing/sizing should scale with viewport
+
+---
+
+## ⚠️ CRITICAL: Never Use Hardcoded Colors
+
+### NEVER Use:
+- ❌ `text-blue-500`, `bg-blue-100`, `border-blue-300`
+- ❌ Hex colors: `#3B82F6`, `#DBEAFE`
+- ❌ Direct RGB: `rgb(59, 130, 246)`
+- ❌ Hardcoded color names in Tailwind config
+
+### ALWAYS Use:
+- ✅ Design tokens: `text-accent`, `bg-accent/5`, `border-border`
+- ✅ Semantic colors: `text-foreground`, `bg-card`, `border-input`
+- ✅ HSL with CSS vars: `hsl(var(--accent))`
+- ✅ Opacity with `/` syntax: `accent/20`, `accent/60`
+
+### Why?
+Hardcoded colors break:
+- 🚫 Theming and rebranding
+- 🚫 Dark mode support
+- 🚫 Brand consistency
+- 🚫 Maintainability
+- 🚫 Accessibility adjustments
+
+### Color Token Reference
+
+| Use Case | Token | Example |
+|----------|-------|---------|
+| Light backgrounds | `accent/5` | `bg-accent/5` |
+| Borders | `border` | `border-border` |
+| Borders (accent) | `accent/20` | `border-accent/20` |
+| Focus rings | `accent/30` | `focus:ring-accent/30` |
+| Icons, muted text | `accent/60` | `text-accent/60` |
+| Primary accent | `accent` | `bg-accent`, `text-accent` |
+| Shadows | `accent/5` | `shadow-accent/5` |
+
+---
 
 ### Code Review Checklist
 - [ ] All containers use semantic width classes

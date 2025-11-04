@@ -21,7 +21,7 @@ export const PulseDot = ({
   };
   
   const colorClasses = {
-    blue: 'bg-blue-500',
+    blue: 'bg-accent',
     green: 'bg-green-500',
     amber: 'bg-amber-500',
     red: 'bg-red-500',
