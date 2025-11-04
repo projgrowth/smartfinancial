@@ -128,11 +128,14 @@
     @apply bg-clip-text text-transparent;
   }
 
-  /* Accent gradient with enhanced shadow */
+  /* Accent gradient with enhanced shadow and animation */
   .text-gradient-accent {
     background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--gold)) 100%);
+    background-size: 200% auto;
     @apply bg-clip-text text-transparent;
     letter-spacing: -0.02em;
+    animation: gradient-shift 8s ease-in-out infinite;
+    will-change: background-position;
   }
 
   /* ========================================

@@ -36,21 +36,6 @@
     animation: gradient-shift 8s linear infinite;
   }
   
-  /* Gradient text for accent words */
-  .text-gradient-accent {
-    background: linear-gradient(120deg, 
-      hsl(215 28% 17%) 0%, 
-      hsl(210 100% 60%) 30%, 
-      hsl(45 90% 57%) 60%, 
-      hsl(210 100% 60%) 85%, 
-      hsl(215 28% 17%) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 6s ease-in-out infinite;
-    will-change: background-position;
-  }
   
   @keyframes gradient-shift {
     0%, 100% { background-position: 0% 50%; }
