@@ -158,7 +158,7 @@ const Education = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-[calc(100svh-var(--nav-h))] flex flex-col justify-center overflow-hidden">
-        <div className="container-unified mx-auto z-10">
+        <div className="container-wide mx-auto z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h1 className="heading-xl text-balance mb-6">
@@ -223,7 +223,7 @@ const Education = () => {
       
       {/* Educational Resources Section */}
       <section className="section-md bg-slate-50/50">
-        <div className="container-unified">
+        <div className="container-default">
           <ScrollReveal>
             <h2 className="heading-lg text-balance mb-8 text-center">
               Educational Resources
@@ -327,7 +327,7 @@ const Education = () => {
       
       {/* Newsletter Section - Using Unified Component */}
       <section className="section-md bg-accent/5">
-        <div className="container-unified max-w-3xl">
+        <div className="container-narrow">
           <ScrollReveal>
             <Newsletter variant="simple" 
               title="Subscribe to Our Financial Insights"
@@ -340,7 +340,7 @@ const Education = () => {
       
       {/* CTA Section */}
       <section className="section-md">
-        <div className="container-unified text-center">
+        <div className="container-default text-center">
           <ScrollReveal>
             <h2 className="heading-md text-foreground mb-4">
               Ready to Take the Next Step?

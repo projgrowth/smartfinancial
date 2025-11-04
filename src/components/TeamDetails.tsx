@@ -77,7 +77,7 @@ const TeamDetails = () => {
           </p>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 mx-auto">
           {/* Desktop Sidebar */}
           <div className="hidden lg:block col-span-1">
             <div className="space-component-md">

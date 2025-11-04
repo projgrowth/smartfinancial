@@ -30,7 +30,7 @@ const IntroSection = () => {
         />
       )}
       
-      <div className="container-narrow relative z-10">
+      <div className="container-default relative z-10">
         <div className="mx-auto text-center space-component-lg">
           <ScrollReveal distance="3rem">
             <h2 className="heading-lg mb-4">
