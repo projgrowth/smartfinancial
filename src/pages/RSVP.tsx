@@ -26,20 +26,27 @@ const RSVP = () => {
       toast.error('Failed to copy');
     }
   };
-  return <>
+  return (
+    <>
       <StickyRSVPButton />
       
       {/* Skip to Registration Link - Accessibility */}
-      <a href="#rsvp-form" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:shadow-lg" onClick={e => {
-      e.preventDefault();
-      smoothScrollTo('rsvp-form');
-    }}>
+      <a 
+        href="#rsvp-form" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:shadow-lg" 
+        onClick={(e) => {
+          e.preventDefault();
+          smoothScrollTo('rsvp-form');
+        }}
+      >
         Skip to Registration Form
       </a>
       
-      <SEO title="Social Security Maximization Seminar | Orlando, FL | Smart Financial Planning" description="Join our exclusive Social Security seminar on Nov 13 or 18 in Orlando. Learn how to maximize benefits, minimize taxes, and avoid costly retirement mistakes. Reserve your spot today!" noindex={true} />
-      
-      <main id="main-content" className="relative">
+      <SEO 
+        title="Social Security Maximization Seminar | Orlando, FL | Smart Financial Planning" 
+        description="Join our exclusive Social Security seminar on Nov 13 or 18 in Orlando. Learn how to maximize benefits, minimize taxes, and avoid costly retirement mistakes. Reserve your spot today!" 
+        noindex={true} 
+      />
         {/* Hero Section - Key Information Front and Center */}
         <section className="section-bg-premium-light section-lg relative overflow-hidden">
           <GradientAccent variant="purple" position="top-left" />
@@ -353,8 +360,8 @@ const RSVP = () => {
             </div>
           </div>
         </section>
-
-      </main>
-    </>;
+    </>
+  );
 };
+
 export default RSVP;

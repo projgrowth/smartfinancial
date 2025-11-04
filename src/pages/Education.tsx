@@ -5,10 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FinancialTerm, GlossaryButton, AllFinancialTerms } from '@/components/FinancialTermGlossary';
 import { Download, BookOpen, Calculator, ArrowRight, ChevronDown, Play, BarChart4 } from 'lucide-react';
-
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import ScrollReveal from '../components/ScrollReveal';
-import PremiumBackground from '../components/PremiumBackground';
+import ScrollReveal from '@/components/ScrollReveal';
+import PremiumBackground from '@/components/PremiumBackground';
 import SEO from '@/components/SEO';
 import useNavigateSection from '@/hooks/useNavigateSection';
 import Newsletter from '@/components/Newsletter';
@@ -147,14 +146,13 @@ const Education = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <>
       <PremiumBackground />
       
       <SEO 
         title="Financial Education & Resources | Smart Financial Planning"
         description="Guides, tools, and glossary to help you understand key financial planning concepts and make informed decisions."
       />
-      <div id="main-content" />
       
       {/* Hero Section */}
       <section className="relative min-h-[calc(100svh-var(--nav-h))] flex flex-col justify-center overflow-hidden">
@@ -222,7 +220,7 @@ const Education = () => {
       </section>
       
       {/* Educational Resources Section */}
-      <section className="section-md bg-slate-50/50">
+      <section className="section-md section-bg-subtle">
         <div className="container-default">
           <ScrollReveal>
             <h2 className="heading-lg text-balance mb-8 text-center">
@@ -366,9 +364,7 @@ const Education = () => {
           </ScrollReveal>
         </div>
       </section>
-      
-      
-    </div>
+    </>
   );
 };
 
