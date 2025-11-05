@@ -44,8 +44,14 @@ const PremiumBackground = () => {
 
     const supportsMouse = !isCoarsePointer;
 
+    let lastUpdate = 0;
+    
     const handleMouseMove = (e: MouseEvent) => {
       if (!supportsMouse) return;
+      const now = Date.now();
+      if (now - lastUpdate < 16) return; // Throttle to ~60fps max
+      lastUpdate = now;
+      
       lastMouseX = e.clientX / window.innerWidth;
       lastMouseY = e.clientY / window.innerHeight;
       if (mouseRaf == null) {
@@ -84,7 +90,7 @@ const PremiumBackground = () => {
   const translateY2 = mousePosition.y * 15;
 
   return (
-    <div className="fixed inset-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 w-full h-full -z-20 overflow-hidden pointer-events-none" style={{ contain: 'layout style paint' }}>
       {/* Enhanced gradient base with subtle color shifts */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-gold/5"></div>
       
@@ -136,7 +142,7 @@ const PremiumBackground = () => {
       
       {/* Interactive blue gradient shape (left) with anchoring */}
       <div 
-        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-accent/20 to-primary/15 blur-3xl rounded-full transform -rotate-12 border border-white/5 ${reduceMotion ? '' : 'animate-float duration-25000'}`}
+        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-accent/20 to-primary/15 blur-3xl rounded-full transform -rotate-12 border border-white/5 will-change-transform ${reduceMotion ? '' : 'animate-float duration-25000'}`}
         style={{ 
           transform: `rotate(-12deg) translate(${translateX1}px, ${translateY1 + scrollPosition}px)`,
           transition: 'transform 0.5s ease-out'
@@ -145,7 +151,7 @@ const PremiumBackground = () => {
       
       {/* Interactive amber gradient shape (right) */}
       <div 
-        className={`absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/20 to-gold/15 blur-3xl rounded-full transform rotate-12 ${reduceMotion ? '' : 'animate-float duration-20000'}`}
+        className={`absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/20 to-gold/15 blur-3xl rounded-full transform rotate-12 will-change-transform ${reduceMotion ? '' : 'animate-float duration-20000'}`}
         style={{ 
           transform: `rotate(12deg) translate(${translateX2}px, ${translateY2 + scrollPosition * 0.7}px)`,
           transition: 'transform 0.5s ease-out'
@@ -154,7 +160,7 @@ const PremiumBackground = () => {
       
       {/* Additional subtle shapes with staggered animations and interactivity */}
       <div 
-        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-primary/15 to-accent/10 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-float duration-15000'}`}
+        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-primary/15 to-accent/10 blur-3xl rounded-full will-change-transform ${reduceMotion ? '' : 'animate-float duration-15000'}`}
         style={{ 
           transform: `translate(${translateX1 * 0.5}px, ${translateY1 * 0.5 - scrollPosition * 0.3}px)`,
           transition: 'transform 0.7s ease-out'
@@ -162,7 +168,7 @@ const PremiumBackground = () => {
       ></div>
       
       <div 
-        className={`absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-float duration-12000'}`}
+        className={`absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full will-change-transform ${reduceMotion ? '' : 'animate-float duration-12000'}`}
         style={{ 
           transform: `translate(${translateX2 * 0.7}px, ${translateY2 * 0.7 - scrollPosition * 0.2}px)`,
           transition: 'transform 0.7s ease-out'

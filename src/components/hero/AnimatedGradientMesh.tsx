@@ -10,6 +10,7 @@ const AnimatedGradientMesh: React.FC<AnimatedGradientMeshProps> = ({ className }
     <div 
       className={cn(
         'absolute inset-0 -z-10 overflow-hidden pointer-events-none',
+        'will-change-transform',
         className
       )}
       aria-hidden="true"

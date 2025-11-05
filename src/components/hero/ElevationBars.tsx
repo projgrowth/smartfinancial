@@ -8,9 +8,9 @@ interface ElevationBarsProps {
 const ElevationBars: React.FC<ElevationBarsProps> = ({ className }) => {
   const bars = [
     { width: 'w-32 md:w-48', opacity: 'opacity-90', delay: '0ms', rotate: 'rotate-[-1deg]' },
-    { width: 'w-40 md:w-56', opacity: 'opacity-80', delay: '50ms', rotate: 'rotate-[0.5deg]' },
-    { width: 'w-48 md:w-64', opacity: 'opacity-70', delay: '100ms', rotate: 'rotate-[-0.5deg]' },
-    { width: 'w-56 md:w-72', opacity: 'opacity-60', delay: '150ms', rotate: 'rotate-[1deg]' },
+    { width: 'w-40 md:w-56', opacity: 'opacity-80', delay: '0ms', rotate: 'rotate-[0.5deg]' },
+    { width: 'w-48 md:w-64', opacity: 'opacity-70', delay: '0ms', rotate: 'rotate-[-0.5deg]' },
+    { width: 'w-56 md:w-72', opacity: 'opacity-60', delay: '0ms', rotate: 'rotate-[1deg]' },
   ];
 
   return (

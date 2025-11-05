@@ -34,10 +34,14 @@ const Index = () => {
       '/lovable-uploads/joseph-schreiner-new.jpg'
     ];
     preloadCriticalImages(criticalImages);
+    
+    // Preload above-the-fold lazy components immediately
+    const preloadCalculator = import('@/components/FinancialCalculator');
+    const preloadTeam = import('@/components/TeamDetails');
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -139,7 +143,7 @@ const Index = () => {
         </div>
       </section>
       
-      <section id="calculators" aria-label="Financial calculators">
+      <section id="calculators" className="section-contain" aria-label="Financial calculators">
         <Suspense fallback={
         <section className="section-xl bg-background">
           <div className="container-wide">
@@ -158,8 +162,22 @@ const Index = () => {
         </Suspense>
       </section>
       
-      <section id="team" aria-label="Team members">
-        <Suspense fallback={<SectionSkeleton height="h-64" />}>
+      <section id="team" className="section-contain" aria-label="Team members">
+        <Suspense fallback={
+          <section className="section-md bg-background">
+            <div className="container-default">
+              <div className="text-center mb-12">
+                <Skeleton className="h-12 w-2/3 mx-auto mb-4" />
+                <Skeleton className="h-6 w-1/2 mx-auto" />
+              </div>
+              <div className="grid-three-col gap-unified-lg">
+                <Skeleton className="h-96" />
+                <Skeleton className="h-96" />
+                <Skeleton className="h-96" />
+              </div>
+            </div>
+          </section>
+        }>
         <TeamDetails />
         </Suspense>
       </section>
@@ -180,7 +198,7 @@ const Index = () => {
         onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
       />
       
-      <section id="faq" aria-label="Frequently asked questions">
+      <section id="faq" className="section-contain" aria-label="Frequently asked questions">
         <Suspense fallback={
         <section className="section-xl bg-background">
           <div className="container-narrow">

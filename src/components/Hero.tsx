@@ -83,6 +83,7 @@ const Hero = () => {
               distance="20px" 
               duration={500}
               delay={0}
+              className="will-change-transform"
             >
               <h1 className="heading-display-fluid tracking-tight text-balance max-w-3xl mx-auto font-bold text-foreground">
                 Your Wealth.{' '}
@@ -96,6 +97,7 @@ const Hero = () => {
               delay={150} 
               distance="16px" 
               duration={500}
+              className="will-change-transform"
             >
               <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-muted-foreground font-medium">
                 You've built significant wealth. Now let's preserve it, multiply it, and pass it on — on your terms.
@@ -106,6 +108,7 @@ const Hero = () => {
               delay={250} 
               distance="12px" 
               duration={500}
+              className="will-change-transform"
             >
               <div className="mt-2 sm:mt-4">
                 <Button

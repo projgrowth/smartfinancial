@@ -48,7 +48,10 @@ const CompoundInterestCalculator = () => {
   };
 
   useEffect(() => {
-    calculateCompoundInterest();
+    const timer = setTimeout(() => {
+      calculateCompoundInterest();
+    }, 100);
+    return () => clearTimeout(timer);
   }, [principal, rate, years, monthlyContribution]);
 
   const formatCurrency = (value: number) => {
@@ -162,11 +165,11 @@ const CompoundInterestCalculator = () => {
               </p>
             </div>
             
-            <div className="h-52">
+            <div className="h-52 min-h-[208px]">
               <ChartContainer
                 config={{
-                  amount: { theme: { light: "#3B82F6", dark: "#60A5FA" } },
-                  principal: { theme: { light: "#9CA3AF", dark: "#6B7280" } },
+                  amount: { theme: { light: "hsl(var(--accent))", dark: "hsl(var(--accent))" } },
+                  principal: { theme: { light: "hsl(var(--muted-foreground))", dark: "hsl(var(--muted-foreground))" } },
                 }}
                 className="h-full"
               >
@@ -218,14 +221,14 @@ const CompoundInterestCalculator = () => {
                     dataKey="amount"
                     activeDot={{
                       r: 6,
-                      fill: "#3B82F6",
+                      fill: "hsl(var(--accent))",
                       style: { cursor: "pointer" },
                     }}
                   />
                   <Line
                     type="monotone"
                     dataKey="principal"
-                    stroke="#9CA3AF"
+                    stroke="hsl(var(--muted-foreground))"
                     strokeDasharray="4 4"
                     strokeWidth={2}
                     dot={false}

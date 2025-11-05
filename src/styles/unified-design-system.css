@@ -791,4 +791,28 @@
   }
   
   /* Button premium classes removed - use Button component variants instead */
+  
+  /* ========================================
+     13. PERFORMANCE OPTIMIZATION UTILITIES
+     ======================================== */
+  
+  /* Layout containment - Isolates sections to prevent cross-section layout shifts */
+  .section-contain {
+    contain: layout style paint;
+  }
+
+  /* Chart containment - Reserves space to prevent chart loading shifts */
+  .chart-contain {
+    contain: size layout style;
+    min-height: 13rem; /* 208px = h-52 */
+  }
+
+  /* GPU acceleration hints */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
 }
