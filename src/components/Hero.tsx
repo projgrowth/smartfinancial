@@ -121,7 +121,7 @@ const Hero = () => {
                   onMouseEnter={preloadMeetingScheduler}
                   onFocus={preloadMeetingScheduler}
                   aria-label="Schedule your private strategy call"
-                  className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap text-primary-foreground font-semibold text-base [box-shadow:var(--shadow-button-primary)] hover:[box-shadow:var(--shadow-button-hover)] ${getTouchTargetClasses()}`}
+                  className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap font-semibold text-base [box-shadow:var(--shadow-button-primary)] hover:[box-shadow:var(--shadow-button-hover)] ${getTouchTargetClasses()}`}
                 >
                   <span className="gap-unified-xs">
                     <span className="xs:hidden">Schedule</span>

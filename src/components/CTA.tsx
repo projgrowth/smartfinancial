@@ -20,10 +20,10 @@ const CTA = () => {
       <div className="container-default relative z-10">
         <ScrollReveal>
           <div className="cta-content-container">
-            <h2 className="heading-lg space-component-md text-accent-foreground">
+            <h2 className="heading-lg space-component-md text-white">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>
-            <p className="text-body-lg text-accent-foreground/90 space-component-lg max-w-2xl mx-auto">
+            <p className="text-body-lg text-white/90 space-component-lg max-w-2xl mx-auto">
               Take the first step toward financial clarity and strategic growth with a personalized approach.
             </p>
             <Button 
