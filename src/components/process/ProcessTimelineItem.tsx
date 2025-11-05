@@ -43,14 +43,14 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
         >
         <div className="flex items-center mb-5">
           <span className={`${
-            isActive ? 'text-accent scale-110' : 'text-accent'
+            isActive ? 'text-white scale-110' : 'text-white'
           } text-3xl font-heading font-medium mr-3 transition-all duration-300`}>
             {step.number}
           </span>
-          <h3 id={`timeline-step-title-${step.id}`} className="text-xl font-heading font-medium text-accent-foreground">{step.title}</h3>
+          <h3 id={`timeline-step-title-${step.id}`} className="text-xl font-heading font-medium text-white">{step.title}</h3>
         </div>
         
-        <p className="mb-6 leading-relaxed text-accent-foreground/90">{step.description}</p>
+        <p className="mb-6 leading-relaxed text-white/90">{step.description}</p>
         
         <Collapsible 
           open={isActive} 
@@ -59,8 +59,8 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           <CollapsibleTrigger className={`
             flex items-center text-sm font-medium px-4 py-2 rounded-full 
             ${isActive 
-              ? 'bg-accent/60 hover:bg-accent/80 border-accent/50 text-accent-foreground' 
-              : 'text-accent-foreground hover:text-accent-foreground/80 bg-accent/30 hover:bg-accent/50 border-accent/30'
+              ? 'bg-accent/60 hover:bg-accent/80 border-accent/50 text-white' 
+              : 'text-white/90 hover:text-white bg-accent/30 hover:bg-accent/50 border-accent/30'
             } transition-colors duration-300 border 
             focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none`
           } aria-expanded={isActive}>
@@ -77,18 +77,18 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
             )}
           </CollapsibleTrigger>
           
-          <CollapsibleContent className="mt-6 space-y-5 border-t border-border pt-5">
+          <CollapsibleContent className="mt-6 space-y-5 border-t border-white/20 pt-5">
             <div className="grid grid-cols-1 gap-4">
               {step.details.map((detail, idx) => (
                 <div 
                   key={idx} 
-                  className="bg-card/10 p-4 rounded-md border border-border shadow-sm hover:border-accent/40 transition-all duration-300"
+                  className="bg-white/5 p-4 rounded-md border border-white/20 shadow-sm hover:border-white/30 transition-all duration-300"
                 >
-                  <h4 className="text-sm font-medium text-accent-foreground mb-2 flex items-center">
+                  <h4 className="text-sm font-medium text-white mb-2 flex items-center">
                     <span className="w-1 h-1 bg-accent rounded-full mr-2"></span>
                     {detail.title}
                   </h4>
-                   <p className="text-xs leading-relaxed text-accent-foreground/90">{detail.description}</p>
+                   <p className="text-xs leading-relaxed text-white/85">{detail.description}</p>
                 </div>
               ))}
             </div>

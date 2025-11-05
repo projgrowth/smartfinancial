@@ -26,22 +26,22 @@ const Process = () => {
         
         <div className="container-default relative z-10">
           <ScrollReveal>
-            <h2 id="process-heading" className="heading-lg text-center mb-6 text-primary-foreground text-balance">
+            <h2 id="process-heading" className="heading-lg text-center mb-6 text-white text-balance">
               <span className="inline-block relative">
                 Our Process
                 <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></span>
               </span>
             </h2>
-            <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance text-primary-foreground/90">
+            <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance text-white/95">
               Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
             </p>
           </ScrollReveal>
 
           <Tabs defaultValue="cards" value={activeView} onValueChange={setActiveView} className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-10 border border-border shadow-md rounded-full overflow-hidden bg-card/10" aria-label="Process view options">
+            <TabsList className="w-full max-w-md mx-auto mb-10 border border-white/20 shadow-lg rounded-full overflow-hidden bg-white/5 backdrop-blur-sm" aria-label="Process view options">
               <TabsTrigger 
                 value="cards" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-white/90 data-[state=active]:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
                 data-state={activeView === "cards" ? "active" : "inactive"}
                 onClick={() => setActiveView("cards")}
                 aria-label="Switch to visual overview of our process"
@@ -50,7 +50,7 @@ const Process = () => {
               </TabsTrigger>
               <TabsTrigger 
                 value="timeline" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-primary-foreground/80 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-white/90 data-[state=active]:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
                 data-state={activeView === "timeline" ? "active" : "inactive"}
                 onClick={() => setActiveView("timeline")}
                 aria-label="Switch to timeline view of our process"

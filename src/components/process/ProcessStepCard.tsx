@@ -29,15 +29,15 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         aria-labelledby={`step-title-${step.id}`}
       >
       <div className="flex items-center justify-between mb-5">
-        <span className="heading-lg text-accent font-heading font-medium block group-hover:scale-105 transition-all duration-300">
+        <span className="heading-lg text-white font-heading font-medium block group-hover:scale-105 transition-all duration-300">
           {step.number}
         </span>
-        <div className="text-accent group-hover:scale-110 transition-transform duration-300">
+        <div className="text-white group-hover:scale-110 transition-transform duration-300">
           {step.icon}
         </div>
       </div>
       
-      <h3 id={`step-title-${step.id}`} className="heading-sm font-heading font-medium mb-4 flex items-center text-accent-foreground">
+      <h3 id={`step-title-${step.id}`} className="heading-sm font-heading font-medium mb-4 flex items-center text-white">
         {step.title}
         {step.keyTerms.length > 0 && (
           <InteractiveTooltip
@@ -45,7 +45,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
                <Button 
                  variant="subtle" 
                  size="xs" 
-                 className="ml-2 text-accent-foreground cursor-pointer border border-accent/60 px-2 py-0.5 rounded-full hover:bg-accent/30 hover:border-accent flex items-center focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
+                 className="ml-2 text-white cursor-pointer border border-white/40 bg-white/10 px-2 py-0.5 rounded-full hover:bg-white/20 hover:border-white/60 flex items-center focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
                  aria-label={`Learn more about ${step.title}`}
                >
                 <span className="sr-only">Learn about key terms</span>
@@ -72,7 +72,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </h3>
       
-      <p className="text-body mb-5 leading-relaxed transition-colors duration-300 text-accent-foreground/90">
+      <p className="text-body mb-5 leading-relaxed transition-colors duration-300 text-white/90">
         {step.description}
       </p>
       
@@ -81,7 +81,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         onOpenChange={() => onStepClick(step.id)}
       >
         <CollapsibleTrigger 
-          className="flex items-center text-body-sm text-accent-foreground hover:text-accent-foreground transition-colors duration-300 font-medium px-3 py-1.5 rounded-full bg-accent/40 hover:bg-accent/60 border border-accent/60 hover:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
+          className="flex items-center text-body-sm text-white/90 hover:text-white transition-colors duration-300 font-medium px-3 py-1.5 rounded-full bg-accent/40 hover:bg-accent/60 border border-accent/60 hover:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
           aria-expanded={activeStep === step.id}
         >
           {activeStep === step.id ? (
@@ -96,11 +96,11 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
             </>
           )}
         </CollapsibleTrigger>
-        <CollapsibleContent className="mt-5 space-y-4 border-t border-border pt-4">
+        <CollapsibleContent className="mt-5 space-y-4 border-t border-white/20 pt-4">
           {step.details.map((detail, idx) => (
-            <ScaleOnHover key={idx} scale="sm" className="bg-card/20 p-4 rounded-md hover:bg-card/30 border border-accent/20 hover:border-accent/40 shadow-sm transition-all duration-300">
-              <h4 className="text-body-sm font-medium text-accent-foreground mb-2">{detail.title}</h4>
-              <p className="text-body-sm leading-relaxed text-accent-foreground/90">{detail.description}</p>
+            <ScaleOnHover key={idx} scale="sm" className="bg-white/5 p-4 rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-300">
+              <h4 className="text-body-sm font-medium text-white mb-2">{detail.title}</h4>
+              <p className="text-body-sm leading-relaxed text-white/85">{detail.description}</p>
             </ScaleOnHover>
           ))}
         </CollapsibleContent>

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const premiumCardVariants = cva(
-  "rounded-xl border bg-card text-card-foreground transition-all duration-250 ease-out",
+  "rounded-xl border transition-all duration-250 ease-out",
   {
     variants: {
       variant: {
@@ -12,9 +12,9 @@ const premiumCardVariants = cva(
         elevated: "border-border/50 shadow-md hover:shadow-lg hover:-translate-y-1",
         premium: "border-border/30 shadow-lg hover:shadow-xl hover:-translate-y-2 bg-gradient-to-br from-background/95 to-background/80 backdrop-blur-sm",
         glass: "border-white/20 shadow-lg bg-white/80 backdrop-blur-md hover:bg-white/90 hover:shadow-xl",
-        dark: "border-white/15 shadow-sm bg-charcoal/95 hover:bg-charcoal rounded-lg",
-        advisor: "border-border shadow-sm hover:shadow-md hover:border-primary/20 rounded-lg",
-        timeline: "border-white/15 bg-charcoal/95 hover:bg-charcoal rounded-lg",
+        dark: "border-white/20 shadow-lg bg-white/10 backdrop-blur-md hover:bg-white/15 rounded-lg text-white",
+        advisor: "border-border shadow-sm hover:shadow-md hover:border-primary/20 rounded-lg bg-card text-card-foreground",
+        timeline: "border-white/20 shadow-lg bg-white/10 backdrop-blur-md hover:bg-white/15 rounded-lg text-white",
         info: "border-border/50 shadow-sm rounded-lg",
         faq: "border-accent/20 rounded-lg overflow-hidden bg-card shadow-sm hover:shadow-md",
       },
@@ -55,7 +55,7 @@ const PremiumCard = React.forwardRef<HTMLDivElement, PremiumCardProps>(
       className={cn(
         premiumCardVariants({ variant, size, spacing }),
         hover && "group cursor-pointer",
-        active && (variant === "dark" || variant === "timeline") && "border-accent/50 shadow-lg shadow-accent/10",
+        active && (variant === "dark" || variant === "timeline") && "border-accent/70 shadow-xl shadow-accent/20 ring-1 ring-accent/30",
         className
       )}
       {...props}
