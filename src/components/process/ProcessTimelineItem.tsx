@@ -47,10 +47,10 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           } text-3xl font-heading font-medium mr-3 transition-all duration-300`}>
             {step.number}
           </span>
-          <h3 id={`timeline-step-title-${step.id}`} className="text-xl font-heading font-medium text-primary-foreground">{step.title}</h3>
+          <h3 id={`timeline-step-title-${step.id}`} className="text-xl font-heading font-medium text-accent-foreground">{step.title}</h3>
         </div>
         
-        <p className="mb-6 leading-relaxed text-primary-foreground/95">{step.description}</p>
+        <p className="mb-6 leading-relaxed text-accent-foreground/90">{step.description}</p>
         
         <Collapsible 
           open={isActive} 
@@ -88,7 +88,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
                     <span className="w-1 h-1 bg-accent rounded-full mr-2"></span>
                     {detail.title}
                   </h4>
-                  <p className="text-xs leading-relaxed text-primary-foreground/90">{detail.description}</p>
+                   <p className="text-xs leading-relaxed text-accent-foreground/90">{detail.description}</p>
                 </div>
               ))}
             </div>
