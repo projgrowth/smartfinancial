@@ -50,13 +50,13 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-accent/10" role="status" aria-label="Loading page content">
+      <div className="min-h-screen w-full overflow-x-hidden section-bg-subtle" role="status" aria-label="Loading page content">
         <span className="sr-only">Loading page content</span>
         <div className="container-default section-lg">
           <Skeleton className="h-8 md:h-12 w-3/4 max-w-lg mx-auto space-component-md" />
           <Skeleton className="h-4 md:h-6 w-2/3 max-w-md mx-auto space-component-lg" />
           <Skeleton className="h-8 md:h-10 w-36 md:w-48 mx-auto space-component-xl" />
-          <div className="grid-three-col gap-unified-lg">
+          <div className="grid-three-col">
             <Skeleton className="h-48 md:h-64 w-full" />
             <Skeleton className="h-48 md:h-64 w-full" />
             <Skeleton className="h-48 md:h-64 w-full lg:block hidden" />
@@ -188,16 +188,6 @@ const Index = () => {
         </Suspense>
       </section>
       
-      <AnimatedSectionTransition
-        style="wave" 
-        colorScheme="light-to-dark" 
-        position="bottom" 
-        height={60}
-        showIcon={true}
-        iconType="chevron"
-        onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
-      />
-      
       <section id="faq" className="section-contain" aria-label="Frequently asked questions">
         <Suspense fallback={
         <section className="section-xl bg-background">
@@ -219,16 +209,6 @@ const Index = () => {
         <Newsletter variant="enhanced" />
         </Suspense>
       </section>
-      
-      <AnimatedSectionTransition
-        style="wave" 
-        colorScheme="light-to-dark" 
-        position="bottom" 
-        height={60}
-        showIcon={true}
-        iconType="chevron"
-        onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-      />
       
       <section id="cta" aria-label="Call to action">
         <Suspense fallback={<SectionSkeleton height="h-24" />}>

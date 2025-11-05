@@ -38,7 +38,7 @@ const Hero = () => {
     <section 
       role="region"
       aria-label="Hero section"
-      className="hero-section relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-[calc(100svh-var(--nav-h))] py-8 sm:py-12 md:py-0 overflow-hidden"
+      className="relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-[calc(100svh-var(--nav-h))] py-8 sm:py-12 md:py-0 overflow-hidden"
       style={{
         background: 'var(--gradient-background)',
       }}

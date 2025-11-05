@@ -8,7 +8,7 @@ import RetirementCalculator from './calculators/RetirementCalculator';
 
 const FinancialCalculator = () => {
   return (
-    <section id="calculators" className="section relative overflow-hidden">
+    <section className="section-lg section-contain relative overflow-hidden">
       <GradientAccent variant="subtle" position="top-left" intensity="low" />
       <div className="container-narrow relative z-10">
         <ScrollReveal>
