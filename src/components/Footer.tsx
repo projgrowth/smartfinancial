@@ -27,8 +27,8 @@ const Footer = () => {
       
       <div className="container-default section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))] relative z-10">
         {/* Grid layout: Intentional 2:1:1:1 column ratio - company info gets double width for branding */}
-        <div className="grid-four-col gap-unified-xl">
-          <div className="xl:col-span-2">
+        <div className="grid-footer gap-unified-xl">
+          <div>
             <ScrollReveal>
               <div className="space-component-md">
                 <Link to="/" className="heading-sm text-primary-foreground block space-component-xs">
@@ -39,26 +39,26 @@ const Footer = () => {
                   cookie-cutter solutions.
                 </p>
               </div>
-              <div className="flex gap-unified-sm space-component-sm">
-                <a href="#" className="footer-icon-link" aria-label="Facebook">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="footer-icon-link" aria-label="Twitter">
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a href="#" className="footer-icon-link" aria-label="LinkedIn">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/thesmartfinancialplan/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-icon-link"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
+              <nav aria-label="Social Media" className="space-component-sm">
+                <ul className="flex gap-unified-sm" role="list">
+                  <li>
+                    <a href="https://www.linkedin.com/company/smart-financial-planning" className="footer-icon-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/thesmartfinancialplan/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="footer-icon-link"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </ScrollReveal>
           </div>
 
@@ -67,11 +67,6 @@ const Footer = () => {
               <h3 id="footer-company" className="heading-xs text-primary-foreground space-component-sm">Company</h3>
               <nav aria-labelledby="footer-company">
                 <ul className="space-component-xs">
-                  <li>
-                    <a href="#" className="footer-nav-link">
-                      About Us
-                    </a>
-                  </li>
                   <li>
                     <Link to="/#team" className="footer-nav-link">
                       Our Team
@@ -86,11 +81,6 @@ const Footer = () => {
                     <Link to="/#services" className="footer-nav-link">
                       Case Studies
                     </Link>
-                  </li>
-                  <li>
-                    <a href="#" className="footer-nav-link">
-                      Careers
-                    </a>
                   </li>
                 </ul>
               </nav>
@@ -136,7 +126,7 @@ const Footer = () => {
             <ScrollReveal delay={300}>
               <h3 className="heading-xs text-primary-foreground space-component-sm">Contact Information</h3>
               <address className="not-italic">
-                <ul className="space-component-sm space-component-md">
+                <ul className="space-component-sm">
                   <li className="flex items-start group">
                     <MapPin className="footer-contact-icon" />
                     <span className="text-body text-primary-foreground/80 ml-3">
@@ -165,14 +155,16 @@ const Footer = () => {
                 </ul>
               </address>
 
-              <Newsletter
-                variant="simple"
-                compact={true}
-                title="Financial Insights Newsletter"
-                description="Stay updated with Lake Nona and Orlando financial planning insights."
-                onDark
-                showWebhook={false}
-              />
+              <div className="space-component-md">
+                <Newsletter
+                  variant="simple"
+                  compact={true}
+                  title="Financial Insights Newsletter"
+                  description="Stay updated with Lake Nona and Orlando financial planning insights."
+                  onDark
+                  showWebhook={false}
+                />
+              </div>
             </ScrollReveal>
           </div>
         </div>
@@ -197,16 +189,14 @@ const Footer = () => {
                   </li>
                 </ul>
               </nav>
-              <Button
+              <button
                 type="button"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors underline focus-enhanced"
+                className="footer-back-to-top"
                 aria-label="Back to top"
-                variant="link"
-                size="none"
               >
                 Back to top
-              </Button>
+              </button>
             </div>
           </div>
         </ScrollReveal>

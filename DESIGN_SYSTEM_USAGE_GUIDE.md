@@ -458,6 +458,72 @@ GAPS               SPACING          BACKGROUNDS
 
 ---
 
+## Footer Component Guidelines
+
+### Structure
+The footer uses a **2:1:1:1 grid layout** (`.grid-footer`) that emphasizes company branding by giving the first column double width on large screens.
+
+### Grid System
+```html
+<!-- ✅ CORRECT: Use semantic footer grid -->
+<div class="grid-footer gap-unified-xl">
+  <div>Company info (2x width on lg+)</div>
+  <div>Navigation 1</div>
+  <div>Navigation 2</div>
+  <div>Contact</div>
+</div>
+
+<!-- ❌ WRONG: Manual grid overrides -->
+<div class="grid-four-col xl:col-span-2">
+```
+
+### Footer Utility Classes
+- `.footer-nav-link` - Footer navigation links with hover states
+- `.footer-icon-link` - Social media icon links with scale animation
+- `.footer-contact-icon` - Contact information icons with group hover
+- `.footer-back-to-top` - Scroll to top button styling
+- `.grid-footer` - Footer-specific 2:1:1:1 grid layout
+
+### Accessibility Best Practices
+1. **Semantic wrappers**: Wrap navigation link groups in `<nav>` with `aria-labelledby`
+2. **Social media**: Use `<nav aria-label="Social Media">` with `<ul role="list">`
+3. **Contact info**: Use `<address>` tag with `not-italic` class
+4. **ARIA labels**: Include descriptive labels for icon-only links
+5. **Keyboard navigation**: All interactive elements must be keyboard accessible
+
+### Spacing Guidelines
+- Use `.space-component-md` to separate Newsletter from contact info
+- Use `.space-component-sm` for spacing between sections
+- Remove duplicate spacing classes (e.g., `space-component-sm space-component-md`)
+
+### Example Structure
+```tsx
+<footer className="section-bg-premium-dark">
+  <div className="container-default section-lg">
+    <div className="grid-footer gap-unified-xl">
+      {/* Company info - 2x width */}
+      <div>
+        <nav aria-label="Social Media" className="space-component-sm">
+          <ul className="flex gap-unified-sm" role="list">
+            <li><a href="..." className="footer-icon-link" aria-label="...">...</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      {/* Navigation sections */}
+      <div>
+        <h3 id="footer-company" className="heading-xs">Company</h3>
+        <nav aria-labelledby="footer-company">
+          <ul className="space-component-xs">...</ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+---
+
 ## Container Usage Examples
 
 ### Homepage Sections
