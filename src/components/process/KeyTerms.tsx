@@ -17,8 +17,8 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
   };
   
   return (
-    <div className="bg-gradient-to-br from-primary/80 to-primary/90 p-5 rounded-lg border border-accent/50 shadow-md">
-      <h4 className="text-sm font-medium text-primary-foreground mb-4 tracking-wide flex items-center">
+    <div className="bg-white/10 backdrop-blur-md p-5 rounded-lg border border-white/20 shadow-lg">
+      <h4 className="text-sm font-medium text-white mb-4 tracking-wide flex items-center">
         <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></span>
         Key Financial Concepts
       </h4>
@@ -26,7 +26,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
         {terms.map((term, idx) => (
           <div 
             key={idx} 
-            className="bg-primary/50 rounded-md border border-primary/50 overflow-hidden transition-all duration-300 hover:border-accent/50"
+            className="bg-white/5 rounded-md border border-white/20 overflow-hidden transition-all duration-300 hover:border-white/30"
           >
             <button
               onClick={() => toggleTerm(idx)}
@@ -34,7 +34,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               aria-expanded={expandedTerm === idx}
               aria-controls={`term-content-${idx}`}
             >
-              <h5 className="text-sm font-medium text-primary-foreground group-hover:text-accent transition-colors duration-200">
+              <h5 className="text-sm font-medium text-white group-hover:text-accent transition-colors duration-200">
                 {term.term}
               </h5>
               {expandedTerm === idx ? (
@@ -50,7 +50,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               }`}
             >
               <div className="px-3 pb-3 pt-1">
-                <p className="text-xs text-primary-foreground leading-relaxed border-t border-primary/30 pt-2">
+                <p className="text-xs text-white/90 leading-relaxed border-t border-white/20 pt-2">
                   {term.definition}
                 </p>
               </div>
