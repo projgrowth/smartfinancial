@@ -10,8 +10,8 @@ const HashScroll = () => {
 
     const raw = hash.replace('#', '');
 
-    // Retry logic for lazy-loaded components
-    const attemptScroll = (attempts = 0, maxAttempts = 10) => {
+    // Retry logic for lazy-loaded components with longer delays
+    const attemptScroll = (attempts = 0, maxAttempts = 15) => {
       // If hash looks like a key=value (e.g., advisor=john-doe), try to scroll to key section if it exists
       let targetId = raw;
       if (raw.includes('=')) {
@@ -22,11 +22,11 @@ const HashScroll = () => {
       const el = document.getElementById(targetId);
       
       if (el) {
-        // Element found, scroll to it
-        smoothScrollTo(targetId);
+        // Element found, scroll to it after a brief delay to ensure layout is stable
+        setTimeout(() => smoothScrollTo(targetId), 100);
       } else if (attempts < maxAttempts) {
-        // Element not found yet, retry after delay (exponential backoff)
-        const delay = Math.min(100 * Math.pow(1.5, attempts), 1000);
+        // Element not found yet, retry after delay (longer exponential backoff for lazy components)
+        const delay = Math.min(200 * Math.pow(1.3, attempts), 2000);
         setTimeout(() => attemptScroll(attempts + 1, maxAttempts), delay);
       }
     };

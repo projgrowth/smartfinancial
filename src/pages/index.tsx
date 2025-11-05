@@ -23,8 +23,6 @@ import { advisors } from '@/data/team';
 import { ServiceCardSkeleton, CaseStudySkeleton, FAQSkeleton, CalculatorSkeleton, SectionSkeleton } from '@/components/ui/skeleton-loaders';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     // Preload critical team images that match current team data
     const criticalImages = [
@@ -35,36 +33,14 @@ const Index = () => {
     ];
     preloadCriticalImages(criticalImages);
     
-    // Preload above-the-fold lazy components immediately
-    const preloadCalculator = import('@/components/FinancialCalculator');
-    const preloadTeam = import('@/components/TeamDetails');
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 200);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    // Preload lazy components immediately to reduce layout shift
+    import('@/components/FinancialCalculator');
+    import('@/components/TeamDetails');
+    import('@/components/MeetingScheduler');
+    import('@/components/FAQSection');
+    import('@/components/Newsletter');
+    import('@/components/CTA');
   }, []);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen w-full overflow-x-hidden section-bg-subtle" role="status" aria-label="Loading page content">
-        <span className="sr-only">Loading page content</span>
-        <div className="container-default section-lg">
-          <Skeleton className="h-8 md:h-12 w-3/4 max-w-lg mx-auto space-component-md" />
-          <Skeleton className="h-4 md:h-6 w-2/3 max-w-md mx-auto space-component-lg" />
-          <Skeleton className="h-8 md:h-10 w-36 md:w-48 mx-auto space-component-xl" />
-          <div className="grid-three-col">
-            <Skeleton className="h-48 md:h-64 w-full" />
-            <Skeleton className="h-48 md:h-64 w-full" />
-            <Skeleton className="h-48 md:h-64 w-full lg:block hidden" />
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const breadcrumbJsonLd = {
