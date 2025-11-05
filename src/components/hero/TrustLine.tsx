@@ -21,7 +21,7 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
       )}
     >
       {/* Trust text */}
-      <p className="text-xs sm:text-sm font-medium tracking-wide" style={{ color: 'hsl(var(--foreground) / var(--opacity-secondary))' }}>
+      <p className="text-xs sm:text-sm font-medium tracking-wide text-foreground/80">
         Licensed Fiduciary Advisors · 20+ Years Experience
       </p>
       

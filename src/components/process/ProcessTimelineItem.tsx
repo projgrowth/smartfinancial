@@ -78,7 +78,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
           </CollapsibleTrigger>
           
           <CollapsibleContent className="mt-6 space-y-5 border-t border-white/20 pt-5">
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-unified-sm">
               {step.details.map((detail, idx) => (
                 <div 
                   key={idx} 

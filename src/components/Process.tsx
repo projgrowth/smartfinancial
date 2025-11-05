@@ -16,7 +16,7 @@ const Process = () => {
     setActiveStep(activeStep === id ? null : id);
   };
   return <>
-      <section id="process" className="section-lg bg-gradient-to-br from-primary to-primary/95 relative overflow-hidden" aria-labelledby="process-heading">
+      <section id="process" className="section-lg section-bg-premium-dark relative overflow-hidden" aria-labelledby="process-heading">
         {/* Modern background elements */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay"></div>
         
