@@ -46,17 +46,42 @@ export const initUrlMonitoring = () => {
     return; // Don't set up monitoring if we're redirecting
   }
 
+  // Helper to detect URL change type
+  const getUrlChangeType = (oldUrl: string, newUrl: string): 'hash' | 'query' | 'path' | 'domain' | 'none' => {
+    try {
+      const old = new URL(oldUrl);
+      const current = new URL(newUrl);
+      
+      if (old.hostname !== current.hostname) return 'domain';
+      if (old.pathname !== current.pathname) return 'path';
+      if (old.search !== current.search) return 'query';
+      if (old.hash !== current.hash) return 'hash';
+      return 'none';
+    } catch {
+      return 'none';
+    }
+  };
+
   // Monitor for unexpected redirects
   let redirectCount = 0;
   const maxRedirects = 3;
 
   const checkUrl = () => {
-    if (window.location.href !== originalUrl && !window.location.href.includes(expectedDomain)) {
+    const currentUrlWithoutHash = window.location.href.split('#')[0];
+    const originalUrlWithoutHash = originalUrl.split('#')[0];
+    
+    const changeType = getUrlChangeType(originalUrl, window.location.href);
+    
+    // Only flag if the base URL changed AND it's a wrong domain (ignore hash-only changes)
+    if (currentUrlWithoutHash !== originalUrlWithoutHash && 
+        !window.location.href.includes(expectedDomain) &&
+        !isAllowed) {
       redirectCount++;
       warn('Unexpected redirect detected:', {
         from: originalUrl,
         to: window.location.href,
-        count: redirectCount
+        count: redirectCount,
+        changeType: changeType
       });
       
       if (redirectCount >= maxRedirects) {
@@ -68,8 +93,13 @@ export const initUrlMonitoring = () => {
   // Check for redirects on popstate (back/forward navigation)
   window.addEventListener('popstate', checkUrl);
   
-  // Check periodically for URL changes
-  setInterval(checkUrl, 5000);
+  // Log hash navigation (expected behavior)
+  window.addEventListener('hashchange', (e) => {
+    log('Hash navigation (expected):', {
+      from: e.oldURL,
+      to: e.newURL
+    });
+  });
 
   // Log successful page load with correct domain
   if (window.location.hostname.includes(expectedDomain)) {
