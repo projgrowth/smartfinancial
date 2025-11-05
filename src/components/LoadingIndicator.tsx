@@ -24,7 +24,7 @@ const LoadingIndicator = ({ variant = 'default' }: LoadingIndicatorProps) => {
         <Skeleton className="h-12 w-3/4 max-w-lg mx-auto mb-8" />
         <Skeleton className="h-6 w-2/3 max-w-md mx-auto mb-12" />
         <Skeleton className="h-10 w-48 mx-auto mb-20" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-unified-md">
+        <div className="grid-three-col gap-unified-md">
           <Skeleton className="h-64 w-full" />
           <Skeleton className="h-64 w-full" />
           <Skeleton className="h-64 w-full" />

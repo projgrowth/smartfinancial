@@ -193,7 +193,7 @@ const ClientStoryCard: React.FC<ClientStoryCardProps> = ({
 
       {isExpanded && (
         <PremiumCardContent className="space-component-lg">
-          <div className="grid lg:grid-cols-3 gap-unified-lg">
+          <div className="grid-three-col gap-unified-lg">
             <div className="lg:col-span-2 space-component-md">
               <h3 className="heading-sm font-medium text-foreground mb-4">Client Story Journey</h3>
               {storyChapters.map((chapter, index) => (

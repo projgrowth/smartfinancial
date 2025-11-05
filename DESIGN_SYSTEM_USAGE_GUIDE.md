@@ -72,6 +72,16 @@
 .space-component-xs → space-y-2  md:space-y-4
 ```
 
+### When Direct Spacing is Acceptable
+✅ **Component-internal spacing** (<5 elements)
+✅ **Form fields and inputs**
+✅ **Flex layout gaps** (gap-2, gap-3 for small items)
+✅ **Fine-tuning specific elements**
+
+❌ **Major section separations** - use `space-component-*`
+❌ **Grid layouts** - use `gap-unified-*`
+❌ **Repeatable patterns** - extract to design system
+
 ---
 
 ## Typography Scale
@@ -184,7 +194,20 @@
 ```
 .grid-time-slots → 2 → 3 columns (meeting scheduler)
 .grid-metrics    → 2 → 4 columns (statistics display)
+.grid-footer     → 2:1:1:1 ratio (footer layout)
 ```
+
+### Grid Usage Enforcement
+
+**ALWAYS use semantic grid classes:**
+- ❌ `grid grid-cols-1 md:grid-cols-2`
+- ✅ `.grid-two-col`
+
+**ALWAYS use gap tokens for grids:**
+- ❌ `gap-4`, `gap-6`
+- ✅ `gap-unified-sm`, `gap-unified-md`
+
+**Exception:** Single-column grids with specific gaps are acceptable
 
 ### All grids now use `.gap-unified-lg` by default
 
@@ -498,54 +521,29 @@ The footer uses a **2:1:1:1 grid layout** (`.grid-footer`) that emphasizes compa
 
 ### Example Structure
 ```tsx
-<footer className="section-bg-premium-dark">
-  <div className="container-default section-lg">
-    <div className="grid-footer gap-unified-xl">
-      {/* Company info - 2x width */}
-      <div>
-        <nav aria-label="Social Media" className="space-component-sm">
-          <ul className="flex gap-unified-sm" role="list">
-            <li><a href="..." className="footer-icon-link" aria-label="...">...</a></li>
-          </ul>
-        </nav>
-      </div>
-      
-      {/* Navigation sections */}
-      <div>
-        <h3 id="footer-company" className="heading-xs">Company</h3>
-        <nav aria-labelledby="footer-company">
-          <ul className="space-component-xs">...</ul>
-        </nav>
-      </div>
-    </div>
+<footer className="grid-footer gap-unified-xl">
+  {/* Company Info - 2x width */}
+  <div>
+    <h3 className="heading-xs">Company Name</h3>
+    <nav aria-label="Social Media">
+      <ul className="flex gap-unified-sm" role="list">
+        <li><a href="..." className="footer-icon-link">...</a></li>
+      </ul>
+    </nav>
   </div>
+  
+  {/* Navigation Sections */}
+  <nav aria-labelledby="footer-company">
+    <h3 id="footer-company" className="heading-xs">Company</h3>
+    <ul className="space-component-xs">
+      <li><Link to="..." className="footer-nav-link">...</Link></li>
+    </ul>
+  </nav>
 </footer>
 ```
 
 ---
 
-## Container Usage Examples
+## Summary
 
-### Homepage Sections
-- Hero: No explicit container (full-width design)
-- IntroSection: `container-default`
-- Process: `container-wide`
-- Services: `container-default`
-- Education CTA: `container-default`
-- Calculators: `container-wide`
-- Team: Varies by component
-- Meeting Scheduler: `container-narrow`
-- FAQ: `container-narrow`
-- Newsletter: `container-default`
-- CTA: `container-default`
-
-### Other Pages
-- RSVP: `container-wide` (hero), `container-default` (content), `container-narrow` (form)
-- Privacy/Terms: `container-narrow` (focused reading)
-- Education: `container-default` (standard content)
-- 404: `container-narrow` (error message)
-
----
-
-*Last Updated: Phase 1-5 Systematic Cleanup - All hardcoded colors replaced with design tokens*
-*For questions or additions, consult the design team.*
+This guide ensures consistency, maintainability, and scalability across the entire website. Always prefer semantic classes over custom values, use design tokens for all colors, and follow the established patterns for spacing, typography, and layout.

@@ -77,7 +77,7 @@ const TeamDetails = () => {
           </p>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-unified-xl mx-auto">
+        <div className="grid-three-col gap-unified-xl mx-auto">
           {/* Desktop Sidebar */}
           <div className="hidden lg:block col-span-1">
             <div className="space-component-md">
@@ -248,7 +248,7 @@ const TeamDetails = () => {
                   {advisor.credentials.education && advisor.credentials.education.length > 0 && (
                     <div>
                       <h5 className="text-sm font-semibold text-primary mb-2">Education</h5>
-                      <ul className="space-y-2">
+                      <ul className="space-component-xs">
                         {advisor.credentials.education.map((edu, index) => (
                           <li key={index} className="text-body-sm text-muted-foreground flex items-start">
                             <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
@@ -262,7 +262,7 @@ const TeamDetails = () => {
                   {advisor.credentials.certifications && advisor.credentials.certifications.length > 0 && (
                     <div>
                       <h5 className="text-sm font-semibold text-primary mb-2">Certifications</h5>
-                      <ul className="space-y-2">
+                      <ul className="space-component-xs">
                         {advisor.credentials.certifications.map((cert, index) => (
                           <li key={index} className="text-body-sm text-muted-foreground flex items-start">
                             <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
@@ -276,7 +276,7 @@ const TeamDetails = () => {
                   {advisor.credentials.experience && advisor.credentials.experience.length > 0 && (
                     <div>
                       <h5 className="text-sm font-semibold text-primary mb-2">Experience</h5>
-                      <ul className="space-y-2">
+                      <ul className="space-component-xs">
                         {advisor.credentials.experience.map((exp, index) => (
                           <li key={index} className="text-body-sm text-muted-foreground flex items-start">
                             <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>

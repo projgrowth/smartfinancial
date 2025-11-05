@@ -207,7 +207,7 @@ const MeetingScheduler = () => {
                 <TabsContent value="schedule">
                   <form onSubmit={handleSubmit}>
                     {step === 1 && (
-                      <div className="grid-two-col">
+                      <div className="grid-two-col gap-unified-lg">
                         <div>
                           <h3 className="heading-sm text-foreground mb-4">Select a Date</h3>
                           <div className="border border-accent/30 rounded-md p-1 bg-background">
@@ -324,7 +324,7 @@ const MeetingScheduler = () => {
                           </div>
                         </div>
                         
-                        <div className="grid-two-col gap-unified-sm mb-4">
+                        <div className="grid-two-col gap-unified-md mb-4">
                           <div>
                             <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                               Your Name

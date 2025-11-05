@@ -21,7 +21,7 @@ const NewsletterStep3: React.FC<NewsletterStep3Props> = ({
   return (
     <div>
       <h3 className="font-medium text-foreground mb-4">What topics interest you? (Select all that apply)</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="grid-two-col gap-unified-sm">
         {interestTopics.map((topic) => (
           <div
             key={topic.id}

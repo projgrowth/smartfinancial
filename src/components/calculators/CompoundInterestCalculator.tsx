@@ -81,7 +81,7 @@ const CompoundInterestCalculator = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-unified-md">
+        <div className="grid-two-col gap-unified-md">
           <div className="space-y-4">
             <div>
               <label htmlFor="principal" className="block text-sm font-medium text-foreground mb-1">
@@ -188,7 +188,7 @@ const CompoundInterestCalculator = () => {
                       if (active && payload && payload.length) {
                         return (
                           <div className="rounded-lg border bg-background p-2 shadow-sm">
-                            <div className="grid grid-cols-2 gap-2">
+                            <div className="grid-two-col gap-unified-sm">
                               <div className="flex flex-col">
                                 <span className="text-[0.70rem] uppercase text-muted-foreground">
                                   Year
