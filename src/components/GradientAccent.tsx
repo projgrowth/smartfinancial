@@ -77,9 +77,9 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
         >
           <defs>
             <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
-              <stop offset="50%" stopColor="#F59E0B" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.1" />
+              <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.2" />
+              <stop offset="50%" stopColor="hsl(var(--gold))" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.1" />
             </linearGradient>
             <filter id="blurFilter" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur in="SourceGraphic" stdDeviation="15" />

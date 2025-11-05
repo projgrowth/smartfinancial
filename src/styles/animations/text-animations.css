@@ -29,7 +29,7 @@
   
   /* Text animations */
   .text-gradient-animate {
-    background: linear-gradient(90deg, #1e40af, #3b82f6, #60a5fa, #3b82f6, #1e40af);
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--accent) / 0.8), hsl(var(--accent)), hsl(var(--primary)));
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
