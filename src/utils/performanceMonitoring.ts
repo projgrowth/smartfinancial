@@ -52,3 +52,33 @@ export const measureFID = () => {
   
   return () => observer.disconnect();
 };
+
+export const monitorInteractionShifts = () => {
+  if (typeof window === 'undefined' || !('PerformanceObserver' in window)) return;
+  
+  let clickTimestamp = 0;
+  
+  // Track clicks
+  window.addEventListener('click', () => {
+    clickTimestamp = Date.now();
+  });
+  
+  // Monitor shifts after clicks
+  const observer = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      const timeSinceClick = Date.now() - clickTimestamp;
+      if (timeSinceClick < 500 && !(entry as any).hadRecentInput) {
+        console.error('⚠️ Layout shift after click:', {
+          value: (entry as any).value,
+          timeSinceClick: `${timeSinceClick}ms`,
+          sources: (entry as any).sources,
+          element: (entry as any).sources?.[0]?.node
+        });
+      }
+    }
+  });
+  
+  observer.observe({ type: 'layout-shift', buffered: true });
+  
+  return () => observer.disconnect();
+};

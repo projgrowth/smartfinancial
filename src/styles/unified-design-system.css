@@ -3,6 +3,40 @@
 
 @layer components {
   /* ========================================
+     PERFORMANCE OPTIMIZATION - Layout Containment
+     ======================================== */
+  
+  /* Chart stability - prevent layout shift during re-renders */
+  .chart-contain {
+    contain: size layout style;
+    position: relative;
+    transform: translateZ(0); /* Force GPU layer */
+    will-change: contents;
+  }
+
+  /* Prevent chart tooltips from affecting layout */
+  .recharts-wrapper {
+    position: relative !important;
+  }
+
+  .recharts-surface {
+    will-change: transform;
+  }
+
+  /* Section containment for performance */
+  .section-contain {
+    contain: layout style paint;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* ========================================
      1. CSS CUSTOM PROPERTIES & DESIGN TOKENS
      ======================================== */
   

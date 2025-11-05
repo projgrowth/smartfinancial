@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
 import { Info } from 'lucide-react';
@@ -14,7 +13,14 @@ import {
 } from "recharts";
 import { ChartContainer, ChartTooltip } from '@/components/ui/chart';
 
-const CompoundInterestCalculator = () => {
+const CompoundInterestCalculator = React.memo(() => {
+  // Display states (instant updates for UI responsiveness)
+  const [displayPrincipal, setDisplayPrincipal] = useState<string>("10000");
+  const [displayRate, setDisplayRate] = useState<string>("7");
+  const [displayYears, setDisplayYears] = useState<string>("20");
+  const [displayMonthlyContribution, setDisplayMonthlyContribution] = useState<string>("500");
+  
+  // Calculation states (debounced)
   const [principal, setPrincipal] = useState<number>(10000);
   const [rate, setRate] = useState<number>(7);
   const [years, setYears] = useState<number>(20);
@@ -22,7 +28,7 @@ const CompoundInterestCalculator = () => {
   const [result, setResult] = useState<number>(0);
   const [chartData, setChartData] = useState<any[]>([]);
 
-  const calculateCompoundInterest = () => {
+  const calculateCompoundInterest = useCallback(() => {
     let totalAmount = principal;
     let yearlyData = [];
     
@@ -45,14 +51,23 @@ const CompoundInterestCalculator = () => {
     
     setResult(Math.round(totalAmount));
     setChartData(yearlyData);
-  };
+  }, [principal, rate, years, monthlyContribution]);
 
+  // Debounce display values to calculation states
   useEffect(() => {
     const timer = setTimeout(() => {
-      calculateCompoundInterest();
-    }, 100);
+      setPrincipal(Number(displayPrincipal) || 0);
+      setRate(Number(displayRate) || 0);
+      setYears(Number(displayYears) || 1);
+      setMonthlyContribution(Number(displayMonthlyContribution) || 0);
+    }, 750);
     return () => clearTimeout(timer);
-  }, [principal, rate, years, monthlyContribution]);
+  }, [displayPrincipal, displayRate, displayYears, displayMonthlyContribution]);
+
+  // Recalculate when calculation states change
+  useEffect(() => {
+    calculateCompoundInterest();
+  }, [calculateCompoundInterest]);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -62,8 +77,10 @@ const CompoundInterestCalculator = () => {
     }).format(value);
   };
 
+  const memoizedChartData = useMemo(() => chartData, [chartData]);
+
   return (
-    <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
+    <Card className="border-border shadow-sm hover:shadow-md transition-shadow duration-300">
       <CardHeader>
         <div className="flex items-center gap-2">
           <CardTitle>Compound Interest Calculator</CardTitle>
@@ -95,8 +112,8 @@ const CompoundInterestCalculator = () => {
                 <input
                   id="principal"
                   type="number"
-                  value={principal}
-                  onChange={(e) => setPrincipal(Number(e.target.value))}
+                  value={displayPrincipal}
+                  onChange={(e) => setDisplayPrincipal(e.target.value)}
                   className="block w-full pl-8 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 />
               </div>
@@ -111,8 +128,8 @@ const CompoundInterestCalculator = () => {
                 <input
                   id="monthlyContribution"
                   type="number"
-                  value={monthlyContribution}
-                  onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+                  value={displayMonthlyContribution}
+                  onChange={(e) => setDisplayMonthlyContribution(e.target.value)}
                   className="block w-full pl-8 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 />
               </div>
@@ -126,8 +143,8 @@ const CompoundInterestCalculator = () => {
                 <input
                   id="rate"
                   type="number"
-                  value={rate}
-                  onChange={(e) => setRate(Number(e.target.value))}
+                  value={displayRate}
+                  onChange={(e) => setDisplayRate(e.target.value)}
                   className="block w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                   step="0.1"
                   min="0"
@@ -144,8 +161,8 @@ const CompoundInterestCalculator = () => {
               <input
                 id="years"
                 type="number"
-                value={years}
-                onChange={(e) => setYears(Number(e.target.value))}
+                value={displayYears}
+                onChange={(e) => setDisplayYears(e.target.value)}
                 className="block w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 min="1"
                 max="50"
@@ -165,7 +182,7 @@ const CompoundInterestCalculator = () => {
               </p>
             </div>
             
-            <div className="h-52 min-h-[208px]">
+            <div className="h-52 min-h-[208px] chart-contain" style={{ transform: 'translateZ(0)' }}>
               <ChartContainer
                 config={{
                   amount: { theme: { light: "hsl(var(--accent))", dark: "hsl(var(--accent))" } },
@@ -174,7 +191,7 @@ const CompoundInterestCalculator = () => {
                 className="h-full"
               >
                 <LineChart
-                  data={chartData}
+                  data={memoizedChartData}
                   margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -241,6 +258,6 @@ const CompoundInterestCalculator = () => {
       </CardContent>
     </Card>
   );
-};
+});
 
 export default CompoundInterestCalculator;

@@ -18,6 +18,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
+      className="overflow-hidden"
     >
       <PremiumCard 
         variant="faq"
@@ -92,7 +93,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="section-lg relative overflow-hidden section-bg-premium-accent">
+    <section id="faq" className="section-lg relative overflow-hidden section-bg-premium-accent section-contain">
       <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       <div className="container-narrow relative z-10">
         <ScrollReveal>
