@@ -37,7 +37,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       ref={ref as React.RefObject<HTMLDivElement>}
       className={`transition-all ${className}`}
       style={{
-        opacity: show ? 1 : 0,
+        opacity: show ? 1 : 0.01, // Start with minimal opacity instead of 0 to ensure visibility
         transform: show ? 'translateY(0)' : `translateY(${distance})`,
         transitionDuration: prefersReducedMotion ? '0ms' : `${duration}ms`,
         transitionDelay: prefersReducedMotion ? '0ms' : `${delay}ms`,

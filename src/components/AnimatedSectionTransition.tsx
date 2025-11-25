@@ -33,25 +33,25 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
   showIcon = false,
   iconType = 'chevron'
 }) => {
-  // Determine colors based on the color scheme
-  const getColors = () => {
+  // Get SVG gradient colors based on color scheme
+  const getSvgGradient = () => {
     if (fromColor && toColor) {
       return { from: fromColor, to: toColor };
     }
 
     switch (colorScheme) {
       case 'light-to-dark':
-        return { from: 'from-white', to: 'to-charcoal' };
+        return { from: 'hsl(var(--background))', to: 'hsl(var(--charcoal))' };
       case 'dark-to-light':
-        return { from: 'from-charcoal', to: 'to-white' };
+        return { from: 'hsl(var(--charcoal))', to: 'hsl(var(--background))' };
       case 'blue-to-white':
-        return { from: 'from-accent/5', to: 'to-background' };
+        return { from: 'hsl(var(--accent) / 0.05)', to: 'hsl(var(--background))' };
       case 'white-to-blue':
-        return { from: 'from-background', to: 'to-accent/5' };
+        return { from: 'hsl(var(--background))', to: 'hsl(var(--accent) / 0.05)' };
       case 'white-to-dark':
-        return { from: 'from-white', to: 'to-charcoal' };
+        return { from: 'hsl(var(--background))', to: 'hsl(var(--charcoal))' };
       default:
-        return { from: 'from-white', to: 'to-charcoal' };
+        return { from: 'hsl(var(--background))', to: 'hsl(var(--charcoal))' };
     }
   };
 
@@ -147,10 +147,8 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
     );
   };
 
-  const { from, to } = getColors();
-  const customColors = fromColor && toColor 
-    ? { background: `linear-gradient(to ${position === 'bottom' ? 'bottom' : 'top'}, ${fromColor}, ${toColor})` }
-    : {};
+  const gradient = getSvgGradient();
+  const gradientId = `gradient-${colorScheme}-${position}`;
 
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
@@ -168,10 +166,21 @@ const AnimatedSectionTransition: React.FC<AnimatedSectionTransitionProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <linearGradient 
+              id={gradientId} 
+              x1="0%" 
+              y1={position === 'bottom' ? '0%' : '100%'} 
+              x2="0%" 
+              y2={position === 'bottom' ? '100%' : '0%'}
+            >
+              <stop offset="0%" stopColor={gradient.from} />
+              <stop offset="100%" stopColor={gradient.to} />
+            </linearGradient>
+          </defs>
           <path
             d={getPath()}
-            className={customColors ? "" : `fill-current ${from} ${to} bg-gradient-to-b`}
-            style={customColors}
+            fill={`url(#${gradientId})`}
           />
         </svg>
       </div>
