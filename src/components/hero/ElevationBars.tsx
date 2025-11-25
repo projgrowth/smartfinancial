@@ -7,10 +7,10 @@ interface ElevationBarsProps {
 
 const ElevationBars: React.FC<ElevationBarsProps> = ({ className }) => {
   const bars = [
-    { width: 'w-32 md:w-48', opacity: 'opacity-90', delay: '0ms', rotate: 'rotate-[-1deg]' },
-    { width: 'w-40 md:w-56', opacity: 'opacity-80', delay: '0ms', rotate: 'rotate-[0.5deg]' },
-    { width: 'w-48 md:w-64', opacity: 'opacity-70', delay: '0ms', rotate: 'rotate-[-0.5deg]' },
-    { width: 'w-56 md:w-72', opacity: 'opacity-60', delay: '0ms', rotate: 'rotate-[1deg]' },
+    { width: 'w-32 md:w-48', opacity: 'opacity-95', delay: '0ms', rotate: 'rotate-[-1deg]' },
+    { width: 'w-40 md:w-56', opacity: 'opacity-90', delay: '0ms', rotate: 'rotate-[0.5deg]' },
+    { width: 'w-48 md:w-64', opacity: 'opacity-85', delay: '0ms', rotate: 'rotate-[-0.5deg]' },
+    { width: 'w-56 md:w-72', opacity: 'opacity-80', delay: '0ms', rotate: 'rotate-[1deg]' },
   ];
 
   return (
@@ -40,7 +40,7 @@ const ElevationBars: React.FC<ElevationBarsProps> = ({ className }) => {
           style={{
             animationDelay: bar.delay,
             background: 'linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--gold)) 50%, hsl(var(--accent)) 100%)',
-            boxShadow: '0 6px 30px hsl(var(--accent) / 0.5), 0 3px 15px hsl(var(--gold) / 0.4), inset 0 1px 3px hsl(0 0% 100% / 0.4)',
+            boxShadow: '0 8px 40px hsl(var(--accent) / 0.6), 0 4px 20px hsl(var(--gold) / 0.5), inset 0 1px 4px hsl(0 0% 100% / 0.5)',
           }}
         />
       ))}

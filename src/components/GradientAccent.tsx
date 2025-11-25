@@ -48,9 +48,9 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   };
   
   const intensityStyles = {
-    'ultra-low': 'opacity-15',
-    low: 'opacity-55',
-    medium: 'opacity-75',
+    'ultra-low': 'opacity-25',
+    low: 'opacity-65',
+    medium: 'opacity-85',
     high: 'opacity-95',
   };
 
@@ -96,11 +96,11 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
     );
   }
   
-  // Regular circular or blob gradients - only render on desktop
+  // Regular circular or blob gradients - visible on all devices with reduced blur
   return (
     <div
       className={cn(
-        'absolute rounded-full blur-3xl -z-10 hidden lg:block',
+        'absolute rounded-full blur-2xl -z-10',
         variantStyles[variant],
         sizeStyles[size],
         positionStyles[position],
