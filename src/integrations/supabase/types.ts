@@ -14,7 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      meeting_requests: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          preferred_date: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          preferred_date?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          preferred_date?: string | null
+        }
+        Relationships: []
+      }
+      newsletter_subscriptions: {
+        Row: {
+          email: string
+          id: string
+          interests: string[] | null
+          is_active: boolean | null
+          name: string | null
+          subscribed_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          interests?: string[] | null
+          is_active?: boolean | null
+          name?: string | null
+          subscribed_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          interests?: string[] | null
+          is_active?: boolean | null
+          name?: string | null
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
+      rsvp_submissions: {
+        Row: {
+          created_at: string
+          dietary_restrictions: string | null
+          email: string
+          guests: number | null
+          id: string
+          message: string | null
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          dietary_restrictions?: string | null
+          email: string
+          guests?: number | null
+          id?: string
+          message?: string | null
+          name: string
+        }
+        Update: {
+          created_at?: string
+          dietary_restrictions?: string | null
+          email?: string
+          guests?: number | null
+          id?: string
+          message?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
