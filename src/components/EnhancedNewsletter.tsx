@@ -6,6 +6,8 @@ import GradientAccent from './GradientAccent';
 import ThankYouMessage from './newsletter/ThankYouMessage';
 import NewsletterForm from './newsletter/NewsletterForm';
 import { NEWSLETTER_FREQUENCY, INTEREST_TOPICS } from './newsletter/constants';
+import { supabase } from '@/integrations/supabase/client';
+import { newsletterSubscriptionSchema } from '@/lib/formValidation';
 
 const EnhancedNewsletter = () => {
   const [step, setStep] = useState(1);
@@ -25,7 +27,7 @@ const EnhancedNewsletter = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (step === 1 && !email) {
@@ -43,10 +45,55 @@ const EnhancedNewsletter = () => {
     }
     
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      // Validate input
+      const validatedData = newsletterSubscriptionSchema.parse({
+        email: email,
+        name: name || undefined,
+        interests: interests.length > 0 ? interests : undefined,
+      });
+
+      // Check if already subscribed
+      const { data: existing } = await supabase
+        .from('newsletter_subscriptions')
+        .select('id')
+        .eq('email', validatedData.email)
+        .single();
+
+      if (existing) {
+        toast({
+          title: "Already Subscribed",
+          description: "This email is already subscribed to our newsletter.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Insert into database
+      const { error: dbError } = await supabase
+        .from('newsletter_subscriptions')
+        .insert({
+          email: validatedData.email,
+          name: validatedData.name,
+          interests: validatedData.interests,
+        });
+
+      if (dbError) throw dbError;
+
+      // Send notification email
+      await supabase.functions.invoke('send-notification', {
+        body: {
+          type: 'newsletter',
+          data: {
+            email: validatedData.email,
+            name: validatedData.name,
+            interests: validatedData.interests,
+          },
+        },
+      });
+
       setIsSubscribed(true);
       
       toast({
@@ -59,7 +106,16 @@ const EnhancedNewsletter = () => {
       setName('');
       setFrequency('monthly');
       setInterests([]);
-    }, 1200);
+    } catch (error: any) {
+      console.error('Error subscribing to newsletter:', error);
+      toast({
+        title: "Error",
+        description: error.message || "There was an issue subscribing. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetForm = () => {
