@@ -19,7 +19,7 @@ const CTA = () => {
       
       <div className="container-default relative z-10">
         <ScrollReveal>
-          <div className="cta-content-container">
+          <div className="cta-content-container bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl">
             <h2 className="heading-lg space-component-md text-white">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>
@@ -29,7 +29,7 @@ const CTA = () => {
             <Button 
               variant="secondary"
               size="lg"
-              className="btn-premium group relative overflow-hidden"
+              className="btn-premium group relative overflow-hidden hover:shadow-[0_0_30px_hsl(var(--accent)/0.5)]"
               onClick={() => document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })}
               onMouseEnter={preloadMeetingScheduler}
               onFocus={preloadMeetingScheduler}

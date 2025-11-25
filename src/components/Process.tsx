@@ -38,10 +38,10 @@ const Process = () => {
           </ScrollReveal>
 
           <Tabs defaultValue="cards" value={activeView} onValueChange={setActiveView} className="w-full mb-10">
-            <TabsList className="w-full max-w-md mx-auto mb-10 border border-white/20 shadow-lg rounded-full overflow-hidden bg-white/5 backdrop-blur-sm" aria-label="Process view options">
+            <TabsList className="w-full max-w-md mx-auto mb-10 border border-white/30 shadow-lg rounded-full overflow-hidden bg-white/10 backdrop-blur-sm" aria-label="Process view options">
               <TabsTrigger 
                 value="cards" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-white/90 data-[state=active]:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/60 data-[state=active]:shadow-[0_0_15px_hsl(var(--accent)/0.4)] text-white/85 data-[state=active]:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
                 data-state={activeView === "cards" ? "active" : "inactive"}
                 onClick={() => setActiveView("cards")}
                 aria-label="Switch to visual overview of our process"
@@ -50,7 +50,7 @@ const Process = () => {
               </TabsTrigger>
               <TabsTrigger 
                 value="timeline" 
-                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/50 text-white/90 data-[state=active]:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
+                className="flex-1 font-medium py-2.5 rounded-full transition-all duration-300 data-[state=active]:bg-accent/60 data-[state=active]:shadow-[0_0_15px_hsl(var(--accent)/0.4)] text-white/85 data-[state=active]:text-white focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none" 
                 data-state={activeView === "timeline" ? "active" : "inactive"}
                 onClick={() => setActiveView("timeline")}
                 aria-label="Switch to timeline view of our process"

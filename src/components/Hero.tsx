@@ -27,6 +27,7 @@ import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
 import NoiseOverlay from './hero/NoiseOverlay';
 import RadialGradientOverlay from './hero/RadialGradientOverlay';
 import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
+import TrustLine from './hero/TrustLine';
 
 const Hero = () => {
   const location = useLocation();
@@ -130,6 +131,18 @@ const Hero = () => {
                   </span>
                   <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-0" aria-hidden="true" />
                 </Button>
+              </div>
+            </ScrollReveal>
+
+            {/* Trust indicators */}
+            <ScrollReveal 
+              delay={350} 
+              distance="10px" 
+              duration={500}
+              className="will-change-transform"
+            >
+              <div className="mt-8 sm:mt-12">
+                <TrustLine />
               </div>
             </ScrollReveal>
             

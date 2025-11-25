@@ -105,9 +105,12 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
         sizeStyles[size],
         positionStyles[position],
         intensityStyles[intensity],
-        animated && 'animate-[float_20s_ease-in-out_infinite]',
+        animated && 'animate-[float_20s_ease-in-out_infinite] hover:animate-[float_15s_ease-in-out_infinite]',
         className
       )}
+      style={{
+        transition: 'transform 0.5s ease-out',
+      }}
       aria-hidden="true"
     />
   );

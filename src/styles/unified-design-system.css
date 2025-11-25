@@ -773,6 +773,16 @@
   .hero-scroll-indicator {
     @apply touch-target focus-enhanced;
   }
+
+  /* Hero gradient animation for "Elevated" text */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
   
   /* Enhanced Interactive Elements */
   .interactive-accent {
