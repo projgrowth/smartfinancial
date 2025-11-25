@@ -77,7 +77,7 @@
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--gold)));
     --gradient-gold: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold-light)));
     
-    /* Background gradients */
-    --gradient-background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(0 0% 100%) 100%);
+    /* Background gradients - more dynamic with color hints */
+    --gradient-background: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 50% 99%) 50%, hsl(0 0% 100%) 100%);
     --gradient-background-subtle: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
   }
