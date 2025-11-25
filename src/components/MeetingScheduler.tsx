@@ -9,8 +9,9 @@ import { CalendarIcon, Clock, Mail, Phone, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
-import { sanitizeInput, isValidEmail, isValidPhone } from '@/utils/security';
-import { warn } from '@/utils/logger';
+import { sanitizeInput } from '@/utils/security';
+import { supabase } from '@/integrations/supabase/client';
+import { meetingRequestSchema } from '@/lib/formValidation';
 
 const MEETING_TIMES = [
   '9:00 AM', '10:00 AM', '11:00 AM', 
@@ -35,17 +36,6 @@ const MeetingScheduler = () => {
   });
   const [step, setStep] = useState(1);
   const { toast } = useToast();
-  const [webhookUrl, setWebhookUrl] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('zapier_webhook_schedule') || '';
-    }
-    return '';
-  });
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('zapier_webhook_schedule', webhookUrl);
-    }
-  }, [webhookUrl]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -55,63 +45,50 @@ const MeetingScheduler = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Enhanced validation with security checks
-    if (!contactInfo.name.trim() || !contactInfo.email.trim() || !contactInfo.phone.trim()) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Email validation
-    if (!isValidEmail(contactInfo.email)) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Phone validation
-    if (!isValidPhone(contactInfo.phone)) {
-      toast({
-        title: "Invalid Phone",
-        description: "Please enter a valid phone number.",
-        variant: "destructive",
-      });
-      return;
-    }
+    setIsSubmitting(true);
 
     try {
-      const sanitizedWebhook = sanitizeInput(webhookUrl.trim());
+      // Validate input
+      const validatedData = meetingRequestSchema.parse({
+        name: contactInfo.name,
+        email: contactInfo.email,
+        phone: contactInfo.phone,
+        preferred_date: date && time ? `${format(date, 'EEEE, MMMM d, yyyy')} at ${time}` : undefined,
+        message: contactInfo.message || undefined,
+      });
 
-      if (sanitizedWebhook) {
-        await fetch(sanitizedWebhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({ 
-            date: date?.toISOString(),
-            time,
-            meetingType: MEETING_TYPES.find(t => t.id === meetingType)?.name,
-            ...contactInfo,
-            timestamp: new Date().toISOString(),
-            source: 'website'
-          })
+      // Insert into database
+      const { error: dbError } = await supabase
+        .from('meeting_requests')
+        .insert({
+          name: validatedData.name,
+          email: validatedData.email,
+          phone: validatedData.phone,
+          preferred_date: validatedData.preferred_date,
+          message: validatedData.message,
         });
-      } else {
-        warn('No Zapier webhook configured for scheduling. Add one in the Webhook URL field.');
-      }
-      
+
+      if (dbError) throw dbError;
+
+      // Send notification email
+      await supabase.functions.invoke('send-notification', {
+        body: {
+          type: 'meeting',
+          data: {
+            name: validatedData.name,
+            email: validatedData.email,
+            phone: validatedData.phone,
+            preferred_date: validatedData.preferred_date,
+            message: validatedData.message,
+          },
+        },
+      });
+
       toast({
         title: "Meeting Request Submitted!",
-        description: `We'll contact you within 24 hours to confirm your ${MEETING_TYPES.find(t => t.id === meetingType)?.name} for ${format(date as Date, 'EEEE, MMMM d, yyyy')} at ${time}.`,
+        description: `We'll contact you within 24 hours to confirm your ${MEETING_TYPES.find(t => t.id === meetingType)?.name}.`,
       });
-      
+
       // Reset form
       setDate(undefined);
       setTime(null);
@@ -123,30 +100,19 @@ const MeetingScheduler = () => {
         message: ''
       });
       setStep(1);
-    } catch (error) {
-      toast({
-        title: "Request Submitted",
-        description: "We've received your meeting request and will contact you shortly.",
-      });
-      
-      // Reset form even if webhook fails
-      setDate(undefined);
-      setTime(null);
-      setMeetingType('initial');
-      setContactInfo({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-      });
-      setStep(1);
+    } catch (error: any) {
+      console.error('Error submitting meeting request:', error);
       toast({
         title: "Error",
-        description: "There was an issue reaching the webhook. Please check the URL or contact us directly.",
+        description: error.message || "There was an issue submitting your request. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const nextStep = () => {
     if (step === 1 && !date) {
@@ -387,20 +353,6 @@ const MeetingScheduler = () => {
                           />
                         </div>
 
-                        <div className="mt-6">
-                          <label htmlFor="zapierWebhook" className="block text-xs font-medium text-foreground mb-1">
-                            Zapier Webhook URL (optional, site owner)
-                          </label>
-                          <input
-                            type="url"
-                            id="zapierWebhook"
-                            placeholder="https://hooks.zapier.com/..."
-                            value={webhookUrl}
-                            onChange={(e) => setWebhookUrl(e.target.value)}
-                            className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
-                          />
-                          <p className="text-[11px] text-muted-foreground mt-1">If provided, a request is sent to this URL on submit.</p>
-                        </div>
                       </div>
                     )}
                     
@@ -425,8 +377,13 @@ const MeetingScheduler = () => {
                           Continue
                         </Button>
                       ) : (
-                        <Button type="submit">
-                          Schedule Meeting
+                        <Button 
+                          type="submit" 
+                          variant="hero" 
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? "Submitting..." : "Confirm Meeting Request"}
+                          <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       )}
                     </div>
