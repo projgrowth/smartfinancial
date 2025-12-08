@@ -177,7 +177,8 @@
      3. LAYOUT & CONTAINER SYSTEM
      ======================================== */
   
-  .container-unified {
+  .container-unified,
+  .container-default {
     width: 100%;
     max-width: var(--container-default);
     margin-left: auto;
