@@ -6,16 +6,13 @@
  * - Unified gradient mesh background
  * - Trust indicators and credibility badges
  * - Responsive scroll indicator
- * - Special bull shape on /education page
  */
 
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
 import { Button } from '@/components/ui/button';
-import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
 import { preloadMeetingScheduler } from '@/utils/componentPreloader';
@@ -24,8 +21,6 @@ import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
 import TrustLine from './hero/TrustLine';
 
 const Hero = () => {
-  const location = useLocation();
-  const isEducationPage = location.pathname === '/education';
   const isMobile = useIsMobile();
   const { hapticFeedback, getTouchTargetClasses } = useTouchOptimizations();
 
@@ -38,21 +33,7 @@ const Hero = () => {
         background: 'var(--gradient-background)',
       }}
     >
-      {/* Unified Background System */}
       <AnimatedGradientMesh />
-      
-      {/* Bull shape gradient only on education page */}
-      {isEducationPage && (
-        <GradientAccent 
-          variant="bull" 
-          position="center" 
-          size="2xl" 
-          intensity="ultra-low" 
-          shape="bull" 
-          animated 
-          className="opacity-[0.05] mix-blend-screen" 
-        />
-      )}
       
       <div className="container-wide z-10 w-full">
         <div className="max-w-5xl mx-auto text-center">
@@ -95,7 +76,6 @@ const Hero = () => {
               </Button>
             </ScrollReveal>
 
-            {/* Trust indicators */}
             <ScrollReveal delay={150} distance="4px" duration={400}>
               <TrustLine className="mt-4" />
             </ScrollReveal>
@@ -104,7 +84,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Enhanced scroll indicator */}
       <EnhancedScrollIndicator
         onClick={() => {
           smoothScrollTo('schedule');

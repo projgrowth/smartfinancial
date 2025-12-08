@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Menu, X, ChevronRight, BookOpen, Calendar } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { useLocation, Link } from 'react-router-dom';
@@ -13,8 +12,6 @@ import { preloadMeetingScheduler, preloadTeamDetails } from '@/utils/componentPr
 interface NavItem {
   name: string;
   id: string;
-  isLink?: boolean;
-  path?: string;
 }
 
 const Navbar = () => {
@@ -41,23 +38,18 @@ const Navbar = () => {
     const updateNavHeight = () => {
       const h = navRef.current?.offsetHeight ?? 64;
       root.style.setProperty('--nav-h', `${h}px`);
-      // Only set initial once if not set
       if (!root.style.getPropertyValue('--nav-h-initial')) {
         root.style.setProperty('--nav-h-initial', `${h}px`);
       }
     };
 
-    // Initial set
     updateNavHeight();
 
-    // ResizeObserver to track any nav size changes (menu open, font load, breakpoint)
     const ro = new ResizeObserver(() => updateNavHeight());
     if (navRef.current) ro.observe(navRef.current);
 
-    // Update on window resize as a fallback
     window.addEventListener('resize', updateNavHeight);
 
-    // Update after fonts load to avoid jumps
     const fontsReady = (document as any).fonts?.ready as Promise<void> | undefined;
     fontsReady?.then(() => updateNavHeight()).catch(() => updateNavHeight());
 
@@ -66,17 +58,16 @@ const Navbar = () => {
       window.removeEventListener('resize', updateNavHeight);
     };
   }, [isOpen, isScrolled, location.pathname]);
-  // Optimized scroll handling with intersection observer awareness
+
+  // Optimized scroll handling
   useEffect(() => {
-    if (!navIsVisible) return; // Don't run when nav is not visible
+    if (!navIsVisible) return;
     
     let ticking = false;
 
     const measureAndSet = () => {
-      // Update scrolled state
       setIsScrolled(window.scrollY > 10);
 
-      // Only compute active section on home page
       if (!isHomePage) return;
 
       const sections = ['services', 'process', 'team', 'schedule'];
@@ -106,7 +97,6 @@ const Navbar = () => {
       }
     };
 
-    // Initial measurement
     measureAndSet();
 
     window.addEventListener('scroll', onScroll as any, { passive: true } as any);
@@ -115,25 +105,21 @@ const Navbar = () => {
     };
   }, [isHomePage, navIsVisible]);
 
-  // Enhanced navigation with focus management
   const handleNavClick = useCallback((sectionId: string) => {
     setIsOpen(false);
     navigateToSection(sectionId);
   }, [navigateToSection]);
 
-  // Keyboard navigation for mobile menu
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (!isOpen) return;
     
     if (e.key === 'Escape') {
       setIsOpen(false);
-      // Return focus to menu button
       const menuButton = document.querySelector('[aria-expanded="true"]') as HTMLElement;
       menuButton?.focus();
     }
   }, [isOpen]);
 
-  // Focus management for mobile menu
   useEffect(() => {
     if (isOpen && mobileMenuRef.current) {
       const firstFocusable = mobileMenuRef.current.querySelector('a, button') as HTMLElement;
@@ -141,17 +127,11 @@ const Navbar = () => {
     }
   }, [isOpen]);
 
-  const mainNavItems: NavItem[] = [
+  const navItems: NavItem[] = [
     { name: 'Services', id: 'services' },
     { name: 'Process', id: 'process' },
     { name: 'Team', id: 'team' },
     { name: 'Schedule', id: 'schedule' }
-  ];
-
-  const navItems: NavItem[] = [
-    ...mainNavItems,
-    { name: 'RSVP', id: 'rsvp', isLink: true, path: '/rsvp' },
-    { name: 'Education', id: 'education', isLink: true, path: '/education' }
   ];
 
   return (
@@ -185,63 +165,36 @@ const Navbar = () => {
           role="navigation"
           aria-label="Desktop navigation"
         >
-          {navItems.map((item, index) => 
-            item.isLink ? (
-              <Link
-                key={item.id}
-                to={item.path || '/'}
+          {navItems.map((item) => (
+            <a 
+              key={item.id} 
+              href={`#${item.id}`} 
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.id);
+              }}
+              onMouseEnter={() => {
+                if (item.id === 'schedule') preloadMeetingScheduler();
+                if (item.id === 'team') preloadTeamDetails();
+              }}
+              className={cn(
+                "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
+                activeSection === item.id && isHomePage ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+              )}
+              aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
+            >
+              {item.name}
+              <span 
                 className={cn(
-                  "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
-                  location.pathname === item.path 
-                    ? "text-primary" 
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-                aria-current={location.pathname === item.path ? 'page' : undefined}
-              >
-                <span className="inline-flex items-center gap-1">
-                  {item.name === 'RSVP' && <Calendar className="w-3.5 h-3.5" />}
-                  {item.name === 'Education' && <BookOpen className="w-3.5 h-3.5" />}
-                  {item.name}
-                </span>
-                <span 
-                  className={cn(
-                    "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-300",
-                    location.pathname === item.path ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  )} 
-                  aria-hidden="true"
-                />
-              </Link>
-            ) : (
-              <a 
-                key={item.id} 
-                href={`#${item.id}`} 
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.id);
-                }}
-                onMouseEnter={() => {
-                  if (item.id === 'schedule') preloadMeetingScheduler();
-                  if (item.id === 'team') preloadTeamDetails();
-                }}
-                className={cn(
-                  "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
-                  activeSection === item.id && isHomePage ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
-                )}
-                aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
-              >
-                {item.name}
-                <span 
-                  className={cn(
-                    "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-300",
-                    activeSection === item.id && isHomePage ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                  )} 
-                  aria-hidden="true"
-                />
-              </a>
-            )
-          )}
+                  "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-300",
+                  activeSection === item.id && isHomePage ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                )} 
+                aria-hidden="true"
+              />
+            </a>
+          ))}
           <Button 
-             onClick={() => handleNavClick('schedule')}
+            onClick={() => handleNavClick('schedule')}
             onMouseEnter={preloadMeetingScheduler}
             className="group"
             size="sm"
@@ -279,52 +232,29 @@ const Navbar = () => {
         aria-hidden={!isOpen}
       >
         <div className="container-wide section-sm bg-background/95 backdrop-blur-sm flex flex-col space-component-sm">
-          {navItems.map((item, index) => 
-            item.isLink ? (
-              <Link
-                key={item.id}
-                to={item.path || '/'}
-                className={cn(
-                  "py-2 px-3 rounded-md transition-all duration-300 flex items-center touch-target focus-enhanced",
-                  location.pathname === item.path 
-                    ? "bg-primary/10 text-primary" 
-                    : "hover:bg-muted/50"
-                )}
-                data-delay={index}
-                onClick={() => setIsOpen(false)}
-                aria-current={location.pathname === item.path ? 'page' : undefined}
-              >
-                <span className="inline-flex items-center gap-2">
-                  {item.name === 'RSVP' && <Calendar className="w-4 h-4" />}
-                  {item.name === 'Education' && <BookOpen className="w-4 h-4" />}
-                  {item.name}
-                </span>
+          {navItems.map((item, index) => (
+            <a 
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.id);
+              }}
+              className={cn(
+                "py-2 px-3 rounded-md transition-all duration-300 touch-target focus-enhanced",
+                activeSection === item.id && isHomePage 
+                  ? 'bg-primary/10 text-primary' 
+                  : 'hover:bg-muted/50'
+              )}
+              data-delay={index}
+              aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
+            >
+              <span className="inline-flex items-center">
+                {item.name}
                 <ChevronRight className="ml-auto w-4 h-4" />
-              </Link>
-            ) : (
-              <a 
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.id);
-                }}
-                className={cn(
-                  "py-2 px-3 rounded-md transition-all duration-300 touch-target focus-enhanced",
-                  activeSection === item.id && isHomePage 
-                    ? 'bg-primary/10 text-primary' 
-                    : 'hover:bg-muted/50'
-                )}
-                data-delay={index}
-                aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
-              >
-                <span className="inline-flex items-center">
-                  {item.name}
-                  <ChevronRight className="ml-auto w-4 h-4" />
-                </span>
-              </a>
-            )
-          )}
+              </span>
+            </a>
+          ))}
           <Button 
             onClick={() => handleNavClick('schedule')}
             className="w-full justify-center group"

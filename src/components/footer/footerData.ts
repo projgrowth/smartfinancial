@@ -26,8 +26,7 @@ export const socialLinks: SocialLink[] = [
 
 export const companyLinks: NavLink[] = [
   { name: 'Our Team', url: '/#team' },
-  { name: 'Education Center', url: '/education' },
-  { name: 'Case Studies', url: '/#services' },
+  { name: 'FAQ', url: '/#faq' },
 ];
 
 export const serviceLinks: NavLink[] = [
