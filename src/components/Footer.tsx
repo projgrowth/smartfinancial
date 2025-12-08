@@ -78,8 +78,8 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#services" className="footer-nav-link">
-                      Case Studies
+                    <Link to="/#faq" className="footer-nav-link">
+                      FAQ
                     </Link>
                   </li>
                 </ul>

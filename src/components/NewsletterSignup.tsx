@@ -146,7 +146,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 placeholder="https://hooks.zapier.com/..."
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
-                className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background text-foreground transition-colors"
               />
             </div>
           )}

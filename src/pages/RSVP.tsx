@@ -61,7 +61,7 @@ const RSVP = () => {
                   <span className="text-sm font-semibold">FREE Educational Seminar</span>
                 </div>
                 
-                <h1 className="heading-xl mb-4">
+                <h1 className="heading-display-fluid mb-4">
                   Maximize Your Social Security Benefits
                 </h1>
                 
@@ -258,7 +258,7 @@ const RSVP = () => {
                   <CheckCircle2 className="w-5 h-5 text-accent" />
                   What Happens Next
                 </h3>
-                <div className="grid sm:grid-cols-3 gap-4 text-sm">
+                <div className="grid-three-col gap-unified-sm text-sm">
                   <div className="flex flex-col items-center text-center p-3 rounded-lg bg-accent/5">
                     <Mail className="w-6 h-6 text-accent mb-2" />
                     <p className="font-medium text-foreground mb-1">Instant Confirmation</p>
