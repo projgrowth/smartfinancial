@@ -3,7 +3,6 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
-import MicroAnimations from '../ui/micro-animations';
 import NewsletterStep1 from './NewsletterStep1';
 import NewsletterStep2 from './NewsletterStep2';
 import NewsletterStep3 from './NewsletterStep3';

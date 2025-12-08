@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 
 const RetirementCalculator = () => {
   return (
-    <Card className="border-border shadow-sm hover:shadow-md transition-all duration-300">
+    <Card className="border-border shadow-sm hover:shadow-md transition-shadow duration-150">
       <CardHeader>
         <CardTitle>Retirement Calculator</CardTitle>
         <CardDescription>

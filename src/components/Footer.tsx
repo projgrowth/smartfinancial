@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
 import Newsletter from './Newsletter';
 import GradientAccent from './GradientAccent';
-
-import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

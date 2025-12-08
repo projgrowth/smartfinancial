@@ -162,7 +162,7 @@ const MeetingScheduler = () => {
         </ScrollReveal>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="border-accent/30 shadow-sm hover:shadow-md transition-all duration-300">
+          <Card className="border-accent/30 shadow-sm hover:shadow-md transition-shadow duration-150">
             <CardContent className="pt-6">
               <Tabs defaultValue="schedule" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8">

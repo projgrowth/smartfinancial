@@ -60,15 +60,15 @@ export const ScaleOnHover = ({
   className
 }: ScaleOnHoverProps) => {
   const scaleClasses = {
-    sm: 'hover:scale-[1.02]',
-    md: 'hover:scale-[1.05]',
-    lg: 'hover:scale-[1.08]'
+    sm: 'hover:scale-[1.01]',
+    md: 'hover:scale-[1.02]',
+    lg: 'hover:scale-[1.03]'
   };
   
   return (
     <div 
       className={cn(
-        "transition-transform duration-300 ease-out",
+        "transition-transform duration-150 ease-out",
         scaleClasses[scale],
         className
       )}
@@ -114,9 +114,9 @@ export const FloatingElement = ({
   className
 }: FloatingElementProps) => {
   const intensityClasses = {
-    subtle: 'animate-[float_15s_ease-in-out_infinite]',
-    medium: 'animate-[float_10s_ease-in-out_infinite]',
-    strong: 'animate-[float_6s_ease-in-out_infinite]'
+    subtle: 'animate-[float_40s_ease-in-out_infinite]',
+    medium: 'animate-[float_30s_ease-in-out_infinite]',
+    strong: 'animate-[float_20s_ease-in-out_infinite]'
   };
   
   return (

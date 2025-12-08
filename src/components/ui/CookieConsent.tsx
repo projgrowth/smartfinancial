@@ -22,7 +22,7 @@ const CookieConsent = () => {
 
   return (
     <div 
-      className="fixed bottom-0 left-0 right-0 bg-background/98 backdrop-blur-xl text-foreground border-t border-primary/20 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] z-50 shadow-[0_-4px_20px_hsl(var(--primary)/0.1)] animate-fade-in"
+      className="fixed bottom-0 left-0 right-0 bg-background/98 backdrop-blur-md text-foreground border-t border-border p-4 pb-[max(1rem,env(safe-area-inset-bottom))] z-50 shadow-lg animate-fade-in"
       role="dialog"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-description"

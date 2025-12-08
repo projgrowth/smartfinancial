@@ -2,29 +2,29 @@
 @tailwind components;
 
 @layer components {
-  /* Micro-interactions */
+  /* Micro-interactions - Simplified */
   .hover-lift {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-150 ease-out;
   }
   
   .hover-lift:hover {
-    @apply -translate-y-1 shadow-lg;
+    @apply -translate-y-0.5 shadow-md;
   }
   
   .hover-scale {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-150 ease-out;
   }
   
   .hover-scale:hover {
-    @apply scale-105;
+    @apply scale-[1.02];
   }
   
   .hover-glow {
-    @apply transition-all duration-300;
+    @apply transition-all duration-150;
   }
   
   .hover-glow:hover {
-    @apply shadow-[0_0_15px_hsl(var(--gold)/0.2)];
+    @apply shadow-md;
   }
   
   /* Enhanced hover effects */

@@ -86,10 +86,10 @@ const TeamDetails = () => {
                   key={index} 
                   variant="subtle" 
                   size="none" 
-                  className={`p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-300 flex items-center gap-unified-sm ${
+                  className={`p-4 w-full text-left rounded-lg cursor-pointer transition-all duration-150 flex items-center gap-unified-sm ${
                     activeAdvisor === index 
-                      ? 'bg-accent/10 border border-accent/20 shadow-sm scale-105' 
-                      : 'hover:bg-muted hover:scale-102'
+                      ? 'bg-accent/10 border border-accent/20 shadow-sm' 
+                      : 'hover:bg-muted'
                   }`}
                   aria-pressed={activeAdvisor === index}
                   onClick={() => handleAdvisorChange(index)}
@@ -125,7 +125,7 @@ const TeamDetails = () => {
                     <Button
                       variant="subtle"
                       size="none"
-                      className={`p-3 rounded-lg cursor-pointer transition-all duration-300 flex flex-col items-center gap-unified-xs min-w-[120px] ${
+                      className={`p-3 rounded-lg cursor-pointer transition-all duration-150 flex flex-col items-center gap-unified-xs min-w-[120px] ${
                         activeAdvisor === index 
                           ? 'bg-accent/10 border border-accent/20 shadow-sm' 
                           : 'hover:bg-muted'
@@ -163,7 +163,7 @@ const TeamDetails = () => {
             <PremiumCard 
               variant="advisor" 
               size="lg" 
-              className={`lg:p-8 transition-all duration-300 ring-1 ring-border/30 hover:ring-accent/30 hover:shadow-[0_8px_30px_-10px_hsl(var(--accent)/0.2)] ${isTransitioning ? 'opacity-0' : 'opacity-100 animate-fade-in'}`}
+              className={`lg:p-8 transition-all duration-150 ring-1 ring-border/30 hover:ring-accent/30 hover:shadow-lg ${isTransitioning ? 'opacity-0' : 'opacity-100 animate-fade-in'}`}
             >
               {/* Header with Name, Title, and Specialties */}
               <div className="mb-6">

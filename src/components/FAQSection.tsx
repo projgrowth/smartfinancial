@@ -22,7 +22,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     >
       <PremiumCard 
         variant="faq"
-        className={`space-component-sm transition-all duration-300 ${isOpen ? 'ring-2 ring-accent/30 shadow-[0_4px_20px_-5px_hsl(var(--accent)/0.25)]' : 'hover:ring-1 hover:ring-border/50'}`}
+        className={`space-component-sm transition-all duration-150 ${isOpen ? 'ring-1 ring-accent/20 shadow-md' : 'hover:ring-1 hover:ring-border/40'}`}
       >
         <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left">
           <h3 className="heading-xs text-foreground">{question}</h3>

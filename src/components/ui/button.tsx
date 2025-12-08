@@ -5,20 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-250 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:shadow-[0_0_25px_hsl(var(--primary)/0.5)] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 touch-target",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 touch-target",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98] min-h-[44px] shadow-md hover:shadow-lg",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98] min-h-[44px] shadow-sm hover:shadow-md",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:scale-[0.98] min-h-[44px]",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground active:scale-[0.98] min-h-[44px]",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 active:scale-[0.98] min-h-[44px]",
         ghost: "hover:bg-accent hover:text-accent-foreground active:scale-[0.98] min-h-[44px]",
         link: "text-primary underline-offset-4 hover:underline min-h-[44px]",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg active:scale-[0.98] min-h-[44px]",
-        subtle: "border border-input bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground active:scale-[0.98] min-h-[44px]",
+        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg active:scale-[0.98] min-h-[44px]",
+        subtle: "border border-input bg-transparent text-foreground hover:bg-accent/10 active:scale-[0.98] min-h-[44px]",
         bare: "bg-transparent text-current hover:bg-transparent focus-visible:ring-0 focus-visible:outline-none",
-        shimmer: "relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground hover:scale-[1.02] shadow-[0_8px_24px_hsl(var(--primary)/0.3)] hover:shadow-[0_12px_32px_hsl(var(--primary)/0.5),0_0_40px_hsl(var(--primary)/0.3)] overflow-hidden whitespace-nowrap leading-none min-h-[44px] transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-background/30 after:to-transparent after:translate-x-[-100%] hover:after:animate-[shimmer_1s_ease-in-out]",
+        shimmer: "relative bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg overflow-hidden min-h-[44px] after:absolute after:inset-0 after:w-full after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:translate-x-[-100%] hover:after:animate-[shimmer_0.6s_ease-out]",
       },
       size: {
         default: "h-auto min-h-[44px] px-4 py-2",
