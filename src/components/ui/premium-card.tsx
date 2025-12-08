@@ -8,26 +8,26 @@ const premiumCardVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-card border-border/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-accent/30",
-        elevated: "bg-card border-border/50 shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:border-accent/40",
-        premium: "border-border/40 shadow-lg hover:shadow-xl hover:-translate-y-0.5 bg-gradient-to-br from-card via-card to-accent/5",
-        glass: "border-white/20 shadow-lg bg-white/90 backdrop-blur-md hover:bg-white/95 hover:shadow-xl hover:-translate-y-0.5",
-        dark: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-lg text-white hover:-translate-y-0.5",
-        advisor: "border-border/50 shadow-md hover:shadow-lg hover:border-accent/30 rounded-lg bg-card text-card-foreground hover:-translate-y-0.5",
-        timeline: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-lg text-white hover:-translate-y-0.5",
-        info: "bg-card border-border/50 shadow-sm rounded-lg hover:shadow-md hover:-translate-y-0.5",
-        faq: "border-accent/20 rounded-lg overflow-hidden bg-card shadow-sm hover:shadow-md hover:-translate-y-0.5",
+        default: "bg-card border-border/50 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-accent/30",
+        elevated: "bg-card border-border/40 shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-accent/40",
+        premium: "border-border/30 shadow-lg hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-card via-card to-accent/5",
+        glass: "border-white/20 shadow-lg bg-white/90 backdrop-blur-md hover:bg-white/95 hover:shadow-xl hover:-translate-y-1",
+        dark: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-xl text-white hover:-translate-y-1",
+        advisor: "border-border/40 shadow-md hover:shadow-lg hover:border-accent/30 rounded-xl bg-card text-card-foreground hover:-translate-y-1",
+        timeline: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-xl text-white hover:-translate-y-1",
+        info: "bg-card border-border/40 shadow-sm rounded-xl hover:shadow-md hover:-translate-y-1",
+        faq: "border-border/30 rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-md",
       },
       size: {
         xs: "p-3",
         sm: "p-4",
         default: "p-6", 
-        lg: "p-8",
-        xl: "p-10",
+        lg: "p-6 md:p-8",
+        xl: "p-8 md:p-10",
         responsive: "p-4 md:p-6"
       },
       spacing: {
-        tight: "space-y-3",
+        tight: "space-y-2",
         default: "space-y-4",
         relaxed: "space-y-6",
         loose: "space-y-8"

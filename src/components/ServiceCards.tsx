@@ -18,7 +18,7 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
   const { isTouchDevice, hapticFeedback } = useTouchOptimizations();
   
   return (
-    <ScrollReveal delay={delay}>
+    <ScrollReveal delay={delay} distance="8px">
       <PremiumCard 
         variant="elevated" 
         size="lg"
@@ -26,16 +26,16 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
         onClick={() => isTouchDevice && hapticFeedback('light')}
       >
         <PremiumCardHeader>
-          <div className="mb-6 p-4 rounded-xl bg-accent/10 text-accent transition-transform duration-150 group-hover:scale-[1.02] w-fit border border-accent/20">
+          <div className="mb-4 p-4 rounded-xl bg-accent/10 text-accent transition-transform duration-150 group-hover:scale-[1.02] w-fit border border-accent/20">
             {icon}
           </div>
-          <PremiumCardTitle className="heading-sm mb-4">
+          <PremiumCardTitle className="heading-sm mb-2">
             {title}
           </PremiumCardTitle>
         </PremiumCardHeader>
         
         <PremiumCardContent className="card-content-grow">
-          <p className="text-body">
+          <p className="text-body text-muted-foreground">
             {description}
           </p>
         </PremiumCardContent>
@@ -49,7 +49,7 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
             className="flex items-center text-primary font-medium touch-target group/link hover:text-accent transition-colors"
           >
             <span className="mr-2">Get started</span>
-            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+            <ChevronRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
           </button>
         </PremiumCardFooter>
       </PremiumCard>
@@ -84,19 +84,19 @@ const ServiceCards = () => {
   return (
     <section 
       id="services" 
-      className="section-xl section-contain section-bg-accent relative overflow-hidden"
+      className="section-lg section-contain section-bg-accent relative overflow-hidden"
       role="region"
       aria-labelledby="services-heading"
     >
       <GradientAccent variant="subtle" position="top-left" intensity="ultra-low" />
       
       <div className="container-wide relative z-10">
-        <ScrollReveal>
+        <ScrollReveal distance="8px">
           <div className="text-center mb-12">
             <h2 id="services-heading" className="heading-lg mb-4 text-balance">
               Services Tailored to Your Needs
             </h2>
-            <p className="text-body-lg mx-auto text-muted-strong text-balance max-w-2xl">
+            <p className="text-body-lg text-muted-foreground mx-auto text-balance max-w-2xl">
               Strategic financial planning designed for high-performing professionals who expect exceptional results.
             </p>
           </div>
@@ -108,7 +108,7 @@ const ServiceCards = () => {
               key={index} 
               title={service.title} 
               description={service.description} 
-              delay={index * 100} 
+              delay={index * 75} 
               icon={service.icon}
             />
           ))}

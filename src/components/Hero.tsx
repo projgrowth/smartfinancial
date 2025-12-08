@@ -65,14 +65,14 @@ const Hero = () => {
                 onMouseEnter={preloadMeetingScheduler}
                 onFocus={preloadMeetingScheduler}
                 aria-label="Schedule your private strategy call"
-                className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap font-semibold text-base [box-shadow:var(--shadow-button-primary)] hover:[box-shadow:var(--shadow-button-hover)] ${getTouchTargetClasses()}`}
+                className={`group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap font-semibold text-base shadow-lg hover:shadow-xl ${getTouchTargetClasses()}`}
               >
-                <span className="gap-unified-xs">
+                <span className="flex items-center gap-2">
                   <span className="xs:hidden">Schedule</span>
                   <span className="hidden xs:inline sm:hidden">Schedule Call</span>
                   <span className="hidden sm:inline">Schedule Your Private Consultation</span>
+                  <ChevronRight className="w-5 h-5 transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true" />
                 </span>
-                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-0" aria-hidden="true" />
               </Button>
             </ScrollReveal>
 

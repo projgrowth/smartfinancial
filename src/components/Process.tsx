@@ -17,18 +17,21 @@ const Process = () => {
   return (
     <section 
       id="process" 
-      className="section-lg section-bg-premium-dark" 
+      className="section-lg section-bg-premium-dark section-contain" 
+      role="region"
       aria-labelledby="process-heading"
     >
-      <div className="container-default">
-        <ScrollReveal>
-          <h2 id="process-heading" className="heading-lg text-center mb-6 text-white text-balance">
+      <div className="container-default relative z-10">
+        <ScrollReveal distance="8px">
+          <h2 id="process-heading" className="heading-lg text-center mb-4 text-white text-balance">
             <span className="inline-block relative">
               Our Process
               <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
             </span>
           </h2>
-          <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance text-white/90">
+        </ScrollReveal>
+        <ScrollReveal delay={100} distance="6px">
+          <p className="text-center max-w-2xl mx-auto mb-12 text-body-lg text-balance text-white/90">
             Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
           </p>
         </ScrollReveal>
@@ -37,7 +40,7 @@ const Process = () => {
           defaultValue="cards" 
           value={activeView} 
           onValueChange={setActiveView} 
-          className="w-full mb-10"
+          className="w-full mb-8"
         >
           <TabsList className="tabs-list-dark" aria-label="Process view options">
             <TabsTrigger 
@@ -56,7 +59,7 @@ const Process = () => {
             </TabsTrigger>
           </TabsList>
           
-          <div className="relative">
+          <div className="relative mt-8">
             <TabsContent value="cards" className="mt-0 animate-fade-in">
               <ProcessCards steps={steps} activeStep={activeStep} onStepClick={handleStepClick} />
             </TabsContent>

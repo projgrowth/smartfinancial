@@ -10,9 +10,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="section-bg-premium-dark relative overflow-hidden">
+    <footer id="contact" className="section-bg-premium-dark relative overflow-hidden" role="contentinfo">
       {/* Subtle gradient accents */}
-      <GradientAccent variant="blue" position="top-right" intensity="ultra-low" animated />
+      <GradientAccent variant="blue" position="top-right" intensity="ultra-low" />
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       
       <div className="container-default section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))] relative z-10">

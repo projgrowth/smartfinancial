@@ -4,16 +4,6 @@
 @import './styles/unified-design-system.css';
 @import './styles/animations/index.css';
 
-/* Enhanced Effects System */
-:root {
-  /* Text shadows - for gradient text effects */
-  --shadow-text-gradient: drop-shadow(0 2px 12px hsl(var(--accent) / 0.3)) drop-shadow(0 0 20px hsl(var(--gold) / 0.2));
-  
-  /* Button shadows - for CTAs and interactive elements */
-  --shadow-button-primary: 0 8px 24px hsl(var(--accent) / 0.3), 0 4px 12px hsl(var(--gold) / 0.2);
-  --shadow-button-hover: 0 12px 32px hsl(var(--accent) / 0.4), 0 6px 16px hsl(var(--gold) / 0.25);
-}
-
 /* Mobile optimization */
 html {
   scroll-behavior: smooth;

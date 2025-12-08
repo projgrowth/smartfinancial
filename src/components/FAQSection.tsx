@@ -22,20 +22,20 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     >
       <PremiumCard 
         variant="faq"
-        className={`space-component-sm transition-all duration-150 ${isOpen ? 'ring-1 ring-accent/20 shadow-md' : 'hover:ring-1 hover:ring-border/40'}`}
+        className={`transition-all duration-150 ${isOpen ? 'ring-1 ring-accent/20 shadow-md' : 'hover:ring-1 hover:ring-border/40'}`}
       >
         <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left">
-          <h3 className="heading-xs text-foreground">{question}</h3>
-          <div className={`p-1 rounded-full transition-colors ${isOpen ? 'bg-accent/20' : ''}`}>
+          <h3 className="heading-xs text-foreground pr-4">{question}</h3>
+          <div className={`p-1 rounded-full transition-colors flex-shrink-0 ${isOpen ? 'bg-accent/20' : ''}`}>
             {isOpen ? (
-              <ChevronUp className="h-5 w-5 text-accent flex-shrink-0" />
+              <ChevronUp className="h-5 w-5 text-accent" />
             ) : (
-              <ChevronDown className="h-5 w-5 text-primary flex-shrink-0" />
+              <ChevronDown className="h-5 w-5 text-muted-foreground" />
             )}
           </div>
         </CollapsibleTrigger>
-        <CollapsibleContent className="p-6 pt-0 text-body text-muted-foreground border-t border-accent/20">
-          {answer}
+        <CollapsibleContent className="px-6 pb-6 text-body text-muted-foreground border-t border-border/30">
+          <div className="pt-4">{answer}</div>
         </CollapsibleContent>
       </PremiumCard>
     </Collapsible>
@@ -97,27 +97,27 @@ const FAQSection = () => {
   return (
     <section 
       id="faq" 
-      className="section-lg relative overflow-hidden section-bg-premium-accent section-contain"
+      className="section-lg relative overflow-hidden section-bg-subtle section-contain"
       role="region"
       aria-labelledby="faq-heading"
     >
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       <div className="container-narrow relative z-10">
-        <ScrollReveal>
+        <ScrollReveal distance="8px">
           <h2 id="faq-heading" className="heading-lg text-foreground text-center mb-4">
             Frequently Asked Questions
           </h2>
         </ScrollReveal>
         
-        <ScrollReveal delay={100}>
+        <ScrollReveal delay={100} distance="6px">
           <p className="text-center text-body-lg text-muted-foreground max-w-2xl mx-auto mb-12">
             Get answers to the most common questions about our financial planning services and approach.
           </p>
         </ScrollReveal>
         
-        <div className="max-w-3xl mx-auto space-component-sm">
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <ScrollReveal key={index} delay={index * 75}>
+            <ScrollReveal key={index} delay={index * 50} distance="4px">
               <FAQItem question={faq.question} answer={faq.answer} />
             </ScrollReveal>
           ))}

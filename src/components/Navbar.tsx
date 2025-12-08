@@ -141,10 +141,10 @@ const Navbar = () => {
         intersectionRef.current = el;
       }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm section-sm' 
-          : 'bg-transparent border-b border-border section-sm'
+          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-3' 
+          : 'bg-transparent border-b border-transparent py-4'
       )}
       aria-label="Main navigation"
       onKeyDown={handleKeyDown}

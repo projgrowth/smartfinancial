@@ -14,8 +14,8 @@ const CTA = () => {
       aria-labelledby="cta-heading"
     >
       <div className="container-default relative z-10">
-        <ScrollReveal>
-          <div className="cta-content-container bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 shadow-lg">
+        <ScrollReveal distance="8px">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 shadow-lg max-w-4xl mx-auto text-center">
             <h2 id="cta-heading" className="heading-lg text-white mb-6">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>

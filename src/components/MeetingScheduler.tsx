@@ -146,23 +146,23 @@ const MeetingScheduler = () => {
   };
 
   return (
-    <section id="schedule" className="section-lg relative overflow-hidden bg-accent/5" role="region" aria-labelledby="schedule-heading">
-      <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
+    <section id="schedule" className="section-lg relative overflow-hidden section-bg-subtle" role="region" aria-labelledby="schedule-heading">
+      <GradientAccent variant="subtle" position="bottom-right" intensity="ultra-low" />
       <div className="container-narrow relative z-10">
-        <ScrollReveal>
+        <ScrollReveal distance="8px">
           <h2 id="schedule-heading" className="heading-lg text-foreground text-center mb-4">
             Schedule a Meeting
           </h2>
         </ScrollReveal>
         
-        <ScrollReveal delay={100}>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+        <ScrollReveal delay={100} distance="6px">
+          <p className="text-center text-muted-foreground text-body-lg max-w-2xl mx-auto mb-12">
             Book a time to speak with our financial advisors about your goals and how we can help you achieve them.
           </p>
         </ScrollReveal>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="border-accent/30 shadow-sm hover:shadow-md transition-shadow duration-150">
+          <Card className="border-border/50 shadow-md hover:shadow-lg transition-shadow duration-150">
             <CardContent className="pt-6">
               <Tabs defaultValue="schedule" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8">
