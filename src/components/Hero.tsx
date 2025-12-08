@@ -56,14 +56,9 @@ const Hero = () => {
       
       <div className="container-wide z-10 w-full">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="flex flex-col gap-unified-lg">
+          <div className="flex flex-col gap-8">
             
-            <ScrollReveal 
-              distance="20px" 
-              duration={500}
-              delay={0}
-              className="will-change-transform"
-            >
+            <ScrollReveal distance="20px" duration={500}>
               <h1 className="heading-display-fluid tracking-tight text-balance max-w-3xl mx-auto font-bold text-foreground">
                 Your Wealth.{' '}
                 <span className="text-gradient-accent inline-block [filter:var(--shadow-text-gradient)]">
@@ -72,56 +67,37 @@ const Hero = () => {
               </h1>
             </ScrollReveal>
             
-            <ScrollReveal 
-              delay={150} 
-              distance="16px" 
-              duration={500}
-              className="will-change-transform"
-            >
+            <ScrollReveal delay={100} distance="16px" duration={500}>
               <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-muted-foreground font-medium">
                 You've built significant wealth. Now let's preserve it, multiply it, and pass it on — on your terms.
               </p>
             </ScrollReveal>
             
-            <ScrollReveal 
-              delay={250} 
-              distance="12px" 
-              duration={500}
-              className="will-change-transform"
-            >
-              <div className="mt-2 sm:mt-4">
-                <Button
-                  variant="shimmer"
-                  size="lg"
-                  onClick={() => {
-                    smoothScrollTo('schedule');
-                    hapticFeedback('medium');
-                  }}
-                  onMouseEnter={preloadMeetingScheduler}
-                  onFocus={preloadMeetingScheduler}
-                  aria-label="Schedule your private strategy call"
-                  className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap font-semibold text-base [box-shadow:var(--shadow-button-primary)] hover:[box-shadow:var(--shadow-button-hover)] ${getTouchTargetClasses()}`}
-                >
-                  <span className="gap-unified-xs">
-                    <span className="xs:hidden">Schedule</span>
-                    <span className="hidden xs:inline sm:hidden">Schedule Call</span>
-                    <span className="hidden sm:inline">Schedule Your Private Consultation</span>
-                  </span>
-                  <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-0" aria-hidden="true" />
-                </Button>
-              </div>
+            <ScrollReveal delay={200} distance="12px" duration={500}>
+              <Button
+                variant="shimmer"
+                size="lg"
+                onClick={() => {
+                  smoothScrollTo('schedule');
+                  hapticFeedback('medium');
+                }}
+                onMouseEnter={preloadMeetingScheduler}
+                onFocus={preloadMeetingScheduler}
+                aria-label="Schedule your private strategy call"
+                className={`hero-cta-button group w-auto min-w-[220px] mx-auto justify-center whitespace-nowrap font-semibold text-base [box-shadow:var(--shadow-button-primary)] hover:[box-shadow:var(--shadow-button-hover)] ${getTouchTargetClasses()}`}
+              >
+                <span className="gap-unified-xs">
+                  <span className="xs:hidden">Schedule</span>
+                  <span className="hidden xs:inline sm:hidden">Schedule Call</span>
+                  <span className="hidden sm:inline">Schedule Your Private Consultation</span>
+                </span>
+                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-0" aria-hidden="true" />
+              </Button>
             </ScrollReveal>
 
             {/* Trust indicators */}
-            <ScrollReveal 
-              delay={350} 
-              distance="10px" 
-              duration={500}
-              className="will-change-transform"
-            >
-              <div className="mt-8 sm:mt-12">
-                <TrustLine />
-              </div>
+            <ScrollReveal delay={300} distance="10px" duration={500}>
+              <TrustLine className="mt-4" />
             </ScrollReveal>
             
           </div>
