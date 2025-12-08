@@ -3,32 +3,13 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import GradientAccent from './GradientAccent';
 import { ArrowRight } from 'lucide-react';
-import { MicroAnimations } from './ui/micro-animations';
-import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { preloadComponent } from '@/utils/componentPreloader';
 
 const IntroSection = () => {
-  const location = useLocation();
-  const isEducationPage = location.pathname === '/education';
-  
   return (
     <section className="section-md section-contain bg-background relative overflow-hidden">
-      <GradientAccent variant="subtle" position="bottom-left" intensity="low" animated />
-      <GradientAccent variant="gold" position="top-right" size="sm" intensity="low" className="translate-x-1/2" animated />
-      
-      {/* Education-specific bull gradient (ultra subtle) */}
-      {isEducationPage && (
-        <GradientAccent 
-          variant="bull" 
-          position="top-left" 
-          size="xl" 
-          intensity="ultra-low" 
-          shape="bull" 
-          animated 
-          className="opacity-[0.03] mix-blend-screen rotate-45" 
-        />
-      )}
+      <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       
       <div className="container-default relative z-10">
         <div className="mx-auto text-center space-component-lg">
@@ -48,19 +29,15 @@ const IntroSection = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={250} distance="1.5rem">
-            <MicroAnimations.FloatingElement intensity="subtle">
-              <MicroAnimations.ScaleOnHover scale="sm">
-                <Button
-                  variant="outline"
-                  className="group"
-                  onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
-                  onMouseEnter={() => preloadComponent(() => import('./Process'), 'Process')}
-                >
-                  <span className="mr-2">Discover Your Financial Profile</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </MicroAnimations.ScaleOnHover>
-            </MicroAnimations.FloatingElement>
+            <Button
+              variant="outline"
+              className="group"
+              onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+              onMouseEnter={() => preloadComponent(() => import('./Process'), 'Process')}
+            >
+              <span className="mr-2">Discover Your Financial Profile</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
           </ScrollReveal>
         </div>
       </div>

@@ -714,20 +714,6 @@
     background: linear-gradient(to bottom right, hsl(var(--accent) / 0.1), hsl(var(--background)), hsl(var(--accent) / 0.05));
   }
   
-  /* Premium Decorative Elements */
-  .floating-gradient-accent {
-    @apply absolute rounded-full blur-3xl animate-float pointer-events-none;
-  }
-
-  .floating-gradient-accent-primary {
-    @apply floating-gradient-accent;
-    background: linear-gradient(to bottom right, hsl(var(--accent) / 0.12), hsl(var(--accent) / 0.08));
-  }
-
-  .floating-gradient-accent-secondary {
-    @apply floating-gradient-accent;
-    background: linear-gradient(to top left, hsl(var(--accent) / 0.1), hsl(var(--accent) / 0.06));
-  }
 
   /* Footer Specific */
   .footer-nav-link {
@@ -735,7 +721,7 @@
   }
 
   .footer-icon-link {
-    @apply bg-primary-foreground/10 hover:bg-accent/30 hover:rotate-6 active:bg-accent/40 transition-all duration-300 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
+    @apply bg-primary-foreground/10 hover:bg-accent/30 active:bg-accent/40 transition-all duration-300 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
   }
 
   .footer-contact-icon {

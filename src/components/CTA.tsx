@@ -2,20 +2,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
+
 import { ArrowRight } from 'lucide-react';
 import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 
 const CTA = () => {
   return (
     <section id="contact" className="section-bg-premium-dark section-lg relative overflow-hidden">
-      {/* Floating gradient accents using design system */}
-      <div className="floating-gradient-accent-primary left-0 top-0 w-[40%] h-[80%] -translate-x-1/4"></div>
-      <div className="floating-gradient-accent-secondary right-0 bottom-0 w-[40%] h-[80%] translate-x-1/4"></div>
-      
-      {/* Gradient accents for depth */}
-      <GradientAccent variant="blue" position="top-left" intensity="low" animated />
-      <GradientAccent variant="subtle" position="bottom-right" intensity="ultra-low" />
       
       <div className="container-default relative z-10">
         <ScrollReveal>
@@ -29,7 +22,7 @@ const CTA = () => {
             <Button 
               variant="secondary"
               size="lg"
-              className="btn-premium group relative overflow-hidden hover:shadow-[0_0_30px_hsl(var(--accent)/0.5)]"
+              className="btn-premium group relative overflow-hidden hover:shadow-lg"
               onClick={() => document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })}
               onMouseEnter={preloadMeetingScheduler}
               onFocus={preloadMeetingScheduler}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
 import Newsletter from './Newsletter';
 import GradientAccent from './GradientAccent';
-import AnimatedSectionTransition from './AnimatedSectionTransition';
+
 import { Facebook, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -13,15 +13,7 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="section-bg-premium-dark relative overflow-hidden">
-      {/* Add transition from previous section */}
-      <AnimatedSectionTransition 
-        style="wave" 
-        colorScheme="dark-to-light" 
-        position="top" 
-        height={40}
-      />
-      
-      {/* Add gradient accents */}
+      {/* Subtle gradient accents */}
       <GradientAccent variant="blue" position="top-right" intensity="ultra-low" animated />
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       

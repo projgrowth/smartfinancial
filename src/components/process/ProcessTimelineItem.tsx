@@ -29,7 +29,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
             : 'bg-card/10 border-accent/50'
         } transition-colors duration-300`}>
           <div className={`h-4 w-4 rounded-full ${
-            isActive ? 'bg-accent/80 animate-pulse' : 'bg-accent/60'
+            isActive ? 'bg-accent/80' : 'bg-accent/60'
           } transition-all duration-300`}></div>
         </div>
       </div>
@@ -67,7 +67,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
             {isActive ? (
               <>
                 <span>Show less</span>
-                <ChevronUp className="ml-1.5 h-4 w-4 animate-bounce-subtle" aria-hidden="true" />
+                <ChevronUp className="ml-1.5 h-4 w-4" aria-hidden="true" />
               </>
             ) : (
               <>
