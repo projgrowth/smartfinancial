@@ -37,40 +37,43 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </div>
       </div>
       
-      <h3 id={`step-title-${step.id}`} className="heading-sm font-heading font-medium mb-4 flex items-center text-white">
-        {step.title}
+      <div className="mb-4">
+        <h3 id={`step-title-${step.id}`} className="heading-sm font-heading font-medium text-white">
+          {step.title}
+        </h3>
         {step.keyTerms.length > 0 && (
-          <InteractiveTooltip
-            trigger={
-               <Button 
-                 variant="subtle" 
-                 size="xs" 
-                 className="ml-2 text-white cursor-pointer border border-white/40 bg-white/10 px-2 py-0.5 rounded-full hover:bg-white/20 hover:border-white/60 flex items-center focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
-                 aria-label={`Learn more about ${step.title}`}
-               >
-                <span className="sr-only">Learn about key terms</span>
-                <Info className="w-3 h-3 mr-1" />
-                <span>Learn</span>
-              </Button>
-            }
-            content={
-              <div className="space-y-3">
-                <h4 className="font-medium text-sm mb-2 border-b pb-1">Key Financial Concepts:</h4>
-                {step.keyTerms.map((term, idx) => (
-                  <div key={idx} className="mb-3 last:mb-0">
-                    <h5 className="text-sm font-medium">{term.term}</h5>
-                    <p className="text-xs text-foreground/80 mt-0.5 leading-relaxed">{term.definition}</p>
-                  </div>
-                ))}
-              </div>
-            }
-            interactive
-            side="top"
-            variant="info"
-            maxWidth="sm"
-          />
+          <div className="mt-2">
+            <InteractiveTooltip
+              trigger={
+                <Button 
+                  variant="subtle" 
+                  size="xs" 
+                  className="text-white/90 cursor-pointer border border-white/40 bg-white/15 px-2.5 py-1 rounded-full hover:bg-white/25 hover:border-white/60 flex items-center gap-1.5 text-xs focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
+                  aria-label={`Learn more about ${step.title}`}
+                >
+                  <Info className="w-3 h-3" aria-hidden="true" />
+                  <span>Key terms</span>
+                </Button>
+              }
+              content={
+                <div className="space-y-3">
+                  <h4 className="font-medium text-sm mb-2 border-b pb-1">Key Financial Concepts:</h4>
+                  {step.keyTerms.map((term, idx) => (
+                    <div key={idx} className="mb-3 last:mb-0">
+                      <h5 className="text-sm font-medium">{term.term}</h5>
+                      <p className="text-xs text-foreground/80 mt-0.5 leading-relaxed">{term.definition}</p>
+                    </div>
+                  ))}
+                </div>
+              }
+              interactive
+              side="top"
+              variant="info"
+              maxWidth="sm"
+            />
+          </div>
         )}
-      </h3>
+      </div>
       
       <p className="text-body mb-5 leading-relaxed transition-colors duration-300 text-white/90">
         {step.description}
