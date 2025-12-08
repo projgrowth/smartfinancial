@@ -100,11 +100,11 @@ const MeetingScheduler = () => {
         message: ''
       });
       setStep(1);
-    } catch (error: any) {
-      console.error('Error submitting meeting request:', error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
       toast({
         title: "Error",
-        description: error.message || "There was an issue submitting your request. Please try again.",
+        description: errorMessage || "There was an issue submitting your request. Please try again.",
         variant: "destructive",
       });
     } finally {

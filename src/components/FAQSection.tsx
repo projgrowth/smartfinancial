@@ -95,17 +95,22 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="section-lg relative overflow-hidden section-bg-premium-accent section-contain">
-      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
+    <section 
+      id="faq" 
+      className="section-lg relative overflow-hidden section-bg-premium-accent section-contain"
+      role="region"
+      aria-labelledby="faq-heading"
+    >
+      <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       <div className="container-narrow relative z-10">
         <ScrollReveal>
-          <h2 className="heading-lg text-foreground text-center space-component-md">
+          <h2 id="faq-heading" className="heading-lg text-foreground text-center mb-4">
             Frequently Asked Questions
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={100}>
-          <p className="text-center text-body-lg text-muted-foreground max-w-2xl mx-auto space-component-xl">
+          <p className="text-center text-body-lg text-muted-foreground max-w-2xl mx-auto mb-12">
             Get answers to the most common questions about our financial planning services and approach.
           </p>
         </ScrollReveal>

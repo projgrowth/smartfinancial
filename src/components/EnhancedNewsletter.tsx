@@ -106,11 +106,11 @@ const EnhancedNewsletter = () => {
       setName('');
       setFrequency('monthly');
       setInterests([]);
-    } catch (error: any) {
-      console.error('Error subscribing to newsletter:', error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
       toast({
         title: "Error",
-        description: error.message || "There was an issue subscribing. Please try again.",
+        description: errorMessage || "There was an issue subscribing. Please try again.",
         variant: "destructive",
       });
     } finally {

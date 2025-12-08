@@ -24,15 +24,15 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         variant="dark" 
         size="lg"
         active={activeStep === step.id}
-        className="h-full group focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-primary transition-all duration-300"
+        className="h-full group focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-primary transition-all duration-150"
         role="article"
         aria-labelledby={`step-title-${step.id}`}
       >
       <div className="flex items-center justify-between mb-5">
-        <span className="heading-lg text-white font-heading font-medium block group-hover:scale-105 transition-all duration-300">
+        <span className="heading-lg text-white font-heading font-medium block group-hover:scale-[1.02] transition-all duration-150">
           {step.number}
         </span>
-        <div className="text-white group-hover:scale-110 transition-transform duration-300">
+        <div className="text-white group-hover:scale-[1.02] transition-transform duration-150">
           {step.icon}
         </div>
       </div>
@@ -84,7 +84,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         onOpenChange={() => onStepClick(step.id)}
       >
         <CollapsibleTrigger 
-          className="flex items-center text-body-sm text-white/90 hover:text-white transition-colors duration-300 font-medium px-3 py-1.5 rounded-full bg-accent/40 hover:bg-accent/60 border border-accent/60 hover:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+          className="flex items-center text-body-sm text-white/90 hover:text-white transition-colors duration-150 font-medium px-3 py-1.5 rounded-full bg-accent/40 hover:bg-accent/60 border border-accent/60 hover:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
           aria-expanded={activeStep === step.id}
         >
           {activeStep === step.id ? (
@@ -101,7 +101,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </CollapsibleTrigger>
         <CollapsibleContent className="mt-5 space-y-4 border-t border-white/20 pt-4">
           {step.details.map((detail, idx) => (
-            <ScaleOnHover key={idx} scale="sm" className="bg-white/5 p-4 rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-300">
+            <ScaleOnHover key={idx} scale="sm" className="bg-white/5 p-4 rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-150">
               <h4 className="text-body-sm font-medium text-white mb-2">{detail.title}</h4>
               <p className="text-body-sm leading-relaxed text-white/85">{detail.description}</p>
             </ScaleOnHover>
