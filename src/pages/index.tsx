@@ -158,11 +158,9 @@ const Index = () => {
         </Suspense>
       </section>
       
-      <section id="schedule" aria-label="Schedule consultation">
-        <Suspense fallback={<SectionSkeleton height="h-40" />}>
+      <Suspense fallback={<SectionSkeleton height="h-40" />}>
         <MeetingScheduler />
-        </Suspense>
-      </section>
+      </Suspense>
       
       <section id="faq" className="section-contain" aria-label="Frequently asked questions">
         <Suspense fallback={
