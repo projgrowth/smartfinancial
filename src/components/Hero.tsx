@@ -58,7 +58,7 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex flex-col gap-8">
             
-            <ScrollReveal distance="20px" duration={500}>
+            <ScrollReveal distance="8px" duration={400}>
               <h1 className="heading-display-fluid tracking-tight text-balance max-w-3xl mx-auto font-bold text-foreground">
                 Your Wealth.{' '}
                 <span className="text-gradient-accent inline-block [filter:var(--shadow-text-gradient)]">
@@ -67,13 +67,13 @@ const Hero = () => {
               </h1>
             </ScrollReveal>
             
-            <ScrollReveal delay={100} distance="16px" duration={500}>
+            <ScrollReveal delay={50} distance="6px" duration={400}>
               <p className="text-body-lg sm:text-body-xl mx-auto max-w-2xl text-balance text-muted-foreground font-medium">
                 You've built significant wealth. Now let's preserve it, multiply it, and pass it on — on your terms.
               </p>
             </ScrollReveal>
             
-            <ScrollReveal delay={200} distance="12px" duration={500}>
+            <ScrollReveal delay={100} distance="4px" duration={400}>
               <Button
                 variant="shimmer"
                 size="lg"
@@ -96,7 +96,7 @@ const Hero = () => {
             </ScrollReveal>
 
             {/* Trust indicators */}
-            <ScrollReveal delay={300} distance="10px" duration={500}>
+            <ScrollReveal delay={150} distance="4px" duration={400}>
               <TrustLine className="mt-4" />
             </ScrollReveal>
             

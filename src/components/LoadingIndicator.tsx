@@ -1,36 +1,27 @@
-
 import React from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 
 interface LoadingIndicatorProps {
   variant?: 'default' | 'minimal';
 }
 
+/**
+ * Simple loading indicator that matches the page background
+ * to prevent jarring skeleton-to-content transitions
+ */
 const LoadingIndicator = ({ variant = 'default' }: LoadingIndicatorProps) => {
   if (variant === 'minimal') {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm z-50">
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 rounded-full border-t-2 border-gold animate-spin" />
-          <div className="absolute inset-0 rounded-full border-r-2 border-transparent" />
+      <div className="fixed inset-0 flex items-center justify-center bg-background z-50">
+        <div className="relative w-10 h-10">
+          <div className="absolute inset-0 rounded-full border-t-2 border-accent animate-spin" />
         </div>
       </div>
     );
   }
 
+  // Default: simple background that matches the page to prevent flash
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-accent/5 via-background/80 to-gold/10 py-12">
-      <div className="container-default mx-auto">
-        <Skeleton className="h-12 w-3/4 max-w-lg mx-auto mb-8" />
-        <Skeleton className="h-6 w-2/3 max-w-md mx-auto mb-12" />
-        <Skeleton className="h-10 w-48 mx-auto mb-20" />
-        <div className="grid-three-col gap-unified-md">
-          <Skeleton className="h-64 w-full" />
-          <Skeleton className="h-64 w-full" />
-          <Skeleton className="h-64 w-full" />
-        </div>
-      </div>
-    </div>
+    <div className="min-h-screen w-full bg-background" />
   );
 };
 

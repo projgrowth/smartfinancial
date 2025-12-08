@@ -1,5 +1,4 @@
-
-import React, { useRef, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface ScrollRevealProps {
@@ -16,8 +15,8 @@ interface ScrollRevealProps {
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   delay = 0,
-  duration = 500,
-  distance = '2rem',
+  duration = 400,
+  distance = '8px',
   className = '',
   once = true,
   threshold = 0.1,
@@ -41,7 +40,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         transform: show ? 'translateY(0)' : `translateY(${distance})`,
         transitionDuration: prefersReducedMotion ? '0ms' : `${duration}ms`,
         transitionDelay: prefersReducedMotion ? '0ms' : `${delay}ms`,
-        transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1.0)',
+        transitionTimingFunction: 'ease-out',
       }}
     >
       {children}
