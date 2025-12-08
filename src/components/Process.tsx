@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
-import AnimatedSectionTransition from './AnimatedSectionTransition';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import ProcessCards from './process/ProcessCards';
 import ProcessTimeline from './process/ProcessTimeline';
@@ -18,21 +17,18 @@ const Process = () => {
   return (
     <section 
       id="process" 
-      className="section-lg section-bg-premium-dark relative overflow-hidden" 
+      className="section-lg section-bg-premium-dark" 
       aria-labelledby="process-heading"
     >
-      {/* Noise texture via CSS */}
-      <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
-      
-      <div className="container-default relative z-10">
+      <div className="container-default">
         <ScrollReveal>
-          <h2 id="process-heading" className="heading-lg text-center mb-6 text-white text-balance drop-shadow-lg">
+          <h2 id="process-heading" className="heading-lg text-center mb-6 text-white text-balance">
             <span className="inline-block relative">
               Our Process
               <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
             </span>
           </h2>
-          <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance text-white/95">
+          <p className="text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance text-white/90">
             Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
           </p>
         </ScrollReveal>
@@ -70,19 +66,6 @@ const Process = () => {
             </TabsContent>
           </div>
         </Tabs>
-      </div>
-      
-      {/* Section transition */}
-      <div className="relative z-10 mt-8 md:mt-10">
-        <AnimatedSectionTransition 
-          style="curved" 
-          colorScheme="dark-to-light" 
-          position="bottom" 
-          height={60} 
-          showIcon={true} 
-          iconType="chevron" 
-          onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} 
-        />
       </div>
     </section>
   );
