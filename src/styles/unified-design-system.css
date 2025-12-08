@@ -840,21 +840,20 @@
   /* Dark theme tabs list container */
   .tabs-list-dark {
     @apply w-full max-w-md mx-auto mb-10 rounded-full overflow-hidden;
-    @apply border border-white/30 shadow-lg;
-    @apply bg-white/10 backdrop-blur-sm;
+    @apply border border-white/20;
+    @apply bg-white/5;
   }
   
   /* Dark theme tab trigger */
   .tabs-trigger-dark {
     @apply flex-1 font-medium py-2.5 rounded-full;
-    @apply transition-all duration-300;
-    @apply text-white/85;
-    @apply focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none;
+    @apply transition-colors duration-200;
+    @apply text-white/70;
+    @apply focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none;
   }
   
   .tabs-trigger-dark[data-state="active"] {
-    @apply bg-accent/60 text-white;
-    box-shadow: 0 0 15px hsl(var(--accent) / 0.4);
+    @apply bg-white/10 text-white;
   }
   
 }
