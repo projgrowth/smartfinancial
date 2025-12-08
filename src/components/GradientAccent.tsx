@@ -22,36 +22,36 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   shape = 'circle',
 }) => {
   const variantStyles = {
-    blue: 'bg-gradient-to-br from-accent/50 via-accent/35 to-accent/20',
-    subtle: 'bg-gradient-to-br from-muted/60 via-muted/40 to-muted/20',
-    dark: 'bg-gradient-to-br from-primary/40 via-primary/30 to-primary/15',
-    gold: 'bg-gradient-to-br from-gold/60 via-gold/40 to-gold/20',
-    green: 'bg-gradient-to-br from-accent/45 via-accent/30 to-accent/15',
-    purple: 'bg-gradient-to-br from-accent/45 via-primary/30 to-accent/15',
-    bull: 'bg-gradient-to-br from-accent/35 via-gold/25 to-accent/18',
+    blue: 'bg-gradient-to-br from-accent/70 via-accent/50 to-accent/30',
+    subtle: 'bg-gradient-to-br from-accent/40 via-muted/50 to-gold/30',
+    dark: 'bg-gradient-to-br from-primary/50 via-primary/40 to-primary/25',
+    gold: 'bg-gradient-to-br from-gold/70 via-gold/50 to-gold/30',
+    green: 'bg-gradient-to-br from-accent/60 via-accent/45 to-accent/25',
+    purple: 'bg-gradient-to-br from-accent/55 via-primary/40 to-accent/25',
+    bull: 'bg-gradient-to-br from-accent/50 via-gold/40 to-accent/30',
   };
   
   const sizeStyles = {
-    sm: 'w-24 h-24 md:w-40 md:h-40',
-    md: 'w-40 h-40 md:w-56 md:h-56',
-    lg: 'w-56 h-56 md:w-80 md:h-80',
-    xl: 'w-80 h-80 md:w-[28rem] md:h-[28rem]',
-    '2xl': 'w-[28rem] h-[28rem] md:w-[36rem] md:h-[36rem]',
+    sm: 'w-32 h-32 md:w-48 md:h-48',
+    md: 'w-48 h-48 md:w-64 md:h-64',
+    lg: 'w-64 h-64 md:w-96 md:h-96',
+    xl: 'w-96 h-96 md:w-[32rem] md:h-[32rem]',
+    '2xl': 'w-[32rem] h-[32rem] md:w-[40rem] md:h-[40rem]',
   };
   
   const positionStyles = {
-    'top-right': '-top-12 -right-12 md:-top-20 md:-right-20',
-    'bottom-left': '-bottom-12 -left-12 md:-bottom-20 md:-left-20',
-    'top-left': '-top-12 -left-12 md:-top-20 md:-left-20',
-    'bottom-right': '-bottom-12 -right-12 md:-bottom-20 md:-right-20',
+    'top-right': '-top-16 -right-16 md:-top-24 md:-right-24',
+    'bottom-left': '-bottom-16 -left-16 md:-bottom-24 md:-left-24',
+    'top-left': '-top-16 -left-16 md:-top-24 md:-left-24',
+    'bottom-right': '-bottom-16 -right-16 md:-bottom-24 md:-right-24',
     'center': 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2',
   };
   
   const intensityStyles = {
-    'ultra-low': 'opacity-25',
-    low: 'opacity-65',
-    medium: 'opacity-85',
-    high: 'opacity-95',
+    'ultra-low': 'opacity-40',
+    low: 'opacity-75',
+    medium: 'opacity-90',
+    high: 'opacity-100',
   };
 
   // Custom shape for bull
