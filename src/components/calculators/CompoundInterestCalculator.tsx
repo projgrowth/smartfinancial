@@ -80,7 +80,7 @@ const CompoundInterestCalculator = React.memo(() => {
   const memoizedChartData = useMemo(() => chartData, [chartData]);
 
   return (
-    <Card className="border-border shadow-sm hover:shadow-md transition-shadow duration-300">
+    <Card className="border-border shadow-sm hover:shadow-md transition-shadow duration-150">
       <CardHeader>
         <div className="flex items-center gap-2">
           <CardTitle>Compound Interest Calculator</CardTitle>

@@ -38,7 +38,7 @@ export function StickyRSVPButton() {
         variant="hero"
         size="lg"
         onClick={() => smoothScrollTo('rsvp-form')}
-        className="shadow-2xl hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all duration-300"
+        className="shadow-lg hover:shadow-xl transition-all duration-150"
       >
         <Calendar className="w-5 h-5 mr-2" />
         Reserve Your Seat

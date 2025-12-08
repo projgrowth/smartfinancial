@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from 'lucide-react';
-import MicroAnimations from '../ui/micro-animations';
 import { sanitizeInput } from '@/utils/security';
 
 interface SimpleNewsletterFormProps {

@@ -64,8 +64,7 @@ const MetricReveal: React.FC<MetricRevealProps> = ({
 
   return (
     <div className={cn(
-      "text-center transition-all duration-300",
-      isAnimating && "animate-pulse"
+      "text-center transition-all duration-150"
     )}>
       <div className={cn(
         "font-bold transition-all duration-300",
