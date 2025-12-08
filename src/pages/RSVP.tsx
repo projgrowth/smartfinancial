@@ -83,19 +83,11 @@ const RSVP = () => {
                   </div>
                   
                   <div className="space-y-3 mb-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg border border-accent/30 bg-accent/10">
-                      <Clock className="w-5 h-5 text-primary flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-3 rounded-lg border border-muted/30 bg-muted/10">
+                      <Calendar className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                       <div>
-                        <p className="font-semibold text-foreground">Thursday, Nov 13</p>
-                        <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/30">
-                      <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-foreground">Tuesday, Nov 18</p>
-                        <p className="text-sm text-muted-foreground">6:30 PM - 8:00 PM</p>
+                        <p className="font-semibold text-foreground">Next Event TBD</p>
+                        <p className="text-sm text-muted-foreground">Check back soon for upcoming dates</p>
                       </div>
                     </div>
                   </div>
