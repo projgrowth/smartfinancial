@@ -1,15 +1,12 @@
 /**
- * Hero Component - Enhanced Premium Design
+ * Hero Component - Clean Premium Design
  * 
  * Features:
  * - Static headline with gradient accent: "Your Wealth. Elevated."
- * - Elevation bars visual anchor
- * - Enhanced backgrounds with multiple gradients
+ * - Unified gradient mesh background
  * - Trust indicators and credibility badges
- * - Responsive scroll indicator with pulsing ring
- * - Noise texture and radial overlays
+ * - Responsive scroll indicator
  * - Special bull shape on /education page
- * - Smooth animation choreography
  */
 
 import React from 'react';
@@ -22,10 +19,7 @@ import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
 import { preloadMeetingScheduler } from '@/utils/componentPreloader';
-import ElevationBars from './hero/ElevationBars';
 import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
-import NoiseOverlay from './hero/NoiseOverlay';
-import RadialGradientOverlay from './hero/RadialGradientOverlay';
 import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
 import TrustLine from './hero/TrustLine';
 
@@ -44,15 +38,8 @@ const Hero = () => {
         background: 'var(--gradient-background)',
       }}
     >
-      {/* Animated Gradient Mesh */}
+      {/* Unified Background System */}
       <AnimatedGradientMesh />
-      
-      {/* Enhanced Background System */}
-      <GradientAccent variant="blue" position="top-right" size="md" intensity="high" animated />
-      <div className="hidden sm:block">
-        <GradientAccent variant="gold" position="bottom-left" size="md" intensity="high" animated />
-      </div>
-      <GradientAccent variant="purple" position="center" size="lg" intensity="medium" animated />
       
       {/* Bull shape gradient only on education page */}
       {isEducationPage && (
@@ -66,15 +53,6 @@ const Hero = () => {
           className="opacity-[0.05] mix-blend-screen" 
         />
       )}
-      
-      {/* Radial gradient overlay */}
-      <RadialGradientOverlay />
-      
-      {/* Noise texture */}
-      <NoiseOverlay />
-      
-      {/* Elevation Bars - Visual Anchor */}
-      <ElevationBars />
       
       <div className="container-wide z-10 w-full">
         <div className="max-w-5xl mx-auto text-center">
