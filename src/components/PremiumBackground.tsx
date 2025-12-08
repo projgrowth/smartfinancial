@@ -1,138 +1,74 @@
-
 import React, { memo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+/**
+ * PremiumBackground - Subtle ambient background with design token colors
+ * Simplified to use CSS classes and design tokens only
+ */
 const PremiumBackground = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
-  const [isCoarsePointer, setIsCoarsePointer] = useState(false);
   const location = useLocation();
   const isEducationPage = location.pathname === '/education';
 
-  // Detect user preferences and input modality
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const mqCoarse = window.matchMedia('(pointer: coarse)');
-    const handleReduce = () => setReduceMotion(mqReduce.matches);
-    const handleCoarse = () => setIsCoarsePointer(
-      mqCoarse.matches || ('ontouchstart' in window) || ((navigator as any).maxTouchPoints ?? 0) > 0
-    );
-
-    handleReduce();
-    handleCoarse();
-
-    mqReduce.addEventListener?.('change', handleReduce);
-    mqCoarse.addEventListener?.('change', handleCoarse);
-
-    return () => {
-      mqReduce.removeEventListener?.('change', handleReduce);
-      mqCoarse.removeEventListener?.('change', handleCoarse);
-    };
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduceMotion(mq.matches);
+    const handler = () => setReduceMotion(mq.matches);
+    mq.addEventListener?.('change', handler);
+    return () => mq.removeEventListener?.('change', handler);
   }, []);
 
-  // Track mouse position and scroll with rAF throttling
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    if (reduceMotion) return; // respect reduced motion
-
-    let mouseRaf: number | null = null;
-    let scrollRaf: number | null = null;
-    let lastMouseX = 0;
-    let lastMouseY = 0;
-
-    const supportsMouse = !isCoarsePointer;
-
-    let lastUpdate = 0;
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!supportsMouse) return;
-      const now = Date.now();
-      if (now - lastUpdate < 16) return; // Throttle to ~60fps max
-      lastUpdate = now;
-      
-      lastMouseX = e.clientX / window.innerWidth;
-      lastMouseY = e.clientY / window.innerHeight;
-      if (mouseRaf == null) {
-        mouseRaf = window.requestAnimationFrame(() => {
-          setMousePosition({ x: lastMouseX, y: lastMouseY });
-          mouseRaf = null;
-        });
-      }
-    };
-
-    const handleScroll = () => {
-      const y = window.scrollY * 0.05;
-      if (scrollRaf == null) {
-        scrollRaf = window.requestAnimationFrame(() => {
-          setScrollPosition(y);
-          scrollRaf = null;
-        });
-      }
-    };
-
-    if (supportsMouse) window.addEventListener('mousemove', handleMouseMove as any, { passive: true } as any);
-    window.addEventListener('scroll', handleScroll, { passive: true } as any);
-
-    return () => {
-      if (supportsMouse) window.removeEventListener('mousemove', handleMouseMove as any);
-      window.removeEventListener('scroll', handleScroll);
-      if (mouseRaf) cancelAnimationFrame(mouseRaf);
-      if (scrollRaf) cancelAnimationFrame(scrollRaf);
-    };
-  }, [reduceMotion, isCoarsePointer]);
-
-  // Calculate subtle movement based on mouse position
-  const translateX1 = mousePosition.x * -15;
-  const translateY1 = mousePosition.y * -15;
-  const translateX2 = mousePosition.x * 15;
-  const translateY2 = mousePosition.y * 15;
-
   return (
-    <div className="fixed inset-0 w-full h-full -z-20 overflow-hidden pointer-events-none" style={{ contain: 'layout style paint' }}>
-      {/* Enhanced gradient base with subtle color shifts */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-gold/5"></div>
+    <div 
+      className="fixed inset-0 w-full h-full -z-20 overflow-hidden pointer-events-none"
+      style={{ contain: 'layout style paint' }}
+      aria-hidden="true"
+    >
+      {/* Base gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-gold/5" />
       
-      {/* Geometric patterns for texture */}
-      <div className="absolute inset-0 opacity-[0.04]" 
-           style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}></div>
+      {/* Geometric pattern */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.4%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]" />
       
-      {/* Abstract bull shape only on education page (ultra subtle) */}
+      {/* Ambient gradient shapes - using design tokens only */}
+      <div 
+        className={`absolute top-[5%] -left-[10%] w-1/2 h-[90%] bg-gradient-to-br from-accent/15 to-primary/10 blur-3xl rounded-full -rotate-12 ${reduceMotion ? '' : 'animate-[float_45s_ease-in-out_infinite]'}`}
+      />
+      
+      <div 
+        className={`absolute top-[15%] -right-[10%] w-1/2 h-[70%] bg-gradient-to-br from-gold/15 to-gold/10 blur-3xl rounded-full rotate-12 ${reduceMotion ? '' : 'animate-[float_40s_ease-in-out_infinite]'}`}
+      />
+      
+      <div 
+        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-primary/10 to-accent/5 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-[float_35s_ease-in-out_infinite]'}`}
+      />
+      
+      <div 
+        className={`absolute top-[40%] right-[25%] w-1/4 h-1/4 bg-gradient-to-br from-gold/10 to-gold/5 blur-3xl rounded-full ${reduceMotion ? '' : 'animate-[float_30s_ease-in-out_infinite]'}`}
+      />
+      
+      {/* Bull shape only on education page */}
       {isEducationPage && (
-        <div 
-          className="absolute top-[40%] left-[50%] w-[80vw] h-[80vh] transform -translate-x-1/2 -translate-y-1/2 opacity-[0.02] mix-blend-screen"
-          style={{ 
-            transform: `translate(${translateX1 * 1.2}px, ${translateY1 * 1.2 + scrollPosition * 0.2}px) scale(${1 + mousePosition.y * 0.05})`,
-            transition: 'transform 1s ease-out',
-          }}
-        >
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.02]">
           <svg
             viewBox="0 0 400 400"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full"
+            className="w-[80vw] h-[80vh] max-w-[600px] max-h-[600px]"
             preserveAspectRatio="xMidYMid meet"
           >
             <defs>
               <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" className="text-primary" stopOpacity="0.3" />
-                <stop offset="45%" className="text-gold" stopOpacity="0.25" />
-                <stop offset="100%" className="text-primary" stopOpacity="0.2" />
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+                <stop offset="45%" stopColor="hsl(var(--gold))" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
               </linearGradient>
               <filter id="bullBlur" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
               </filter>
             </defs>
-            {/* Larger, more detailed abstract bull silhouette */}
             <path
-              d="M100,110 Q130,90 160,95 Q190,100 220,90 
-                  Q250,80 280,95 Q310,110 320,140 
-                  Q330,170 310,200 Q300,220 320,250 
-                  Q335,280 320,310 Q300,335 270,340 
-                  Q240,345 210,330 Q180,320 150,340 
-                  Q120,355 90,330 Q65,305 50,270 
-                  Q35,235 40,195 Q45,165 60,140 
-                  Q75,115 100,110 Z"
+              d="M100,110 Q130,90 160,95 Q190,100 220,90 Q250,80 280,95 Q310,110 320,140 Q330,170 310,200 Q300,220 320,250 Q335,280 320,310 Q300,335 270,340 Q240,345 210,330 Q180,320 150,340 Q120,355 90,330 Q65,305 50,270 Q35,235 40,195 Q45,165 60,140 Q75,115 100,110 Z"
               fill="url(#bullGradient)"
               filter="url(#bullBlur)"
             />
@@ -140,50 +76,10 @@ const PremiumBackground = () => {
         </div>
       )}
       
-      {/* Interactive blue gradient shape (left) with anchoring */}
-      <div 
-        className={`absolute top-[5%] -left-[10%] w-[50%] h-[90%] bg-gradient-to-br from-accent/20 to-primary/15 blur-3xl rounded-full transform -rotate-12 border border-white/5 will-change-transform ${reduceMotion ? '' : 'animate-float duration-25000'}`}
-        style={{ 
-          transform: `rotate(-12deg) translate(${translateX1}px, ${translateY1 + scrollPosition}px)`,
-          transition: 'transform 0.5s ease-out'
-        }}
-      ></div>
-      
-      {/* Interactive amber gradient shape (right) */}
-      <div 
-        className={`absolute top-[15%] -right-[10%] w-[50%] h-[70%] bg-gradient-to-br from-gold-light/20 to-gold/15 blur-3xl rounded-full transform rotate-12 will-change-transform ${reduceMotion ? '' : 'animate-float duration-20000'}`}
-        style={{ 
-          transform: `rotate(12deg) translate(${translateX2}px, ${translateY2 + scrollPosition * 0.7}px)`,
-          transition: 'transform 0.5s ease-out'
-        }}
-      ></div>
-      
-      {/* Additional subtle shapes with staggered animations and interactivity */}
-      <div 
-        className={`absolute bottom-[10%] left-[20%] w-[30%] h-[30%] bg-gradient-to-br from-primary/15 to-accent/10 blur-3xl rounded-full will-change-transform ${reduceMotion ? '' : 'animate-float duration-15000'}`}
-        style={{ 
-          transform: `translate(${translateX1 * 0.5}px, ${translateY1 * 0.5 - scrollPosition * 0.3}px)`,
-          transition: 'transform 0.7s ease-out'
-        }}
-      ></div>
-      
-      <div 
-        className={`absolute top-[40%] right-[25%] w-[25%] h-[25%] bg-gradient-to-br from-gold-light/15 to-gold/10 blur-3xl rounded-full will-change-transform ${reduceMotion ? '' : 'animate-float duration-12000'}`}
-        style={{ 
-          transform: `translate(${translateX2 * 0.7}px, ${translateY2 * 0.7 - scrollPosition * 0.2}px)`,
-          transition: 'transform 0.7s ease-out'
-        }}
-      ></div>
-      
-      {/* Dots pattern with subtle animation */}
-      <div className="absolute inset-0 opacity-[0.03]" 
-           style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E\")" }}></div>
-      
-      {/* Enhanced noise texture overlay */}
-      <div className="absolute inset-0 bg-noise opacity-[0.015] mix-blend-overlay"></div>
+      {/* Noise overlay */}
+      <div className="absolute inset-0 bg-noise opacity-[0.015] mix-blend-overlay" />
     </div>
   );
 };
 
-// Memoize the component to prevent unnecessary re-renders
 export default memo(PremiumBackground);

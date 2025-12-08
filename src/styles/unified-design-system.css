@@ -372,16 +372,16 @@
   
   /* Touch-Friendly Interactive Elements */
   .touch-target {
-    @apply min-h-[44px] min-w-[44px];
+    @apply min-h-11 min-w-11;
   }
 
   .touch-target-lg {
-    @apply min-h-[48px] min-w-[48px];
+    @apply min-h-12 min-w-12;
   }
 
   /* Enhanced touch interactions */
   .touch-target-enhanced {
-    @apply min-h-[48px] min-w-[48px] inline-flex items-center justify-center;
+    @apply min-h-12 min-w-12 inline-flex items-center justify-center;
     touch-action: manipulation;
     user-select: none;
     -webkit-touch-callout: none;
@@ -617,7 +617,6 @@
   /* Premium Cards with depth */
   .card-premium {
     @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-lg ring-1 ring-border/20;
-    box-shadow: 0 10px 40px hsl(var(--foreground) / 0.08);
   }
   
   .card-premium-interactive {

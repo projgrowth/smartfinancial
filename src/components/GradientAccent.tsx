@@ -100,7 +100,7 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   return (
     <div
       className={cn(
-        'absolute rounded-full blur-2xl -z-10',
+        'absolute rounded-full blur-2xl -z-10 transition-transform duration-500',
         variantStyles[variant],
         sizeStyles[size],
         positionStyles[position],
@@ -108,9 +108,6 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
         animated && 'animate-[float_40s_ease-in-out_infinite]',
         className
       )}
-      style={{
-        transition: 'transform 0.5s ease-out',
-      }}
       aria-hidden="true"
     />
   );
