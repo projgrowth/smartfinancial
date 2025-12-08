@@ -1,15 +1,13 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface GradientAccentProps {
-  variant?: 'blue' | 'subtle' | 'dark' | 'gold' | 'green' | 'purple' | 'bull';
+  variant?: 'blue' | 'subtle' | 'dark' | 'gold' | 'green' | 'purple';
   position?: 'top-right' | 'bottom-left' | 'top-left' | 'bottom-right' | 'center';
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   intensity?: 'low' | 'medium' | 'high' | 'ultra-low';
   animated?: boolean;
-  shape?: 'circle' | 'blob' | 'bull';
 }
 
 const GradientAccent: React.FC<GradientAccentProps> = ({
@@ -19,7 +17,6 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   size = 'lg',
   intensity = 'medium',
   animated = false,
-  shape = 'circle',
 }) => {
   const variantStyles = {
     blue: 'bg-gradient-to-br from-accent/25 via-accent/15 to-accent/10',
@@ -28,7 +25,6 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
     gold: 'bg-gradient-to-br from-gold/25 via-gold/15 to-gold/10',
     green: 'bg-gradient-to-br from-accent/20 via-accent/15 to-accent/10',
     purple: 'bg-gradient-to-br from-accent/20 via-primary/15 to-accent/10',
-    bull: 'bg-gradient-to-br from-accent/15 via-gold/10 to-accent/10',
   };
   
   const sizeStyles = {
@@ -53,50 +49,7 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
     medium: 'opacity-35',
     high: 'opacity-50',
   };
-
-  // Custom shape for bull
-  if (shape === 'bull') {
-    return (
-      <div
-        className={cn(
-          'absolute -z-10',
-          variantStyles[variant],
-          sizeStyles[size],
-          positionStyles[position],
-          intensityStyles[intensity],
-          animated && 'animate-[float_40s_ease-in-out_infinite]',
-          className
-        )}
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full opacity-50 mix-blend-screen"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.2" />
-              <stop offset="50%" stopColor="hsl(var(--gold))" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.1" />
-            </linearGradient>
-            <filter id="blurFilter" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
-            </filter>
-          </defs>
-          {/* Abstract bull silhouette as a fluid shape */}
-          <path
-            d="M45,65 Q60,40 80,50 Q95,58 110,50 Q130,40 150,55 Q165,65 155,85 Q145,105 160,120 Q170,135 160,155 Q150,170 130,165 Q110,160 90,170 Q70,175 55,160 Q40,145 30,125 Q20,105 30,85 Q35,75 45,65 Z"
-            fill="url(#bullGradient)"
-            filter="url(#blurFilter)"
-          />
-        </svg>
-      </div>
-    );
-  }
   
-  // Regular circular or blob gradients - visible on all devices with reduced blur
   return (
     <div
       className={cn(

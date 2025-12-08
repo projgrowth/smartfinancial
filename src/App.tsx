@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -17,8 +16,6 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Education = lazy(() => import("./pages/Education"));
-const RSVP = lazy(() => import("./pages/RSVP"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 
@@ -32,7 +29,6 @@ const ScrollToTop = () => {
 
   return null;
 };
-
 
 // Create a persistent query client
 const queryClient = new QueryClient({
@@ -58,12 +54,9 @@ const App = () => (
             <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Index />} />
-                <Route path="/education" element={<Education />} />
-                <Route path="/rsvp" element={<RSVP />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
               </Route>
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

@@ -11,15 +11,10 @@ const FAQSection = React.lazy(() => import('@/components/FAQSection'));
 const Newsletter = React.lazy(() => import('@/components/Newsletter'));
 const CTA = React.lazy(() => import('@/components/CTA'));
 
-import { FinancialTerm } from '@/components/FinancialTermGlossary';
-import { Button } from '@/components/ui/button';
-import { PremiumCard } from '@/components/ui/premium-card';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { preloadCriticalImages } from '@/utils/imageOptimization';
 import { advisors } from '@/data/team';
 
-// Minimal inline fallback - no elaborate skeletons that mismatch actual content
+// Minimal inline fallback
 const MinimalFallback = () => (
   <div className="section-md bg-background animate-pulse">
     <div className="container-default h-32" />
@@ -28,7 +23,6 @@ const MinimalFallback = () => (
 
 const Index = () => {
   useEffect(() => {
-    // Preload critical team images
     const criticalImages = [
       '/lovable-uploads/razell-smart-new.jpg',
       '/lovable-uploads/9a1a6d90-cf14-4f3e-a92d-2ac3bb515025.png',
@@ -37,7 +31,6 @@ const Index = () => {
     ];
     preloadCriticalImages(criticalImages);
     
-    // Preload lazy components immediately to eliminate skeleton flash
     import('@/components/FinancialCalculator');
     import('@/components/TeamDetails');
     import('@/components/MeetingScheduler');
@@ -78,39 +71,6 @@ const Index = () => {
       <IntroSection />
       <Process />
       <ServiceCards />
-      
-      <section id="education-resources" className="section-md bg-accent/5 relative" aria-labelledby="educational-resources-heading">
-        <div className="container-default">
-          <PremiumCard variant="info" size="lg" className="max-w-4xl mx-auto border-border/50">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-unified-lg">
-              <div className="lg:max-w-[60%] space-component-sm">
-                <h3 id="educational-resources-heading" className="heading-sm text-card-foreground mb-3">
-                  Financial Education for Lake Nona & Orlando Professionals
-                </h3>
-                <p className="text-body text-card-foreground/80 mb-4">
-                  We believe in empowering our Lake Nona and Orlando clients through education. Understanding concepts like <FinancialTerm term="Asset Allocation">asset allocation</FinancialTerm> and <FinancialTerm term="Tax-Loss Harvesting">tax-loss harvesting</FinancialTerm> can help Central Florida professionals make more informed decisions about their financial future.
-                </p>
-                <Link to="/education">
-                  <Button variant="outline" className="group">
-                    <span className="mr-2">Visit Our Knowledge Center</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </Button>
-                </Link>
-              </div>
-              <div className="hidden lg:block lg:max-w-[40%] bg-accent/10 p-4 rounded-lg">
-                <h4 className="heading-xs text-card-foreground mb-2">Featured Financial Concept:</h4>
-                <h5 className="heading-xs text-primary">Orlando Market Insights</h5>
-                <p className="text-body-sm text-card-foreground/70 mt-2">
-                  Understanding Central Florida's unique economic landscape, from tourism impacts to tech sector growth in Lake Nona, helps shape better investment strategies for local professionals.
-                </p>
-                <Link to="/education" className="text-primary hover:text-primary/80 text-body-sm font-medium mt-3 inline-block touch-target focus-enhanced">
-                  Learn more about local market trends
-                </Link>
-              </div>
-            </div>
-          </PremiumCard>
-        </div>
-      </section>
       
       <section id="calculators" className="section-contain" aria-label="Financial calculators">
         <Suspense fallback={<MinimalFallback />}>
