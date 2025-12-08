@@ -163,7 +163,7 @@ const TeamDetails = () => {
             <PremiumCard 
               variant="advisor" 
               size="lg" 
-              className={`lg:p-8 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100 animate-fade-in'}`}
+              className={`lg:p-8 transition-all duration-300 ring-1 ring-border/30 hover:ring-accent/30 hover:shadow-[0_8px_30px_-10px_hsl(var(--accent)/0.2)] ${isTransitioning ? 'opacity-0' : 'opacity-100 animate-fade-in'}`}
             >
               {/* Header with Name, Title, and Specialties */}
               <div className="mb-6">

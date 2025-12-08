@@ -22,17 +22,19 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
     >
       <PremiumCard 
         variant="faq"
-        className="space-component-sm transition-all duration-300"
+        className={`space-component-sm transition-all duration-300 ${isOpen ? 'ring-2 ring-accent/30 shadow-[0_4px_20px_-5px_hsl(var(--accent)/0.25)]' : 'hover:ring-1 hover:ring-border/50'}`}
       >
         <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left">
           <h3 className="heading-xs text-foreground">{question}</h3>
-          {isOpen ? (
-            <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-primary flex-shrink-0" />
-          )}
+          <div className={`p-1 rounded-full transition-colors ${isOpen ? 'bg-accent/20' : ''}`}>
+            {isOpen ? (
+              <ChevronUp className="h-5 w-5 text-accent flex-shrink-0" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-primary flex-shrink-0" />
+            )}
+          </div>
         </CollapsibleTrigger>
-        <CollapsibleContent className="p-6 pt-0 text-body text-muted-foreground border-t border-border">
+        <CollapsibleContent className="p-6 pt-0 text-body text-muted-foreground border-t border-accent/20">
           {answer}
         </CollapsibleContent>
       </PremiumCard>

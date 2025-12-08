@@ -22,11 +22,11 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
       <PremiumCard 
         variant="elevated" 
         size="lg"
-        className={`card-equal-height group ring-1 ring-border/20 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
+        className={`card-equal-height group ring-1 ring-border/20 hover:ring-accent/40 hover:shadow-[0_8px_30px_-10px_hsl(var(--accent)/0.3)] transition-all duration-300 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
         onClick={() => isTouchDevice && hapticFeedback('light')}
       >
         <PremiumCardHeader>
-          <div className="mb-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80">
+          <div className="mb-6 p-3 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.4)] w-fit">
             {icon}
           </div>
           <PremiumCardTitle className="heading-sm mb-4">
@@ -41,10 +41,16 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
         </PremiumCardContent>
         
         <PremiumCardFooter>
-          <div className="flex items-center text-primary font-medium touch-target">
-            <span className="mr-2">Learn more</span>
-            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </div>
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center text-primary font-medium touch-target group/link hover:text-accent transition-colors"
+          >
+            <span className="mr-2">Get started</span>
+            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+          </button>
         </PremiumCardFooter>
       </PremiumCard>
     </ScrollReveal>
