@@ -462,9 +462,9 @@
      9. INTERACTIVE STATES & UTILITIES
      ======================================== */
   
-  /* Hover Effects - Simplified */
+  /* Hover Effects - Unified */
   .hover-lift {
-    @apply transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md;
+    @apply transition-all duration-150 hover:-translate-y-1 hover:shadow-lg;
   }
 
   .hover-scale {
@@ -472,7 +472,7 @@
   }
 
   .hover-glow {
-    @apply transition-shadow duration-150 hover:shadow-md;
+    @apply transition-shadow duration-150 hover:shadow-lg;
   }
 
   /* Navigation Effects */
@@ -616,28 +616,28 @@
   
   /* Premium Cards with depth */
   .card-premium {
-    @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-lg ring-1 ring-border/20;
+    @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-md ring-1 ring-border/20;
   }
   
   .card-premium-interactive {
-    @apply card-premium hover:border-accent/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300;
+    @apply card-premium hover:border-accent/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-150;
   }
 
-  /* Micro-interaction utilities */
+  /* Micro-interaction utilities - simplified */
   .micro-hover-lift {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-150 ease-out;
   }
   
   .micro-hover-lift:hover {
-    @apply -translate-y-2 shadow-2xl;
+    @apply -translate-y-1 shadow-lg;
   }
   
   .micro-hover-scale {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-150 ease-out;
   }
   
   .micro-hover-scale:hover {
-    @apply scale-105;
+    @apply scale-[1.02];
   }
 
   /* Enhanced text colors with better contrast */
@@ -742,14 +742,14 @@
            transition-colors underline focus-enhanced inline-flex items-center gap-2;
   }
 
-  /* CTA Specific */
+  /* CTA Specific - simplified, use container-default for width */
   .cta-content-container {
-    @apply max-w-4xl mx-auto text-center card-premium py-12 md:py-16 px-6 sm:px-10 md:px-12 rounded-2xl;
+    @apply max-w-4xl mx-auto text-center;
   }
   
   /* Hero Specific */
   .hero-cta-button {
-    @apply text-sm sm:text-base px-4 xs:px-5 sm:px-6 focus-enhanced hover:scale-[1.02] transition-transform duration-300;
+    @apply text-sm sm:text-base px-4 sm:px-6 focus-enhanced transition-transform duration-150;
   }
   
   .hero-scroll-indicator {

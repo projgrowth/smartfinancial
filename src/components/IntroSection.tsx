@@ -9,7 +9,7 @@ import { preloadComponent } from '@/utils/componentPreloader';
 const IntroSection = () => {
   return (
     <section 
-      className="section-md section-contain bg-background relative overflow-hidden"
+      className="section-lg section-contain bg-background relative overflow-hidden"
       role="region"
       aria-labelledby="intro-heading"
     >
@@ -17,22 +17,22 @@ const IntroSection = () => {
       
       <div className="container-default relative z-10">
         <div className="mx-auto text-center max-w-3xl">
-          <ScrollReveal distance="20px">
-            <h2 id="intro-heading" className="heading-lg mb-4">
+          <ScrollReveal distance="8px">
+            <h2 id="intro-heading" className="heading-lg mb-6">
               Generic plans weren't made for{' '}
               <span className="text-accent">you</span>.
             </h2>
           </ScrollReveal>
           
-          <ScrollReveal delay={150} distance="16px">
-            <p className="text-body-lg mx-auto mb-8">
+          <ScrollReveal delay={100} distance="6px">
+            <p className="text-body-lg text-muted-foreground mx-auto mb-8">
               We deliver highly personalized financial guidance for business owners, 
               top-tier executives, doctors, and legal professionals—crafted around your distinct ambitions, 
               career trajectory, and lifestyle.
             </p>
           </ScrollReveal>
           
-          <ScrollReveal delay={250} distance="12px">
+          <ScrollReveal delay={150} distance="4px">
             <Button
               variant="outline"
               className="group"
