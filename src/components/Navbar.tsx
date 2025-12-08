@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 import useNavigateSection from '@/hooks/useNavigateSection';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { preloadMeetingScheduler, preloadCaseStudies, preloadTeamDetails } from '@/utils/componentPreloader';
+import { preloadMeetingScheduler, preloadTeamDetails } from '@/utils/componentPreloader';
 
 interface NavItem {
   name: string;

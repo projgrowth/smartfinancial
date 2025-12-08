@@ -60,16 +60,6 @@ export const preloadFAQSection = () => {
   );
 };
 
-/**
- * Preload CaseStudies component
- * Call on hover/focus of case studies navigation
- */
-export const preloadCaseStudies = () => {
-  preloadComponent(
-    () => import('../components/CaseStudies'),
-    'CaseStudies'
-  );
-};
 
 /**
  * Preload TeamDetails component
