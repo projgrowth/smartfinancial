@@ -40,20 +40,7 @@
      1. CSS CUSTOM PROPERTIES & DESIGN TOKENS
      ======================================== */
   
-  :root {
-    /* Container widths - Optimized for content readability and breathing room */
-    --container-narrow: 60rem; /* 960px - for focused content (forms, long text) */
-    --container-default: 80rem; /* 1280px - balanced content width */
-    --container-wide: 90rem; /* 1440px - for visual sections (hero, team) */
-    --gutter: clamp(1.5rem, 3vw, 3rem); /* 24px-48px responsive gutter */
-    
-    /* Chart Colors (using design system colors) */
-    --chart-primary: var(--primary);
-    --chart-success: var(--accent);
-    --chart-warning: 41 94% 57%; /* amber-500 */
-    --chart-error: 0 84% 60%; /* red-500 */
-    --chart-info: 217 91% 60%; /* blue-500 */
-  }
+  /* Note: :root variables are defined in tokens.css for single source of truth */
 
   /* ========================================
      2. TYPOGRAPHY SYSTEM - FLUID & CONSISTENT
@@ -65,7 +52,7 @@
     font-size: clamp(2.25rem, 5vw + 0.5rem, 4.75rem);
     line-height: 1.05;
     letter-spacing: -0.025em;
-    @apply font-heading font-medium tracking-tight text-foreground;
+    @apply font-heading font-medium tracking-tight;
   }
 
   /* Large Heading - Section headers */
@@ -73,7 +60,7 @@
     font-size: clamp(1.75rem, 3.5vw + 0.5rem, 2.5rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
-    @apply font-heading font-medium tracking-tight text-foreground;
+    @apply font-heading font-medium tracking-tight;
   }
 
   /* Medium Heading - Subsections */
@@ -81,21 +68,21 @@
     font-size: clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem);
     line-height: 1.25;
     letter-spacing: -0.005em;
-    @apply font-heading font-medium tracking-tight text-foreground;
+    @apply font-heading font-medium tracking-tight;
   }
 
   /* Small Heading - Card titles */
   .heading-sm {
     font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
     line-height: 1.3;
-    @apply font-heading font-medium tracking-tight text-foreground;
+    @apply font-heading font-medium tracking-tight;
   }
 
   /* Extra Small Heading - Component titles */
   .heading-xs {
     font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
     line-height: 1.35;
-    @apply font-heading font-medium tracking-tight text-foreground;
+    @apply font-heading font-medium tracking-tight;
   }
 
   /* Extra Large Heading - Page titles, hero-level (between display and lg) */
@@ -103,7 +90,7 @@
     font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
-    @apply font-heading font-medium tracking-tight text-foreground;
+    @apply font-heading font-medium tracking-tight;
   }
 
   /* Body Text Scale - Proportional to headings */
@@ -588,13 +575,9 @@
     @apply content-[''] absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOEgwdjE4aDM2eiIgZmlsbD0iI0YxRjVGOSIvPjwvZz48L3N2Zz4=')] opacity-5 pointer-events-none z-0;
   }
 
-  /* Dividers */
-  .divider {
-    @apply w-full h-px bg-slate-200;
-  }
-
+  /* Dividers - use design tokens, not hardcoded colors */
   .divider-vertical {
-    @apply h-full w-px bg-slate-200;
+    @apply h-full w-px bg-border;
   }
 
   .divider-accent {
@@ -846,27 +829,4 @@
   
   /* Button premium classes removed - use Button component variants instead */
   
-  /* ========================================
-     13. PERFORMANCE OPTIMIZATION UTILITIES
-     ======================================== */
-  
-  /* Layout containment - Isolates sections to prevent cross-section layout shifts */
-  .section-contain {
-    contain: layout style paint;
-  }
-
-  /* Chart containment - Reserves space to prevent chart loading shifts */
-  .chart-contain {
-    contain: size layout style;
-    min-height: 13rem; /* 208px = h-52 */
-  }
-
-  /* GPU acceleration hints */
-  .will-change-transform {
-    will-change: transform;
-  }
-
-  .will-change-opacity {
-    will-change: opacity;
-  }
 }

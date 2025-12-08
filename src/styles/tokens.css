@@ -65,6 +65,13 @@
     --chart-error: 0 84.2% 60.2%;
     --chart-info: 210 100% 60%;
     
+    /* ========== LAYOUT TOKENS ========== */
+    /* Container widths - Optimized for content readability */
+    --container-narrow: 60rem; /* 960px - for focused content (forms, long text) */
+    --container-default: 80rem; /* 1280px - balanced content width */
+    --container-wide: 90rem; /* 1440px - for visual sections (hero, team) */
+    --gutter: clamp(1.5rem, 3vw, 3rem); /* 24px-48px responsive gutter */
+    
     /* ========== SEMANTIC OPACITY SCALE ========== */
     /* Use with color variables: hsl(var(--foreground) / 0.8) */
     --opacity-primary: 1.0;      /* 100% - Full strength */
