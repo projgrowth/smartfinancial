@@ -20,30 +20,22 @@ const AnimatedGradientMesh: React.FC<AnimatedGradientMeshProps> = ({ className }
       )}
       aria-hidden="true"
     >
-      {/* Primary accent blob - top right */}
+      {/* Primary accent blob - top right - subtle wash */}
       <div 
-        className="absolute top-[5%] right-[5%] w-[min(600px,80vw)] h-[min(600px,80vw)] rounded-full blur-[60px] opacity-70 animate-float"
+        className="absolute top-[5%] right-[5%] w-[min(600px,80vw)] h-[min(600px,80vw)] rounded-full blur-[100px] opacity-20 animate-float"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--accent)) 0%, hsl(var(--accent) / 0.6) 50%, transparent 80%)',
-          animationDuration: '20s',
+          background: 'radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)',
+          animationDuration: '45s',
         }}
       />
       
-      {/* Gold blob - bottom left */}
+      {/* Gold blob - bottom left - subtle wash */}
       <div 
-        className="absolute bottom-[10%] left-[5%] w-[min(500px,70vw)] h-[min(500px,70vw)] rounded-full blur-[50px] opacity-60 animate-float"
+        className="absolute bottom-[10%] left-[5%] w-[min(500px,70vw)] h-[min(500px,70vw)] rounded-full blur-[100px] opacity-15 animate-float"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--gold)) 0%, hsl(var(--gold) / 0.5) 50%, transparent 80%)',
-          animationDuration: '25s',
+          background: 'radial-gradient(circle, hsl(var(--gold)) 0%, transparent 70%)',
+          animationDuration: '50s',
           animationDelay: '5s',
-        }}
-      />
-      
-      {/* Radial vignette overlay - subtle edge fade */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse at center, transparent 40%, hsl(var(--background) / 0.3) 100%)',
         }}
       />
     </div>
