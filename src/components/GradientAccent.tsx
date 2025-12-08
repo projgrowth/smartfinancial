@@ -22,13 +22,13 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   shape = 'circle',
 }) => {
   const variantStyles = {
-    blue: 'bg-gradient-to-br from-accent/70 via-accent/50 to-accent/30',
-    subtle: 'bg-gradient-to-br from-accent/40 via-muted/50 to-gold/30',
-    dark: 'bg-gradient-to-br from-primary/50 via-primary/40 to-primary/25',
-    gold: 'bg-gradient-to-br from-gold/70 via-gold/50 to-gold/30',
-    green: 'bg-gradient-to-br from-accent/60 via-accent/45 to-accent/25',
-    purple: 'bg-gradient-to-br from-accent/55 via-primary/40 to-accent/25',
-    bull: 'bg-gradient-to-br from-accent/50 via-gold/40 to-accent/30',
+    blue: 'bg-gradient-to-br from-accent/25 via-accent/15 to-accent/10',
+    subtle: 'bg-gradient-to-br from-accent/15 via-muted/20 to-gold/10',
+    dark: 'bg-gradient-to-br from-primary/20 via-primary/15 to-primary/10',
+    gold: 'bg-gradient-to-br from-gold/25 via-gold/15 to-gold/10',
+    green: 'bg-gradient-to-br from-accent/20 via-accent/15 to-accent/10',
+    purple: 'bg-gradient-to-br from-accent/20 via-primary/15 to-accent/10',
+    bull: 'bg-gradient-to-br from-accent/15 via-gold/10 to-accent/10',
   };
   
   const sizeStyles = {
@@ -48,10 +48,10 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   };
   
   const intensityStyles = {
-    'ultra-low': 'opacity-40',
-    low: 'opacity-75',
-    medium: 'opacity-90',
-    high: 'opacity-100',
+    'ultra-low': 'opacity-15',
+    low: 'opacity-25',
+    medium: 'opacity-35',
+    high: 'opacity-50',
   };
 
   // Custom shape for bull
@@ -64,7 +64,7 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
           sizeStyles[size],
           positionStyles[position],
           intensityStyles[intensity],
-          animated && 'animate-[float_25s_ease-in-out_infinite]',
+          animated && 'animate-[float_40s_ease-in-out_infinite]',
           className
         )}
         aria-hidden="true"
@@ -105,7 +105,7 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
         sizeStyles[size],
         positionStyles[position],
         intensityStyles[intensity],
-        animated && 'animate-[float_20s_ease-in-out_infinite] hover:animate-[float_15s_ease-in-out_infinite]',
+        animated && 'animate-[float_40s_ease-in-out_infinite]',
         className
       )}
       style={{

@@ -11,7 +11,7 @@ const MeetingScheduler = React.lazy(() => import('@/components/MeetingScheduler'
 const FAQSection = React.lazy(() => import('@/components/FAQSection'));
 const Newsletter = React.lazy(() => import('@/components/Newsletter'));
 const CTA = React.lazy(() => import('@/components/CTA'));
-import AnimatedSectionTransition from '@/components/AnimatedSectionTransition';
+
 import { Skeleton } from '@/components/ui/skeleton';
 import { FinancialTerm } from '@/components/FinancialTermGlossary';
 import { Button } from '@/components/ui/button';
@@ -72,17 +72,6 @@ const Index = () => {
       
       <Hero />
       <IntroSection />
-      
-      <AnimatedSectionTransition
-          style="wave" 
-          colorScheme="white-to-dark" 
-          position="bottom" 
-          height={60}
-          showIcon={true}
-          iconType="chevron"
-        onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
-      />
-      
       <Process />
       <ServiceCards />
       
