@@ -22,7 +22,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
   return (
     <div className="relative" role="article" aria-labelledby={`timeline-step-title-${step.id}`}>
       {/* Enhanced timeline marker with animation */}
-      <div className="absolute -left-[41px] top-0">
+      <div className="absolute -left-10 top-0">
         <div className={`p-1.5 rounded-full border-4 ${
           isActive 
             ? 'bg-accent border-accent/70 shadow-md shadow-accent/20' 

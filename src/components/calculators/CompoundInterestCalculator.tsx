@@ -182,7 +182,7 @@ const CompoundInterestCalculator = React.memo(() => {
               </p>
             </div>
             
-            <div className="h-52 min-h-[208px] chart-contain" style={{ transform: 'translateZ(0)' }}>
+            <div className="h-52 min-h-52 chart-contain">
               <ChartContainer
                 config={{
                   amount: { theme: { light: "hsl(var(--accent))", dark: "hsl(var(--accent))" } },

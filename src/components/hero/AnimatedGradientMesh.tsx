@@ -8,8 +8,7 @@ interface AnimatedGradientMeshProps {
 /**
  * AnimatedGradientMesh - Unified hero background system
  * 
- * Consolidates gradient blobs and radial vignette into single component.
- * Uses design system tokens for colors.
+ * Uses design system tokens for colors with CSS-only animations.
  */
 const AnimatedGradientMesh: React.FC<AnimatedGradientMeshProps> = ({ className }) => {
   return (
@@ -22,21 +21,12 @@ const AnimatedGradientMesh: React.FC<AnimatedGradientMeshProps> = ({ className }
     >
       {/* Primary accent blob - top right - subtle wash */}
       <div 
-        className="absolute top-[5%] right-[5%] w-[min(600px,80vw)] h-[min(600px,80vw)] rounded-full blur-[100px] opacity-20 animate-float"
-        style={{
-          background: 'radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)',
-          animationDuration: '45s',
-        }}
+        className="absolute top-[5%] right-[5%] w-[min(600px,80vw)] aspect-square rounded-full blur-[100px] opacity-20 animate-[float_45s_ease-in-out_infinite] bg-gradient-radial from-accent to-transparent"
       />
       
       {/* Gold blob - bottom left - subtle wash */}
       <div 
-        className="absolute bottom-[10%] left-[5%] w-[min(500px,70vw)] h-[min(500px,70vw)] rounded-full blur-[100px] opacity-15 animate-float"
-        style={{
-          background: 'radial-gradient(circle, hsl(var(--gold)) 0%, transparent 70%)',
-          animationDuration: '50s',
-          animationDelay: '5s',
-        }}
+        className="absolute bottom-[10%] left-[5%] w-[min(500px,70vw)] aspect-square rounded-full blur-[100px] opacity-15 animate-[float_50s_ease-in-out_infinite_5s] bg-gradient-radial from-gold to-transparent"
       />
     </div>
   );

@@ -290,10 +290,7 @@ const Navbar = () => {
                     ? "bg-primary/10 text-primary" 
                     : "hover:bg-muted/50"
                 )}
-                style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  animationDelay: `${index * 50}ms`
-                }}
+                data-delay={index}
                 onClick={() => setIsOpen(false)}
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
@@ -318,10 +315,7 @@ const Navbar = () => {
                     ? 'bg-primary/10 text-primary' 
                     : 'hover:bg-muted/50'
                 )}
-                style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  animationDelay: `${index * 50}ms`
-                }}
+                data-delay={index}
                 aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
               >
                 <span className="inline-flex items-center">

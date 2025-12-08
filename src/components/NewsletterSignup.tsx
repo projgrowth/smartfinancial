@@ -137,7 +137,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
           </div>
           { (showWebhook ?? !compact) && (
             <div className="mt-2">
-              <label htmlFor="newsletterWebhook" className={`${compact ? 'text-[11px]' : 'text-xs'} font-medium text-muted-foreground block mb-1`}>
+              <label htmlFor="newsletterWebhook" className={`${compact ? 'text-xs' : 'text-xs'} font-medium text-muted-foreground block mb-1`}>
                 Zapier Webhook URL (optional, site owner)
               </label>
               <input

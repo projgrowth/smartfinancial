@@ -64,8 +64,22 @@ export default {
 					DEFAULT: 'hsl(var(--gold))',
 					light: 'hsl(var(--gold-light))',
 					dark: 'hsl(var(--gold-dark))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				info: {
+					DEFAULT: 'hsl(var(--info))',
+					foreground: 'hsl(var(--info-foreground))'
 				}
 			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

@@ -9,10 +9,10 @@ interface LoadingIndicatorProps {
 const LoadingIndicator = ({ variant = 'default' }: LoadingIndicatorProps) => {
   if (variant === 'minimal') {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm z-50">
+      <div className="fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm z-50">
         <div className="relative w-12 h-12">
-          <div className="absolute inset-0 rounded-full border-t-2 border-amber-400 animate-spin"></div>
-          <div className="absolute inset-0 rounded-full border-r-2 border-transparent"></div>
+          <div className="absolute inset-0 rounded-full border-t-2 border-gold animate-spin" />
+          <div className="absolute inset-0 rounded-full border-r-2 border-transparent" />
         </div>
       </div>
     );
