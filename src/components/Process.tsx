@@ -26,7 +26,7 @@ const Process = () => {
         
         <div className="container-default relative z-10">
           <ScrollReveal>
-            <h2 id="process-heading" className="heading-lg text-center mb-6 text-white text-balance drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+            <h2 id="process-heading" className="heading-lg text-center mb-6 text-white text-balance drop-shadow-lg">
               <span className="inline-block relative">
                 Our Process
                 <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></span>

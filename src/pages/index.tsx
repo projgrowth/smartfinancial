@@ -127,7 +127,7 @@ const Index = () => {
               <Skeleton className="h-10 w-2/3 mx-auto mb-4" />
               <Skeleton className="h-6 w-1/2 mx-auto" />
             </div>
-            <div className="grid-two-col gap-8">
+            <div className="grid-two-col gap-unified-lg">
               <CalculatorSkeleton />
               <CalculatorSkeleton />
             </div>
