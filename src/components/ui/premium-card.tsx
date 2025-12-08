@@ -8,15 +8,15 @@ const premiumCardVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-border shadow-sm hover:shadow-md hover:-translate-y-1",
-        elevated: "border-border/50 shadow-md hover:shadow-lg hover:-translate-y-1",
-        premium: "border-border/30 shadow-lg hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-background/95 to-background/80 backdrop-blur-sm",
-        glass: "border-white/20 shadow-lg bg-white/80 backdrop-blur-md hover:bg-white/90 hover:shadow-xl hover:-translate-y-1",
-        dark: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-lg text-white hover:-translate-y-1 hover:border-accent/50",
-        advisor: "border-border shadow-sm hover:shadow-md hover:border-primary/20 rounded-lg bg-card text-card-foreground hover:-translate-y-1",
-        timeline: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-lg text-white hover:-translate-y-1",
-        info: "border-border/50 shadow-sm rounded-lg hover:shadow-md hover:-translate-y-1",
-        faq: "border-accent/20 rounded-lg overflow-hidden bg-card shadow-sm hover:shadow-md hover:-translate-y-1",
+        default: "bg-card border-border/70 shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-accent/40",
+        elevated: "bg-card border-border/60 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-accent/50",
+        premium: "border-border/40 shadow-xl hover:shadow-2xl hover:-translate-y-1 bg-gradient-to-br from-card via-card to-accent/5 backdrop-blur-sm",
+        glass: "border-white/30 shadow-xl bg-white/90 backdrop-blur-lg hover:bg-white/95 hover:shadow-2xl hover:-translate-y-1",
+        dark: "border-white/40 shadow-xl bg-white/25 backdrop-blur-lg hover:bg-white/30 rounded-lg text-white hover:-translate-y-1 hover:border-accent/60",
+        advisor: "border-border/60 shadow-lg hover:shadow-xl hover:border-accent/40 rounded-lg bg-card text-card-foreground hover:-translate-y-1",
+        timeline: "border-white/40 shadow-xl bg-white/25 backdrop-blur-lg hover:bg-white/30 rounded-lg text-white hover:-translate-y-1",
+        info: "bg-card border-border/60 shadow-md rounded-lg hover:shadow-lg hover:-translate-y-1",
+        faq: "border-accent/30 rounded-lg overflow-hidden bg-card shadow-md hover:shadow-lg hover:-translate-y-1",
       },
       size: {
         xs: "p-3",

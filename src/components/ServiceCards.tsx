@@ -22,11 +22,11 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
       <PremiumCard 
         variant="elevated" 
         size="lg"
-        className={`card-equal-height group ring-1 ring-border/20 hover:ring-accent/40 hover:shadow-[0_8px_30px_-10px_hsl(var(--accent)/0.3)] transition-all duration-300 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
+        className={`card-equal-height group hover:ring-2 hover:ring-accent/50 hover:shadow-[0_12px_40px_-10px_hsl(var(--accent)/0.35)] transition-all duration-300 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
         onClick={() => isTouchDevice && hapticFeedback('light')}
       >
         <PremiumCardHeader>
-          <div className="mb-6 p-3 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.4)] w-fit">
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-br from-accent/30 via-accent/20 to-primary/15 text-accent transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_hsl(var(--accent)/0.5)] w-fit border border-accent/20">
             {icon}
           </div>
           <PremiumCardTitle className="heading-sm mb-4">

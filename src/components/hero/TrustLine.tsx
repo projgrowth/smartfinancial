@@ -28,19 +28,21 @@ const TrustLine: React.FC<TrustLineProps> = ({ className }) => {
       {/* Subtle separator line */}
       <div className="hidden sm:block w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
       
-      {/* Trust badges - enhanced with gradients and glow */}
-      <div className="hidden sm:flex items-center gap-3 md:gap-4">
+      {/* Trust badges - enhanced with gradients, borders, and glow */}
+      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap justify-center">
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-br from-background/95 via-background/90 to-background/80 backdrop-blur-md border border-primary/20 text-foreground transition-all duration-[400ms] hover:bg-background hover:border-primary/50 hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] hover:-translate-y-1 group animate-fade-in"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-br from-card via-card to-accent/10 backdrop-blur-lg border-2 border-accent/30 text-foreground transition-all duration-300 hover:border-accent/60 hover:shadow-[0_8px_32px_hsl(var(--accent)/0.25)] hover:-translate-y-1 group animate-fade-in"
             style={{
               animationDelay: `${400 + index * 100}ms`,
-              boxShadow: '0 4px 12px hsl(var(--primary) / 0.08)',
+              boxShadow: '0 4px 20px hsl(var(--accent) / 0.15), 0 2px 8px hsl(var(--primary) / 0.1)',
             }}
           >
-            <badge.icon className="w-5 h-5 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary)/0.5)]" aria-hidden="true" />
-            <span className="text-xs font-semibold">{badge.label}</span>
+            <div className="p-1.5 rounded-lg bg-gradient-to-br from-accent/20 to-primary/10">
+              <badge.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_hsl(var(--accent)/0.6)]" aria-hidden="true" />
+            </div>
+            <span className="text-xs sm:text-sm font-semibold text-foreground">{badge.label}</span>
           </div>
         ))}
       </div>

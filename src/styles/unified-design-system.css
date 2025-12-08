@@ -96,25 +96,25 @@
   /* Body Text Scale - Proportional to headings */
   .text-body-xl {
     font-size: clamp(1.125rem, 1.5vw + 0.25rem, 1.25rem);
-    @apply leading-relaxed text-muted-foreground;
+    @apply leading-relaxed;
     max-width: 65ch;
   }
 
   .text-body-lg {
     font-size: clamp(1rem, 1.25vw + 0.25rem, 1.125rem);
-    @apply leading-relaxed text-muted-foreground;
+    @apply leading-relaxed;
     max-width: 68ch;
   }
 
   .text-body {
     font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
-    @apply leading-relaxed text-muted-foreground;
+    @apply leading-relaxed;
     max-width: 70ch;
   }
 
   .text-body-sm {
     font-size: clamp(0.75rem, 0.75vw + 0.25rem, 0.875rem);
-    @apply leading-relaxed text-muted-foreground;
+    @apply leading-relaxed;
     max-width: 72ch;
   }
 
@@ -122,7 +122,11 @@
   .text-caption {
     font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.8125rem);
     line-height: 1.5;
-    @apply text-muted-foreground;
+  }
+  
+  /* Muted text utility - use explicitly when needed */
+  .text-muted-strong {
+    @apply text-foreground/70;
   }
 
   /* Navbar Fluid Typography */
