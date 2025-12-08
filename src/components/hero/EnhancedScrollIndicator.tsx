@@ -27,7 +27,7 @@ const EnhancedScrollIndicator: React.FC<EnhancedScrollIndicatorProps> = ({
         className
       )}
     >
-      <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase hidden md:block animate-fade-in">
+      <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase hidden md:block">
         {label}
       </span>
       <button
@@ -36,35 +36,18 @@ const EnhancedScrollIndicator: React.FC<EnhancedScrollIndicatorProps> = ({
         onFocus={onFocus}
         aria-label="Scroll to schedule section"
         className={cn(
-          'relative group',
-          'min-h-[44px] min-w-[44px] rounded-full',
+          'w-11 h-11 rounded-full',
           'flex items-center justify-center',
-          'text-primary hover:text-primary',
-          'transition-all duration-300',
-          'hover:scale-110',
+          'border border-border/50',
+          'text-muted-foreground hover:text-foreground',
+          'transition-all duration-200',
+          'hover:scale-105 hover:border-border',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
           isMobile && 'scale-90 opacity-70'
         )}
       >
-        {/* Pulsing ring */}
-        <div 
-          className="absolute inset-0 rounded-full border-2 border-primary/40 animate-ping shadow-[0_0_20px_hsl(var(--accent)/0.3)]"
-          style={{
-            animationDuration: '3s',
-            animationIterationCount: 'infinite',
-          }}
-          aria-hidden="true"
-        />
-        
-        {/* Static ring */}
-        <div 
-          className="absolute inset-0 rounded-full border-2 border-primary/30 group-hover:border-primary/60 transition-colors shadow-[0_0_15px_hsl(var(--accent)/0.2)]"
-          aria-hidden="true"
-        />
-        
-        {/* Icon */}
         <ChevronRight 
-          className="w-6 h-6 rotate-90 relative z-10 transition-transform group-hover:translate-y-0.5" 
+          className="w-5 h-5 rotate-90" 
           aria-hidden="true" 
         />
       </button>
