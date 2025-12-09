@@ -148,24 +148,26 @@ const MeetingScheduler = () => {
   return (
     <section id="schedule" className="section-lg relative overflow-hidden section-bg-subtle" role="region" aria-labelledby="schedule-heading">
       <GradientAccent variant="subtle" position="bottom-right" intensity="ultra-low" />
-      <div className="container-narrow relative z-10">
-        <ScrollReveal distance="8px">
-          <h2 id="schedule-heading" className="heading-lg text-foreground text-center mb-4">
-            Schedule a Meeting
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={100} distance="6px">
-          <p className="text-center text-muted-foreground text-body-lg max-w-2xl mx-auto mb-12">
-            Book a time to speak with our financial advisors about your goals and how we can help you achieve them.
-          </p>
-        </ScrollReveal>
+      <div className="container-narrow relative z-10 space-component-lg">
+        <div className="text-center space-component-sm">
+          <ScrollReveal distance="8px">
+            <h2 id="schedule-heading" className="heading-lg text-foreground">
+              Schedule a Meeting
+            </h2>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={100} distance="6px">
+            <p className="text-muted-foreground text-body-lg max-w-2xl mx-auto">
+              Book a time to speak with our financial advisors about your goals and how we can help you achieve them.
+            </p>
+          </ScrollReveal>
+        </div>
         
         <div className="max-w-4xl mx-auto">
           <Card className="border-border/50 shadow-md hover:shadow-lg transition-shadow duration-150">
             <CardContent className="pt-6">
-              <Tabs defaultValue="schedule" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8">
+              <Tabs defaultValue="schedule" className="w-full space-component-md">
+                <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="schedule">Schedule Online</TabsTrigger>
                   <TabsTrigger value="contact">Contact Us Directly</TabsTrigger>
                 </TabsList>
@@ -174,8 +176,8 @@ const MeetingScheduler = () => {
                   <form onSubmit={handleSubmit}>
                     {step === 1 && (
                       <div className="grid-two-col gap-unified-lg">
-                        <div>
-                          <h3 className="heading-sm text-foreground mb-4">Select a Date</h3>
+                        <div className="space-component-sm">
+                          <h3 className="heading-sm text-foreground">Select a Date</h3>
                           <div className="border border-accent/30 rounded-md p-1 bg-background">
                             <Calendar
                               mode="single"
@@ -190,9 +192,9 @@ const MeetingScheduler = () => {
                           </div>
                         </div>
                         
-                        <div>
-                          <div className="mb-6">
-                            <h3 className="heading-sm text-foreground mb-4">Select Meeting Type</h3>
+                        <div className="space-component-sm">
+                          <div className="space-component-sm">
+                            <h3 className="heading-sm text-foreground">Select Meeting Type</h3>
                             <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
@@ -238,8 +240,8 @@ const MeetingScheduler = () => {
                           </div>
                           
                           {date && (
-                            <div>
-                              <h3 className="heading-sm text-foreground mb-4">
+                            <div className="space-component-sm">
+                              <h3 className="heading-sm text-foreground">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
                               <div className="grid-time-slots" role="radiogroup" aria-label="Select a time slot">
@@ -249,7 +251,7 @@ const MeetingScheduler = () => {
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
+                                    className={`p-2 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
                                       time === t
                                         ? 'border-accent bg-accent/10 text-accent-foreground'
                                         : 'border-border hover:border-accent/50'
@@ -273,14 +275,14 @@ const MeetingScheduler = () => {
                     )}
                     
                     {step === 2 && (
-                      <div>
-                        <div className="mb-6 p-4 bg-accent/5 rounded-md">
-                          <h3 className="heading-sm text-foreground mb-2">Your Selected Time</h3>
-                          <div className="flex items-center gap-unified-xs text-muted-foreground mb-1">
+                      <div className="space-component-sm">
+                        <div className="p-4 bg-accent/5 rounded-md space-y-2">
+                          <h3 className="heading-sm text-foreground">Your Selected Time</h3>
+                          <div className="flex items-center gap-2 text-muted-foreground">
                             <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
                           </div>
-                          <div className="flex items-center gap-unified-xs text-muted-foreground mb-1">
+                          <div className="flex items-center gap-2 text-muted-foreground">
                             <Clock className="h-4 w-4" />
                             <span>{time}</span>
                           </div>
@@ -290,7 +292,7 @@ const MeetingScheduler = () => {
                           </div>
                         </div>
                         
-                        <div className="grid-two-col gap-unified-md space-component-sm">
+                        <div className="grid-two-col gap-unified-md">
                           <div className="form-group">
                             <label htmlFor="name" className="form-label">
                               Your Name
@@ -356,7 +358,7 @@ const MeetingScheduler = () => {
                       </div>
                     )}
                     
-                    <div className="flex justify-between mt-6">
+                    <div className="flex justify-between pt-6">
                       {step > 1 && (
                         <Button 
                           type="button" 
@@ -392,28 +394,28 @@ const MeetingScheduler = () => {
                 </TabsContent>
                 
                 <TabsContent value="contact">
-                  <div className="text-center py-6 px-4 max-w-lg mx-auto">
-                    <h3 className="heading-sm text-foreground mb-6">
+                  <div className="text-center section-sm max-w-lg mx-auto space-component-md">
+                    <h3 className="heading-sm text-foreground">
                       Prefer to reach us directly?
                     </h3>
                     
-                    <div className="space-y-6">
-                      <div>
-                        <div className="inline-block p-3 rounded-full bg-accent/10 mb-3">
+                    <div className="space-component-sm">
+                      <div className="space-y-2">
+                        <div className="inline-block p-3 rounded-full bg-accent/10">
                           <Phone className="h-6 w-6 text-accent" aria-hidden="true" />
                         </div>
                         <h4 className="font-medium">Call Us</h4>
                         <a href="tel:+17066275729" className="text-muted-foreground hover:text-accent transition-colors">(706) 627-5729</a>
-                        <p className="text-xs text-muted-foreground mt-1">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
+                        <p className="text-xs text-muted-foreground">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
                       </div>
                       
-                      <div>
-                        <div className="inline-block p-3 rounded-full bg-accent/10 mb-3">
+                      <div className="space-y-2">
+                        <div className="inline-block p-3 rounded-full bg-accent/10">
                           <Mail className="h-6 w-6 text-accent" aria-hidden="true" />
                         </div>
                         <h4 className="font-medium">Email Us</h4>
                         <a href="mailto:info@thesmartfinancialplan.com" className="text-muted-foreground hover:text-accent transition-colors break-all">info@thesmartfinancialplan.com</a>
-                        <p className="text-xs text-muted-foreground mt-1">We'll respond within 24 business hours</p>
+                        <p className="text-xs text-muted-foreground">We'll respond within 24 business hours</p>
                       </div>
                     </div>
                   </div>

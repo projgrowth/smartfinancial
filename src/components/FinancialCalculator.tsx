@@ -15,22 +15,24 @@ const FinancialCalculator = () => {
       aria-labelledby="calculators-heading"
     >
       <GradientAccent variant="subtle" position="top-left" intensity="ultra-low" />
-      <div className="container-narrow relative z-10">
-        <ScrollReveal distance="8px">
-          <h2 id="calculators-heading" className="heading-lg text-foreground text-center mb-4">
-            Financial Calculators
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={100} distance="6px">
-          <p className="text-center text-muted-foreground text-body-lg max-w-2xl mx-auto mb-12">
-            Explore our interactive financial calculators to help plan your financial future and visualize the power of strategic investing.
-          </p>
-        </ScrollReveal>
+      <div className="container-narrow relative z-10 space-component-lg">
+        <div className="text-center space-component-sm">
+          <ScrollReveal distance="8px">
+            <h2 id="calculators-heading" className="heading-lg text-foreground">
+              Financial Calculators
+            </h2>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={100} distance="6px">
+            <p className="text-muted-foreground text-body-lg max-w-2xl mx-auto">
+              Explore our interactive financial calculators to help plan your financial future and visualize the power of strategic investing.
+            </p>
+          </ScrollReveal>
+        </div>
         
         <div className="max-w-4xl mx-auto">
-          <Tabs defaultValue="compound-interest" className="w-full">
-            <TabsList className="grid-two-col w-full mb-8">
+          <Tabs defaultValue="compound-interest" className="w-full space-component-md">
+            <TabsList className="grid-two-col w-full">
               <TabsTrigger value="compound-interest">Compound Interest</TabsTrigger>
               <TabsTrigger value="retirement">Retirement Calculator</TabsTrigger>
             </TabsList>

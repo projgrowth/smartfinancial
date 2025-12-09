@@ -16,16 +16,16 @@ const IntroSection = () => {
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       
       <div className="container-default relative z-10">
-        <div className="mx-auto text-center max-w-3xl">
+        <div className="mx-auto text-center max-w-3xl space-component-md">
           <ScrollReveal distance="8px">
-            <h2 id="intro-heading" className="heading-lg mb-6">
+            <h2 id="intro-heading" className="heading-lg">
               Generic plans weren't made for{' '}
               <span className="text-accent">you</span>.
             </h2>
           </ScrollReveal>
           
           <ScrollReveal delay={100} distance="6px">
-            <p className="text-body-lg text-muted-foreground mx-auto mb-8">
+            <p className="text-body-lg text-muted-foreground mx-auto">
               We deliver highly personalized financial guidance for business owners, 
               top-tier executives, doctors, and legal professionals—crafted around your distinct ambitions, 
               career trajectory, and lifestyle.

@@ -15,7 +15,7 @@ const Footer = () => {
       <GradientAccent variant="blue" position="top-right" intensity="ultra-low" />
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       
-      <div className="container-default section-lg pb-[calc(1.5rem+env(safe-area-inset-bottom))] relative z-10">
+      <div className="container-default section-lg pb-6 relative z-10">
         {/* Grid layout: Intentional 2:1:1:1 column ratio - company info gets double width for branding */}
         <div className="grid-footer gap-unified-xl">
           <div>

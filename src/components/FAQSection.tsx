@@ -102,18 +102,20 @@ const FAQSection = () => {
       aria-labelledby="faq-heading"
     >
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
-      <div className="container-narrow relative z-10">
-        <ScrollReveal distance="8px">
-          <h2 id="faq-heading" className="heading-lg text-foreground text-center mb-4">
-            Frequently Asked Questions
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={100} distance="6px">
-          <p className="text-center text-body-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Get answers to the most common questions about our financial planning services and approach.
-          </p>
-        </ScrollReveal>
+      <div className="container-narrow relative z-10 space-component-lg">
+        <div className="text-center space-component-sm">
+          <ScrollReveal distance="8px">
+            <h2 id="faq-heading" className="heading-lg text-foreground">
+              Frequently Asked Questions
+            </h2>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={100} distance="6px">
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Get answers to the most common questions about our financial planning services and approach.
+            </p>
+          </ScrollReveal>
+        </div>
         
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
