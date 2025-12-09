@@ -29,12 +29,14 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-medium text-foreground;
+    @apply font-heading font-medium;
+    /* Color inherited from parent context - do not set globally */
   }
   
   p {
-    @apply mb-4 text-muted-foreground;
+    @apply mb-4;
     max-width: 70ch;
+    /* Color inherited from parent context - do not set globally */
   }
   
   a {
