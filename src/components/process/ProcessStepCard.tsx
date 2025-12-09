@@ -37,7 +37,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </div>
       </div>
       
-      <div className="space-y-2">
+      <div className="space-component-xs">
         <h3 id={`step-title-${step.id}`} className="heading-sm font-heading font-medium text-white">
           {step.title}
         </h3>
@@ -99,7 +99,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         </CollapsibleTrigger>
         <CollapsibleContent className="space-component-sm border-t border-white/20 pt-4">
           {step.details.map((detail, idx) => (
-            <ScaleOnHover key={idx} scale="sm" className="bg-white/5 p-4 rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-150 space-y-2">
+            <ScaleOnHover key={idx} scale="sm" className="bg-white/5 space-component-sm rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-150">
               <h4 className="text-body-sm font-medium text-white">{detail.title}</h4>
               <p className="text-body-sm leading-relaxed text-white/80">{detail.description}</p>
             </ScaleOnHover>
