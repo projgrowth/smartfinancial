@@ -50,7 +50,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               }`}
             >
               <div className="px-3 pb-3 pt-1">
-                <p className="text-xs text-white/90 leading-relaxed border-t border-white/20 pt-2">
+                <p className="text-xs text-white/80 leading-relaxed border-t border-white/20 pt-2">
                   {term.definition}
                 </p>
               </div>
