@@ -2,38 +2,13 @@
 
 /**
  * Consolidated Animation System
- * Single source of truth for all animations
+ * Supplementary animations (not in tailwind.config.ts)
  */
 
 /* ========================================
-   KEYFRAMES - Core animations
-   (Most keyframes are in tailwind.config.ts, these are supplementary)
+   KEYFRAMES - Supplementary animations only
+   Core animations are in tailwind.config.ts
    ======================================== */
-
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slide-down {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slide-left {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slide-right {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
 
 @keyframes word-fade-in {
   from { opacity: 0; transform: translateY(8px); }
@@ -92,13 +67,6 @@
   .grid-stagger > *:nth-child(5) { animation-delay: 400ms; }
   .grid-stagger > *:nth-child(6) { animation-delay: 500ms; }
 
-  /* Typing animation */
-  .typing-text {
-    @apply whitespace-nowrap border-r-2 border-foreground overflow-hidden;
-    width: 0;
-    animation: typing 3s steps(28, end) forwards, blink 0.75s step-end infinite;
-  }
-
   /* Text gradient animation */
   .text-gradient-animate {
     background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
@@ -125,11 +93,7 @@
     animation: word-fade-out 220ms ease-out forwards;
   }
 
-  /* Background animations */
-  .animate-float {
-    animation: float 15s ease-in-out infinite;
-  }
-
+  /* Background pan animation */
   .bg-pan {
     background-size: 200% 200%;
     animation: bg-position 15s ease infinite;
@@ -146,8 +110,6 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-on-scroll,
   .reveal-up,
-  .animate-float,
-  .typing-text,
   .text-gradient-animate,
   .bg-pan,
   [class*="animate-"] {

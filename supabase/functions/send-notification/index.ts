@@ -9,7 +9,7 @@ const corsHeaders = {
 };
 
 interface NotificationRequest {
-  type: "meeting" | "newsletter" | "rsvp";
+  type: "meeting" | "newsletter";
   data: {
     name?: string;
     email: string;
@@ -17,8 +17,6 @@ interface NotificationRequest {
     preferred_date?: string;
     message?: string;
     interests?: string[];
-    guests?: number;
-    dietary_restrictions?: string;
   };
 }
 
@@ -61,25 +59,14 @@ const handler = async (req: Request): Promise<Response> => {
         `;
         break;
 
-      case "rsvp":
-        emailSubject = `New RSVP Submission - ${data.name}`;
-        emailHtml = `
-          <h2>New RSVP Submission</h2>
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Guests:</strong> ${data.guests || 1}</p>
-          ${data.dietary_restrictions ? `<p><strong>Dietary Restrictions:</strong> ${data.dietary_restrictions}</p>` : ''}
-          ${data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : ''}
-          <hr>
-          <p><small>Submitted from Smart Financial Planning RSVP page</small></p>
-        `;
-        break;
+      default:
+        throw new Error(`Unknown notification type: ${type}`);
     }
 
     // Send notification email to business owner
     const emailResponse = await resend.emails.send({
       from: "Smart Financial Planning <onboarding@resend.dev>",
-      to: ["vince@thesmartfinancialplan.com"], // Business email
+      to: ["vince@thesmartfinancialplan.com"],
       subject: emailSubject,
       html: emailHtml,
     });
@@ -90,10 +77,11 @@ const handler = async (req: Request): Promise<Response> => {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
-  } catch (error: any) {
-    console.error("Error in send-notification function:", error);
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error("Error in send-notification function:", errorMessage);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: errorMessage }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

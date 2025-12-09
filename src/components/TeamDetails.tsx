@@ -170,7 +170,7 @@ const TeamDetails = () => {
               <div className="space-component-sm">
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="heading-sm text-foreground mb-1">
+                    <h3 className="heading-sm text-foreground">
                       {advisor.name}
                     </h3>
                     <p className="text-primary font-medium text-base">
@@ -289,7 +289,7 @@ const TeamDetails = () => {
                   )}
                 </div>
 
-                <div className="p-3 bg-accent/10 rounded-lg">
+                <div className="space-component-xs bg-accent/10 rounded-lg">
                   <p className="text-body-sm text-primary">
                     <span className="font-medium">Professional Standards:</span> Our team maintains the highest industry standards through continuing education and professional certification requirements.
                   </p>

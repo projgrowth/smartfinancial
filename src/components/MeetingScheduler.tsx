@@ -204,7 +204,7 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-150 touch-target ${
+                                  className={`w-full text-left space-component-xs border rounded-md cursor-pointer transition-all duration-150 touch-target ${
                                     meetingType === type.id
                                       ? 'border-accent bg-accent/10'
                                       : 'border-border hover:border-accent/50'
@@ -251,7 +251,7 @@ const MeetingScheduler = () => {
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`p-2 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
+                                    className={`space-component-xs border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
                                       time === t
                                         ? 'border-accent bg-accent/10 text-accent-foreground'
                                         : 'border-border hover:border-accent/50'
@@ -276,7 +276,7 @@ const MeetingScheduler = () => {
                     
                     {step === 2 && (
                       <div className="space-component-sm">
-                        <div className="space-component-xs bg-accent/5 rounded-md space-y-2">
+                        <div className="space-component-xs bg-accent/5 rounded-md">
                           <h3 className="heading-sm text-foreground">Your Selected Time</h3>
                           <div className="flex items-center gap-2 text-muted-foreground">
                             <CalendarIcon className="h-4 w-4" />
