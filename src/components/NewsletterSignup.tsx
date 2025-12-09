@@ -107,8 +107,8 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 
   if (isSubscribed) {
     return (
-      <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
-        <CardContent className="p-6 bg-accent/10">
+    <Card className={`overflow-hidden ${onDark ? 'border-white/20' : 'border-border/50'} shadow-sm ${className}`}>
+      <CardContent className={`p-6 ${onDark ? 'bg-white/10' : 'bg-accent/10'}`}>
           <SimpleSuccessMessage />
         </CardContent>
       </Card>
@@ -116,28 +116,28 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   }
 
   return (
-    <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
-      <CardContent className={`${compact ? 'p-4' : 'p-6'} ${onDark ? 'bg-background/10' : 'bg-muted/40'}`}>
+    <Card className={`overflow-hidden ${onDark ? 'border-white/20' : 'border-border/50'} shadow-sm ${className}`}>
+      <CardContent className={`${compact ? 'p-4' : 'p-6'} ${onDark ? 'bg-white/10' : 'bg-muted/30'}`}>
 
         <div className={compact ? "space-component-xs" : "space-component-sm"}>
           <div className={`${compact ? '' : 'flex items-center gap-3'}`}>
             {!compact && (
-              <div className={`rounded-full ${onDark ? 'bg-primary-foreground/10' : 'bg-accent/20'} p-2 flex-shrink-0`}>
-                <Mail className="h-5 w-5 text-accent" />
+              <div className={`rounded-full ${onDark ? 'bg-white/10' : 'bg-accent/20'} p-2 flex-shrink-0`}>
+                <Mail className={`h-5 w-5 ${onDark ? 'text-white' : 'text-accent'}`} />
               </div>
             )}
             <div className="space-y-1">
-              <h3 className={`font-heading ${compact ? 'text-base' : 'text-lg'} font-medium text-foreground`}>
+              <h3 className={`font-heading ${compact ? 'text-base' : 'text-lg'} font-medium ${onDark ? 'text-white' : 'text-foreground'}`}>
                 {title}
               </h3>
-              <p className={`${compact ? 'text-xs' : 'text-sm'} text-muted-foreground`}>
+              <p className={`${compact ? 'text-xs' : 'text-sm'} ${onDark ? 'text-white/80' : 'text-muted-foreground'}`}>
                 {description}
               </p>
             </div>
           </div>
           {(showWebhook ?? !compact) && (
-            <div className="form-group">
-              <label htmlFor="newsletterWebhook" className="form-label text-xs">
+            <div className="space-component-xs">
+              <label htmlFor="newsletterWebhook" className={`form-label text-xs ${onDark ? 'text-white/90' : ''}`}>
                 Zapier Webhook URL (optional, site owner)
               </label>
               <input
@@ -146,7 +146,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 placeholder="https://hooks.zapier.com/..."
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
-                className="form-input"
+                className={`form-input ${onDark ? 'bg-white/10 border-white/30 text-white placeholder:text-white/50' : ''}`}
               />
             </div>
           )}
@@ -157,6 +157,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
             isSubmitting={isSubmitting}
             handleSubmit={handleSubmit}
             compact={compact}
+            onDark={onDark}
           />
         </div>
       </CardContent>

@@ -10,6 +10,7 @@ interface SimpleNewsletterFormProps {
   isSubmitting: boolean;
   handleSubmit: (e: React.FormEvent) => void;
   compact?: boolean;
+  onDark?: boolean;
 }
 
 const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
@@ -17,7 +18,8 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
   setEmail,
   isSubmitting,
   handleSubmit,
-  compact = false
+  compact = false,
+  onDark = false
 }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
@@ -28,9 +30,9 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
           onChange={(e) => setEmail(sanitizeInput(e.target.value))}
           placeholder="Your email address"
           required
-          className="form-input pr-12 bg-background/80 placeholder:text-muted-foreground/60"
+          className={`form-input pr-12 ${onDark ? 'bg-white/10 border-white/30 text-white placeholder:text-white/50' : 'bg-card placeholder:text-muted-foreground/60'}`}
         />
-        <Mail className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-accent/60 pointer-events-none" />
+        <Mail className={`absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 pointer-events-none ${onDark ? 'text-white/60' : 'text-accent/60'}`} />
       </div>
       
       <Button
@@ -43,7 +45,7 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
         <ArrowRight className="h-4 w-4" />
       </Button>
       
-      <p className={`${compact ? 'text-xs' : 'text-xs'} text-center text-muted-foreground/80`}>
+      <p className={`text-xs text-center ${onDark ? 'text-white/70' : 'text-muted-foreground'}`}>
         We respect your privacy. Unsubscribe anytime.
       </p>
     </form>

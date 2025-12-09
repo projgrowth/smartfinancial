@@ -25,11 +25,11 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
         className={`card-equal-height group hover:shadow-lg transition-all duration-150 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
         onClick={() => isTouchDevice && hapticFeedback('light')}
       >
-        <PremiumCardHeader>
-          <div className="mb-4 p-4 rounded-xl bg-accent/10 text-accent transition-transform duration-150 group-hover:scale-[1.02] w-fit border border-accent/20">
+        <PremiumCardHeader className="space-component-xs">
+          <div className="p-4 rounded-xl bg-accent/10 text-accent transition-transform duration-150 group-hover:scale-[1.02] w-fit border border-accent/20">
             {icon}
           </div>
-          <PremiumCardTitle className="heading-sm mb-2">
+          <PremiumCardTitle className="heading-sm">
             {title}
           </PremiumCardTitle>
         </PremiumCardHeader>
@@ -92,13 +92,15 @@ const ServiceCards = () => {
       
       <div className="container-wide relative z-10">
         <ScrollReveal distance="8px">
-          <div className="text-center mb-12">
-            <h2 id="services-heading" className="heading-lg mb-4 text-balance">
-              Services Tailored to Your Needs
-            </h2>
-            <p className="text-body-lg text-muted-foreground mx-auto text-balance max-w-2xl">
-              Strategic financial planning designed for high-performing professionals who expect exceptional results.
-            </p>
+          <div className="text-center space-component-lg">
+            <div className="space-component-xs">
+              <h2 id="services-heading" className="heading-lg text-balance">
+                Services Tailored to Your Needs
+              </h2>
+              <p className="text-body-lg text-muted-foreground mx-auto text-balance max-w-2xl">
+                Strategic financial planning designed for high-performing professionals who expect exceptional results.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
         

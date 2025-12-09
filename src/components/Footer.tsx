@@ -15,7 +15,7 @@ const Footer = () => {
       <GradientAccent variant="blue" position="top-right" intensity="ultra-low" />
       <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
       
-      <div className="container-default section-lg pb-6 relative z-10">
+      <div className="container-default section-lg relative z-10">
         {/* Grid layout: Intentional 2:1:1:1 column ratio - company info gets double width for branding */}
         <div className="grid-footer gap-unified-xl">
           <div>
@@ -155,7 +155,7 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="space-component-lg border-t border-white/20 text-white/80 text-body flex flex-col md:flex-row justify-between items-center gap-unified-sm">
+          <div className="pt-8 mt-8 border-t border-white/20 text-white/80 text-body flex flex-col md:flex-row justify-between items-center gap-unified-sm">
             <div>
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
