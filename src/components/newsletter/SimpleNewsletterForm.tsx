@@ -30,7 +30,7 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
           onChange={(e) => setEmail(sanitizeInput(e.target.value))}
           placeholder="Your email address"
           required
-          className={`form-input pr-12 ${onDark ? 'bg-white/10 border-white/30 text-white placeholder:text-white/50' : 'bg-card placeholder:text-muted-foreground/60'}`}
+          className={`form-input pr-12 ${onDark ? 'bg-white/15 border-white/40 text-white placeholder:text-white/60' : 'bg-card placeholder:text-muted-foreground/60'}`}
         />
         <Mail className={`absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 pointer-events-none ${onDark ? 'text-white/60' : 'text-accent/60'}`} />
       </div>
