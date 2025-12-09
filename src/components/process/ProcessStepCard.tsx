@@ -47,7 +47,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
               <Button 
                 variant="subtle" 
                 size="xs" 
-                className="text-white/90 cursor-pointer border border-white/40 bg-white/15 rounded-full hover:bg-white/25 hover:border-white/60 flex items-center gap-2 text-xs focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
+                className="text-white/80 cursor-pointer border border-white/40 bg-white/15 rounded-full hover:bg-white/25 hover:border-white/60 flex items-center gap-2 text-xs focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none" 
                 aria-label={`Learn more about ${step.title}`}
               >
                 <Info className="w-3 h-3" aria-hidden="true" />
@@ -73,7 +73,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </div>
       
-      <p className="text-body leading-relaxed transition-colors duration-150 text-white/90">
+      <p className="text-body leading-relaxed transition-colors duration-150 text-white/80">
         {step.description}
       </p>
       
@@ -82,7 +82,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         onOpenChange={() => onStepClick(step.id)}
       >
         <CollapsibleTrigger 
-          className="flex items-center gap-2 text-body-sm text-white/90 hover:text-white transition-colors duration-150 font-medium px-3 py-2 rounded-full bg-accent/40 hover:bg-accent/60 border border-accent/60 hover:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+          className="flex items-center gap-2 text-body-sm text-white/80 hover:text-white transition-colors duration-150 font-medium px-3 py-2 rounded-full bg-accent/40 hover:bg-accent/60 border border-accent/60 hover:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
           aria-expanded={activeStep === step.id}
         >
           {activeStep === step.id ? (
@@ -101,7 +101,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
           {step.details.map((detail, idx) => (
             <ScaleOnHover key={idx} scale="sm" className="bg-white/5 p-4 rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-150 space-y-2">
               <h4 className="text-body-sm font-medium text-white">{detail.title}</h4>
-              <p className="text-body-sm leading-relaxed text-white/90">{detail.description}</p>
+              <p className="text-body-sm leading-relaxed text-white/80">{detail.description}</p>
             </ScaleOnHover>
           ))}
         </CollapsibleContent>

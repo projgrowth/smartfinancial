@@ -51,7 +51,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
               <h3 id={`timeline-step-title-${step.id}`} className="text-xl font-heading font-medium text-white">{step.title}</h3>
             </div>
             
-            <p className="leading-relaxed text-white/90">{step.description}</p>
+            <p className="leading-relaxed text-white/80">{step.description}</p>
           </div>
           
           <Collapsible 
@@ -62,7 +62,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
               flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full 
               ${isActive 
                 ? 'bg-accent/60 hover:bg-accent/80 border-accent/50 text-white' 
-                : 'text-white/90 hover:text-white bg-accent/30 hover:bg-accent/50 border-accent/30'
+                : 'text-white/80 hover:text-white bg-accent/30 hover:bg-accent/50 border-accent/30'
               } transition-colors duration-150 border 
               focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none`
             } aria-expanded={isActive}>
@@ -90,7 +90,7 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
                       <span className="w-1 h-1 bg-accent rounded-full"></span>
                       {detail.title}
                     </h4>
-                    <p className="text-xs leading-relaxed text-white/90">{detail.description}</p>
+                    <p className="text-xs leading-relaxed text-white/80">{detail.description}</p>
                   </div>
                 ))}
               </div>

@@ -28,7 +28,7 @@ const Process = () => {
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={100} distance="6px">
-          <p className="text-center max-w-2xl mx-auto text-body-lg text-balance text-white/90">
+          <p className="text-center max-w-2xl mx-auto text-body-lg text-balance text-white/80">
             Our three-step approach is designed to create clarity, confidence, and continuous growth in your financial journey.
           </p>
         </ScrollReveal>

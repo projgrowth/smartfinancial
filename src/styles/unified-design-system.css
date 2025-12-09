@@ -868,7 +868,7 @@
   .tabs-trigger-dark {
     @apply flex-1 font-medium py-2.5 rounded-full;
     @apply transition-colors duration-150;
-    @apply text-white/70;
+    @apply text-white/60;
     @apply focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none;
   }
   

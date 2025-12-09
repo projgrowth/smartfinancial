@@ -19,7 +19,7 @@ const CTA = () => {
             <h2 id="cta-heading" className="heading-lg text-white">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>
-            <p className="text-body-lg text-white/90 max-w-2xl mx-auto">
+            <p className="text-body-lg text-white/80 max-w-2xl mx-auto">
               Take the first step toward financial clarity and strategic growth with a personalized approach.
             </p>
             <Button 
