@@ -1,263 +1,138 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { InteractiveTooltip } from '@/components/ui/interactive-tooltip';
-import { Info } from 'lucide-react';
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import { ChartContainer, ChartTooltip } from '@/components/ui/chart';
+import React, { useState, useMemo } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const CompoundInterestCalculator = React.memo(() => {
-  // Display states (instant updates for UI responsiveness)
-  const [displayPrincipal, setDisplayPrincipal] = useState<string>("10000");
-  const [displayRate, setDisplayRate] = useState<string>("7");
-  const [displayYears, setDisplayYears] = useState<string>("20");
-  const [displayMonthlyContribution, setDisplayMonthlyContribution] = useState<string>("500");
-  
-  // Calculation states (debounced)
-  const [principal, setPrincipal] = useState<number>(10000);
-  const [rate, setRate] = useState<number>(7);
-  const [years, setYears] = useState<number>(20);
-  const [monthlyContribution, setMonthlyContribution] = useState<number>(500);
-  const [result, setResult] = useState<number>(0);
-  const [chartData, setChartData] = useState<any[]>([]);
+const CompoundInterestCalculator = () => {
+  const [principal, setPrincipal] = useState(10000);
+  const [rate, setRate] = useState(7);
+  const [years, setYears] = useState(20);
+  const [monthlyContribution, setMonthlyContribution] = useState(500);
 
-  const calculateCompoundInterest = useCallback(() => {
-    let totalAmount = principal;
-    let yearlyData = [];
+  const { chartData, finalValue, totalContributions, totalInterest } = useMemo(() => {
+    const data = [];
+    let balance = principal;
+    let contributions = principal;
     
-    for (let year = 1; year <= years; year++) {
-      // For each year
-      for (let month = 1; month <= 12; month++) {
-        // Add monthly contribution
-        totalAmount += monthlyContribution;
-        
-        // Apply monthly interest (annual rate divided by 12)
-        totalAmount *= (1 + (rate / 100) / 12);
-      }
-      
-      yearlyData.push({
+    for (let year = 0; year <= years; year++) {
+      data.push({
         year,
-        amount: Math.round(totalAmount),
-        principal: principal + (monthlyContribution * 12 * year),
+        balance: Math.round(balance),
+        contributions: Math.round(contributions),
       });
+      
+      // Add monthly contributions and compound
+      for (let month = 0; month < 12; month++) {
+        balance = balance * (1 + rate / 100 / 12) + monthlyContribution;
+        contributions += monthlyContribution;
+      }
     }
     
-    setResult(Math.round(totalAmount));
-    setChartData(yearlyData);
+    return {
+      chartData: data,
+      finalValue: Math.round(balance),
+      totalContributions: Math.round(contributions),
+      totalInterest: Math.round(balance - contributions),
+    };
   }, [principal, rate, years, monthlyContribution]);
 
-  // Debounce display values to calculation states
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPrincipal(Number(displayPrincipal) || 0);
-      setRate(Number(displayRate) || 0);
-      setYears(Number(displayYears) || 1);
-      setMonthlyContribution(Number(displayMonthlyContribution) || 0);
-    }, 750);
-    return () => clearTimeout(timer);
-  }, [displayPrincipal, displayRate, displayYears, displayMonthlyContribution]);
-
-  // Recalculate when calculation states change
-  useEffect(() => {
-    calculateCompoundInterest();
-  }, [calculateCompoundInterest]);
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0,
-    }).format(value);
-  };
-
-  const memoizedChartData = useMemo(() => chartData, [chartData]);
-
   return (
-    <Card className="border-border shadow-sm hover:shadow-md transition-shadow duration-150">
-      <CardHeader>
-        <div className="flex items-center gap-2">
-          <CardTitle>Compound Interest Calculator</CardTitle>
-          <InteractiveTooltip
-            trigger={<Info className="h-4 w-4 text-primary cursor-help" />}
-            content={
-              <div className="text-sm">
-                <p>Compound interest allows your money to grow exponentially over time as you earn returns on both your initial investment and accumulated gains.</p>
-              </div>
-            }
-            interactive
-            title="About Compound Interest"
-            maxWidth="md"
-          />
-        </div>
-        <CardDescription>
-          See how your investments can grow over time with the power of compound interest
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="grid-two-col gap-unified-md">
-          <div className="space-component-xs">
-            <div className="space-y-1">
-              <label htmlFor="principal" className="form-label">
-                Initial Investment
-              </label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
-                <input
-                  id="principal"
-                  type="number"
-                  value={displayPrincipal}
-                  onChange={(e) => setDisplayPrincipal(e.target.value)}
-                  className="block w-full pl-8 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                />
-              </div>
-            </div>
-            
-            <div className="space-y-1">
-              <label htmlFor="monthlyContribution" className="form-label">
-                Monthly Contribution
-              </label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
-                <input
-                  id="monthlyContribution"
-                  type="number"
-                  value={displayMonthlyContribution}
-                  onChange={(e) => setDisplayMonthlyContribution(e.target.value)}
-                  className="block w-full pl-8 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                />
-              </div>
-            </div>
-            
-            <div className="space-y-1">
-              <label htmlFor="rate" className="form-label">
-                Annual Interest Rate (%)
-              </label>
-              <div className="relative">
-                <input
-                  id="rate"
-                  type="number"
-                  value={displayRate}
-                  onChange={(e) => setDisplayRate(e.target.value)}
-                  className="block w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                  step="0.1"
-                  min="0"
-                  max="30"
-                />
-                <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">%</span>
-              </div>
-            </div>
-            
-            <div className="space-y-1">
-              <label htmlFor="years" className="form-label">
-                Time Period (years)
-              </label>
+    <Card className="border-border/50 shadow-md">
+      <CardContent className="p-6 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <label className="form-label">Initial Investment</label>
               <input
-                id="years"
                 type="number"
-                value={displayYears}
-                onChange={(e) => setDisplayYears(e.target.value)}
-                className="block w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                min="1"
-                max="50"
+                value={principal}
+                onChange={(e) => setPrincipal(Number(e.target.value))}
+                className="form-input"
+              />
+            </div>
+            <div>
+              <label className="form-label">Annual Return Rate (%)</label>
+              <input
+                type="number"
+                value={rate}
+                onChange={(e) => setRate(Number(e.target.value))}
+                className="form-input"
+                step="0.5"
+              />
+            </div>
+            <div>
+              <label className="form-label">Time Period (Years)</label>
+              <input
+                type="number"
+                value={years}
+                onChange={(e) => setYears(Number(e.target.value))}
+                className="form-input"
+              />
+            </div>
+            <div>
+              <label className="form-label">Monthly Contribution</label>
+              <input
+                type="number"
+                value={monthlyContribution}
+                onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+                className="form-input"
               />
             </div>
           </div>
           
-          <div className="space-component-xs">
-            <div className="bg-accent/10 space-component-xs rounded-lg">
-              <p className="text-sm text-muted-foreground">Future Value</p>
-              <p className="heading-md text-primary">{formatCurrency(result)}</p>
-              <p className="text-sm text-muted-foreground">
-                Total Contributions: {formatCurrency(principal + (monthlyContribution * 12 * years))}
-              </p>
-              <p className="text-sm text-success font-medium">
-                Interest Earned: {formatCurrency(result - (principal + (monthlyContribution * 12 * years)))}
-              </p>
-            </div>
-            
-            <div className="h-52 min-h-52 chart-contain">
-              <ChartContainer
-                config={{
-                  amount: { theme: { light: "hsl(var(--accent))", dark: "hsl(var(--accent))" } },
-                  principal: { theme: { light: "hsl(var(--muted-foreground))", dark: "hsl(var(--muted-foreground))" } },
-                }}
-                className="h-full"
-              >
-                <LineChart
-                  data={memoizedChartData}
-                  margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="year"
-                    tickLine={true}
-                  />
-                  <YAxis
-                    tickFormatter={(value) => `$${value.toLocaleString()}`}
-                    width={80}
-                  />
-                  <ChartTooltip
-                    content={({ active, payload }) => {
-                      if (active && payload && payload.length) {
-                        return (
-                          <div className="rounded-lg border bg-background p-2 shadow-sm">
-                            <div className="grid-two-col gap-unified-sm">
-                              <div className="flex flex-col">
-                                <span className="text-[0.70rem] uppercase text-muted-foreground">
-                                  Year
-                                </span>
-                                <span className="font-bold text-muted-foreground">
-                                  {payload[0].payload.year}
-                                </span>
-                              </div>
-                              <div className="flex flex-col">
-                                <span className="text-[0.70rem] uppercase text-muted-foreground">
-                                  Amount
-                                </span>
-                                <span className="font-bold">
-                                  {formatCurrency(payload[0].payload.amount)}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        )
-                      }
-                      return null
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    strokeWidth={2}
-                    dataKey="amount"
-                    activeDot={{
-                      r: 6,
-                      fill: "hsl(var(--accent))",
-                      style: { cursor: "pointer" },
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="principal"
-                    stroke="hsl(var(--muted-foreground))"
-                    strokeDasharray="4 4"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                </LineChart>
-              </ChartContainer>
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 gap-4">
+              <div className="p-4 bg-accent/10 rounded-lg">
+                <p className="text-sm text-muted-foreground">Final Value</p>
+                <p className="text-2xl font-bold text-accent">${finalValue.toLocaleString()}</p>
+              </div>
+              <div className="p-4 bg-muted/50 rounded-lg">
+                <p className="text-sm text-muted-foreground">Total Contributions</p>
+                <p className="text-xl font-semibold">${totalContributions.toLocaleString()}</p>
+              </div>
+              <div className="p-4 bg-muted/50 rounded-lg">
+                <p className="text-sm text-muted-foreground">Interest Earned</p>
+                <p className="text-xl font-semibold text-primary">${totalInterest.toLocaleString()}</p>
+              </div>
             </div>
           </div>
+        </div>
+        
+        <div className="h-64 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
+              <YAxis stroke="hsl(var(--muted-foreground))" tickFormatter={(v) => `$${(v/1000).toFixed(0)}k`} />
+              <Tooltip 
+                formatter={(value: number) => [`$${value.toLocaleString()}`, '']}
+                contentStyle={{ 
+                  backgroundColor: 'hsl(var(--card))', 
+                  border: '1px solid hsl(var(--border))',
+                  borderRadius: '8px'
+                }}
+              />
+              <Area 
+                type="monotone" 
+                dataKey="contributions" 
+                stackId="1"
+                stroke="hsl(var(--primary))" 
+                fill="hsl(var(--primary) / 0.3)" 
+                name="Contributions"
+              />
+              <Area 
+                type="monotone" 
+                dataKey="balance" 
+                stackId="2"
+                stroke="hsl(var(--accent))" 
+                fill="hsl(var(--accent) / 0.3)" 
+                name="Total Balance"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
       </CardContent>
     </Card>
   );
-});
+};
 
 export default CompoundInterestCalculator;

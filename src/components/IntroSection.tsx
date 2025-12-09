@@ -13,7 +13,7 @@ const IntroSection = () => {
       role="region"
       aria-labelledby="intro-heading"
     >
-      <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
+      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       
       <div className="container-default relative z-10">
         <div className="mx-auto text-center max-w-3xl space-component-md">
