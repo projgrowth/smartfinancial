@@ -147,7 +147,6 @@ const Footer = () => {
                   title="Subscribe to Updates"
                   description="Financial insights delivered to your inbox."
                   onDark
-                  showWebhook={false}
                 />
               </div>
             </ScrollReveal>

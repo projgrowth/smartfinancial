@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import SimpleSuccessMessage from './newsletter/SimpleSuccessMessage';
 import SimpleNewsletterForm from './newsletter/SimpleNewsletterForm';
 import { sanitizeInput } from '@/utils/security';
-import { warn } from '@/utils/logger';
+import { supabase } from '@/integrations/supabase/client';
+import { newsletterSubscriptionSchema } from '@/lib/formValidation';
+import { useToast } from '@/hooks/use-toast';
 
 interface NewsletterSignupProps {
   title?: string;
@@ -10,7 +12,6 @@ interface NewsletterSignupProps {
   compact?: boolean;
   className?: string;
   onDark?: boolean;
-  showWebhook?: boolean;
 }
 
 const NEWSLETTER_VERSION = 'v1';
@@ -21,15 +22,14 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   compact = false,
   className,
   onDark = false,
-  showWebhook = true,
 }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
   const [isSubscribed, setIsSubscribed] = useState(() => {
     if (typeof window !== 'undefined') {
       const storedVersion = localStorage.getItem('newsletter_version');
       const isSubscribedStored = localStorage.getItem('newsletter_subscribed') === 'true';
-      // Reset subscription state if version changed
       if (storedVersion !== NEWSLETTER_VERSION) {
         localStorage.removeItem('newsletter_subscribed');
         localStorage.setItem('newsletter_version', NEWSLETTER_VERSION);
@@ -39,18 +39,6 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     }
     return false;
   });
-  const [webhookUrl, setWebhookUrl] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('zapier_webhook_newsletter') || '';
-    }
-    return '';
-  });
-  
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('zapier_webhook_newsletter', webhookUrl);
-    }
-  }, [webhookUrl]);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && isSubscribed) {
@@ -66,37 +54,61 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     setIsSubmitting(true);
     
     try {
-      // Email validation with sanitization
       const sanitizedEmail = sanitizeInput(email.trim());
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(sanitizedEmail)) {
-        return;
+      
+      // Validate with Zod
+      const validatedData = newsletterSubscriptionSchema.parse({
+        email: sanitizedEmail,
+      });
+
+      // Insert into database
+      const { error: dbError } = await supabase
+        .from('newsletter_subscriptions')
+        .insert({
+          email: validatedData.email,
+          name: validatedData.name,
+          interests: validatedData.interests,
+        });
+
+      if (dbError) {
+        // Check for duplicate email
+        if (dbError.code === '23505') {
+          toast({
+            title: "Already subscribed",
+            description: "This email is already on our list.",
+          });
+          setIsSubscribed(true);
+          return;
+        }
+        throw dbError;
       }
 
-      // Connect to email marketing service via Zapier webhook if provided
-      const sanitizedWebhook = sanitizeInput(webhookUrl.trim());
-      
-      if (sanitizedWebhook) {
-        await fetch(sanitizedWebhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({ 
-            email: sanitizedEmail,
-            timestamp: new Date().toISOString(),
-            source: 'website_newsletter'
-          })
-        });
-      } else {
-        warn('No Zapier webhook configured for newsletter. Add one in the Webhook URL field.');
-      }
+      // Send notification email
+      await supabase.functions.invoke('send-notification', {
+        body: {
+          type: 'newsletter',
+          data: {
+            email: validatedData.email,
+            name: validatedData.name,
+            interests: validatedData.interests,
+          },
+        },
+      });
+
+      toast({
+        title: "Subscribed!",
+        description: "Thank you for subscribing to our newsletter.",
+      });
       
       setIsSubscribed(true);
       setEmail('');
-    } catch (error) {
-      // Show success even if webhook fails
-      setIsSubscribed(true);
-      setEmail('');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+      toast({
+        title: "Error",
+        description: errorMessage || "There was an issue subscribing. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -121,21 +133,6 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
             {description}
           </p>
         </div>
-        {(showWebhook ?? !compact) && (
-          <div className="space-y-1">
-            <label htmlFor="newsletterWebhook" className={`text-xs font-medium ${onDark ? 'text-on-dark-secondary' : 'text-foreground'}`}>
-              Zapier Webhook URL (optional)
-            </label>
-            <input
-              id="newsletterWebhook"
-              type="url"
-              placeholder="https://hooks.zapier.com/..."
-              value={webhookUrl}
-              onChange={(e) => setWebhookUrl(e.target.value)}
-              className={`form-input ${onDark ? 'input-dark' : ''}`}
-            />
-          </div>
-        )}
 
         <SimpleNewsletterForm
           email={email}
