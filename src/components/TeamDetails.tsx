@@ -66,15 +66,16 @@ const TeamDetails = () => {
       
       <div className="container-wide relative z-10">
         <ScrollReveal distance="8px">
-          <h2 id="team-heading" className="heading-lg text-center mb-4 text-foreground">
-            Meet Our Expert Team
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={100} distance="6px">
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 text-body-lg">
-            Our Orlando and Lake Nona advisors bring decades of combined experience and specialized expertise to help you achieve your financial goals.
-          </p>
+          <div className="text-center space-component-lg">
+            <div className="space-component-xs">
+              <h2 id="team-heading" className="heading-lg text-foreground">
+                Meet Our Expert Team
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-body-lg">
+                Our Orlando and Lake Nona advisors bring decades of combined experience and specialized expertise to help you achieve your financial goals.
+              </p>
+            </div>
+          </div>
         </ScrollReveal>
         
         <div className="grid-three-col gap-unified-xl mx-auto">
@@ -117,7 +118,7 @@ const TeamDetails = () => {
           </div>
 
           {/* Mobile Carousel */}
-          <div className="lg:hidden mb-6">
+          <div className="lg:hidden space-component-sm">
             <Carousel className="w-full">
               <CarouselContent className="-ml-2 md:-ml-4">
                 {advisors.map((adv, index) => (
@@ -166,8 +167,8 @@ const TeamDetails = () => {
               className={`lg:p-8 transition-all duration-150 ring-1 ring-border/30 hover:ring-accent/30 hover:shadow-lg ${isTransitioning ? 'opacity-0' : 'opacity-100 animate-fade-in'}`}
             >
               {/* Header with Name, Title, and Specialties */}
-              <div className="mb-6">
-                <div className="flex items-start justify-between mb-4">
+              <div className="space-component-sm">
+                <div className="flex items-start justify-between">
                   <div>
                     <h3 className="heading-sm text-foreground mb-1">
                       {advisor.name}
@@ -208,7 +209,7 @@ const TeamDetails = () => {
               </div>
 
               {/* Summary and Full Bio */}
-              <div className="mb-6 space-component-sm">
+              <div className="space-component-sm">
                 <p className="text-body text-muted-foreground leading-relaxed">
                   {advisor.summary}
                 </p>
@@ -234,20 +235,20 @@ const TeamDetails = () => {
                 onClick={() => smoothScrollTo('schedule')}
                 onMouseEnter={preloadMeetingScheduler}
                 onFocus={preloadMeetingScheduler}
-                className="group flex items-center gap-2 mb-6"
+                className="group flex items-center gap-2"
               >
                 Schedule a Consultation
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
 
               {/* Background & Credentials Section */}
-              <div className="border-t border-border pt-6">
-                <h4 className="heading-xs text-foreground mb-4">Background & Credentials</h4>
+              <div className="border-t border-border pt-6 space-component-sm">
+                <h4 className="heading-xs text-foreground">Background & Credentials</h4>
                 
                 <div className="space-component-md">
                   {advisor.credentials.education && advisor.credentials.education.length > 0 && (
                     <div>
-                      <h5 className="text-sm font-semibold text-primary mb-2">Education</h5>
+                      <h5 className="text-sm font-semibold text-primary">Education</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.education.map((edu, index) => (
                           <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
@@ -261,7 +262,7 @@ const TeamDetails = () => {
 
                   {advisor.credentials.certifications && advisor.credentials.certifications.length > 0 && (
                     <div>
-                      <h5 className="text-sm font-semibold text-primary mb-2">Certifications</h5>
+                      <h5 className="text-sm font-semibold text-primary">Certifications</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.certifications.map((cert, index) => (
                           <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
@@ -275,7 +276,7 @@ const TeamDetails = () => {
 
                   {advisor.credentials.experience && advisor.credentials.experience.length > 0 && (
                     <div>
-                      <h5 className="text-sm font-semibold text-primary mb-2">Experience</h5>
+                      <h5 className="text-sm font-semibold text-primary">Experience</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.experience.map((exp, index) => (
                           <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
@@ -288,7 +289,7 @@ const TeamDetails = () => {
                   )}
                 </div>
 
-                <div className="mt-4 p-3 bg-accent/10 rounded-lg">
+                <div className="p-3 bg-accent/10 rounded-lg">
                   <p className="text-body-sm text-primary">
                     <span className="font-medium">Professional Standards:</span> Our team maintains the highest industry standards through continuing education and professional certification requirements.
                   </p>

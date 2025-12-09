@@ -721,11 +721,11 @@
 
   /* Footer Specific */
   .footer-nav-link {
-    @apply text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-150 touch-target focus-enhanced;
+    @apply text-white/80 hover:text-white transition-colors duration-150 touch-target focus-enhanced;
   }
 
   .footer-icon-link {
-    @apply bg-primary-foreground/10 hover:bg-accent/30 active:bg-accent/40 transition-all duration-150 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
+    @apply bg-white/10 hover:bg-white/20 active:bg-white/30 transition-all duration-150 touch-target-lg rounded-full flex items-center justify-center text-white focus-enhanced;
   }
 
   .footer-contact-icon {
@@ -743,7 +743,7 @@
 
   /* Footer Back to Top Button */
   .footer-back-to-top {
-    @apply text-primary-foreground/80 hover:text-primary-foreground 
+    @apply text-white/80 hover:text-white 
            transition-colors underline focus-enhanced inline-flex items-center gap-2;
   }
 

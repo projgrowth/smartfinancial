@@ -102,9 +102,9 @@ const CompoundInterestCalculator = React.memo(() => {
       </CardHeader>
       <CardContent>
         <div className="grid-two-col gap-unified-md">
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="principal" className="block text-sm font-medium text-foreground mb-1">
+          <div className="space-component-xs">
+            <div className="space-y-1">
+              <label htmlFor="principal" className="form-label">
                 Initial Investment
               </label>
               <div className="relative">
@@ -119,8 +119,8 @@ const CompoundInterestCalculator = React.memo(() => {
               </div>
             </div>
             
-            <div>
-              <label htmlFor="monthlyContribution" className="block text-sm font-medium text-foreground mb-1">
+            <div className="space-y-1">
+              <label htmlFor="monthlyContribution" className="form-label">
                 Monthly Contribution
               </label>
               <div className="relative">
@@ -135,8 +135,8 @@ const CompoundInterestCalculator = React.memo(() => {
               </div>
             </div>
             
-            <div>
-              <label htmlFor="rate" className="block text-sm font-medium text-foreground mb-1">
+            <div className="space-y-1">
+              <label htmlFor="rate" className="form-label">
                 Annual Interest Rate (%)
               </label>
               <div className="relative">
@@ -154,8 +154,8 @@ const CompoundInterestCalculator = React.memo(() => {
               </div>
             </div>
             
-            <div>
-              <label htmlFor="years" className="block text-sm font-medium text-foreground mb-1">
+            <div className="space-y-1">
+              <label htmlFor="years" className="form-label">
                 Time Period (years)
               </label>
               <input
@@ -170,8 +170,8 @@ const CompoundInterestCalculator = React.memo(() => {
             </div>
           </div>
           
-          <div>
-            <div className="bg-accent/10 p-4 rounded-lg mb-4">
+          <div className="space-component-xs">
+            <div className="bg-accent/10 p-4 rounded-lg">
               <p className="text-sm text-muted-foreground mb-1">Future Value</p>
               <p className="heading-md text-primary">{formatCurrency(result)}</p>
               <p className="text-sm text-muted-foreground mt-2">
