@@ -18,11 +18,11 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
   
   return (
     <div className="bg-white/10 backdrop-blur-md p-5 rounded-lg border border-white/20 shadow-lg">
-      <h4 className="text-sm font-medium text-white mb-4 tracking-wide flex items-center gap-2">
+      <h4 className="text-sm font-medium text-white tracking-wide flex items-center gap-2">
         <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
         Key Financial Concepts
       </h4>
-      <div className="space-y-3">
+      <div className="space-component-xs">
         {terms.map((term, idx) => (
           <div 
             key={idx} 

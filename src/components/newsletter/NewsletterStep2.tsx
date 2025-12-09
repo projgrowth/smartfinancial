@@ -19,9 +19,9 @@ const NewsletterStep2: React.FC<NewsletterStep2Props> = ({
   frequencyOptions 
 }) => {
   return (
-    <div>
-      <h3 className="font-medium text-foreground mb-4">How often would you like to hear from us?</h3>
-      <div className="space-y-3">
+    <div className="space-component-sm">
+      <h3 className="font-medium text-foreground">How often would you like to hear from us?</h3>
+      <div className="space-component-xs">
         {frequencyOptions.map((option) => (
           <div
             key={option.id}

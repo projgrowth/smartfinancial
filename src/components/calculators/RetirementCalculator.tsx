@@ -12,7 +12,7 @@ const RetirementCalculator = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="text-center py-12">
-        <p className="text-primary mb-4">Coming Soon</p>
+        <p className="text-primary">Coming Soon</p>
         <p className="text-muted-foreground max-w-lg mx-auto">
           Our comprehensive retirement calculator will help you determine how much you need to save for a comfortable retirement based on your expected lifestyle and goals.
         </p>
