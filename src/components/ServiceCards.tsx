@@ -1,118 +1,75 @@
+import { FileSearch, CreditCard, BarChart4, Shield } from 'lucide-react';
 
-import React from 'react';
-import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
-
-import { PremiumCard, PremiumCardHeader, PremiumCardTitle, PremiumCardContent, PremiumCardFooter } from '@/components/ui/premium-card';
-import { ChevronRight, Shield, BarChart4, FileSearch, CreditCard } from 'lucide-react';
-import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
-
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  delay: number;
-  icon: React.ReactNode;
-}
-
-const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description, delay, icon }) => {
-  const { isTouchDevice, hapticFeedback } = useTouchOptimizations();
-  
-  return (
-    <ScrollReveal delay={delay} distance="8px">
-      <PremiumCard 
-        variant="elevated" 
-        size="lg"
-        className={`card-equal-height group hover:shadow-lg transition-all duration-150 ${isTouchDevice ? 'touch-hover-mobile cursor-pointer' : ''}`}
-        onClick={() => isTouchDevice && hapticFeedback('light')}
-      >
-        <PremiumCardHeader className="space-component-xs">
-          <div className="p-4 rounded-xl bg-accent/10 text-accent transition-transform duration-150 group-hover:scale-[1.02] w-fit border border-accent/20">
-            {icon}
-          </div>
-          <PremiumCardTitle className="heading-sm">
-            {title}
-          </PremiumCardTitle>
-        </PremiumCardHeader>
-        
-        <PremiumCardContent className="card-content-grow">
-          <p className="text-body text-foreground/70">
-            {description}
-          </p>
-        </PremiumCardContent>
-        
-        <PremiumCardFooter>
-          <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="flex items-center gap-2 text-primary font-medium touch-target group/link hover:text-accent transition-colors"
-          >
-            <span>Get started</span>
-            <ChevronRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
-          </button>
-        </PremiumCardFooter>
-      </PremiumCard>
-    </ScrollReveal>
-  );
-});
+const services = [
+  {
+    title: "Retirement Design",
+    description: "Create a clear roadmap for your ideal retirement with personalized income strategies and lifestyle planning.",
+    icon: FileSearch,
+  },
+  {
+    title: "Tax Strategy",
+    description: "Minimize your tax burden through strategic planning, smart timing, and proactive optimization.",
+    icon: CreditCard,
+  },
+  {
+    title: "Investment Management",
+    description: "Build and maintain a diversified portfolio aligned with your goals, risk tolerance, and time horizon.",
+    icon: BarChart4,
+  },
+  {
+    title: "Wealth Protection",
+    description: "Safeguard your assets and legacy with comprehensive estate planning and risk management.",
+    icon: Shield,
+  },
+];
 
 const ServiceCards = () => {
-  const services = [
-    {
-      title: "Retirement Design",
-      description: "Architect your ideal retirement, optimized for tax efficiency and lifetime wealth preservation.",
-      icon: <FileSearch size={28} strokeWidth={1.5} />
-    },
-    {
-      title: "Tax Strategy",
-      description: "Maximize your earnings with proactive, tailored tax strategies reserved for elite earners.",
-      icon: <CreditCard size={28} strokeWidth={1.5} />
-    },
-    {
-      title: "Investment Management",
-      description: "Custom investment solutions calibrated to your ambitions, risk tolerance, and growth targets.",
-      icon: <BarChart4 size={28} strokeWidth={1.5} />
-    },
-    {
-      title: "Wealth Protection",
-      description: "Specialized coverage ensuring comprehensive protection for all your assets.",
-      icon: <Shield size={28} strokeWidth={1.5} />
+  const scrollToSchedule = () => {
+    const element = document.getElementById('schedule');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  ];
+  };
 
   return (
-    <section 
-      id="services" 
-      className="section-lg section-contain section-bg-accent relative overflow-hidden"
+    <section
+      id="services"
+      className="section-xl section-bg-subtle"
       role="region"
       aria-labelledby="services-heading"
     >
-      <GradientAccent variant="subtle" position="top-left" intensity="ultra-low" />
-      
-      <div className="container-wide relative z-10">
-        <ScrollReveal distance="8px">
-          <div className="text-center space-component-lg">
-            <div className="space-component-xs">
-              <h2 id="services-heading" className="heading-lg text-balance">
-                Services Tailored to Your Needs
-              </h2>
-              <p className="text-body-lg text-muted-foreground mx-auto text-balance max-w-2xl">
-                Strategic financial planning designed for high-performing professionals who expect exceptional results.
+      <div className="container-default">
+        <div className="text-center mb-12">
+          <h2 id="services-heading" className="heading-lg mb-4">
+            Services Tailored To Your Need
+          </h2>
+          <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive financial planning designed to address every aspect of your wealth journey.
+          </p>
+        </div>
+
+        <div className="grid-four-col gap-unified-md">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="bg-card border border-border/40 rounded-lg p-6 shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-150"
+            >
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                <service.icon className="w-6 h-6 text-accent" />
+              </div>
+              
+              <h3 className="heading-sm mb-2">{service.title}</h3>
+              <p className="text-body-sm text-muted-foreground mb-4">
+                {service.description}
               </p>
+              
+              <button
+                onClick={scrollToSchedule}
+                className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-150"
+              >
+                Get started →
+              </button>
             </div>
-          </div>
-        </ScrollReveal>
-        
-        <div className="grid-four-col">
-          {services.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              title={service.title} 
-              description={service.description} 
-              delay={index * 75} 
-              icon={service.icon}
-            />
           ))}
         </div>
       </div>
