@@ -140,7 +140,7 @@ const Footer = () => {
                 </ul>
               </address>
 
-              <div className="pt-6">
+              <div className="space-component-sm">
                 <Newsletter
                   variant="simple"
                   compact={true}
@@ -155,14 +155,14 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="border-t border-white/20 pt-8 mt-12">
-            <div className="text-on-dark-secondary text-body flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="border-t border-white/20 space-component-lg">
+            <div className="text-on-dark-secondary text-body flex flex-col md:flex-row justify-between items-center gap-unified-md">
               <div>
                 © {currentYear} Smart Financial Planning. All rights reserved.
               </div>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-unified-md">
                 <nav aria-label="Legal">
-                  <ul className="flex gap-6">
+                  <ul className="flex gap-unified-md">
                     <li>
                       <Link to="/privacy" className="hover:text-white transition-colors touch-target focus-enhanced">
                         Privacy Policy

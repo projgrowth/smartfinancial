@@ -165,7 +165,7 @@ const MeetingScheduler = () => {
         
         <div className="max-w-4xl mx-auto">
           <Card className="border-border/50 shadow-md hover:shadow-lg transition-shadow duration-150">
-            <CardContent className="pt-6">
+            <CardContent className="space-component-md">
               <Tabs defaultValue="schedule" className="w-full space-component-md">
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="schedule">Schedule Online</TabsTrigger>
@@ -178,7 +178,7 @@ const MeetingScheduler = () => {
                       <div className="grid-two-col gap-unified-lg">
                         <div className="space-component-sm">
                           <h3 className="heading-sm text-foreground">Select a Date</h3>
-                          <div className="border border-accent/30 rounded-md p-1 bg-background">
+                          <div className="border border-accent/30 rounded-md bg-background space-component-xs">
                             <Calendar
                               mode="single"
                               selected={date}
@@ -276,7 +276,7 @@ const MeetingScheduler = () => {
                     
                     {step === 2 && (
                       <div className="space-component-sm">
-                        <div className="p-4 bg-accent/5 rounded-md space-y-2">
+                        <div className="space-component-xs bg-accent/5 rounded-md space-y-2">
                           <h3 className="heading-sm text-foreground">Your Selected Time</h3>
                           <div className="flex items-center gap-2 text-muted-foreground">
                             <CalendarIcon className="h-4 w-4" />
@@ -358,7 +358,7 @@ const MeetingScheduler = () => {
                       </div>
                     )}
                     
-                    <div className="flex justify-between pt-6">
+                    <div className="flex justify-between space-component-sm">
                       {step > 1 && (
                         <Button 
                           type="button" 
@@ -400,8 +400,8 @@ const MeetingScheduler = () => {
                     </h3>
                     
                     <div className="space-component-sm">
-                      <div className="space-y-2">
-                        <div className="inline-block p-3 rounded-full bg-accent/10">
+                      <div className="space-component-xs text-center">
+                        <div className="inline-block space-component-xs rounded-full bg-accent/10">
                           <Phone className="h-6 w-6 text-accent" aria-hidden="true" />
                         </div>
                         <h4 className="font-medium">Call Us</h4>
@@ -409,8 +409,8 @@ const MeetingScheduler = () => {
                         <p className="text-xs text-muted-foreground">Monday - Friday, 9:00 AM - 5:00 PM ET</p>
                       </div>
                       
-                      <div className="space-y-2">
-                        <div className="inline-block p-3 rounded-full bg-accent/10">
+                      <div className="space-component-xs text-center">
+                        <div className="inline-block space-component-xs rounded-full bg-accent/10">
                           <Mail className="h-6 w-6 text-accent" aria-hidden="true" />
                         </div>
                         <h4 className="font-medium">Email Us</h4>

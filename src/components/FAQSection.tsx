@@ -35,7 +35,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
           </div>
         </CollapsibleTrigger>
         <CollapsibleContent className="px-6 pb-6 text-body text-muted-foreground border-t border-border/30">
-          <div className="pt-4">{answer}</div>
+          <div className="space-component-xs">{answer}</div>
         </CollapsibleContent>
       </PremiumCard>
     </Collapsible>
@@ -117,7 +117,7 @@ const FAQSection = () => {
           </ScrollReveal>
         </div>
         
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-component-sm">
           {faqs.map((faq, index) => (
             <ScrollReveal key={index} delay={index * 50} distance="4px">
               <FAQItem question={faq.question} answer={faq.answer} />

@@ -242,7 +242,7 @@ const TeamDetails = () => {
               </Button>
 
               {/* Background & Credentials Section */}
-              <div className="border-t border-border pt-6 space-component-sm">
+              <div className="border-t border-border space-component-sm">
                 <h4 className="heading-xs text-foreground">Background & Credentials</h4>
                 
                 <div className="space-component-md">

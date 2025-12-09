@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
         </PremiumCardHeader>
         
         <PremiumCardContent className="card-content-grow">
-          <p className="text-body text-muted-foreground">
+          <p className="text-body text-foreground/70">
             {description}
           </p>
         </PremiumCardContent>
