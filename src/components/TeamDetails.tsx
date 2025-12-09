@@ -62,7 +62,7 @@ const TeamDetails = () => {
 
   return (
     <section id="team" className="section-lg bg-background relative overflow-hidden" role="region" aria-labelledby="team-heading">
-      <GradientAccent variant="subtle" position="bottom-right" intensity="ultra-low" />
+      <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       
       <div className="container-wide relative z-10">
         <ScrollReveal distance="8px">

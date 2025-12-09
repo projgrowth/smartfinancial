@@ -1,25 +1,16 @@
 /**
  * Hero Component - Clean Premium Design
- * 
- * CLEANUP APPLIED:
- * - Removed TrustLine badges (decluttered)
- * - Simplified to headline + subhead + single CTA
- * - Removed unnecessary imports
- * - Standardized spacing to design system tokens
  */
 
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import { Button } from '@/components/ui/button';
-import { useTouchOptimizations } from '../hooks/useTouchOptimizations';
 import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
 import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
 
 const Hero = () => {
-  const { hapticFeedback, getTouchTargetClasses } = useTouchOptimizations();
-
   return (
     <section 
       role="region"
@@ -46,14 +37,11 @@ const Hero = () => {
             <Button
               variant="shimmer"
               size="lg"
-              onClick={() => {
-                smoothScrollTo('schedule');
-                hapticFeedback('medium');
-              }}
+              onClick={() => smoothScrollTo('schedule')}
               onMouseEnter={preloadMeetingScheduler}
               onFocus={preloadMeetingScheduler}
               aria-label="Schedule your private strategy call"
-              className={`group mx-auto font-semibold shadow-lg hover:shadow-xl ${getTouchTargetClasses()}`}
+              className="group mx-auto font-semibold shadow-lg hover:shadow-xl"
             >
               <span className="flex items-center gap-2">
                 <span>Schedule Your Consultation</span>
@@ -66,10 +54,7 @@ const Hero = () => {
       </div>
 
       <EnhancedScrollIndicator
-        onClick={() => {
-          smoothScrollTo('schedule');
-          hapticFeedback('light');
-        }}
+        onClick={() => smoothScrollTo('schedule')}
         onMouseEnter={preloadMeetingScheduler}
         onFocus={preloadMeetingScheduler}
         label="Learn More"

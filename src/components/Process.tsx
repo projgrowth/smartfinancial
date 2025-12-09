@@ -33,11 +33,11 @@ const Process = () => {
       aria-labelledby="process-heading"
     >
       <div className="container-default">
-        <div className="text-center mb-16">
-          <h2 id="process-heading" className="heading-lg text-white mb-4">
+        <div className="text-center space-y-4 mb-12 md:mb-16">
+          <h2 id="process-heading" className="heading-lg text-white">
             Our Process
           </h2>
-          <p className="text-body text-white/70 max-w-xl mx-auto">
+          <p className="text-body text-white/80 max-w-xl mx-auto">
             A clear path to financial confidence in three focused steps.
           </p>
         </div>
@@ -49,7 +49,7 @@ const Process = () => {
             <div className="absolute top-8 left-[16.67%] right-[16.67%] h-px bg-white/20" />
             
             <div className="grid grid-cols-3 gap-8">
-              {steps.map((step, index) => {
+              {steps.map((step) => {
                 const Icon = step.icon;
                 const isActive = activeStep === step.number;
                 
@@ -65,26 +65,26 @@ const Process = () => {
                       <div 
                         className={`
                           w-16 h-16 rounded-full flex items-center justify-center
-                          border-2 transition-all duration-300 cursor-pointer
+                          border-2 transition-all duration-150 cursor-pointer
                           ${isActive 
                             ? 'bg-accent border-accent scale-110' 
                             : 'bg-white/5 border-white/30 hover:border-accent/50'
                           }
                         `}
                       >
-                        <Icon className={`w-7 h-7 transition-colors duration-300 ${isActive ? 'text-white' : 'text-accent'}`} />
+                        <Icon className={`w-7 h-7 transition-colors duration-150 ${isActive ? 'text-white' : 'text-accent'}`} />
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className={`text-center transition-all duration-300 ${isActive ? 'transform -translate-y-1' : ''}`}>
-                      <span className={`text-sm font-medium transition-colors duration-300 ${isActive ? 'text-accent' : 'text-white/40'}`}>
+                    <div className={`text-center transition-all duration-150 ${isActive ? 'transform -translate-y-1' : ''}`}>
+                      <span className={`text-sm font-medium transition-colors duration-150 ${isActive ? 'text-accent' : 'text-white/60'}`}>
                         Step {step.number}
                       </span>
                       <h3 className="text-xl font-semibold text-white mt-2 mb-3">
                         {step.title}
                       </h3>
-                      <p className={`text-sm leading-relaxed transition-colors duration-300 ${isActive ? 'text-white/90' : 'text-white/60'}`}>
+                      <p className={`text-sm leading-relaxed transition-colors duration-150 ${isActive ? 'text-white' : 'text-white/80'}`}>
                         {step.description}
                       </p>
                     </div>
@@ -96,13 +96,13 @@ const Process = () => {
         </div>
 
         {/* Mobile: Vertical timeline */}
-        <div className="md:hidden space-y-8">
+        <div className="md:hidden space-y-6">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isLast = index === steps.length - 1;
             
             return (
-              <div key={step.number} className="relative flex gap-6">
+              <div key={step.number} className="relative flex gap-4">
                 {/* Timeline */}
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center flex-shrink-0">
@@ -114,14 +114,14 @@ const Process = () => {
                 </div>
 
                 {/* Content */}
-                <div className="pb-8">
+                <div className="pb-6">
                   <span className="text-xs font-medium text-accent">
                     Step {step.number}
                   </span>
                   <h3 className="text-lg font-semibold text-white mt-1 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-white/70 leading-relaxed">
+                  <p className="text-sm text-white/80 leading-relaxed">
                     {step.description}
                   </p>
                 </div>

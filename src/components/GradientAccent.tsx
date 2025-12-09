@@ -2,12 +2,11 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface GradientAccentProps {
-  variant?: 'blue' | 'subtle' | 'dark' | 'gold' | 'green' | 'purple';
+  variant?: 'blue' | 'subtle' | 'gold';
   position?: 'top-right' | 'bottom-left' | 'top-left' | 'bottom-right' | 'center';
   className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-  intensity?: 'low' | 'medium' | 'high' | 'ultra-low';
-  animated?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  intensity?: 'low' | 'medium';
 }
 
 const GradientAccent: React.FC<GradientAccentProps> = ({
@@ -15,24 +14,18 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   position = 'bottom-right',
   className = '',
   size = 'lg',
-  intensity = 'medium',
-  animated = false,
+  intensity = 'low',
 }) => {
   const variantStyles = {
-    blue: 'bg-gradient-to-br from-accent/25 via-accent/15 to-accent/10',
-    subtle: 'bg-gradient-to-br from-accent/15 via-muted/20 to-gold/10',
-    dark: 'bg-gradient-to-br from-primary/20 via-primary/15 to-primary/10',
-    gold: 'bg-gradient-to-br from-gold/25 via-gold/15 to-gold/10',
-    green: 'bg-gradient-to-br from-accent/20 via-accent/15 to-accent/10',
-    purple: 'bg-gradient-to-br from-accent/20 via-primary/15 to-accent/10',
+    blue: 'bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5',
+    subtle: 'bg-gradient-to-br from-accent/15 via-muted/15 to-gold/10',
+    gold: 'bg-gradient-to-br from-gold/20 via-gold/10 to-gold/5',
   };
   
   const sizeStyles = {
     sm: 'w-32 h-32 md:w-48 md:h-48',
     md: 'w-48 h-48 md:w-64 md:h-64',
     lg: 'w-64 h-64 md:w-96 md:h-96',
-    xl: 'w-96 h-96 md:w-[32rem] md:h-[32rem]',
-    '2xl': 'w-[32rem] h-[32rem] md:w-[40rem] md:h-[40rem]',
   };
   
   const positionStyles = {
@@ -44,21 +37,18 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   };
   
   const intensityStyles = {
-    'ultra-low': 'opacity-15',
-    low: 'opacity-25',
-    medium: 'opacity-35',
-    high: 'opacity-50',
+    low: 'opacity-20',
+    medium: 'opacity-30',
   };
   
   return (
     <div
       className={cn(
-        'absolute rounded-full blur-2xl -z-10 transition-transform duration-150',
+        'absolute rounded-full blur-2xl -z-10 pointer-events-none',
         variantStyles[variant],
         sizeStyles[size],
         positionStyles[position],
         intensityStyles[intensity],
-        animated && 'animate-[float_40s_ease-in-out_infinite]',
         className
       )}
       aria-hidden="true"

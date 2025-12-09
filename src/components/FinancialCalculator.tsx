@@ -14,7 +14,7 @@ const FinancialCalculator = () => {
       role="region"
       aria-labelledby="calculators-heading"
     >
-      <GradientAccent variant="subtle" position="top-left" intensity="ultra-low" />
+      <GradientAccent variant="subtle" position="top-left" intensity="low" />
       <div className="container-narrow relative z-10 space-component-lg">
         <div className="text-center space-component-sm">
           <ScrollReveal distance="8px">

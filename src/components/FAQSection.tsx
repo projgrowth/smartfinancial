@@ -101,7 +101,7 @@ const FAQSection = () => {
       role="region"
       aria-labelledby="faq-heading"
     >
-      <GradientAccent variant="subtle" position="bottom-left" intensity="ultra-low" />
+      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       <div className="container-narrow relative z-10 space-component-lg">
         <div className="text-center space-component-sm">
           <ScrollReveal distance="8px">

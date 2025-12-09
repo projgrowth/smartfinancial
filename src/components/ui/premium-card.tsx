@@ -1,37 +1,26 @@
-
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const premiumCardVariants = cva(
-  "rounded-xl border transition-all duration-150 ease-out space-y-4",
+  "rounded-xl border transition-all duration-150 ease-out",
   {
     variants: {
       variant: {
         default: "bg-card border-border/50 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-accent/30",
         elevated: "bg-card border-border/40 shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-accent/40",
-        premium: "border-border/30 shadow-lg hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-card via-card to-accent/5",
-        glass: "border-white/20 shadow-lg bg-white/90 backdrop-blur-md hover:bg-white/95 hover:shadow-xl hover:-translate-y-1",
-        dark: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-xl text-white hover:-translate-y-1",
-        advisor: "border-border/40 shadow-md hover:shadow-lg hover:border-accent/30 rounded-xl bg-card text-card-foreground hover:-translate-y-1",
-        timeline: "border-white/30 shadow-lg bg-white/20 backdrop-blur-md hover:bg-white/25 rounded-xl text-white hover:-translate-y-1",
-        info: "bg-card border-border/40 shadow-sm rounded-xl hover:shadow-md hover:-translate-y-1",
         faq: "border-border/30 rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-md",
+        advisor: "border-border/40 shadow-md hover:shadow-lg hover:border-accent/30 rounded-xl bg-card text-card-foreground hover:-translate-y-1",
       },
       size: {
-        xs: "p-3",
         sm: "p-4",
         default: "p-6", 
         lg: "p-6 md:p-8",
-        xl: "p-8 md:p-10",
-        responsive: "p-4 md:p-6"
       },
       spacing: {
-        none: "",
-        tight: "space-y-2",
-        default: "space-y-4",
-        relaxed: "space-y-6",
-        loose: "space-y-8"
+        tight: "space-y-4",
+        default: "space-y-6",
+        relaxed: "space-y-8",
       }
     },
     defaultVariants: {
@@ -56,7 +45,7 @@ const PremiumCard = React.forwardRef<HTMLDivElement, PremiumCardProps>(
       className={cn(
         premiumCardVariants({ variant, size, spacing }),
         hover && "group cursor-pointer",
-        active && (variant === "dark" || variant === "timeline") && "border-accent/70 shadow-xl shadow-accent/20 ring-1 ring-accent/30",
+        active && "border-accent/70 shadow-xl shadow-accent/20 ring-1 ring-accent/30",
         className
       )}
       {...props}
@@ -100,7 +89,7 @@ const PremiumCardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm leading-relaxed", className)}
+    className={cn("text-sm leading-relaxed text-muted-foreground", className)}
     {...props}
   />
 ))
@@ -124,7 +113,7 @@ const PremiumCardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center pt-4 animate-fade-in group-hover:animate-enter", className)}
+    className={cn("flex items-center pt-4", className)}
     {...props}
   />
 ))
