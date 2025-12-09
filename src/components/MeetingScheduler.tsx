@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,7 +7,6 @@ import { format } from 'date-fns';
 import { CalendarIcon, Clock, Mail, Phone, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
 import { sanitizeInput } from '@/utils/security';
 import { supabase } from '@/integrations/supabase/client';
 import { meetingRequestSchema } from '@/lib/formValidation';
@@ -147,7 +145,6 @@ const MeetingScheduler = () => {
 
   return (
     <section id="schedule" className="section-lg relative overflow-hidden section-bg-subtle" role="region" aria-labelledby="schedule-heading">
-      <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
       <div className="container-narrow relative z-10 space-component-lg">
         <div className="text-center space-component-sm">
           <ScrollReveal distance="8px">

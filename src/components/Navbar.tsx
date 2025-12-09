@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils';
 import useNavigateSection from '@/hooks/useNavigateSection';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { preloadMeetingScheduler, preloadTeamDetails } from '@/utils/componentPreloader';
 
 interface NavItem {
   name: string;
@@ -163,7 +162,6 @@ const Navbar = () => {
         <div 
           className="hidden md:flex items-center gap-unified-md"
           role="navigation"
-          aria-label="Desktop navigation"
         >
           {navItems.map((item) => (
             <a 
@@ -172,10 +170,6 @@ const Navbar = () => {
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick(item.id);
-              }}
-              onMouseEnter={() => {
-                if (item.id === 'schedule') preloadMeetingScheduler();
-                if (item.id === 'team') preloadTeamDetails();
               }}
               className={cn(
                 "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-150 group focus-enhanced",
@@ -195,7 +189,6 @@ const Navbar = () => {
           ))}
           <Button 
             onClick={() => handleNavClick('schedule')}
-            onMouseEnter={preloadMeetingScheduler}
             className="group"
             size="sm"
             variant="hero"

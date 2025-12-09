@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { PremiumCard } from '@/components/ui/premium-card';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
 
 interface FAQItemProps {
   question: string;
@@ -101,7 +99,6 @@ const FAQSection = () => {
       role="region"
       aria-labelledby="faq-heading"
     >
-      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
       <div className="container-narrow relative z-10 space-component-lg">
         <div className="text-center space-component-sm">
           <ScrollReveal distance="8px">

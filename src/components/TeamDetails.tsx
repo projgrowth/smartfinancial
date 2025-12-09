@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { PremiumCard } from '@/components/ui/premium-card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { advisors as teamAdvisors } from '@/data/team';
-import { getHeadshotPosition, generateTeamAltText } from '@/utils/imageOptimization';
 import { smoothScrollTo } from '@/utils/smoothScroll';
-import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import {
   Carousel,
@@ -18,6 +15,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
+// Simple helper functions inline
+const getHeadshotPosition = (imageUrl: string): string => {
+  if (imageUrl.includes('razell')) return 'center 15%';
+  if (imageUrl.includes('joseph')) return 'center 20%';
+  return 'center center';
+};
+
+const generateTeamAltText = (name: string, title: string): string => {
+  return `${name}, ${title} at Smart Financial Planning`;
+};
 
 const TeamDetails = () => {
   const advisors = teamAdvisors;
@@ -62,8 +70,6 @@ const TeamDetails = () => {
 
   return (
     <section id="team" className="section-lg bg-background relative overflow-hidden" role="region" aria-labelledby="team-heading">
-      <GradientAccent variant="subtle" position="bottom-right" intensity="low" />
-      
       <div className="container-wide relative z-10">
         <ScrollReveal distance="8px">
           <div className="text-center space-component-lg">
@@ -233,8 +239,6 @@ const TeamDetails = () => {
               {/* CTA Button */}
               <Button 
                 onClick={() => smoothScrollTo('schedule')}
-                onMouseEnter={preloadMeetingScheduler}
-                onFocus={preloadMeetingScheduler}
                 className="group flex items-center gap-2"
               >
                 Schedule a Consultation
