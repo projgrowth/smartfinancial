@@ -84,5 +84,22 @@ export const advisors: AdvisorProfile[] = [
         'Dedicated to empowering families with financial clarity and confidence',
       ]
     }
+  },
+  {
+    slug: 'ej-leonard',
+    name: 'EJ Leonard',
+    title: 'Financial Advisor',
+    summary: "EJ brings analytical clarity and a forward-looking mindset from his sports analytics background to financial planning. He focuses on helping individuals and families understand their options clearly and make decisions that support a strong long-term trajectory.",
+    fullBio: "EJ's path into financial planning started long before his career. He grew up with a natural pull toward numbers and analysis, spending hours breaking down player performance and projecting outcomes well before analytics became mainstream. That early interest in disciplined, data-driven thinking eventually shaped the way he approaches planning today.\n\nHe played baseball at Stetson University before shifting his focus to the operations side of the sport, later working in baseball operations for the Atlanta Braves. EJ enjoyed the analytical work but not the travel, and ultimately chose a direction that allowed him to build a stable life with his wife and family.\n\nAt Smart Financial Planning, EJ uses his experience to help clients be intentional with their dollars and confident in the path ahead.",
+    specialties: ['Data-Driven Planning', 'Long-Term Strategy', 'Family Financial Planning'],
+    imageUrl: '/lovable-uploads/ej-leonard.png',
+    credentials: {
+      education: ['Stetson University'],
+      experience: [
+        'Former baseball operations professional with the Atlanta Braves',
+        'Background in sports analytics and performance projection',
+        'Analytical approach to financial planning and decision-making',
+      ]
+    }
   }
 ];
