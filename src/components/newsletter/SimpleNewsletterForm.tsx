@@ -22,7 +22,7 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
   onDark = false
 }) => {
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-2">
       <div className="relative">
         <input
           type="email"
@@ -30,9 +30,13 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
           onChange={(e) => setEmail(sanitizeInput(e.target.value))}
           placeholder="Your email address"
           required
-          className={`form-input pr-12 ${onDark ? 'bg-white/15 border-white/40 text-white placeholder:text-white/60' : 'bg-card placeholder:text-muted-foreground/60'}`}
+          className={`w-full px-3 py-2 rounded-md border transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-accent/30 pr-10 ${
+            onDark 
+              ? 'bg-white/15 border-white/30 text-white placeholder:text-white/50' 
+              : 'bg-card border-border placeholder:text-muted-foreground/60'
+          }`}
         />
-        <Mail className={`absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 pointer-events-none ${onDark ? 'text-white/60' : 'text-accent/60'}`} />
+        <Mail className={`absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 pointer-events-none ${onDark ? 'text-white/50' : 'text-accent/60'}`} />
       </div>
       
       <Button
@@ -44,10 +48,6 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
         {isSubmitting ? "Subscribing..." : "Subscribe Now"} 
         <ArrowRight className="h-4 w-4" />
       </Button>
-      
-      <p className={`text-xs text-center ${onDark ? 'text-white/70' : 'text-muted-foreground'}`}>
-        We respect your privacy. Unsubscribe anytime.
-      </p>
     </form>
   );
 };

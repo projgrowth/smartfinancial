@@ -100,7 +100,7 @@ const PremiumCardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-muted-foreground text-sm leading-relaxed", className)}
+    className={cn("text-sm leading-relaxed", className)}
     {...props}
   />
 ))
