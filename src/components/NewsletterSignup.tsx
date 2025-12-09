@@ -104,14 +104,14 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 
   if (isSubscribed) {
     return (
-      <div className={`rounded-xl overflow-hidden ${onDark ? 'surface-dark' : 'bg-accent/10 border border-border/50'} p-4 ${className}`}>
+      <div className={`rounded-xl overflow-hidden ${onDark ? 'surface-dark' : 'bg-accent/10 border border-border/50'} space-component-xs ${className}`}>
         <SimpleSuccessMessage onDark={onDark} />
       </div>
     );
   }
 
   return (
-    <div className={`rounded-xl overflow-hidden ${onDark ? 'surface-dark' : 'bg-muted/30 border border-border/50'} ${compact ? 'p-4' : 'p-5'} ${className}`}>
+    <div className={`rounded-xl overflow-hidden ${onDark ? 'surface-dark' : 'bg-muted/30 border border-border/50'} ${compact ? 'space-component-xs' : 'space-component-sm'} ${className}`}>
       <div className={compact ? "space-y-3" : "space-y-4"}>
         <div>
           <h3 className={`font-heading ${compact ? 'text-sm' : 'text-base'} font-medium ${onDark ? 'text-on-dark' : 'text-foreground'}`}>

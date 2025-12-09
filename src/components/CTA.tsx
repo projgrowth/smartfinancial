@@ -15,7 +15,7 @@ const CTA = () => {
     >
       <div className="container-default relative z-10">
         <ScrollReveal distance="8px">
-          <div className="glass-effect-dark rounded-2xl p-8 md:p-12 shadow-lg max-w-4xl mx-auto text-center space-component-md">
+          <div className="glass-effect-dark rounded-2xl section-md shadow-lg max-w-4xl mx-auto text-center space-component-md">
             <h2 id="cta-heading" className="heading-lg text-white">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>

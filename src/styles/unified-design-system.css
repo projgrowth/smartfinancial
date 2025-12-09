@@ -765,7 +765,7 @@
 
   /* Footer Grid System - 2:1:1:1 layout emphasizing company info */
   .grid-footer {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-unified-lg;
   }
 
   .grid-footer > :first-child {

@@ -171,7 +171,7 @@ const CompoundInterestCalculator = React.memo(() => {
           </div>
           
           <div className="space-component-xs">
-            <div className="bg-accent/10 p-4 rounded-lg space-y-1">
+            <div className="bg-accent/10 space-component-xs rounded-lg">
               <p className="text-sm text-muted-foreground">Future Value</p>
               <p className="heading-md text-primary">{formatCurrency(result)}</p>
               <p className="text-sm text-muted-foreground">
