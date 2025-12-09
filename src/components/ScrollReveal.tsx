@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface ScrollRevealProps {
@@ -28,7 +28,14 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     triggerOnce: once,
   });
 
-  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Stable reduced motion check - default to false to avoid hydration mismatch
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  
+  useEffect(() => {
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mql.matches);
+  }, []);
+
   const show = isIntersecting || prefersReducedMotion;
 
   return (
