@@ -45,6 +45,17 @@
     --charcoal-dark: 215 35% 12%;
     --charcoal-light: 215 22% 25%;
     
+    /* ========== DARK SURFACE SYSTEM ========== */
+    /* Semantic tokens for dark backgrounds (Footer, Process, CTAs) */
+    --dark-surface: 0 0% 100%;
+    --dark-surface-opacity: 0.1;
+    --dark-surface-elevated-opacity: 0.15;
+    --dark-border-opacity: 0.2;
+    --dark-border-strong-opacity: 0.4;
+    --dark-text-primary: 0 0% 100%;
+    --dark-text-secondary-opacity: 0.8;
+    --dark-text-muted-opacity: 0.6;
+    
     /* ========== SEMANTIC STATES ========== */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;

@@ -32,11 +32,11 @@ const SimpleNewsletterForm: React.FC<SimpleNewsletterFormProps> = ({
           required
           className={`w-full px-3 py-2 rounded-md border transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-accent/30 pr-10 ${
             onDark 
-              ? 'bg-white/15 border-white/30 text-white placeholder:text-white/50' 
+              ? 'input-dark' 
               : 'bg-card border-border placeholder:text-muted-foreground/60'
           }`}
         />
-        <Mail className={`absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 pointer-events-none ${onDark ? 'text-white/50' : 'text-accent/60'}`} />
+        <Mail className={`absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 pointer-events-none ${onDark ? 'text-on-dark-muted' : 'text-accent/60'}`} />
       </div>
       
       <Button

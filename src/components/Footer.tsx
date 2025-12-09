@@ -24,7 +24,7 @@ const Footer = () => {
                 <Link to="/" className="heading-sm text-white block space-component-xs">
                   Smart Financial Planning
                 </Link>
-                <p className="text-body text-white/90">
+                <p className="text-body text-on-dark-secondary">
                   Tailored financial strategies for ambitious professionals in Lake Nona and Orlando who demand more than 
                   cookie-cutter solutions.
                 </p>
@@ -110,11 +110,11 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <ScrollReveal delay={300}>
               <h3 className="heading-xs text-white space-component-sm">Contact Information</h3>
-              <address className="not-italic">
-                <ul className="space-component-sm">
+              <address className="not-italic space-component-sm">
+                <ul className="space-y-4">
                   <li className="flex items-start gap-3 group">
                     <MapPin className="footer-contact-icon" />
-                    <span className="text-body text-white/90">
+                    <span className="text-body text-on-dark-secondary">
                       111 N Orange Ave, STE 800<br />
                       Orlando, Florida 32801
                     </span>
@@ -123,7 +123,7 @@ const Footer = () => {
                     <Phone className="footer-contact-icon" />
                     <a
                       href="tel:+17066275729"
-                      className="text-body text-white/90 hover:text-white transition-colors duration-150 focus-enhanced"
+                      className="text-body text-on-dark-secondary hover:text-white transition-colors duration-150 focus-enhanced"
                     >
                       (706) 627-5729
                     </a>
@@ -132,7 +132,7 @@ const Footer = () => {
                     <Mail className="footer-contact-icon" />
                     <a
                       href="mailto:info@thesmartfinancialplan.com"
-                      className="text-body text-white/90 hover:text-white transition-colors duration-150 focus-enhanced break-all"
+                      className="text-body text-on-dark-secondary hover:text-white transition-colors duration-150 focus-enhanced break-all"
                     >
                       info@thesmartfinancialplan.com
                     </a>
@@ -140,7 +140,7 @@ const Footer = () => {
                 </ul>
               </address>
 
-              <div className="space-component-lg">
+              <div className="pt-6">
                 <Newsletter
                   variant="simple"
                   compact={true}
@@ -155,33 +155,35 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="border-t border-white/20 text-white/80 text-body flex flex-col md:flex-row justify-between items-center gap-unified-md pt-8 mt-8">
-            <div>
-              © {currentYear} Smart Financial Planning. All rights reserved.
-            </div>
-            <div className="flex items-center gap-unified-md">
-              <nav aria-label="Legal">
-                <ul className="flex gap-unified-md">
-                  <li>
+          <div className="border-t border-white/20 pt-8 mt-12">
+            <div className="text-on-dark-secondary text-body flex flex-col md:flex-row justify-between items-center gap-6">
+              <div>
+                © {currentYear} Smart Financial Planning. All rights reserved.
+              </div>
+              <div className="flex items-center gap-6">
+                <nav aria-label="Legal">
+                  <ul className="flex gap-6">
+                    <li>
                       <Link to="/privacy" className="hover:text-white transition-colors touch-target focus-enhanced">
                         Privacy Policy
                       </Link>
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                       <Link to="/terms" className="hover:text-white transition-colors touch-target focus-enhanced">
                         Terms of Service
                       </Link>
-                  </li>
-                </ul>
-              </nav>
-              <button
-                type="button"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="footer-back-to-top"
-                aria-label="Back to top"
-              >
-                Back to top
-              </button>
+                    </li>
+                  </ul>
+                </nav>
+                <button
+                  type="button"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="footer-back-to-top"
+                  aria-label="Back to top"
+                >
+                  Back to top
+                </button>
+              </div>
             </div>
           </div>
         </ScrollReveal>

@@ -459,6 +459,36 @@
   }
 
   /* ========================================
+     DARK SURFACE UTILITIES
+     Use on dark backgrounds (Footer, Process, CTAs)
+     ======================================== */
+  
+  .surface-dark {
+    @apply bg-white/10 border border-white/20 backdrop-blur-md;
+  }
+  
+  .surface-dark-elevated {
+    @apply bg-white/15 border border-white/30 backdrop-blur-md;
+  }
+  
+  .input-dark {
+    @apply bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:ring-white/20;
+  }
+  
+  /* Dark text hierarchy - only 3 levels */
+  .text-on-dark {
+    @apply text-white;
+  }
+  
+  .text-on-dark-secondary {
+    @apply text-white/80;
+  }
+  
+  .text-on-dark-muted {
+    @apply text-white/60;
+  }
+
+  /* ========================================
      9. INTERACTIVE STATES & UTILITIES
      ======================================== */
   
@@ -729,12 +759,12 @@
   }
 
   .footer-contact-icon {
-    @apply w-5 h-5 text-accent flex-shrink-0 transition-transform duration-150 group-hover:scale-110;
+    @apply w-5 h-5 text-white/80 flex-shrink-0 transition-transform duration-150 group-hover:scale-110;
   }
 
   /* Footer Grid System - 2:1:1:1 layout emphasizing company info */
   .grid-footer {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-unified-xl;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12;
   }
 
   .grid-footer > :first-child {
