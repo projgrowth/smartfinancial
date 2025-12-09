@@ -46,9 +46,9 @@ const ServiceCard: React.FC<ServiceCardProps> = React.memo(({ title, description
               e.stopPropagation();
               document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="flex items-center text-primary font-medium touch-target group/link hover:text-accent transition-colors"
+            className="flex items-center gap-2 text-primary font-medium touch-target group/link hover:text-accent transition-colors"
           >
-            <span className="mr-2">Get started</span>
+            <span>Get started</span>
             <ChevronRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
           </button>
         </PremiumCardFooter>

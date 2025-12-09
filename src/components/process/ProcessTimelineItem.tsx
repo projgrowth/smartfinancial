@@ -84,8 +84,8 @@ const ProcessTimelineItem: React.FC<ProcessTimelineItemProps> = ({
                   key={idx} 
                   className="bg-white/5 p-4 rounded-md border border-white/20 shadow-sm hover:border-white/30 transition-all duration-150"
                 >
-                  <h4 className="text-sm font-medium text-white mb-2 flex items-center">
-                    <span className="w-1 h-1 bg-accent rounded-full mr-2"></span>
+                  <h4 className="text-sm font-medium text-white mb-2 flex items-center gap-2">
+                    <span className="w-1 h-1 bg-accent rounded-full"></span>
                     {detail.title}
                   </h4>
                    <p className="text-xs leading-relaxed text-white/85">{detail.description}</p>
