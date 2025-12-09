@@ -119,14 +119,14 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     <Card className={`overflow-hidden border border-border/50 shadow-sm ${className}`}>
       <CardContent className={`${compact ? 'p-4' : 'p-6'} ${onDark ? 'bg-background/10' : 'bg-muted/40'}`}>
 
-        <div className={compact ? "space-y-3" : "space-y-4"}>
-          <div className={`${compact ? '' : 'flex items-center space-x-3'}`}>
+        <div className={compact ? "space-component-xs" : "space-component-sm"}>
+          <div className={`${compact ? '' : 'flex items-center gap-3'}`}>
             {!compact && (
               <div className={`rounded-full ${onDark ? 'bg-primary-foreground/10' : 'bg-accent/20'} p-2 flex-shrink-0`}>
                 <Mail className="h-5 w-5 text-accent" />
               </div>
             )}
-            <div>
+            <div className="space-y-1">
               <h3 className={`font-heading ${compact ? 'text-base' : 'text-lg'} font-medium text-foreground`}>
                 {title}
               </h3>
@@ -135,7 +135,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               </p>
             </div>
           </div>
-          { (showWebhook ?? !compact) && (
+          {(showWebhook ?? !compact) && (
             <div className="form-group">
               <label htmlFor="newsletterWebhook" className="form-label text-xs">
                 Zapier Webhook URL (optional, site owner)

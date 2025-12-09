@@ -15,11 +15,11 @@ const CTA = () => {
     >
       <div className="container-default relative z-10">
         <ScrollReveal distance="8px">
-          <div className="glass-effect-dark rounded-2xl p-8 md:p-12 shadow-lg max-w-4xl mx-auto text-center">
-            <h2 id="cta-heading" className="heading-lg text-white mb-6">
+          <div className="glass-effect-dark rounded-2xl p-8 md:p-12 shadow-lg max-w-4xl mx-auto text-center space-component-md">
+            <h2 id="cta-heading" className="heading-lg text-white">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>
-            <p className="text-body-lg text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-body-lg text-white/90 max-w-2xl mx-auto">
               Take the first step toward financial clarity and strategic growth with a personalized approach.
             </p>
             <Button 

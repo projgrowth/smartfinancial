@@ -24,12 +24,12 @@ const Hero = () => {
     <section 
       role="region"
       aria-label="Hero section"
-      className="relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-screen py-12 md:py-0 overflow-hidden section-bg-subtle"
+      className="relative flex items-center justify-center min-h-[85svh] sm:min-h-[90svh] md:min-h-screen section-lg overflow-hidden section-bg-subtle"
     >
       <AnimatedGradientMesh />
       
       <div className="container-default z-10">
-        <div className="max-w-4xl mx-auto text-center flex flex-col gap-6 md:gap-8">
+        <div className="max-w-4xl mx-auto text-center flex flex-col gap-8">
           
           <h1 className="heading-display-fluid tracking-tight text-balance font-bold text-foreground">
             Your Wealth.{' '}

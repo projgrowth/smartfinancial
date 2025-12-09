@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const premiumCardVariants = cva(
-  "rounded-xl border transition-all duration-150 ease-out",
+  "rounded-xl border transition-all duration-150 ease-out space-y-4",
   {
     variants: {
       variant: {
@@ -27,6 +27,7 @@ const premiumCardVariants = cva(
         responsive: "p-4 md:p-6"
       },
       spacing: {
+        none: "",
         tight: "space-y-2",
         default: "space-y-4",
         relaxed: "space-y-6",

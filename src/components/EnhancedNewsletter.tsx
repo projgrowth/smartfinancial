@@ -128,18 +128,20 @@ const EnhancedNewsletter = () => {
       <GradientAccent variant="subtle" position="top-left" intensity="ultra-low" />
       <GradientAccent variant="subtle" position="bottom-right" intensity="ultra-low" />
       
-      <div className="container-narrow relative z-10">
-        <ScrollReveal distance="8px">
-          <h2 className="heading-lg text-foreground text-center text-balance mb-4">
-            Financial Insights Newsletter
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={100} distance="6px">
-          <p className="text-center text-body-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Stay informed with our expert insights on investment strategies, tax planning, and wealth management.
-          </p>
-        </ScrollReveal>
+      <div className="container-narrow relative z-10 space-component-lg">
+        <div className="text-center space-component-sm">
+          <ScrollReveal distance="8px">
+            <h2 className="heading-lg text-foreground text-balance">
+              Financial Insights Newsletter
+            </h2>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={100} distance="6px">
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Stay informed with our expert insights on investment strategies, tax planning, and wealth management.
+            </p>
+          </ScrollReveal>
+        </div>
         
         {isSubscribed ? (
           <ThankYouMessage onReset={resetForm} />
