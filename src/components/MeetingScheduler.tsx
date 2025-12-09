@@ -202,7 +202,7 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-200 min-h-[44px] ${
+                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-150 min-h-[44px] ${
                                     meetingType === type.id
                                       ? 'border-accent bg-accent/10'
                                       : 'border-border hover:border-accent/50'
@@ -249,7 +249,7 @@ const MeetingScheduler = () => {
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-200 min-h-[44px] ${
+                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 min-h-[44px] ${
                                       time === t
                                         ? 'border-accent bg-accent/10 text-accent-foreground'
                                         : 'border-border hover:border-accent/50'

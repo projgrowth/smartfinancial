@@ -53,7 +53,7 @@ const GradientAccent: React.FC<GradientAccentProps> = ({
   return (
     <div
       className={cn(
-        'absolute rounded-full blur-2xl -z-10 transition-transform duration-500',
+        'absolute rounded-full blur-2xl -z-10 transition-transform duration-150',
         variantStyles[variant],
         sizeStyles[size],
         positionStyles[position],

@@ -112,27 +112,27 @@ const Footer = () => {
               <h3 className="heading-xs text-white space-component-sm">Contact Information</h3>
               <address className="not-italic">
                 <ul className="space-component-sm">
-                  <li className="flex items-start group">
+                  <li className="flex items-start gap-3 group">
                     <MapPin className="footer-contact-icon" />
-                    <span className="text-body text-white/90 ml-3">
+                    <span className="text-body text-white/90">
                       111 N Orange Ave, STE 800<br />
                       Orlando, Florida 32801
                     </span>
                   </li>
-                  <li className="flex items-center touch-target group">
+                  <li className="flex items-center gap-3 touch-target group">
                     <Phone className="footer-contact-icon" />
                     <a
                       href="tel:+17066275729"
-                      className="text-body text-white/90 hover:text-white transition-colors focus-enhanced ml-3"
+                      className="text-body text-white/90 hover:text-white transition-colors duration-150 focus-enhanced"
                     >
                       (706) 627-5729
                     </a>
                   </li>
-                  <li className="flex items-center touch-target group">
+                  <li className="flex items-center gap-3 touch-target group">
                     <Mail className="footer-contact-icon" />
                     <a
                       href="mailto:info@thesmartfinancialplan.com"
-                      className="text-body text-white/90 hover:text-white transition-colors focus-enhanced break-all ml-3"
+                      className="text-body text-white/90 hover:text-white transition-colors duration-150 focus-enhanced break-all"
                     >
                       info@thesmartfinancialplan.com
                     </a>

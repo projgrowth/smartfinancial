@@ -55,7 +55,7 @@ const InfoTip: React.FC<InfoTipProps> = ({
       {children || (
         <HelpCircle 
           size={iconSize} 
-          className="text-gold hover:text-gold-dark cursor-help ml-1 transition-colors duration-300" 
+          className="text-gold hover:text-gold-dark cursor-help ml-1 transition-colors duration-150" 
         />
       )}
       

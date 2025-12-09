@@ -439,19 +439,19 @@
 
   .form-input {
     @apply w-full px-3 py-2 bg-card border border-border rounded-md shadow-sm
-           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-200;
+           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-150;
   }
 
   .input-primary {
-    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300;
+    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-150;
   }
 
   .select-primary {
-    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-300 bg-card;
+    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-150 bg-card;
   }
 
   .checkbox-primary {
-    @apply h-4 w-4 rounded border-border text-gold focus:ring-gold/50 transition-all duration-300;
+    @apply h-4 w-4 rounded border-border text-gold focus:ring-gold/50 transition-all duration-150;
   }
   
   .divider {
@@ -477,11 +477,11 @@
 
   /* Navigation Effects */
   .nav-link {
-    @apply relative overflow-hidden inline-block px-1 py-1 text-foreground/80 hover:text-foreground transition-colors duration-300;
+    @apply relative overflow-hidden inline-block px-1 py-1 text-foreground/80 hover:text-foreground transition-colors duration-150;
   }
 
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-300;
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-150;
   }
 
   .nav-link:hover::after {
@@ -498,7 +498,7 @@
 
   /* Interactive Badges */
   .badge {
-    @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors duration-300;
+    @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors duration-150;
   }
 
   .badge-primary {
@@ -520,7 +520,7 @@
      ======================================== */
   
   .focus-enhanced {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 transition-shadow duration-200;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 transition-shadow duration-150;
   }
 
   .focus-ring {
@@ -716,15 +716,15 @@
 
   /* Footer Specific */
   .footer-nav-link {
-    @apply text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-300 touch-target focus-enhanced;
+    @apply text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-150 touch-target focus-enhanced;
   }
 
   .footer-icon-link {
-    @apply bg-primary-foreground/10 hover:bg-accent/30 active:bg-accent/40 transition-all duration-300 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
+    @apply bg-primary-foreground/10 hover:bg-accent/30 active:bg-accent/40 transition-all duration-150 touch-target-lg rounded-full flex items-center justify-center text-primary-foreground focus-enhanced;
   }
 
   .footer-contact-icon {
-    @apply w-5 h-5 text-accent flex-shrink-0 transition-transform duration-300 group-hover:scale-110;
+    @apply w-5 h-5 text-accent flex-shrink-0 transition-transform duration-150 group-hover:scale-110;
   }
 
   /* Footer Grid System - 2:1:1:1 layout emphasizing company info */
@@ -768,18 +768,18 @@
   
   /* Enhanced Interactive Elements */
   .interactive-accent {
-    @apply text-accent hover:text-accent/80 transition-all duration-300;
+    @apply text-accent hover:text-accent/80 transition-all duration-150;
   }
   
   .interactive-primary {
-    @apply text-foreground hover:text-accent transition-all duration-300;
+    @apply text-foreground hover:text-accent transition-all duration-150;
   }
   
   /* Premium spacing classes removed - use space-component-* instead */
   
   /* Enhanced Focus States */
   .focus-premium {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:border-accent transition-all duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:border-accent transition-all duration-150;
   }
   
   /* Semantic Text Colors */
@@ -832,7 +832,7 @@
   /* Dark theme tab trigger */
   .tabs-trigger-dark {
     @apply flex-1 font-medium py-2.5 rounded-full;
-    @apply transition-colors duration-200;
+    @apply transition-colors duration-150;
     @apply text-white/70;
     @apply focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none;
   }

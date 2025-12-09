@@ -40,7 +40,7 @@ const EnhancedScrollIndicator: React.FC<EnhancedScrollIndicatorProps> = ({
           'flex items-center justify-center',
           'border border-border/50',
           'text-muted-foreground hover:text-foreground',
-          'transition-all duration-200',
+          'transition-all duration-150',
           'hover:scale-105 hover:border-border',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
           isMobile && 'scale-90 opacity-70'
