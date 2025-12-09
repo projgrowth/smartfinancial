@@ -109,7 +109,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     return (
     <Card className={`overflow-hidden ${onDark ? 'border-white/20' : 'border-border/50'} shadow-sm ${className}`}>
       <CardContent className={`p-6 ${onDark ? 'bg-white/10' : 'bg-accent/10'}`}>
-          <SimpleSuccessMessage />
+          <SimpleSuccessMessage onDark={onDark} />
         </CardContent>
       </Card>
     );

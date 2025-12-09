@@ -101,7 +101,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
           {step.details.map((detail, idx) => (
             <ScaleOnHover key={idx} scale="sm" className="bg-white/5 p-4 rounded-md hover:bg-white/10 border border-white/20 hover:border-white/30 shadow-sm transition-all duration-150 space-y-2">
               <h4 className="text-body-sm font-medium text-white">{detail.title}</h4>
-              <p className="text-body-sm leading-relaxed text-white/85">{detail.description}</p>
+              <p className="text-body-sm leading-relaxed text-white/90">{detail.description}</p>
             </ScaleOnHover>
           ))}
         </CollapsibleContent>

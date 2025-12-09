@@ -53,10 +53,10 @@ class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen flex items-center justify-center bg-background p-4">
           <div className="max-w-md w-full text-center">
-            <h1 className="heading-md text-foreground mb-4">
+            <h1 className="heading-md text-foreground">
               Something went wrong
             </h1>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground">
               We're sorry for the inconvenience. Please refresh the page to try again.
             </p>
             <button
