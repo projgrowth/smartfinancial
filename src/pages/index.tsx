@@ -1,19 +1,18 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import IntroSection from '@/components/IntroSection';
 import Process from '@/components/Process';
 import ServiceCards from '@/components/ServiceCards';
+
 const FinancialCalculator = React.lazy(() => import('@/components/FinancialCalculator'));
 const TeamDetails = React.lazy(() => import('@/components/TeamDetails'));
 const MeetingScheduler = React.lazy(() => import('@/components/MeetingScheduler'));
 const FAQSection = React.lazy(() => import('@/components/FAQSection'));
 const CTA = React.lazy(() => import('@/components/CTA'));
 
-import { preloadCriticalImages } from '@/utils/imageOptimization';
 import { advisors } from '@/data/team';
 
-// Minimal inline fallback
 const MinimalFallback = () => (
   <div className="section-md bg-background animate-pulse">
     <div className="container-default h-32" />
@@ -21,22 +20,6 @@ const MinimalFallback = () => (
 );
 
 const Index = () => {
-  useEffect(() => {
-    const criticalImages = [
-      '/lovable-uploads/razell-smart-new.jpg',
-      '/lovable-uploads/9a1a6d90-cf14-4f3e-a92d-2ac3bb515025.png',
-      '/lovable-uploads/c90c6dda-53e6-45f2-8b9b-d36329401aa9.png',
-      '/lovable-uploads/joseph-schreiner-new.jpg'
-    ];
-    preloadCriticalImages(criticalImages);
-    
-    import('@/components/FinancialCalculator');
-    import('@/components/TeamDetails');
-    import('@/components/MeetingScheduler');
-    import('@/components/FAQSection');
-    import('@/components/CTA');
-  }, []);
-
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",

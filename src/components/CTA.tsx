@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
 import { ArrowRight } from 'lucide-react';
-import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 
 const CTA = () => {
   return (
@@ -27,8 +25,6 @@ const CTA = () => {
               size="lg"
               className="group hover:shadow-md"
               onClick={() => document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })}
-              onMouseEnter={preloadMeetingScheduler}
-              onFocus={preloadMeetingScheduler}
               aria-label="Schedule your strategy session"
             >
               <span className="flex items-center gap-2">

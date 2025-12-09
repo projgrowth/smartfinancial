@@ -6,7 +6,6 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { smoothScrollTo } from '../utils/smoothScroll';
 import { Button } from '@/components/ui/button';
-import { preloadMeetingScheduler } from '@/utils/componentPreloader';
 import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
 import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
 
@@ -38,8 +37,6 @@ const Hero = () => {
               variant="shimmer"
               size="lg"
               onClick={() => smoothScrollTo('schedule')}
-              onMouseEnter={preloadMeetingScheduler}
-              onFocus={preloadMeetingScheduler}
               aria-label="Schedule your private strategy call"
               className="group mx-auto font-semibold shadow-lg hover:shadow-xl"
             >
@@ -55,8 +52,6 @@ const Hero = () => {
 
       <EnhancedScrollIndicator
         onClick={() => smoothScrollTo('schedule')}
-        onMouseEnter={preloadMeetingScheduler}
-        onFocus={preloadMeetingScheduler}
         label="Learn More"
       />
     </section>

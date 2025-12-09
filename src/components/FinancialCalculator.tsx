@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
 import CompoundInterestCalculator from './calculators/CompoundInterestCalculator';
 import RetirementCalculator from './calculators/RetirementCalculator';
 
@@ -14,7 +12,6 @@ const FinancialCalculator = () => {
       role="region"
       aria-labelledby="calculators-heading"
     >
-      <GradientAccent variant="subtle" position="top-left" intensity="low" />
       <div className="container-narrow relative z-10 space-component-lg">
         <div className="text-center space-component-sm">
           <ScrollReveal distance="8px">

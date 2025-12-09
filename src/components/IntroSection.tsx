@@ -1,10 +1,7 @@
-
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
-import GradientAccent from './GradientAccent';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { preloadComponent } from '@/utils/componentPreloader';
 
 const IntroSection = () => {
   return (
@@ -13,8 +10,6 @@ const IntroSection = () => {
       role="region"
       aria-labelledby="intro-heading"
     >
-      <GradientAccent variant="subtle" position="bottom-left" intensity="low" />
-      
       <div className="container-default relative z-10">
         <div className="mx-auto text-center max-w-3xl space-component-md">
           <ScrollReveal distance="8px">
@@ -37,7 +32,6 @@ const IntroSection = () => {
               variant="outline"
               className="group"
               onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
-              onMouseEnter={() => preloadComponent(() => import('./Process'), 'Process')}
               aria-label="Discover your financial profile - scroll to process section"
             >
               <span className="flex items-center gap-2">
