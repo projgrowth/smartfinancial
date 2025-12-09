@@ -3,97 +3,62 @@
 
 @layer components {
   /* ========================================
-     PERFORMANCE OPTIMIZATION - Layout Containment
+     PERFORMANCE - Layout Containment
      ======================================== */
   
-  /* Chart stability - prevent layout shift during re-renders */
   .chart-contain {
     contain: size layout style;
     position: relative;
-    transform: translateZ(0); /* Force GPU layer */
-    will-change: contents;
+    transform: translateZ(0);
   }
 
-  /* Prevent chart tooltips from affecting layout */
-  .recharts-wrapper {
-    position: relative !important;
-  }
-
-  .recharts-surface {
-    will-change: transform;
-  }
-
-  /* Section containment for performance */
   .section-contain {
     contain: layout style paint;
   }
 
-  .will-change-transform {
-    will-change: transform;
-  }
-
-  .will-change-opacity {
-    will-change: opacity;
-  }
-
   /* ========================================
-     1. CSS CUSTOM PROPERTIES & DESIGN TOKENS
+     TYPOGRAPHY - Fluid Scale
      ======================================== */
   
-  /* Note: :root variables are defined in tokens.css for single source of truth */
-
-  /* ========================================
-     2. TYPOGRAPHY SYSTEM - FLUID & CONSISTENT
-     All headings use clamp() for true fluid scaling
-     ======================================== */
-  
-  /* Display Heading - Hero sections */
   .heading-display-fluid {
     font-size: clamp(2.25rem, 5vw + 0.5rem, 4.75rem);
     line-height: 1.05;
     letter-spacing: -0.025em;
-    @apply font-heading font-medium tracking-tight;
+    @apply font-heading font-medium;
   }
 
-  /* Large Heading - Section headers */
-  .heading-lg {
-    font-size: clamp(1.75rem, 3.5vw + 0.5rem, 2.5rem);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    @apply font-heading font-medium tracking-tight;
-  }
-
-  /* Medium Heading - Subsections */
-  .heading-md {
-    font-size: clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem);
-    line-height: 1.25;
-    letter-spacing: -0.005em;
-    @apply font-heading font-medium tracking-tight;
-  }
-
-  /* Small Heading - Card titles */
-  .heading-sm {
-    font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
-    line-height: 1.3;
-    @apply font-heading font-medium tracking-tight;
-  }
-
-  /* Extra Small Heading - Component titles */
-  .heading-xs {
-    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
-    line-height: 1.35;
-    @apply font-heading font-medium tracking-tight;
-  }
-
-  /* Extra Large Heading - Page titles, hero-level (between display and lg) */
   .heading-xl {
     font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
-    @apply font-heading font-medium tracking-tight;
+    @apply font-heading font-medium;
   }
 
-  /* Body Text Scale - Proportional to headings */
+  .heading-lg {
+    font-size: clamp(1.75rem, 3.5vw + 0.5rem, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    @apply font-heading font-medium;
+  }
+
+  .heading-md {
+    font-size: clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem);
+    line-height: 1.25;
+    @apply font-heading font-medium;
+  }
+
+  .heading-sm {
+    font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
+    line-height: 1.3;
+    @apply font-heading font-medium;
+  }
+
+  .heading-xs {
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
+    line-height: 1.35;
+    @apply font-heading font-medium;
+  }
+
   .text-body-xl {
     font-size: clamp(1.125rem, 1.5vw + 0.25rem, 1.25rem);
     @apply leading-relaxed;
@@ -115,176 +80,92 @@
   .text-body-sm {
     font-size: clamp(0.75rem, 0.75vw + 0.25rem, 0.875rem);
     @apply leading-relaxed;
-    max-width: 72ch;
   }
 
-  /* Caption text for small annotations */
   .text-caption {
     font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.8125rem);
     line-height: 1.5;
   }
-  
-  /* Muted text utility - use explicitly when needed */
-  .text-muted-strong {
-    @apply text-foreground/70;
-  }
 
-  /* Navbar Fluid Typography */
   .text-nav-brand {
     font-size: clamp(1.125rem, 1.75vw + 0.25rem, 1.5rem);
-    line-height: 1.2;
-    @apply font-heading font-medium tracking-tight;
+    @apply font-heading font-medium;
   }
 
   .text-nav-link {
     font-size: clamp(0.875rem, 1vw + 0.125rem, 1rem);
-    line-height: 1.5;
     @apply font-medium;
   }
 
-  /* Typography utilities */
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .text-pretty {
-    text-wrap: pretty;
-  }
-  
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
   .text-gradient {
     background: linear-gradient(90deg, hsl(var(--charcoal)) 0%, hsl(var(--charcoal-light)) 100%);
     @apply bg-clip-text text-transparent;
   }
-  
+
   .text-gradient-gold {
     background: linear-gradient(90deg, hsl(var(--gold-dark)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-light)) 100%);
     @apply bg-clip-text text-transparent;
   }
 
-  /* Accent gradient with enhanced shadow and animation */
   .text-gradient-accent {
     background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 35%, hsl(var(--gold)) 70%, hsl(var(--accent)) 100%);
     background-size: 300% auto;
     @apply bg-clip-text text-transparent;
-    letter-spacing: -0.02em;
     animation: gradient-shift 6s ease-in-out infinite;
-    will-change: background-position;
-    text-shadow: 0 2px 8px hsl(var(--accent) / 0.3);
   }
 
   /* ========================================
-     3. LAYOUT & CONTAINER SYSTEM
+     CONTAINERS
      ======================================== */
   
-  .container-unified,
   .container-default {
     width: 100%;
     max-width: var(--container-default);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   .container-narrow {
     width: 100%;
     max-width: var(--container-narrow);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   .container-wide {
     width: 100%;
     max-width: var(--container-wide);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
-  }
-
-  .container-fluid {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   /* ========================================
-     4. SPACING & GRID SYSTEM
+     SECTION SPACING
      ======================================== */
   
-  /* Section Spacing - Smooth progression across breakpoints */
-  .section-xl {
-    @apply py-16 md:py-24 lg:py-32;
-  }
+  .section-xl { @apply py-16 md:py-24 lg:py-32; }
+  .section-lg { @apply py-12 md:py-20 lg:py-24; }
+  .section-md { @apply py-10 md:py-16 lg:py-20; }
+  .section-sm { @apply py-8 md:py-12 lg:py-16; }
 
-  .section-lg {
-    @apply py-12 md:py-20 lg:py-24;
-  }
+  /* Component vertical spacing */
+  .space-component-xl { @apply space-y-12 md:space-y-16; }
+  .space-component-lg { @apply space-y-8 md:space-y-12; }
+  .space-component-md { @apply space-y-6 md:space-y-8; }
+  .space-component-sm { @apply space-y-4 md:space-y-6; }
+  .space-component-xs { @apply space-y-2 md:space-y-4; }
 
-  .section-md {
-    @apply py-10 md:py-16 lg:py-20;
-  }
-
-  .section-sm {
-    @apply py-8 md:py-12 lg:py-16;
-  }
-
-  /* Component Spacing Scale */
-  .space-component-xl {
-    @apply space-y-12 md:space-y-16;
-  }
-
-  .space-component-lg {
-    @apply space-y-8 md:space-y-12;
-  }
-
-  .space-component-md {
-    @apply space-y-6 md:space-y-8;
-  }
-
-  .space-component-sm {
-    @apply space-y-4 md:space-y-6;
-  }
-
-  .space-component-xs {
-    @apply space-y-2 md:space-y-4;
-  }
-
-  /* Gap System */
-  .gap-unified-xl {
-    @apply gap-8 md:gap-12;
-  }
-
-  .gap-unified-lg {
-    @apply gap-6 md:gap-8;
-  }
-
-  .gap-unified-md {
-    @apply gap-4 md:gap-6;
-  }
-
-  .gap-unified-sm {
-    @apply gap-3 md:gap-4;
-  }
+  /* Gap utilities */
+  .gap-unified-xl { @apply gap-8 md:gap-12; }
+  .gap-unified-lg { @apply gap-6 md:gap-8; }
+  .gap-unified-md { @apply gap-4 md:gap-6; }
+  .gap-unified-sm { @apply gap-3 md:gap-4; }
 
   /* ========================================
-     GRID & LAYOUT SYSTEM
-     12-column foundation with responsive patterns
-     
-     Usage Guidelines:
-     - .grid-12: Full 12-column grid for maximum layout flexibility
-     - .grid-auto: Equal-width columns (1 -> 2 -> 3 at breakpoints)
-     - .grid-two-col: 2-column layout (mobile: 1, desktop: 2)
-     - .grid-three-col: 3-column layout (mobile: 1, tablet: 2, desktop: 3)
-     - .grid-four-col: 4-column layout (mobile: 1, tablet: 2, lg: 3, xl: 4)
-     
-     All grids include gap-8 for consistent spacing.
-     Combine with .container-unified for proper width constraints.
-     For custom column spans, use Tailwind's col-span-* utilities.
+     GRIDS
      ======================================== */
   
   .grid-12 {
@@ -292,207 +173,52 @@
     grid-template-columns: repeat(12, 1fr);
   }
 
-  /* Responsive Grid Patterns */
   .grid-auto {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-unified-lg;
   }
 
   .grid-two-col {
-    @apply grid gap-unified-lg;
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (min-width: 768px) {
-    .grid-two-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    @apply grid grid-cols-1 md:grid-cols-2 gap-unified-lg;
   }
 
   .grid-three-col {
-    @apply grid gap-unified-lg;
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (min-width: 768px) {
-    .grid-three-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .grid-three-col {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-unified-lg;
   }
 
   .grid-four-col {
-    @apply grid gap-unified-lg;
-    grid-template-columns: repeat(1, 1fr);
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-unified-lg;
   }
 
-  @media (min-width: 768px) {
-    .grid-four-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .grid-four-col {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  /* Time Slots Grid - 2 cols mobile, 3 cols tablet+ */
   .grid-time-slots {
-    @apply grid gap-2;
-    grid-template-columns: repeat(2, 1fr);
+    @apply grid grid-cols-2 sm:grid-cols-3 gap-2;
   }
 
-  @media (min-width: 640px) {
-    .grid-time-slots {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* Metrics Grid - 2 cols mobile, 4 cols desktop */
   .grid-metrics {
-    @apply grid gap-unified-md;
-    grid-template-columns: repeat(2, 1fr);
+    @apply grid grid-cols-2 md:grid-cols-4 gap-unified-md;
   }
 
-  @media (min-width: 768px) {
-    .grid-metrics {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .grid-footer {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-unified-lg;
+  }
+
+  .grid-footer > :first-child {
+    @apply lg:col-span-2;
   }
 
   /* ========================================
-     5. COMPONENT BASE STYLES
+     TOUCH & INTERACTION
      ======================================== */
   
-  /* Touch-Friendly Interactive Elements */
-  .touch-target {
-    @apply min-h-11 min-w-11;
-  }
+  .touch-target { @apply min-h-11 min-w-11; }
+  .touch-target-lg { @apply min-h-12 min-w-12; }
 
-  .touch-target-lg {
-    @apply min-h-12 min-w-12;
-  }
-
-  /* Enhanced touch interactions */
   .touch-target-enhanced {
     @apply min-h-12 min-w-12 inline-flex items-center justify-center;
     touch-action: manipulation;
-    user-select: none;
-    -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
   }
-  
-  .touch-spacing-mobile {
-    @apply space-y-6 md:space-y-4;
-  }
-  
-  /* Touch interaction states */
-  .touch-active {
-    @apply scale-95 transition-transform duration-150;
-  }
-  
-  .touch-hover-mobile {
-    @apply active:bg-accent/10 active:scale-[0.98] transition-all duration-150;
-  }
 
-  /* Image System - Consistent Cropping */
-  .img-headshot {
-    @apply aspect-square object-cover object-center;
-  }
-
-  .img-headshot-top {
-    @apply aspect-square object-cover object-[center_20%];
-  }
-
-  /* Button CSS classes removed - use Button component with variants instead */
-
-  /* ========================================
-     7. CARD UTILITIES (Keep minimal utilities only)
-     ======================================== */
-  
-  /* Card Layout Utilities */
-  .card-equal-height {
-    @apply h-full flex flex-col;
-  }
-
-  .card-content-grow {
-    @apply flex-grow;
-  }
-
-  /* ========================================
-     8. FORM ELEMENTS
-     ======================================== */
-  
-  .form-group {
-    @apply mb-4;
-  }
-
-  .form-label {
-    @apply block text-sm font-medium text-foreground mb-1;
-  }
-
-  .form-input {
-    @apply w-full px-3 py-2 bg-card border border-border rounded-md shadow-sm
-           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-150;
-  }
-
-  .input-primary {
-    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-150;
-  }
-
-  .select-primary {
-    @apply w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-150 bg-card;
-  }
-
-  .checkbox-primary {
-    @apply h-4 w-4 rounded border-border text-gold focus:ring-gold/50 transition-all duration-150;
-  }
-  
-  .divider {
-    @apply w-full h-px bg-border;
-  }
-
-  /* ========================================
-     DARK SURFACE UTILITIES
-     Use on dark backgrounds (Footer, Process, CTAs)
-     ======================================== */
-  
-  .surface-dark {
-    @apply bg-white/20 border border-white/30 backdrop-blur-md shadow-lg;
-  }
-  
-  .surface-dark-elevated {
-    @apply bg-white/25 border border-white/40 backdrop-blur-md shadow-lg;
-  }
-  
-  .input-dark {
-    @apply bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:ring-white/20;
-  }
-  
-  /* Dark text hierarchy - only 3 levels */
-  .text-on-dark {
-    @apply text-white;
-  }
-  
-  .text-on-dark-secondary {
-    @apply text-white/80;
-  }
-  
-  .text-on-dark-muted {
-    @apply text-white/60;
-  }
-
-  /* ========================================
-     9. INTERACTIVE STATES & UTILITIES
-     ======================================== */
-  
-  /* Hover Effects - Unified */
+  /* Hover effects - single source of truth */
   .hover-lift {
     @apply transition-all duration-150 hover:-translate-y-1 hover:shadow-lg;
   }
@@ -505,200 +231,158 @@
     @apply transition-shadow duration-150 hover:shadow-lg;
   }
 
-  /* Navigation Effects */
+  /* ========================================
+     IMAGES
+     ======================================== */
+  
+  .img-headshot {
+    @apply aspect-square object-cover object-center;
+  }
+
+  .img-headshot-top {
+    @apply aspect-square object-cover object-[center_20%];
+  }
+
+  /* ========================================
+     CARD UTILITIES
+     ======================================== */
+  
+  .card-equal-height { @apply h-full flex flex-col; }
+  .card-content-grow { @apply flex-grow; }
+
+  .card-premium {
+    @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-md;
+  }
+
+  .card-premium-interactive {
+    @apply card-premium hover:border-accent/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-150;
+  }
+
+  /* ========================================
+     FORMS
+     ======================================== */
+  
+  .form-group { @apply mb-4; }
+
+  .form-label {
+    @apply block text-sm font-medium text-foreground mb-1;
+  }
+
+  .form-input {
+    @apply w-full px-3 py-2 bg-card border border-border rounded-md shadow-sm
+           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-150;
+  }
+
+  .input-primary {
+    @apply w-full px-4 py-2 border border-border rounded-md 
+           focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent transition-all duration-150;
+  }
+
+  .divider { @apply w-full h-px bg-border; }
+
+  /* ========================================
+     DARK SURFACE UTILITIES
+     ======================================== */
+  
+  .surface-dark {
+    @apply bg-white/20 border border-white/30 backdrop-blur-md shadow-lg;
+  }
+
+  .surface-dark-elevated {
+    @apply bg-white/25 border border-white/40 backdrop-blur-md shadow-lg;
+  }
+
+  .input-dark {
+    @apply bg-white/10 border-white/20 text-white placeholder:text-white/50 
+           focus:border-white/40 focus:ring-white/20;
+  }
+
+  .text-on-dark { @apply text-white; }
+  .text-on-dark-secondary { @apply text-white/80; }
+  .text-on-dark-muted { @apply text-white/60; }
+
+  /* ========================================
+     NAVIGATION
+     ======================================== */
+  
   .nav-link {
-    @apply relative overflow-hidden inline-block px-1 py-1 text-foreground/80 hover:text-foreground transition-colors duration-150;
+    @apply relative overflow-hidden inline-block px-1 py-1 
+           text-foreground/80 hover:text-foreground transition-colors duration-150;
   }
 
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-bottom-right transition-transform duration-150;
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] 
+           bg-gold scale-x-0 origin-bottom-right transition-transform duration-150;
   }
 
-  .nav-link:hover::after {
-    @apply scale-x-100 origin-bottom-left;
-  }
-
-  .nav-link-active {
-    @apply text-gold;
-  }
-
-  .nav-link-active::after {
-    @apply scale-x-100;
-  }
-
-  /* Interactive Badges */
-  .badge {
-    @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors duration-150;
-  }
-
-  .badge-primary {
-    @apply bg-primary/10 text-foreground hover:bg-primary/20;
-  }
-
-  .badge-accent {
-    @apply bg-gold/20 text-foreground hover:bg-gold/30;
-  }
-
-  .badge-outline {
-    @apply bg-transparent border border-border text-foreground hover:bg-primary/5;
-  }
-
-  /* Shadow classes removed - use Tailwind's shadow-* utilities instead */
+  .nav-link:hover::after { @apply scale-x-100 origin-bottom-left; }
+  .nav-link-active { @apply text-gold; }
+  .nav-link-active::after { @apply scale-x-100; }
 
   /* ========================================
-     10. ACCESSIBILITY & FOCUS STATES - Standardized
+     BADGES
+     ======================================== */
+  
+  .badge {
+    @apply inline-flex items-center justify-center px-2.5 py-0.5 
+           rounded-full text-xs font-medium transition-colors duration-150;
+  }
+
+  .badge-primary { @apply bg-primary/10 text-foreground hover:bg-primary/20; }
+  .badge-accent { @apply bg-gold/20 text-foreground hover:bg-gold/30; }
+  .badge-outline { @apply bg-transparent border border-border text-foreground hover:bg-primary/5; }
+
+  /* ========================================
+     FOCUS STATES
      ======================================== */
   
   .focus-enhanced {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 transition-shadow duration-150;
+    @apply focus-visible:outline-none focus-visible:ring-2 
+           focus-visible:ring-accent/50 focus-visible:ring-offset-2 transition-shadow duration-150;
   }
 
   .focus-ring {
-    @apply focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-  }
-
-  /* Ensure all interactive elements have focus-visible */
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
-    @apply ring-2 ring-accent/50 ring-offset-2;
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .focus-enhanced {
-      @apply focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-primary;
-    }
+    @apply focus-visible:ring-2 focus-visible:ring-accent/50 
+           focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
   /* ========================================
-     11. UTILITY CLASSES
+     SCROLLBAR
      ======================================== */
   
-  /* Scrollbar Styling */
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--muted)) hsl(var(--background));
   }
 
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: hsl(var(--background));
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted));
-    border-radius: 3px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground));
-  }
-
-  /* Background Patterns */
-  .bg-pattern {
-    @apply relative;
-  }
-
-  .bg-pattern::before {
-    @apply content-[''] absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOEgwdjE4aDM2eiIgZmlsbD0iI0YxRjVGOSIvPjwvZz48L3N2Zz4=')] opacity-5 pointer-events-none z-0;
-  }
-
-  /* Dividers - use design tokens, not hardcoded colors */
-  .divider-vertical {
-    @apply h-full w-px bg-border;
-  }
-
-  .divider-accent {
-    @apply w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent;
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  .scrollbar-thin::-webkit-scrollbar-thumb { 
+    background: hsl(var(--muted)); 
+    border-radius: 3px; 
   }
 
   /* ========================================
-     12. ENHANCED AESTHETIC SYSTEM
+     GLASS EFFECTS
      ======================================== */
   
-  /* Premium Visual Effects */
   .glass-effect {
     @apply backdrop-blur-md bg-card/60 border border-border/20;
   }
-  
-  .glass-effect-strong {
-    @apply backdrop-blur-xl bg-card/80 border border-border/30;
-  }
-  
-  /* Glass effect for dark backgrounds */
+
   .glass-effect-dark {
     @apply backdrop-blur-md bg-white/10 border border-white/20;
   }
-  
-  /* Enhanced Gradients */
-  .gradient-bg-primary {
-    @apply bg-gradient-to-br from-background via-background to-accent/5;
-  }
-  
-  .gradient-bg-accent {
-    @apply bg-gradient-to-br from-accent/10 via-transparent to-accent/5;
-  }
-  
-  .gradient-text-premium {
-    @apply bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent;
-  }
-  
-  /* Premium Cards with depth */
-  .card-premium {
-    @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-md ring-1 ring-border/20;
-  }
-  
-  .card-premium-interactive {
-    @apply card-premium hover:border-accent/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-150;
-  }
 
-  /* Micro-interaction utilities - simplified */
-  .micro-hover-lift {
-    @apply transition-all duration-150 ease-out;
-  }
+  /* ========================================
+     SECTION BACKGROUNDS
+     ======================================== */
   
-  .micro-hover-lift:hover {
-    @apply -translate-y-1 shadow-lg;
-  }
-  
-  .micro-hover-scale {
-    @apply transition-all duration-150 ease-out;
-  }
-  
-  .micro-hover-scale:hover {
-    @apply scale-[1.02];
-  }
+  .section-bg-primary { @apply bg-background relative; }
+  .section-bg-subtle { @apply bg-muted/10 relative; }
+  .section-bg-accent { @apply bg-gradient-to-br from-accent/5 to-background relative; }
+  .section-bg-muted { @apply bg-muted/30 relative; }
 
-  /* Enhanced text colors with better contrast */
-  .text-muted-strong {
-    color: hsl(var(--muted-foreground));
-    opacity: 0.85;
-  }
-  
-  /* Section Backgrounds */
-  .section-bg-primary {
-    @apply bg-background relative;
-  }
-  
-  .section-bg-subtle {
-    @apply bg-muted/10 relative;
-  }
-  
-  .section-bg-accent {
-    @apply bg-gradient-to-br from-accent/5 to-background relative;
-  }
-  
-  .section-bg-muted {
-    @apply bg-muted/30 relative;
-  }
-  
-  /* Premium Section Backgrounds */
   .section-bg-premium-light {
     @apply relative;
     background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--accent) / 0.12) 50%, hsl(var(--background)) 100%);
@@ -718,163 +402,50 @@
     z-index: 0;
   }
 
-  /* Radial spotlight effect for key sections */
-  .bg-radial-spotlight {
-    position: relative;
-  }
+  /* ========================================
+     FOOTER
+     ======================================== */
   
-  .bg-radial-spotlight::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 50% at 50% 50%, hsl(var(--accent) / 0.08) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Section depth with subtle shadow */
-  section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    box-shadow: 0 -40px 80px hsl(var(--foreground) / 0.02);
-    pointer-events: none;
-  }
-
-  .section-bg-premium-accent {
-    @apply relative;
-    background: linear-gradient(to bottom right, hsl(var(--accent) / 0.1), hsl(var(--background)), hsl(var(--accent) / 0.05));
-  }
-  
-
-  /* Footer Specific */
   .footer-nav-link {
     @apply text-white/80 hover:text-white transition-colors duration-150 touch-target focus-enhanced;
   }
 
   .footer-icon-link {
-    @apply bg-white/10 hover:bg-white/20 active:bg-white/30 transition-all duration-150 touch-target-lg rounded-full flex items-center justify-center text-white focus-enhanced;
+    @apply bg-white/10 hover:bg-white/20 transition-all duration-150 
+           touch-target-lg rounded-full flex items-center justify-center text-white focus-enhanced;
   }
 
   .footer-contact-icon {
     @apply w-5 h-5 text-white/80 flex-shrink-0 transition-transform duration-150 group-hover:scale-110;
   }
 
-  /* Footer Grid System - 2:1:1:1 layout emphasizing company info */
-  .grid-footer {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-unified-lg;
-  }
-
-  .grid-footer > :first-child {
-    @apply lg:col-span-2;
-  }
-
-  /* Footer Back to Top Button */
   .footer-back-to-top {
-    @apply text-white/80 hover:text-white 
-           transition-colors underline focus-enhanced inline-flex items-center gap-2;
+    @apply text-white/80 hover:text-white transition-colors underline 
+           focus-enhanced inline-flex items-center gap-2;
   }
 
-  /* CTA Specific - simplified, use container-default for width */
-  .cta-content-container {
-    @apply max-w-4xl mx-auto text-center;
-  }
-  
-  /* Hero Specific */
-  .hero-cta-button {
-    @apply text-sm sm:text-base px-4 sm:px-6 focus-enhanced transition-transform duration-150;
-  }
-  
-  .hero-scroll-indicator {
-    @apply touch-target focus-enhanced;
-  }
-
-  /* Hero gradient animation for "Elevated" text */
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-  
-  /* Enhanced Interactive Elements */
-  .interactive-accent {
-    @apply text-accent hover:text-accent/80 transition-all duration-150;
-  }
-  
-  .interactive-primary {
-    @apply text-foreground hover:text-accent transition-all duration-150;
-  }
-  
-  /* Premium spacing classes removed - use space-component-* instead */
-  
-  /* Enhanced Focus States */
-  .focus-premium {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:border-accent transition-all duration-150;
-  }
-  
-  /* Semantic Text Colors */
-  .text-primary-content {
-    @apply text-foreground;
-  }
-  
-  .text-secondary-content {
-    @apply text-muted-foreground;
-  }
-  
-  .text-accent-content {
-    @apply text-accent;
-  }
-  
-  .text-muted-content {
-    @apply text-muted-foreground/80;
-  }
-  
-  /* Background Semantic Classes */
-  .bg-primary-content {
-    @apply bg-background;
-  }
-  
-  .bg-secondary-content {
-    @apply bg-muted/30;
-  }
-  
-  .bg-accent-content {
-    @apply bg-accent/10;
-  }
-  
-  .bg-card-content {
-    @apply bg-card;
-  }
-  
-  /* Button premium classes removed - use Button component variants instead */
-  
   /* ========================================
-     TAB COMPONENTS - Dark Theme Variants
+     HERO & CTA
      ======================================== */
   
-  /* Dark theme tabs list container */
+  .cta-content-container { @apply max-w-4xl mx-auto text-center; }
+  .hero-cta-button { @apply text-sm sm:text-base px-4 sm:px-6 focus-enhanced transition-transform duration-150; }
+  .hero-scroll-indicator { @apply touch-target focus-enhanced; }
+
+  /* ========================================
+     TABS - Dark Theme
+     ======================================== */
+  
   .tabs-list-dark {
-    @apply w-full max-w-md mx-auto mb-10 rounded-full overflow-hidden;
-    @apply border border-white/20;
-    @apply bg-white/5;
+    @apply w-full max-w-md mx-auto mb-10 rounded-full overflow-hidden border border-white/20 bg-white/5;
   }
-  
-  /* Dark theme tab trigger */
+
   .tabs-trigger-dark {
-    @apply flex-1 font-medium py-2.5 rounded-full;
-    @apply transition-colors duration-150;
-    @apply text-white/60;
-    @apply focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none;
+    @apply flex-1 font-medium py-2.5 rounded-full transition-colors duration-150 text-white/60
+           focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none;
   }
-  
+
   .tabs-trigger-dark[data-state="active"] {
     @apply bg-white/10 text-white;
   }
-  
 }
