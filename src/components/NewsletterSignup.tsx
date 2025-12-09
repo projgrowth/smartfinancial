@@ -104,26 +104,26 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 
   if (isSubscribed) {
     return (
-      <div className={`rounded-xl overflow-hidden ${onDark ? 'bg-white/10 border border-white/20' : 'bg-accent/10 border border-border/50'} p-4 ${className}`}>
+      <div className={`rounded-xl overflow-hidden ${onDark ? 'surface-dark' : 'bg-accent/10 border border-border/50'} p-4 ${className}`}>
         <SimpleSuccessMessage onDark={onDark} />
       </div>
     );
   }
 
   return (
-    <div className={`rounded-xl overflow-hidden ${onDark ? 'bg-white/10 border border-white/20' : 'bg-muted/30 border border-border/50'} ${compact ? 'p-4' : 'p-5'} ${className}`}>
+    <div className={`rounded-xl overflow-hidden ${onDark ? 'surface-dark' : 'bg-muted/30 border border-border/50'} ${compact ? 'p-4' : 'p-5'} ${className}`}>
       <div className={compact ? "space-y-3" : "space-y-4"}>
         <div>
-          <h3 className={`font-heading ${compact ? 'text-sm' : 'text-base'} font-medium ${onDark ? 'text-white' : 'text-foreground'}`}>
+          <h3 className={`font-heading ${compact ? 'text-sm' : 'text-base'} font-medium ${onDark ? 'text-on-dark' : 'text-foreground'}`}>
             {title}
           </h3>
-          <p className={`${compact ? 'text-xs' : 'text-sm'} ${onDark ? 'text-white/70' : 'text-muted-foreground'}`}>
+          <p className={`${compact ? 'text-xs' : 'text-sm'} ${onDark ? 'text-on-dark-muted' : 'text-muted-foreground'}`}>
             {description}
           </p>
         </div>
         {(showWebhook ?? !compact) && (
           <div className="space-y-1">
-            <label htmlFor="newsletterWebhook" className={`text-xs font-medium ${onDark ? 'text-white/80' : 'text-foreground'}`}>
+            <label htmlFor="newsletterWebhook" className={`text-xs font-medium ${onDark ? 'text-on-dark-secondary' : 'text-foreground'}`}>
               Zapier Webhook URL (optional)
             </label>
             <input
@@ -132,7 +132,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               placeholder="https://hooks.zapier.com/..."
               value={webhookUrl}
               onChange={(e) => setWebhookUrl(e.target.value)}
-              className={`form-input ${onDark ? 'bg-white/15 border-white/30 text-white placeholder:text-white/50' : ''}`}
+              className={`form-input ${onDark ? 'input-dark' : ''}`}
             />
           </div>
         )}
