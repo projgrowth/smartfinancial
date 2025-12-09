@@ -9,14 +9,13 @@ const corsHeaders = {
 };
 
 interface NotificationRequest {
-  type: "meeting" | "newsletter";
+  type: "meeting";
   data: {
-    name?: string;
+    name: string;
     email: string;
-    phone?: string;
+    phone: string;
     preferred_date?: string;
     message?: string;
-    interests?: string[];
   };
 }
 
@@ -29,39 +28,21 @@ const handler = async (req: Request): Promise<Response> => {
     const { type, data }: NotificationRequest = await req.json();
     console.log(`Processing ${type} notification for`, data.email);
 
-    let emailSubject = "";
-    let emailHtml = "";
-
-    switch (type) {
-      case "meeting":
-        emailSubject = `New Meeting Request - ${data.name}`;
-        emailHtml = `
-          <h2>New Meeting Request</h2>
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Phone:</strong> ${data.phone}</p>
-          <p><strong>Preferred Date:</strong> ${data.preferred_date}</p>
-          ${data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : ''}
-          <hr>
-          <p><small>Submitted from Smart Financial Planning website</small></p>
-        `;
-        break;
-
-      case "newsletter":
-        emailSubject = `New Newsletter Subscription - ${data.email}`;
-        emailHtml = `
-          <h2>New Newsletter Subscriber</h2>
-          <p><strong>Email:</strong> ${data.email}</p>
-          ${data.name ? `<p><strong>Name:</strong> ${data.name}</p>` : ''}
-          ${data.interests && data.interests.length > 0 ? `<p><strong>Interests:</strong> ${data.interests.join(', ')}</p>` : ''}
-          <hr>
-          <p><small>Subscribed from Smart Financial Planning website</small></p>
-        `;
-        break;
-
-      default:
-        throw new Error(`Unknown notification type: ${type}`);
+    if (type !== "meeting") {
+      throw new Error(`Unknown notification type: ${type}`);
     }
+
+    const emailSubject = `New Meeting Request - ${data.name}`;
+    const emailHtml = `
+      <h2>New Meeting Request</h2>
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <p><strong>Phone:</strong> ${data.phone}</p>
+      <p><strong>Preferred Date:</strong> ${data.preferred_date}</p>
+      ${data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : ''}
+      <hr>
+      <p><small>Submitted from Smart Financial Planning website</small></p>
+    `;
 
     // Send notification email to business owner
     const emailResponse = await resend.emails.send({

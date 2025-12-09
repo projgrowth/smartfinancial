@@ -8,11 +8,4 @@ export const meetingRequestSchema = z.object({
   message: z.string().max(1000, "Message must be less than 1000 characters").optional(),
 });
 
-export const newsletterSubscriptionSchema = z.object({
-  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  name: z.string().trim().max(100, "Name must be less than 100 characters").optional(),
-  interests: z.array(z.string()).optional(),
-});
-
 export type MeetingRequest = z.infer<typeof meetingRequestSchema>;
-export type NewsletterSubscription = z.infer<typeof newsletterSubscriptionSchema>;

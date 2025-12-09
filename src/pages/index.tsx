@@ -8,7 +8,6 @@ const FinancialCalculator = React.lazy(() => import('@/components/FinancialCalcu
 const TeamDetails = React.lazy(() => import('@/components/TeamDetails'));
 const MeetingScheduler = React.lazy(() => import('@/components/MeetingScheduler'));
 const FAQSection = React.lazy(() => import('@/components/FAQSection'));
-const Newsletter = React.lazy(() => import('@/components/Newsletter'));
 const CTA = React.lazy(() => import('@/components/CTA'));
 
 import { preloadCriticalImages } from '@/utils/imageOptimization';
@@ -35,7 +34,6 @@ const Index = () => {
     import('@/components/TeamDetails');
     import('@/components/MeetingScheduler');
     import('@/components/FAQSection');
-    import('@/components/Newsletter');
     import('@/components/CTA');
   }, []);
 
@@ -91,12 +89,6 @@ const Index = () => {
       <section id="faq" className="section-contain" aria-label="Frequently asked questions">
         <Suspense fallback={<MinimalFallback />}>
           <FAQSection />
-        </Suspense>
-      </section>
-      
-      <section id="newsletter" aria-label="Newsletter signup">
-        <Suspense fallback={<MinimalFallback />}>
-          <Newsletter variant="enhanced" />
         </Suspense>
       </section>
       
