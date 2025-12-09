@@ -601,6 +601,11 @@
     @apply backdrop-blur-xl bg-card/80 border border-border/30;
   }
   
+  /* Glass effect for dark backgrounds */
+  .glass-effect-dark {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
   /* Enhanced Gradients */
   .gradient-bg-primary {
     @apply bg-gradient-to-br from-background via-background to-accent/5;

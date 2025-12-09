@@ -1,3 +1,12 @@
+/**
+ * AnimatedGradientMesh - Subtle hero background
+ * 
+ * CLEANUP APPLIED:
+ * - Simplified to two subtle gradient blobs
+ * - Reduced opacity for premium, understated feel
+ * - Uses design tokens for colors
+ */
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -5,11 +14,6 @@ interface AnimatedGradientMeshProps {
   className?: string;
 }
 
-/**
- * AnimatedGradientMesh - Unified hero background system
- * 
- * Uses design system tokens for colors with CSS-only animations.
- */
 const AnimatedGradientMesh: React.FC<AnimatedGradientMeshProps> = ({ className }) => {
   return (
     <div 
@@ -19,14 +23,16 @@ const AnimatedGradientMesh: React.FC<AnimatedGradientMeshProps> = ({ className }
       )}
       aria-hidden="true"
     >
-      {/* Primary accent blob - top right - subtle wash */}
+      {/* Primary accent blob - top right */}
       <div 
-        className="absolute top-[5%] right-[5%] w-[min(600px,80vw)] aspect-square rounded-full blur-[100px] opacity-20 animate-[float_45s_ease-in-out_infinite] bg-gradient-radial from-accent to-transparent"
+        className="absolute -top-1/4 -right-1/4 w-1/2 aspect-square rounded-full blur-3xl opacity-10 bg-accent animate-float"
+        style={{ animationDuration: '45s' }}
       />
       
-      {/* Gold blob - bottom left - subtle wash */}
+      {/* Gold blob - bottom left */}
       <div 
-        className="absolute bottom-[10%] left-[5%] w-[min(500px,70vw)] aspect-square rounded-full blur-[100px] opacity-15 animate-[float_50s_ease-in-out_infinite_5s] bg-gradient-radial from-gold to-transparent"
+        className="absolute -bottom-1/4 -left-1/4 w-1/2 aspect-square rounded-full blur-3xl opacity-10 bg-gold animate-float"
+        style={{ animationDuration: '50s', animationDelay: '5s' }}
       />
     </div>
   );

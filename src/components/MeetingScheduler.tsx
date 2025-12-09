@@ -202,7 +202,7 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-150 min-h-[44px] ${
+                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-150 touch-target ${
                                     meetingType === type.id
                                       ? 'border-accent bg-accent/10'
                                       : 'border-border hover:border-accent/50'
@@ -249,7 +249,7 @@ const MeetingScheduler = () => {
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 min-h-[44px] ${
+                                    className={`py-2 px-3 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
                                       time === t
                                         ? 'border-accent bg-accent/10 text-accent-foreground'
                                         : 'border-border hover:border-accent/50'
@@ -290,9 +290,9 @@ const MeetingScheduler = () => {
                           </div>
                         </div>
                         
-                        <div className="grid-two-col gap-unified-md mb-4">
-                          <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
+                        <div className="grid-two-col gap-unified-md space-component-sm">
+                          <div className="form-group">
+                            <label htmlFor="name" className="form-label">
                               Your Name
                             </label>
                             <input
@@ -302,12 +302,12 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.name}
                               onChange={handleInputChange}
-                              className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
+                              className="form-input touch-target"
                               aria-required="true"
                             />
                           </div>
-                          <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
+                          <div className="form-group">
+                            <label htmlFor="email" className="form-label">
                               Email Address
                             </label>
                             <input
@@ -317,14 +317,14 @@ const MeetingScheduler = () => {
                               required
                               value={contactInfo.email}
                               onChange={handleInputChange}
-                              className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
+                              className="form-input touch-target"
                               aria-required="true"
                             />
                           </div>
                         </div>
                         
-                        <div className="mb-4">
-                          <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1">
+                        <div className="form-group">
+                          <label htmlFor="phone" className="form-label">
                             Phone Number
                           </label>
                           <input
@@ -334,13 +334,13 @@ const MeetingScheduler = () => {
                             required
                             value={contactInfo.phone}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background min-h-[44px]"
+                            className="form-input touch-target"
                             aria-required="true"
                           />
                         </div>
                         
-                        <div className="mb-4">
-                          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
+                        <div className="form-group">
+                          <label htmlFor="message" className="form-label">
                             What would you like to discuss? (Optional)
                           </label>
                           <textarea
@@ -349,7 +349,7 @@ const MeetingScheduler = () => {
                             rows={3}
                             value={contactInfo.message}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-background"
+                            className="form-input"
                           />
                         </div>
 
@@ -381,9 +381,10 @@ const MeetingScheduler = () => {
                           type="submit" 
                           variant="hero" 
                           disabled={isSubmitting}
+                          className="flex items-center gap-2"
                         >
                           {isSubmitting ? "Submitting..." : "Confirm Meeting Request"}
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                          <ArrowRight className="h-4 w-4" />
                         </Button>
                       )}
                     </div>

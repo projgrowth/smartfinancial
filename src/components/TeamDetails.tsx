@@ -234,10 +234,10 @@ const TeamDetails = () => {
                 onClick={() => smoothScrollTo('schedule')}
                 onMouseEnter={preloadMeetingScheduler}
                 onFocus={preloadMeetingScheduler}
-                className="group mb-6"
+                className="group flex items-center gap-2 mb-6"
               >
                 Schedule a Consultation
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
 
               {/* Background & Credentials Section */}
@@ -250,8 +250,8 @@ const TeamDetails = () => {
                       <h5 className="text-sm font-semibold text-primary mb-2">Education</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.education.map((edu, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start">
-                            <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{edu}</span>
                           </li>
                         ))}
@@ -264,8 +264,8 @@ const TeamDetails = () => {
                       <h5 className="text-sm font-semibold text-primary mb-2">Certifications</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.certifications.map((cert, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start">
-                            <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{cert}</span>
                           </li>
                         ))}
@@ -278,8 +278,8 @@ const TeamDetails = () => {
                       <h5 className="text-sm font-semibold text-primary mb-2">Experience</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.experience.map((exp, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start">
-                            <div className="h-2 w-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{exp}</span>
                           </li>
                         ))}

@@ -40,8 +40,10 @@ const IntroSection = () => {
               onMouseEnter={() => preloadComponent(() => import('./Process'), 'Process')}
               aria-label="Discover your financial profile - scroll to process section"
             >
-              <span className="mr-2">Discover Your Financial Profile</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
+              <span className="flex items-center gap-2">
+                Discover Your Financial Profile
+                <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
+              </span>
             </Button>
           </ScrollReveal>
         </div>
