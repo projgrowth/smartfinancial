@@ -1,0 +1,163 @@
+@tailwind components;
+
+/**
+ * Consolidated Animation System
+ * Single source of truth for all animations
+ */
+
+/* ========================================
+   KEYFRAMES - Core animations
+   (Most keyframes are in tailwind.config.ts, these are supplementary)
+   ======================================== */
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes word-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes word-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes bg-position {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ========================================
+   ANIMATION CLASSES
+   ======================================== */
+
+@layer components {
+  /* Scroll reveal - used with intersection observer */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-6 transition-all duration-500;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Reveal directions */
+  .reveal-up {
+    @apply opacity-0 translate-y-5 transition-all duration-500;
+  }
+  
+  .reveal-up.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Stagger animations for grids */
+  .grid-stagger > * {
+    @apply opacity-0 translate-y-4;
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .grid-stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .grid-stagger > *:nth-child(2) { animation-delay: 100ms; }
+  .grid-stagger > *:nth-child(3) { animation-delay: 200ms; }
+  .grid-stagger > *:nth-child(4) { animation-delay: 300ms; }
+  .grid-stagger > *:nth-child(5) { animation-delay: 400ms; }
+  .grid-stagger > *:nth-child(6) { animation-delay: 500ms; }
+
+  /* Typing animation */
+  .typing-text {
+    @apply whitespace-nowrap border-r-2 border-foreground overflow-hidden;
+    width: 0;
+    animation: typing 3s steps(28, end) forwards, blink 0.75s step-end infinite;
+  }
+
+  /* Text gradient animation */
+  .text-gradient-animate {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 8s linear infinite;
+  }
+
+  /* Word rotator */
+  .word-rotator {
+    @apply relative inline-block align-baseline overflow-hidden;
+  }
+
+  .word-layer {
+    @apply absolute inset-0 whitespace-nowrap flex items-center justify-center;
+  }
+
+  .word-enter {
+    animation: word-fade-in 280ms ease-out forwards;
+  }
+
+  .word-exit {
+    animation: word-fade-out 220ms ease-out forwards;
+  }
+
+  /* Background animations */
+  .animate-float {
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .bg-pan {
+    background-size: 200% 200%;
+    animation: bg-position 15s ease infinite;
+  }
+
+  /* Duration utilities for long animations */
+  .duration-10000 { animation-duration: 10s; }
+  .duration-15000 { animation-duration: 15s; }
+  .duration-25000 { animation-duration: 25s; }
+  .duration-30000 { animation-duration: 30s; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .reveal-up,
+  .animate-float,
+  .typing-text,
+  .text-gradient-animate,
+  .bg-pan,
+  [class*="animate-"] {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  html, body {
+    scroll-behavior: auto !important;
+  }
+}
