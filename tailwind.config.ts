@@ -165,9 +165,9 @@ export default {
 					'100%': { transform: 'rotate(360deg)' },
 				},
 				'glow-pulse': {
-					'0%': { boxShadow: '0 0 20px rgba(var(--primary), 0.3)' },
-					'50%': { boxShadow: '0 0 40px rgba(var(--primary), 0.6), 0 0 60px rgba(var(--primary), 0.4)' },
-					'100%': { boxShadow: '0 0 20px rgba(var(--primary), 0.3)' },
+					'0%': { boxShadow: '0 0 20px hsl(var(--primary) / 0.3)' },
+					'50%': { boxShadow: '0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.4)' },
+					'100%': { boxShadow: '0 0 20px hsl(var(--primary) / 0.3)' },
 				}
 			},
 			animation: {
