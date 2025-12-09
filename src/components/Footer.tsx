@@ -17,7 +17,7 @@ const Footer = () => {
       
       <div className="container-default section-lg relative z-10">
         {/* Grid layout: Intentional 2:1:1:1 column ratio - company info gets double width for branding */}
-        <div className="grid-footer gap-unified-xl">
+        <div className="grid-footer">
           <div>
             <ScrollReveal>
               <div className="space-component-md">
@@ -140,12 +140,12 @@ const Footer = () => {
                 </ul>
               </address>
 
-              <div className="space-component-md">
+              <div className="space-component-lg">
                 <Newsletter
                   variant="simple"
                   compact={true}
-                  title="Financial Insights Newsletter"
-                  description="Stay updated with Lake Nona and Orlando financial planning insights."
+                  title="Subscribe to Updates"
+                  description="Financial insights delivered to your inbox."
                   onDark
                   showWebhook={false}
                 />
@@ -155,7 +155,7 @@ const Footer = () => {
         </div>
 
         <ScrollReveal>
-          <div className="pt-8 mt-8 border-t border-white/20 text-white/80 text-body flex flex-col md:flex-row justify-between items-center gap-unified-sm">
+          <div className="border-t border-white/20 text-white/80 text-body flex flex-col md:flex-row justify-between items-center gap-unified-md pt-8 mt-8">
             <div>
               © {currentYear} Smart Financial Planning. All rights reserved.
             </div>
