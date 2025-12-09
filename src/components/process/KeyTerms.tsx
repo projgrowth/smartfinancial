@@ -26,7 +26,7 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
         {terms.map((term, idx) => (
           <div 
             key={idx} 
-            className="bg-white/5 rounded-md border border-white/20 overflow-hidden transition-all duration-300 hover:border-white/30"
+            className="bg-white/5 rounded-md border border-white/20 overflow-hidden transition-all duration-150 hover:border-white/30"
           >
             <button
               onClick={() => toggleTerm(idx)}
@@ -34,18 +34,18 @@ const KeyTerms: React.FC<KeyTermsProps> = ({ terms }) => {
               aria-expanded={expandedTerm === idx}
               aria-controls={`term-content-${idx}`}
             >
-              <h5 className="text-sm font-medium text-white group-hover:text-accent transition-colors duration-200">
+              <h5 className="text-sm font-medium text-white group-hover:text-accent transition-colors duration-150">
                 {term.term}
               </h5>
               {expandedTerm === idx ? (
-                <ChevronUp className="h-4 w-4 text-accent transition-transform duration-300" />
+                <ChevronUp className="h-4 w-4 text-accent transition-transform duration-150" />
               ) : (
-                <ChevronDown className="h-4 w-4 text-accent transition-transform duration-300" />
+                <ChevronDown className="h-4 w-4 text-accent transition-transform duration-150" />
               )}
             </button>
             <div 
               id={`term-content-${idx}`}
-              className={`overflow-hidden transition-all duration-300 ${
+              className={`overflow-hidden transition-all duration-150 ${
                 expandedTerm === idx ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
               }`}
             >

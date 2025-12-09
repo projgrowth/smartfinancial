@@ -25,7 +25,7 @@ const NewsletterStep3: React.FC<NewsletterStep3Props> = ({
         {interestTopics.map((topic) => (
           <div
             key={topic.id}
-            className={`p-3 border rounded-md cursor-pointer transition-all duration-200 ${
+            className={`p-3 border rounded-md cursor-pointer transition-all duration-150 ${
               interests.includes(topic.id)
                 ? 'border-accent bg-accent/10'
                 : 'border-border hover:border-accent/50'

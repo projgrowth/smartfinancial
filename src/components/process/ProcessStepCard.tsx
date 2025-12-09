@@ -75,7 +75,7 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
         )}
       </div>
       
-      <p className="text-body mb-5 leading-relaxed transition-colors duration-300 text-white/90">
+      <p className="text-body mb-5 leading-relaxed transition-colors duration-150 text-white/90">
         {step.description}
       </p>
       

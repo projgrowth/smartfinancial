@@ -25,7 +25,7 @@ const NewsletterStep2: React.FC<NewsletterStep2Props> = ({
         {frequencyOptions.map((option) => (
           <div
             key={option.id}
-            className={`p-3 border rounded-md cursor-pointer transition-all duration-200 ${
+            className={`p-3 border rounded-md cursor-pointer transition-all duration-150 ${
               frequency === option.id
                 ? 'border-accent bg-accent/10'
                 : 'border-border hover:border-accent/50'

@@ -141,7 +141,7 @@ const Navbar = () => {
         intersectionRef.current = el;
       }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-150",
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-3' 
           : 'bg-transparent border-b border-transparent py-4'
@@ -152,7 +152,7 @@ const Navbar = () => {
       <div className="container-wide flex justify-between items-center">
         <Link 
           to="/"
-          className="text-nav-brand text-foreground hover:text-primary transition-colors duration-300 focus-enhanced"
+          className="text-nav-brand text-foreground hover:text-primary transition-colors duration-150 focus-enhanced"
           aria-label="Back to home"
         >
           <span className="inline-flex items-center">
@@ -178,7 +178,7 @@ const Navbar = () => {
                 if (item.id === 'team') preloadTeamDetails();
               }}
               className={cn(
-                "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-300 group focus-enhanced",
+                "relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-150 group focus-enhanced",
                 activeSection === item.id && isHomePage ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
               )}
               aria-current={activeSection === item.id && isHomePage ? 'page' : undefined}
@@ -186,7 +186,7 @@ const Navbar = () => {
               {item.name}
               <span 
                 className={cn(
-                  "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-300",
+                  "absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-150",
                   activeSection === item.id && isHomePage ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                 )} 
                 aria-hidden="true"
@@ -200,16 +200,16 @@ const Navbar = () => {
             size="sm"
             variant="hero"
           >
-            <span className="inline-flex items-center">
+            <span className="inline-flex items-center gap-2">
               <span>Schedule a Call</span>
-              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight size={16} className="transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>
 
         <Button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="flex md:hidden text-muted-foreground hover:text-foreground transition-colors duration-300 touch-target-lg"
+          className="flex md:hidden text-muted-foreground hover:text-foreground transition-colors duration-150 touch-target-lg"
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           variant="ghost"
@@ -222,7 +222,7 @@ const Navbar = () => {
       <div 
         ref={mobileMenuRef}
         className={cn(
-          "block md:hidden transition-all duration-300 ease-in-out overflow-hidden",
+          "block md:hidden transition-all duration-150 ease-in-out overflow-hidden",
           isOpen 
             ? 'max-h-[400px] opacity-100' 
             : 'max-h-0 opacity-0'
@@ -241,7 +241,7 @@ const Navbar = () => {
                 handleNavClick(item.id);
               }}
               className={cn(
-                "py-2 px-3 rounded-md transition-all duration-300 touch-target focus-enhanced",
+                "py-2 px-3 rounded-md transition-all duration-150 touch-target focus-enhanced",
                 activeSection === item.id && isHomePage 
                   ? 'bg-primary/10 text-primary' 
                   : 'hover:bg-muted/50'
@@ -260,9 +260,9 @@ const Navbar = () => {
             className="w-full justify-center group"
             variant="hero"
           >
-            <span className="inline-flex items-center">
+            <span className="inline-flex items-center gap-2">
               <span>Schedule a Call</span>
-              <ChevronRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+              <ChevronRight size={16} className="transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Button>
         </div>
