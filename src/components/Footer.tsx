@@ -111,7 +111,7 @@ const Footer = () => {
             <ScrollReveal delay={300}>
               <h3 className="heading-xs text-white space-component-sm">Contact Information</h3>
               <address className="not-italic space-component-sm">
-                <ul className="space-y-4">
+                <ul className="space-component-xs">
                   <li className="flex items-start gap-3 group">
                     <MapPin className="footer-contact-icon" />
                     <span className="text-body text-on-dark-secondary">

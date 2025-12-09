@@ -464,11 +464,11 @@
      ======================================== */
   
   .surface-dark {
-    @apply bg-white/10 border border-white/20 backdrop-blur-md;
+    @apply bg-white/20 border border-white/30 backdrop-blur-md shadow-lg;
   }
   
   .surface-dark-elevated {
-    @apply bg-white/15 border border-white/30 backdrop-blur-md;
+    @apply bg-white/25 border border-white/40 backdrop-blur-md shadow-lg;
   }
   
   .input-dark {
