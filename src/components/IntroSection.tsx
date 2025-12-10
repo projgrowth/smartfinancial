@@ -2,6 +2,7 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { siteSettings } from '@/config/siteSettings';
 
 const IntroSection = () => {
   return (
@@ -22,8 +23,8 @@ const IntroSection = () => {
           <ScrollReveal delay={100} distance="6px">
             <p className="text-body-lg text-muted-foreground mx-auto">
               We deliver highly personalized financial guidance for business owners, 
-              top-tier executives, doctors, and legal professionals—crafted around your distinct ambitions, 
-              career trajectory, and lifestyle.
+              executives, physicians, and high-net-worth families—crafted around your distinct ambitions, 
+              career trajectory, and legacy goals.
             </p>
           </ScrollReveal>
           

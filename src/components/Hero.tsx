@@ -1,5 +1,5 @@
 /**
- * Hero Component - Clean Premium Design
+ * Hero Component - HNW Positioning Update
  */
 
 import React from 'react';
@@ -8,6 +8,7 @@ import { smoothScrollTo } from '../utils/smoothScroll';
 import { Button } from '@/components/ui/button';
 import EnhancedScrollIndicator from './hero/EnhancedScrollIndicator';
 import AnimatedGradientMesh from './hero/AnimatedGradientMesh';
+import { siteSettings } from '@/config/siteSettings';
 
 const Hero = () => {
   return (
@@ -37,11 +38,11 @@ const Hero = () => {
               variant="shimmer"
               size="lg"
               onClick={() => smoothScrollTo('schedule')}
-              aria-label="Schedule your private strategy call"
+              aria-label="Request your wealth strategy session"
               className="group mx-auto font-semibold shadow-lg hover:shadow-xl"
             >
               <span className="flex items-center gap-2">
-                <span>Schedule Your Consultation</span>
+                <span>{siteSettings.cta.hero}</span>
                 <ChevronRight className="w-5 h-5 transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true" />
               </span>
             </Button>

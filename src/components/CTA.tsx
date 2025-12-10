@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
 import { ArrowRight } from 'lucide-react';
+import { siteSettings } from '@/config/siteSettings';
 
 const CTA = () => {
   return (
@@ -17,18 +18,21 @@ const CTA = () => {
             <h2 id="cta-heading" className="heading-lg text-white">
               Ready for smarter financial strategies designed exclusively around you?
             </h2>
-            <p className="text-body-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-body-lg text-white/80 max-w-2xl mx-auto mb-2">
               Take the first step toward financial clarity and strategic growth with a personalized approach.
+            </p>
+            <p className="text-body-sm text-white/60 mb-8">
+              We work with clients who have {siteSettings.qualification.minimumAssetsText} or are {siteSettings.qualification.alternateQualification}.
             </p>
             <Button 
               variant="secondary"
               size="lg"
               className="group hover:shadow-md"
               onClick={() => document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })}
-              aria-label="Schedule your strategy session"
+              aria-label="Request your wealth strategy session"
             >
               <span className="flex items-center gap-2">
-                Schedule Your Strategy Session
+                {siteSettings.cta.primary}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-150" />
               </span>
             </Button>
