@@ -16,7 +16,11 @@ import { siteSettings } from '@/config/siteSettings';
 
 const SegmentPage: React.FC = () => {
   const { segmentSlug } = useParams<{ segmentSlug: string }>();
-  const segment = segments.find(s => s.slug === segmentSlug);
+  const location = window.location.pathname;
+  
+  // Get segment from URL - handle both /owners and /:segmentSlug patterns
+  const slug = segmentSlug || location.replace('/', '');
+  const segment = segments.find(s => s.slug === slug);
 
   if (!segment) {
     return <Navigate to="/404" replace />;
