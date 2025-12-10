@@ -132,14 +132,6 @@ const Navbar = () => {
     { name: 'Team', id: 'team' },
   ];
 
-  const segmentLinks = [
-    { name: 'Business Owners', href: '/owners' },
-    { name: 'Executives', href: '/executives' },
-    { name: 'Legacy Planning', href: '/legacy' },
-  ];
-
-  const resourceLink = { name: 'Resources', href: '/resources' };
-
   return (
     <nav 
       ref={(el) => {
@@ -195,28 +187,7 @@ const Navbar = () => {
             </a>
           ))}
 
-          {/* Segment Links */}
-          {segmentLinks.map((link) => (
-            <Link 
-              key={link.href}
-              to={link.href}
-              className="relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-150 group focus-enhanced text-muted-foreground hover:text-foreground"
-            >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-150 scale-x-0 group-hover:scale-x-100" aria-hidden="true" />
-            </Link>
-          ))}
-
-          {/* Resources Link */}
-          <Link 
-            to={resourceLink.href}
-            className="relative px-1 py-1 overflow-hidden text-nav-link transition-colors duration-150 group focus-enhanced text-muted-foreground hover:text-foreground"
-          >
-            {resourceLink.name}
-            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform origin-left transition-transform duration-150 scale-x-0 group-hover:scale-x-100" aria-hidden="true" />
-          </Link>
-
-          <Button 
+          <Button
             onClick={() => handleNavClick('schedule')}
             className="group"
             size="sm"
@@ -278,37 +249,7 @@ const Navbar = () => {
             </a>
           ))}
 
-          {/* Mobile Segment Links */}
-          <div className="border-t border-border/30 pt-2 mt-2">
-            <span className="text-xs text-muted-foreground px-3 mb-2 block">Who We Serve</span>
-            {segmentLinks.map((link) => (
-              <Link 
-                key={link.href}
-                to={link.href}
-                onClick={() => setIsOpen(false)}
-                className="py-2 px-3 rounded-md transition-all duration-150 touch-target focus-enhanced hover:bg-muted/50 block"
-              >
-                <span className="inline-flex items-center">
-                  {link.name}
-                  <ChevronRight className="ml-auto w-4 h-4" />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile Resources Link */}
-          <Link 
-            to={resourceLink.href}
-            onClick={() => setIsOpen(false)}
-            className="py-2 px-3 rounded-md transition-all duration-150 touch-target focus-enhanced hover:bg-muted/50"
-          >
-            <span className="inline-flex items-center">
-              {resourceLink.name}
-              <ChevronRight className="ml-auto w-4 h-4" />
-            </span>
-          </Link>
-
-          <Button 
+          <Button
             onClick={() => handleNavClick('schedule')}
             className="w-full justify-center group"
             variant="hero"
