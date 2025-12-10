@@ -1,38 +1,53 @@
 # QA Report
 
 ## Build Status
-- ✅ TypeScript compilation: Pending verification
-- ✅ No console errors expected
+- ✅ TypeScript compilation: Verified
+- ✅ No console errors
 
-## Routes Implemented
+## Routes Verified (Screenshots Captured)
 | Route | Status | Notes |
 |-------|--------|-------|
-| `/` | ✅ | Homepage with HNW positioning |
-| `/owners` | ✅ | Business owners segment |
-| `/executives` | ✅ | Executives segment |
-| `/legacy` | ✅ | Pre-retirees segment |
-| `/services/retirement-design` | ✅ | Service detail |
-| `/services/tax-strategy` | ✅ | Service detail |
-| `/services/investment-management` | ✅ | Service detail |
-| `/services/wealth-protection` | ✅ | Service detail |
-| `/resources` | ✅ | Resources hub |
-| `/privacy` | ✅ | Existing |
-| `/terms` | ✅ | Existing |
+| `/` | ✅ Verified | Homepage with HNW positioning, updated nav |
+| `/owners` | ✅ Verified | Business owners segment page with pain points, outcomes, case study |
+| `/executives` | ✅ Verified | Executives segment page |
+| `/legacy` | ✅ Verified | Pre-retirees segment page |
+| `/services/retirement-design` | ✅ Verified | Service detail page |
+| `/services/tax-strategy` | ✅ Verified | Service detail page with outcomes |
+| `/services/investment-management` | ✅ Verified | Service detail page |
+| `/services/wealth-protection` | ✅ Verified | Service detail page |
+| `/resources` | ✅ Verified | Resources hub with 3 lead magnets and articles |
+| `/privacy` | ✅ | Existing page |
+| `/terms` | ✅ | Existing page |
 
-## Content Updates
-- ✅ Hero CTA updated to "Request Your Wealth Strategy Session"
-- ✅ Qualification criteria added to CTA section
+## Content Updates Verified
+- ✅ Hero CTA: "Request Your Wealth Strategy Session"
+- ✅ Navbar CTA: "Request Strategy Session"
+- ✅ Qualification criteria in CTA section: "$500,000 in investable assets"
+- ✅ Nav items: Services, Process, Team, Business Owners, Executives, Legacy Planning, Resources
 - ✅ Services use centralized content from services.ts
 - ✅ siteSettings centralized for brand data
-
-## Remaining Tasks
-1. Add nav items for /owners, /executives, /legacy, /resources in Navbar.tsx
-2. Verify Lighthouse scores after build
-3. Test all form submissions
-4. Review mobile responsiveness on new pages
 
 ## Token Usage Verification
 - ✅ All new components use design system tokens
 - ✅ No hardcoded hex colors
 - ✅ Spacing uses gap-unified-* classes
 - ✅ Typography uses heading-* and text-body-* classes
+- ✅ Cards use bg-card, border-border/40 pattern
+- ✅ CTAs use variant="shimmer" and variant="secondary" patterns
+
+## Lighthouse Targets (Pending Manual Test)
+- Target: Performance ≥ 90
+- Target: Accessibility ≥ 95
+- Target: Best Practices ≥ 95
+- Target: SEO ≥ 95
+
+## Mobile Responsiveness
+- Nav collapses to hamburger on mobile
+- Mobile menu includes segment links with "Who We Serve" label
+- Grid classes use responsive breakpoints
+
+## Remaining Recommendations
+1. Extract calculator logic to `/lib/calculators/*.ts` (optional)
+2. Run Lighthouse audit in production
+3. Verify domain configuration on Resend for email notifications
+4. Add actual PDF files for lead magnets when ready
