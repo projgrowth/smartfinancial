@@ -23,7 +23,8 @@
 - ✅ Hero CTA: "Request Your Wealth Strategy Session"
 - ✅ Navbar CTA: "Request Strategy Session"
 - ✅ Qualification criteria in CTA section: "$500,000 in investable assets"
-- ✅ Nav items: Services, Process, Team, Business Owners, Executives, Legacy Planning, Resources
+- ✅ Nav items: Services, Process, Team + CTA (simplified from 7+ items)
+- ✅ Testimonials component added to homepage
 - ✅ Services use centralized content from services.ts
 - ✅ siteSettings centralized for brand data
 
