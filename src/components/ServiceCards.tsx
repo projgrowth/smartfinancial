@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Button } from '@/components/ui/button';
 import { services } from '@/content/services';
 import { siteSettings } from '@/config/siteSettings';
 
@@ -30,8 +31,8 @@ const ServiceCards = () => {
       aria-labelledby="services-heading"
     >
       <div className="container-default">
-        <div className="text-center mb-12">
-          <h2 id="services-heading" className="heading-lg mb-4">
+        <div className="text-center space-component-lg">
+          <h2 id="services-heading" className="heading-lg">
             Services for Discerning Clients
           </h2>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
@@ -46,14 +47,14 @@ const ServiceCards = () => {
             return (
               <div
                 key={service.id}
-                className="bg-card border border-border/40 rounded-lg p-6 shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-150"
+                className="bg-card border border-border/40 rounded-lg space-component-md shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-150"
               >
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
                   <service.icon className="w-6 h-6 text-accent" />
                 </div>
                 
-                <h3 className="heading-sm mb-2">{service.title}</h3>
-                <p className="text-body-sm text-muted-foreground mb-4">
+                <h3 className="heading-sm">{service.title}</h3>
+                <p className="text-body-sm text-muted-foreground">
                   {service.description}
                 </p>
 
@@ -66,11 +67,11 @@ const ServiceCards = () => {
                   </CollapsibleTrigger>
                   
                   <CollapsibleContent className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <ul className="mt-4 space-y-2 pt-4 border-t border-border/30">
+                    <ul className="space-component-xs border-t border-border/30">
                       {service.features.slice(0, 4).map((feature, index) => (
                         <li 
                           key={index}
-                          className="flex items-start gap-2 text-sm text-muted-foreground"
+                          className="flex items-start gap-unified-xs text-sm text-muted-foreground"
                         >
                           <Check className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                           <span>{feature.text}</span>
@@ -78,14 +79,14 @@ const ServiceCards = () => {
                       ))}
                     </ul>
                     
-                    <div className="mt-4">
-                      <button
-                        onClick={scrollToSchedule}
-                        className="w-full py-2 px-4 bg-accent/10 hover:bg-accent/20 text-accent text-sm font-medium rounded-md transition-colors duration-150"
-                      >
-                        {siteSettings.cta.secondary} →
-                      </button>
-                    </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={scrollToSchedule}
+                      className="w-full bg-accent/10 hover:bg-accent/20 text-accent"
+                    >
+                      {siteSettings.cta.secondary} →
+                    </Button>
                   </CollapsibleContent>
                 </Collapsible>
               </div>

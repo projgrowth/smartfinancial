@@ -17,7 +17,7 @@ const Footer = () => {
           </p>
           
           {/* Social Icons */}
-          <div className="flex items-center justify-center gap-6 pt-2">
+          <div className="flex items-center justify-center gap-unified-md">
             <a
               href="https://www.linkedin.com/company/smart-financial-planning"
               target="_blank"
@@ -40,10 +40,10 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 my-8" />
+        <div className="border-t border-white/10 space-component-lg" />
 
         {/* Legal Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-white/40">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-unified-sm text-xs text-white/40">
           <span>© {currentYear} Smart Financial Planning</span>
           <span className="hidden sm:inline">·</span>
           <a href="mailto:info@thesmartfinancialplan.com" className="hover:text-white transition-colors duration-150">
