@@ -18,10 +18,6 @@ const Index = lazy(() => import("./pages/index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
-const SegmentPage = lazy(() => import("./pages/SegmentPage"));
-const ServicePage = lazy(() => import("./pages/ServicePage"));
-const ResourcesPage = lazy(() => import("./pages/Resources"));
-const ResourceDetail = lazy(() => import("./pages/ResourceDetail"));
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -49,16 +45,6 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
-                {/* Segment Pages */}
-                <Route path="/owners" element={<SegmentPage />} />
-                <Route path="/executives" element={<SegmentPage />} />
-                <Route path="/legacy" element={<SegmentPage />} />
-                <Route path="/:segmentSlug" element={<SegmentPage />} />
-                {/* Service Pages */}
-                <Route path="/services/:serviceSlug" element={<ServicePage />} />
-                {/* Resources */}
-                <Route path="/resources" element={<ResourcesPage />} />
-                <Route path="/resources/:resourceSlug" element={<ResourceDetail />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

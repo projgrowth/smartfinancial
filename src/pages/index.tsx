@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
-import IntroSection from '@/components/IntroSection';
 import Process from '@/components/Process';
 import ServiceCards from '@/components/ServiceCards';
 import Testimonials from '@/components/Testimonials';
@@ -50,7 +49,6 @@ const Index = () => {
       />
       
       <Hero />
-      <IntroSection />
       <Process />
       <ServiceCards />
       <Testimonials />
