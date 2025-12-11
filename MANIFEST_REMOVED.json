@@ -8,11 +8,12 @@
     "src/content/segments.ts",
     "src/components/IntroSection.tsx",
     "src/components/CaseStudyCard.tsx",
-    "src/components/LeadMagnet.tsx"
+    "src/components/LeadMagnet.tsx",
+    "src/components/Testimonials.tsx",
+    "src/content/testimonials.ts"
   ],
-  "notes": "Major cleanup pass to reduce site complexity. Removed segment pages (/owners, /executives, /legacy), service detail pages (/services/*), and resources section. Simplified navigation and homepage structure while maintaining HNW positioning through Hero, Services, and Testimonials.",
+  "notes": "Major cleanup pass to reduce site complexity. Removed segment pages, service detail pages, resources section, and testimonials. Simplified to core sections: Hero, Process, Services, Calculators, Team, Scheduler, FAQ, CTA.",
   "recommendations": [
-    "Consider adding segment links to footer for discoverability",
-    "Resources section can be re-added when content is ready"
+    "Testimonials can be re-added when real client reviews are available"
   ]
 }
