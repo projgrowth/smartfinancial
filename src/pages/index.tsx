@@ -3,7 +3,6 @@ import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import Process from '@/components/Process';
 import ServiceCards from '@/components/ServiceCards';
-import Testimonials from '@/components/Testimonials';
 
 const FinancialCalculator = React.lazy(() => import('@/components/FinancialCalculator'));
 const TeamDetails = React.lazy(() => import('@/components/TeamDetails'));
@@ -51,7 +50,6 @@ const Index = () => {
       <Hero />
       <Process />
       <ServiceCards />
-      <Testimonials />
       
       <section id="calculators" className="section-contain" aria-label="Financial calculators">
         <Suspense fallback={<MinimalFallback />}>
