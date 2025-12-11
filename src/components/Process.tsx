@@ -33,7 +33,7 @@ const Process = () => {
       aria-labelledby="process-heading"
     >
       <div className="container-default">
-        <div className="text-center space-y-4 mb-12 md:mb-16">
+        <div className="text-center space-component-sm">
           <h2 id="process-heading" className="heading-lg text-white">
             Our Process
           </h2>
@@ -43,12 +43,12 @@ const Process = () => {
         </div>
 
         {/* Desktop: Horizontal timeline */}
-        <div className="hidden md:block">
+        <div className="hidden md:block space-component-lg">
           <div className="relative">
             {/* Connecting line */}
             <div className="absolute top-8 left-[16.67%] right-[16.67%] h-px bg-white/20" />
             
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 gap-unified-lg">
               {steps.map((step) => {
                 const Icon = step.icon;
                 const isActive = activeStep === step.number;
@@ -96,7 +96,7 @@ const Process = () => {
         </div>
 
         {/* Mobile: Vertical timeline */}
-        <div className="md:hidden space-y-6">
+        <div className="md:hidden space-component-md">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isLast = index === steps.length - 1;

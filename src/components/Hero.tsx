@@ -20,7 +20,7 @@ const Hero = () => {
       <AnimatedGradientMesh />
       
       <div className="container-default z-10">
-        <div className="max-w-4xl mx-auto text-center flex flex-col gap-8">
+        <div className="max-w-4xl mx-auto text-center flex flex-col gap-unified-lg">
           
           <h1 className="heading-display-fluid tracking-tight text-balance font-bold text-foreground">
             Your Wealth.{' '}
@@ -33,7 +33,7 @@ const Hero = () => {
             You've built significant wealth. Now let's preserve it, multiply it, and pass it on — on your terms.
           </p>
           
-          <div className="pt-2">
+          <div className="space-component-xs">
             <Button
               variant="shimmer"
               size="lg"
