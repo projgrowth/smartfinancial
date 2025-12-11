@@ -1,9 +1,18 @@
 {
-  "deletedFiles": [],
-  "notes": "Initial HNW positioning implementation. No files deleted in this phase. Future cleanup recommended for unused assets and consolidation of duplicate patterns.",
+  "deletedFiles": [
+    "src/pages/SegmentPage.tsx",
+    "src/pages/ServicePage.tsx",
+    "src/pages/Resources.tsx",
+    "src/pages/ResourceDetail.tsx",
+    "src/content/resources.ts",
+    "src/content/segments.ts",
+    "src/components/IntroSection.tsx",
+    "src/components/CaseStudyCard.tsx",
+    "src/components/LeadMagnet.tsx"
+  ],
+  "notes": "Major cleanup pass to reduce site complexity. Removed segment pages (/owners, /executives, /legacy), service detail pages (/services/*), and resources section. Simplified navigation and homepage structure while maintaining HNW positioning through Hero, Services, and Testimonials.",
   "recommendations": [
-    "Review public/lovable-uploads for unused images",
-    "Consolidate any duplicate icon imports",
-    "Remove console.logs if any exist in production code"
+    "Consider adding segment links to footer for discoverability",
+    "Resources section can be re-added when content is ready"
   ]
 }

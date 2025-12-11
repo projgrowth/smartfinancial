@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Check, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ChevronDown, Check } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { services } from '@/content/services';
 import { siteSettings } from '@/config/siteSettings';
@@ -79,14 +78,7 @@ const ServiceCards = () => {
                       ))}
                     </ul>
                     
-                    <div className="mt-4 flex flex-col gap-2">
-                      <Link
-                        to={`/services/${service.slug}`}
-                        className="w-full py-2 px-4 bg-accent/5 hover:bg-accent/10 text-accent text-sm font-medium rounded-md transition-colors duration-150 text-center inline-flex items-center justify-center gap-1"
-                      >
-                        View details
-                        <ArrowRight className="w-3 h-3" />
-                      </Link>
+                    <div className="mt-4">
                       <button
                         onClick={scrollToSchedule}
                         className="w-full py-2 px-4 bg-accent/10 hover:bg-accent/20 text-accent text-sm font-medium rounded-md transition-colors duration-150"
