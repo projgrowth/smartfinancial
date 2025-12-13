@@ -192,7 +192,7 @@ const MeetingScheduler = () => {
                         <div className="space-component-sm">
                           <div className="space-component-sm">
                             <h3 className="heading-sm text-foreground">Select Meeting Type</h3>
-                            <div className="space-y-2" role="radiogroup" aria-label="Select meeting type">
+                            <div className="space-component-xs" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
                                   key={type.id}
