@@ -192,7 +192,7 @@ const MeetingScheduler = () => {
                         <div className="space-component-sm">
                           <div className="space-component-sm">
                             <h3 className="heading-sm text-foreground">Select Meeting Type</h3>
-                            <div className="space-component-xs" role="radiogroup" aria-label="Select meeting type">
+                            <div className="flex flex-col gap-unified-sm" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
                                   key={type.id}
@@ -275,11 +275,11 @@ const MeetingScheduler = () => {
                       <div className="space-component-sm">
                         <div className="space-component-xs bg-accent/5 rounded-md">
                           <h3 className="heading-sm text-foreground">Your Selected Time</h3>
-                          <div className="flex items-center gap-2 text-muted-foreground">
+                          <div className="flex items-center gap-unified-sm text-muted-foreground">
                             <CalendarIcon className="h-4 w-4" />
                             <span>{date ? format(date, 'EEEE, MMMM d, yyyy') : ''}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-muted-foreground">
+                          <div className="flex items-center gap-unified-sm text-muted-foreground">
                             <Clock className="h-4 w-4" />
                             <span>{time}</span>
                           </div>
@@ -391,7 +391,7 @@ const MeetingScheduler = () => {
                 </TabsContent>
                 
                 <TabsContent value="contact">
-                  <div className="text-center section-sm max-w-lg mx-auto space-component-md">
+                  <div className="text-center max-w-lg mx-auto space-component-md">
                     <h3 className="heading-sm text-foreground">
                       Prefer to reach us directly?
                     </h3>
