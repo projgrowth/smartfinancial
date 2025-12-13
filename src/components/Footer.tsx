@@ -5,10 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="section-bg-premium-dark py-12" role="contentinfo">
-      <div className="container-default">
+    <footer className="section-bg-premium-dark section-sm" role="contentinfo">
+      <div className="container-default flex flex-col gap-unified-lg">
         {/* Brand + Tagline */}
-        <div className="text-center space-y-4">
+        <div className="text-center flex flex-col items-center gap-unified-sm">
           <h2 className="text-lg font-heading font-semibold text-white tracking-tight">
             Smart Financial Planning
           </h2>
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 space-component-lg" />
+        <div className="border-t border-white/10" />
 
         {/* Legal Row */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-unified-sm text-xs text-white/40">
