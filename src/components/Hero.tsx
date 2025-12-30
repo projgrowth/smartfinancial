@@ -33,20 +33,18 @@ const Hero = () => {
             You've built significant wealth. Now let's preserve it, multiply it, and pass it on — on your terms.
           </p>
           
-          <div className="space-component-xs">
-            <Button
-              variant="shimmer"
-              size="lg"
-              onClick={() => smoothScrollTo('schedule')}
-              aria-label="Request your wealth strategy session"
-              className="group mx-auto font-semibold shadow-lg hover:shadow-xl"
-            >
-              <span className="flex items-center gap-2">
-                <span>{siteSettings.cta.hero}</span>
-                <ChevronRight className="w-5 h-5 transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true" />
-              </span>
-            </Button>
-          </div>
+          <Button
+            variant="shimmer"
+            size="lg"
+            onClick={() => smoothScrollTo('schedule')}
+            aria-label="Request your wealth strategy session"
+            className="group mx-auto font-semibold shadow-lg hover:shadow-xl"
+          >
+            <span className="flex items-center gap-2">
+              <span>{siteSettings.cta.hero}</span>
+              <ChevronRight className="w-5 h-5 transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true" />
+            </span>
+          </Button>
           
         </div>
       </div>

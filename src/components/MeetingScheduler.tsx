@@ -162,7 +162,7 @@ const MeetingScheduler = () => {
         
         <div className="max-w-4xl mx-auto">
           <Card className="border-border/50 shadow-md hover:shadow-lg transition-shadow duration-150">
-            <CardContent className="space-component-md">
+            <CardContent className="p-4 md:p-6 space-component-md">
               <Tabs defaultValue="schedule" className="w-full space-component-md">
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="schedule">Schedule Online</TabsTrigger>
@@ -226,7 +226,7 @@ const MeetingScheduler = () => {
                                     }`}>
                                       {meetingType === type.id && (
                                         <div className="h-full w-full flex items-center justify-center">
-                                          <div className="h-2 w-2 rounded-full bg-white"></div>
+                                          <div className="h-2 w-2 rounded-full bg-accent-foreground"></div>
                                         </div>
                                       )}
                                     </div>
