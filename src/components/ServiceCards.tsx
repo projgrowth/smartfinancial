@@ -67,7 +67,7 @@ const ServiceCards = () => {
                   </CollapsibleTrigger>
                   
                   <CollapsibleContent className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <ul className="space-component-xs border-t border-border/30">
+                    <ul className="space-component-xs border-t border-border/30 pt-4 mt-4">
                       {service.features.slice(0, 4).map((feature, index) => (
                         <li 
                           key={index}

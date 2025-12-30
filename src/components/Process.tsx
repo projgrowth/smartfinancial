@@ -61,7 +61,7 @@ const Process = () => {
                     onMouseLeave={() => setActiveStep(null)}
                   >
                     {/* Step indicator */}
-                    <div className="flex justify-center mb-8">
+                    <div className="flex justify-center mb-6">
                       <div 
                         className={`
                           w-16 h-16 rounded-full flex items-center justify-center
@@ -81,7 +81,7 @@ const Process = () => {
                       <span className={`text-sm font-medium transition-colors duration-150 ${isActive ? 'text-accent' : 'text-white/60'}`}>
                         Step {step.number}
                       </span>
-                      <h3 className="text-xl font-semibold text-white mt-2 mb-3">
+                      <h3 className="heading-sm text-white mt-1 mb-2">
                         {step.title}
                       </h3>
                       <p className={`text-sm leading-relaxed transition-colors duration-150 ${isActive ? 'text-white' : 'text-white/80'}`}>
@@ -102,7 +102,7 @@ const Process = () => {
             const isLast = index === steps.length - 1;
             
             return (
-              <div key={step.number} className="relative flex gap-4">
+              <div key={step.number} className="relative flex gap-unified-sm">
                 {/* Timeline */}
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center flex-shrink-0">
@@ -114,11 +114,11 @@ const Process = () => {
                 </div>
 
                 {/* Content */}
-                <div className="pb-6">
+                <div className="pb-4 md:pb-6">
                   <span className="text-xs font-medium text-accent">
                     Step {step.number}
                   </span>
-                  <h3 className="text-lg font-semibold text-white mt-1 mb-2">
+                  <h3 className="heading-xs text-white mt-1 mb-2">
                     {step.title}
                   </h3>
                   <p className="text-sm text-white/80 leading-relaxed">

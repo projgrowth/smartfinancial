@@ -255,7 +255,7 @@ const TeamDetails = () => {
                       <h5 className="text-sm font-semibold text-primary">Education</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.education.map((edu, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-unified-xs">
                             <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{edu}</span>
                           </li>
@@ -269,7 +269,7 @@ const TeamDetails = () => {
                       <h5 className="text-sm font-semibold text-primary">Certifications</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.certifications.map((cert, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-unified-xs">
                             <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{cert}</span>
                           </li>
@@ -283,7 +283,7 @@ const TeamDetails = () => {
                       <h5 className="text-sm font-semibold text-primary">Experience</h5>
                       <ul className="space-component-xs">
                         {advisor.credentials.experience.map((exp, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-3">
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-unified-xs">
                             <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{exp}</span>
                           </li>
@@ -293,7 +293,7 @@ const TeamDetails = () => {
                   )}
                 </div>
 
-                <div className="space-component-xs bg-accent/10 rounded-lg">
+                <div className="space-component-xs bg-accent/10 rounded-lg p-4">
                   <p className="text-body-sm text-primary">
                     <span className="font-medium">Professional Standards:</span> Our team maintains the highest industry standards through continuing education and professional certification requirements.
                   </p>
