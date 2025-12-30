@@ -17,7 +17,7 @@ const Footer = () => {
           </p>
           
           {/* Social Icons */}
-          <div className="flex items-center justify-center gap-unified-md">
+          <div className="flex items-center justify-center gap-unified-lg">
             <a
               href="https://www.linkedin.com/company/smart-financial-planning"
               target="_blank"
@@ -25,7 +25,7 @@ const Footer = () => {
               aria-label="LinkedIn"
               className="text-white/40 hover:text-white transition-colors duration-150"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-6 h-6" />
             </a>
             <a
               href="https://www.instagram.com/thesmartfinancialplan/"
@@ -34,7 +34,7 @@ const Footer = () => {
               aria-label="Instagram"
               className="text-white/40 hover:text-white transition-colors duration-150"
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-6 h-6" />
             </a>
           </div>
         </div>
