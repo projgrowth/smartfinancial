@@ -47,7 +47,7 @@ const ServiceCards = () => {
             return (
               <div
                 key={service.id}
-                className="bg-card border border-border/40 rounded-lg space-component-md shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-150"
+                className="bg-card border border-border/40 rounded-lg p-6 space-component-md shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-150"
               >
               <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
                   <service.icon className="w-6 h-6 text-accent" />
