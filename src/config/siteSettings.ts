@@ -57,9 +57,10 @@ export const siteSettings = {
   
   // SEO Defaults
   seo: {
-    defaultTitle: 'Smart Financial Planning — Your Wealth. Elevated.',
-    defaultDescription: 'Comprehensive wealth management for business owners, executives, and affluent families. Preserve, grow, and transfer wealth with personalized strategies.',
+    defaultTitle: 'Smart Financial Planning — Orlando Wealth Management for High Net Worth Individuals',
+    defaultDescription: 'Premier Orlando wealth management serving executives, business owners, and high-net-worth families with $500K+ in assets. Comprehensive financial planning, asset protection, and retirement strategies in Lake Nona.',
     siteUrl: 'https://thesmartfinancialplan.com',
+    keywords: 'wealth management Orlando, high net worth financial advisor, Lake Nona financial planner, business owner retirement planning, asset protection Florida',
   },
   
   // Legal

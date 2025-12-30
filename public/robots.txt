@@ -1,15 +1,39 @@
+# Smart Financial Planning - Robots.txt
+# https://thesmartfinancialplan.com
+
+# Priority crawlers
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Social media crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+# Default for all other bots
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemaps
 Sitemap: https://thesmartfinancialplan.com/sitemap.xml
+
+# Host directive
+Host: https://thesmartfinancialplan.com

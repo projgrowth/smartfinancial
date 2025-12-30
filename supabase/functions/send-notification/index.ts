@@ -6,6 +6,8 @@ const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "X-Robots-Tag": "noindex, nofollow",
+  "Cache-Control": "no-store, no-cache, must-revalidate",
 };
 
 // Simple in-memory rate limiting (resets on function cold start)
