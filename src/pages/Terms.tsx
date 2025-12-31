@@ -19,7 +19,7 @@ const Terms = () => {
           </div>
 
           <Card>
-            <CardContent className="p-8 space-y-8">
+            <CardContent className="p-6 md:p-8 space-component-lg">
               <section>
                 <h2 className="heading-md mb-4">Acceptance of Terms</h2>
                 <p className="text-body text-muted-foreground">
@@ -33,7 +33,7 @@ const Terms = () => {
                 <p className="text-body text-muted-foreground mb-4">
                   Smart Financial Planning provides financial advisory services including but not limited to:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                <ul className="list-disc pl-6 space-component-xs text-muted-foreground">
                   <li>Financial planning and wealth management</li>
                   <li>Retirement planning strategies</li>
                   <li>Investment advisory services</li>

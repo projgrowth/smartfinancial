@@ -22,7 +22,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
         variant="faq"
         className={`transition-all duration-150 ${isOpen ? 'ring-1 ring-accent/20 shadow-md' : 'hover:ring-1 hover:ring-border/40'}`}
       >
-        <CollapsibleTrigger className="flex w-full items-center justify-between space-component-md text-left">
+        <CollapsibleTrigger className="flex w-full items-center justify-between p-4 md:p-6 text-left">
           <h3 className="heading-xs text-foreground pr-4">{question}</h3>
           <div className={`p-1 rounded-full transition-colors flex-shrink-0 ${isOpen ? 'bg-accent/20' : ''}`}>
             {isOpen ? (
@@ -32,8 +32,8 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
             )}
           </div>
         </CollapsibleTrigger>
-        <CollapsibleContent className="space-component-md text-body text-muted-foreground border-t border-border/30">
-          <div className="space-component-xs">{answer}</div>
+        <CollapsibleContent className="px-4 md:px-6 pb-4 md:pb-6 text-body text-muted-foreground border-t border-border/30">
+          <div className="pt-4 md:pt-6">{answer}</div>
         </CollapsibleContent>
       </PremiumCard>
     </Collapsible>
