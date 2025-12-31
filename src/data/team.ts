@@ -88,17 +88,18 @@ export const advisors: AdvisorProfile[] = [
   {
     slug: 'ej-leonard',
     name: 'EJ Leonard',
-    title: 'Financial Advisor',
-    summary: "EJ brings analytical clarity and a forward-looking mindset from his sports analytics background to financial planning. He focuses on helping individuals and families understand their options clearly and make decisions that support a strong long-term trajectory.",
-    fullBio: "EJ's path into financial planning started long before his career. He grew up with a natural pull toward numbers and analysis, spending hours breaking down player performance and projecting outcomes well before analytics became mainstream. That early interest in disciplined, data-driven thinking eventually shaped the way he approaches planning today.\n\nHe played baseball at Stetson University before shifting his focus to the operations side of the sport, later working in baseball operations for the Atlanta Braves. EJ enjoyed the analytical work but not the travel, and ultimately chose a direction that allowed him to build a stable life with his wife and family.\n\nAt Smart Financial Planning, EJ uses his experience to help clients be intentional with their dollars and confident in the path ahead.",
+    title: 'Senior Wealth Advisor',
+    summary: "EJ has a reputation for turning complexity into clear, confident strategy. He blends data and analytics with financial psychology to design personalized plans that are tailored toward each client's needs and aspirations. He focuses on helping individuals and families understand their options clearly and make decisions that maximize their current and future wealth.",
+    fullBio: "EJ's path into financial planning started long before his career. He grew up with a passion for numbers and analysis, spending hours breaking down player performance and projecting outcomes well before analytics in sports became mainstream. He was inspired by his Poppy to start investing at a young age and fell in love with the markets.\n\nHe played baseball at Stetson University before transferring to the University of Central Florida and focusing on the front office side of the sport, later working in Baseball Operations for the Atlanta Braves. While EJ enjoyed working in baseball the travel was daunting, and he ultimately chose a direction that would allow him to spend more time at home with his wife and family.\n\nEJ is married to his college sweetheart Katie, and they are the proud parents of 1 year old twins, MJ and Jenny. A strong believer in lifelong learning, when he isn't at the office, spending time with his family, or at a sporting event he can be found relaxing with a good book or the Wall Street Journal.",
     specialties: ['Data-Driven Planning', 'Long-Term Strategy', 'Family Financial Planning'],
     imageUrl: '/lovable-uploads/ej-leonard.png',
     credentials: {
-      education: ['Stetson University'],
+      education: ['Bachelor of Science, Business Administration and Management (Magna Cum Laude), University of Central Florida'],
       experience: [
-        'Former baseball operations professional with the Atlanta Braves',
-        'Background in sports analytics and performance projection',
-        'Analytical approach to financial planning and decision-making',
+        '7.5 years as a Financial Advisor',
+        'Portfolio Construction & Management',
+        'Retirement Distribution Planning',
+        'Tax Mitigation Strategies',
       ]
     }
   }
