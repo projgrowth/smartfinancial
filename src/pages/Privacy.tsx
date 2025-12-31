@@ -19,13 +19,13 @@ const Privacy = () => {
           </div>
 
           <Card>
-            <CardContent className="p-8 space-y-8">
+            <CardContent className="p-6 md:p-8 space-component-lg">
               <section>
                 <h2 className="heading-md mb-4">Information We Collect</h2>
                 <p className="text-body text-muted-foreground mb-4">
                   We collect information you provide directly to us, such as when you:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                <ul className="list-disc pl-6 space-component-xs text-muted-foreground">
                   <li>Schedule a consultation or meeting</li>
                   <li>Subscribe to our newsletter</li>
                   <li>Contact us through our website</li>
@@ -38,7 +38,7 @@ const Privacy = () => {
                 <p className="text-body text-muted-foreground mb-4">
                   We use the information we collect to:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                <ul className="list-disc pl-6 space-component-xs text-muted-foreground">
                   <li>Provide financial planning and advisory services</li>
                   <li>Schedule and conduct meetings</li>
                   <li>Send you newsletters and educational content</li>

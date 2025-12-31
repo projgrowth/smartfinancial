@@ -163,6 +163,7 @@
   .gap-unified-lg { @apply gap-6 md:gap-8; }
   .gap-unified-md { @apply gap-4 md:gap-6; }
   .gap-unified-sm { @apply gap-3 md:gap-4; }
+  .gap-unified-xs { @apply gap-2 md:gap-3; }
 
   /* ========================================
      GRIDS

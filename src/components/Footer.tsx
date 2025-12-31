@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="border-t border-white/10" />
 
         {/* Legal Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-unified-sm text-xs text-white/40">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-unified-sm text-xs text-white/40">
           <span>© {currentYear} Smart Financial Planning</span>
           <span className="hidden sm:inline">·</span>
           <a href="mailto:info@thesmartfinancialplan.com" className="hover:text-white transition-colors duration-150">
