@@ -17,7 +17,7 @@ const Footer = () => {
           </p>
           
           {/* Social Icons */}
-          <div className="flex items-center justify-center gap-unified-lg">
+          <div className="flex items-center justify-center gap-unified-md">
             <a
               href="https://www.linkedin.com/company/smart-financial-planning"
               target="_blank"

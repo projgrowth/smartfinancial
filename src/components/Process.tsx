@@ -77,11 +77,11 @@ const Process = () => {
                     </div>
 
                     {/* Content */}
-                    <div className={`text-center transition-all duration-150 ${isActive ? 'transform -translate-y-1' : ''}`}>
+                    <div className={`text-center flex flex-col gap-1 transition-all duration-150 ${isActive ? 'transform -translate-y-1' : ''}`}>
                       <span className={`text-sm font-medium transition-colors duration-150 ${isActive ? 'text-accent' : 'text-white/60'}`}>
                         Step {step.number}
                       </span>
-                      <h3 className="heading-sm text-white mt-1 mb-2">
+                      <h3 className="heading-sm text-white">
                         {step.title}
                       </h3>
                       <p className={`text-sm leading-relaxed transition-colors duration-150 ${isActive ? 'text-white' : 'text-white/80'}`}>
@@ -114,11 +114,11 @@ const Process = () => {
                 </div>
 
                 {/* Content */}
-                <div className="pb-4 md:pb-6">
+                <div className="pb-4 md:pb-6 flex flex-col gap-1">
                   <span className="text-xs font-medium text-accent">
                     Step {step.number}
                   </span>
-                  <h3 className="heading-xs text-white mt-1 mb-2">
+                  <h3 className="heading-xs text-white">
                     {step.title}
                   </h3>
                   <p className="text-sm text-white/80 leading-relaxed">
