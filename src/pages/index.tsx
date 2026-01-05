@@ -20,6 +20,7 @@ const MinimalFallback = () => (
 
 const Index = () => {
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -29,6 +30,7 @@ const Index = () => {
       { "@type": "ListItem", position: 3, name: 'Our Team', item: `${origin}#team` }
     ]
   } as const;
+  
   const teamJsonLd = advisors.map(a => ({
     "@context": "https://schema.org",
     "@type": "Person",
@@ -39,12 +41,52 @@ const Index = () => {
     url: `${origin}#team`
   }));
 
+  // FAQPage schema for rich search results
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What services do you offer?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We offer comprehensive financial planning, investment management, retirement planning, tax optimization strategies, estate planning, and risk management solutions tailored specifically for high-achieving professionals and business owners."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How do you charge for your services?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We use a transparent fee structure based on the complexity of your financial situation and the services required. We offer both fee-only planning and asset-based management fees."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What is your investment philosophy?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our investment approach focuses on evidence-based strategies aligned with your specific goals and risk tolerance. We emphasize diversification, cost efficiency, tax optimization, and disciplined rebalancing."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Do I need a minimum investment to work with you?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We typically work with clients who have investable assets of $500,000 or more, or high-income professionals on track to reach that threshold within 2-3 years."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <SEO 
         title="Smart Financial Planning — Your wealth. Elevated."
         description="Tailored financial strategies for ambitious professionals. Build, protect, and grow your wealth."
-        jsonLd={[breadcrumbJsonLd, ...teamJsonLd]}
+        jsonLd={[breadcrumbJsonLd, faqJsonLd, ...teamJsonLd]}
       />
       
       <Hero />
