@@ -173,9 +173,9 @@ const MeetingScheduler = () => {
                   <form onSubmit={handleSubmit}>
                     {step === 1 && (
                       <div className="grid-two-col gap-unified-lg">
-                        <div className="space-component-sm">
+                        <div className="flex flex-col gap-3">
                           <h3 className="heading-sm text-foreground">Select a Date</h3>
-                          <div className="border border-accent/30 rounded-md bg-background space-component-xs">
+                          <div className="border border-accent/30 rounded-md bg-background p-1">
                             <Calendar
                               mode="single"
                               selected={date}
@@ -184,15 +184,15 @@ const MeetingScheduler = () => {
                                 date < new Date(new Date().setHours(0, 0, 0, 0)) ||
                                 isWeekend(date)
                               }
-                              className="rounded-md"
+                              className="rounded-md mx-auto"
                             />
                           </div>
                         </div>
                         
-                        <div className="space-component-sm">
-                          <div className="space-component-sm">
+                        <div className="flex flex-col gap-4">
+                          <div className="flex flex-col gap-3">
                             <h3 className="heading-sm text-foreground">Select Meeting Type</h3>
-                            <div className="flex flex-col gap-unified-sm" role="radiogroup" aria-label="Select meeting type">
+                            <div className="flex flex-col gap-3" role="radiogroup" aria-label="Select meeting type">
                               {MEETING_TYPES.map((type) => (
                                 <button
                                   key={type.id}
@@ -201,7 +201,7 @@ const MeetingScheduler = () => {
                                   aria-checked={meetingType === type.id}
                                   aria-label={`${type.name} ${type.duration}`}
                                   tabIndex={0}
-                                  className={`w-full text-left space-component-xs border rounded-md cursor-pointer transition-all duration-150 touch-target ${
+                                  className={`w-full text-left p-3 border rounded-md cursor-pointer transition-all duration-150 touch-target ${
                                     meetingType === type.id
                                       ? 'border-accent bg-accent/10'
                                       : 'border-border hover:border-accent/50'
@@ -219,15 +219,13 @@ const MeetingScheduler = () => {
                                       <h4 className="font-medium">{type.name}</h4>
                                       <p className="text-xs text-muted-foreground">Duration: {type.duration}</p>
                                     </div>
-                                    <div className={`h-4 w-4 rounded-full border ${
+                                    <div className={`h-5 w-5 rounded-full border-2 flex items-center justify-center ${
                                       meetingType === type.id
                                         ? 'bg-accent border-accent'
                                         : 'border-border'
                                     }`}>
                                       {meetingType === type.id && (
-                                        <div className="h-full w-full flex items-center justify-center">
-                                          <div className="h-2 w-2 rounded-full bg-accent-foreground"></div>
-                                        </div>
+                                        <div className="h-2 w-2 rounded-full bg-accent-foreground"></div>
                                       )}
                                     </div>
                                   </div>
@@ -237,20 +235,20 @@ const MeetingScheduler = () => {
                           </div>
                           
                           {date && (
-                            <div className="space-component-sm">
+                            <div className="flex flex-col gap-3">
                               <h3 className="heading-sm text-foreground">
                                 Available Times for {format(date, 'EEEE, MMMM d')}
                               </h3>
-                              <div className="grid-time-slots" role="radiogroup" aria-label="Select a time slot">
+                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Select a time slot">
                                 {MEETING_TIMES.map((t) => (
                                   <button
                                     key={t}
                                     type="button"
                                     role="radio"
                                     aria-checked={time === t}
-                                    className={`space-component-xs border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
+                                    className={`py-3 px-2 border rounded-md text-center cursor-pointer text-sm transition-all duration-150 touch-target ${
                                       time === t
-                                        ? 'border-accent bg-accent/10 text-accent-foreground'
+                                        ? 'border-accent bg-accent/10 text-accent-foreground font-medium'
                                         : 'border-border hover:border-accent/50'
                                     }`}
                                     onClick={() => setTime(t)}
