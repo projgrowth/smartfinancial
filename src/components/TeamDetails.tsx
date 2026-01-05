@@ -183,24 +183,24 @@ const TeamDetails = () => {
                       {advisor.title}
                     </p>
                   </div>
-                  <div className="flex gap-unified-xs">
+                  <div className="flex gap-1">
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={() => navigateAdvisor('prev')}
-                      className="h-8 w-8"
+                      className="h-10 w-10 sm:h-8 sm:w-8 touch-target"
                       aria-label="Previous advisor"
                     >
-                      <ChevronLeft className="h-4 w-4" />
+                      <ChevronLeft className="h-5 w-5 sm:h-4 sm:w-4" />
                     </Button>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={() => navigateAdvisor('next')}
-                      className="h-8 w-8"
+                      className="h-10 w-10 sm:h-8 sm:w-8 touch-target"
                       aria-label="Next advisor"
                     >
-                      <ChevronRight className="h-4 w-4" />
+                      <ChevronRight className="h-5 w-5 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </div>
@@ -253,10 +253,10 @@ const TeamDetails = () => {
                   {advisor.credentials.education && advisor.credentials.education.length > 0 && (
                     <div>
                       <h5 className="text-sm font-semibold text-primary">Education</h5>
-                      <ul className="space-component-xs">
+                      <ul className="flex flex-col gap-2 mt-2">
                         {advisor.credentials.education.map((edu, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-unified-xs">
-                            <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-2">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
                             <span className="leading-relaxed">{edu}</span>
                           </li>
                         ))}
@@ -267,10 +267,10 @@ const TeamDetails = () => {
                   {advisor.credentials.certifications && advisor.credentials.certifications.length > 0 && (
                     <div>
                       <h5 className="text-sm font-semibold text-primary">Certifications</h5>
-                      <ul className="space-component-xs">
+                      <ul className="flex flex-col gap-2 mt-2">
                         {advisor.credentials.certifications.map((cert, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-unified-xs">
-                            <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-2">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
                             <span className="leading-relaxed">{cert}</span>
                           </li>
                         ))}
@@ -281,10 +281,10 @@ const TeamDetails = () => {
                   {advisor.credentials.experience && advisor.credentials.experience.length > 0 && (
                     <div>
                       <h5 className="text-sm font-semibold text-primary">Experience</h5>
-                      <ul className="space-component-xs">
+                      <ul className="flex flex-col gap-2 mt-2">
                         {advisor.credentials.experience.map((exp, index) => (
-                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-unified-xs">
-                            <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <li key={index} className="text-body-sm text-muted-foreground flex items-start gap-2">
+                            <div className="h-2 w-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
                             <span className="leading-relaxed">{exp}</span>
                           </li>
                         ))}
