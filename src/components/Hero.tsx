@@ -20,7 +20,7 @@ const Hero = () => {
       <AnimatedGradientMesh />
       
       <div className="container-default z-10">
-        <div className="max-w-4xl mx-auto text-center flex flex-col gap-unified-lg">
+        <div className="max-w-4xl mx-auto text-center flex flex-col gap-6 sm:gap-8">
           
           <h1 className="heading-display-fluid tracking-tight text-balance font-bold text-foreground">
             Your Wealth.{' '}

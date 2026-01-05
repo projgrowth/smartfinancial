@@ -224,7 +224,7 @@ const Navbar = () => {
         aria-label="Mobile navigation"
         aria-hidden={!isOpen}
       >
-        <div className="container-wide section-sm bg-background/95 backdrop-blur-sm flex flex-col space-component-sm">
+        <div className="container-wide py-4 bg-background/95 backdrop-blur-sm flex flex-col gap-2">
           {navItems.map((item, index) => (
             <a 
               key={item.id}
@@ -234,7 +234,7 @@ const Navbar = () => {
                 handleNavClick(item.id);
               }}
               className={cn(
-                "py-2 px-3 rounded-md transition-all duration-150 touch-target focus-enhanced",
+                "py-3 px-4 rounded-md transition-all duration-150 touch-target focus-enhanced border-b border-border/20 last:border-b-0",
                 activeSection === item.id && isHomePage 
                   ? 'bg-primary/10 text-primary' 
                   : 'hover:bg-muted/50'
