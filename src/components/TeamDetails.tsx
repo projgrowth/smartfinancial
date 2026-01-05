@@ -84,89 +84,89 @@ const TeamDetails = () => {
           </div>
         </ScrollReveal>
         
-        <div className="grid-three-col gap-unified-lg mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-unified-lg mx-auto">
           {/* Desktop Sidebar */}
-          <div className="hidden lg:block col-span-1">
-            <div className="space-component-sm">
-              {advisors.map((adv, index) => (
-                <Button 
-                  key={index} 
-                  variant="subtle" 
-                  size="none" 
-                  className={`space-component-sm w-full text-left rounded-lg cursor-pointer transition-all duration-150 flex items-center gap-unified-sm ${
-                    activeAdvisor === index 
-                      ? 'bg-accent/10 border border-accent/20 shadow-sm' 
-                      : 'hover:bg-muted'
-                  }`}
-                  aria-pressed={activeAdvisor === index}
-                  onClick={() => handleAdvisorChange(index)}
-                >
-                  <Avatar className="h-14 w-14 border-2 border-border flex-shrink-0">
-                    <AvatarImage 
-                      src={adv.imageUrl} 
-                      alt={generateTeamAltText(adv.name, adv.title)}
-                      width={56}
-                      height={56}
-                      loading="lazy"
-                      decoding="async"
-                      sizes="56px"
-                      style={{ objectPosition: getHeadshotPosition(adv.imageUrl) }}
-                    />
-                    <AvatarFallback>{adv.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="font-medium text-foreground text-base truncate">{adv.name}</h3>
-                    <p className="text-sm text-primary leading-tight">{adv.title}</p>
-                  </div>
-                </Button>
-              ))}
-            </div>
+          <div className="hidden lg:flex flex-col gap-unified-sm">
+            {advisors.map((adv, index) => (
+              <Button 
+                key={index} 
+                variant="subtle" 
+                size="none" 
+                className={`p-3 w-full text-left rounded-lg cursor-pointer transition-all duration-150 flex items-center gap-unified-sm ${
+                  activeAdvisor === index 
+                    ? 'bg-accent/10 border border-accent/20 shadow-sm' 
+                    : 'hover:bg-muted'
+                }`}
+                aria-pressed={activeAdvisor === index}
+                onClick={() => handleAdvisorChange(index)}
+              >
+                <Avatar className="h-12 w-12 md:h-14 md:w-14 border-2 border-border flex-shrink-0">
+                  <AvatarImage 
+                    src={adv.imageUrl} 
+                    alt={generateTeamAltText(adv.name, adv.title)}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="56px"
+                    style={{ objectPosition: getHeadshotPosition(adv.imageUrl) }}
+                  />
+                  <AvatarFallback>{adv.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-medium text-foreground text-base truncate">{adv.name}</h3>
+                  <p className="text-sm text-primary leading-tight">{adv.title}</p>
+                </div>
+              </Button>
+            ))}
           </div>
 
           {/* Mobile Carousel */}
-          <div className="lg:hidden space-component-sm">
-            <Carousel className="w-full">
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {advisors.map((adv, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-auto">
-                    <Button
-                      variant="subtle"
-                      size="none"
-                      className={`p-3 md:p-4 rounded-lg cursor-pointer transition-all duration-150 flex flex-col items-center gap-unified-xs w-24 sm:w-28 ${
-                        activeAdvisor === index 
-                          ? 'bg-accent/10 border border-accent/20 shadow-sm' 
-                          : 'hover:bg-muted'
-                      }`}
-                      aria-pressed={activeAdvisor === index}
-                      onClick={() => handleAdvisorChange(index)}
-                    >
-                      <Avatar className="h-16 w-16 border-2 border-border">
-                        <AvatarImage 
-                          src={adv.imageUrl} 
-                          alt={generateTeamAltText(adv.name, adv.title)}
-                          width={64}
-                          height={64}
-                          loading="lazy"
-                          decoding="async"
-                          sizes="64px"
-                          style={{ objectPosition: getHeadshotPosition(adv.imageUrl) }}
-                        />
-                        <AvatarFallback>{adv.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <div className="text-center">
-                        <p className="font-medium text-foreground text-sm">{adv.name.split(' ')[0]}</p>
-                      </div>
-                    </Button>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0" />
-              <CarouselNext className="right-0" />
-            </Carousel>
+          <div className="lg:hidden">
+            <div className="px-10 relative">
+              <Carousel className="w-full">
+                <CarouselContent className="-ml-2">
+                  {advisors.map((adv, index) => (
+                    <CarouselItem key={index} className="pl-2 basis-auto">
+                      <Button
+                        variant="subtle"
+                        size="none"
+                        className={`p-3 rounded-lg cursor-pointer transition-all duration-150 flex flex-col items-center gap-unified-xs w-20 sm:w-24 ${
+                          activeAdvisor === index 
+                            ? 'bg-accent/10 border border-accent/20 shadow-sm' 
+                            : 'hover:bg-muted'
+                        }`}
+                        aria-pressed={activeAdvisor === index}
+                        onClick={() => handleAdvisorChange(index)}
+                      >
+                        <Avatar className="h-14 w-14 sm:h-16 sm:w-16 border-2 border-border">
+                          <AvatarImage 
+                            src={adv.imageUrl} 
+                            alt={generateTeamAltText(adv.name, adv.title)}
+                            width={64}
+                            height={64}
+                            loading="lazy"
+                            decoding="async"
+                            sizes="64px"
+                            style={{ objectPosition: getHeadshotPosition(adv.imageUrl) }}
+                          />
+                          <AvatarFallback>{adv.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div className="text-center">
+                          <p className="font-medium text-foreground text-xs sm:text-sm">{adv.name.split(' ')[0]}</p>
+                        </div>
+                      </Button>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-10" />
+                <CarouselNext className="-right-10" />
+              </Carousel>
+            </div>
           </div>
           
           {/* Advisor Details */}
-          <div className="col-span-1 lg:col-span-2">
+          <div>
             <PremiumCard 
               variant="advisor" 
               size="lg" 
